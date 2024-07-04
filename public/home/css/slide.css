@@ -1,0 +1,364 @@
+/* Google Font CDN Link */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+body{
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+  position: relative;
+}
+body::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  clip-path: inset(47% 0 0 0);
+  z-index: -1;
+  height: 100%;
+}
+::selection{
+  background:	#fff;
+  color: #fff;
+}
+.slide-content{
+  max-width: 950px;
+  width: 100%;
+  overflow: hidden;
+  padding: 80px 0;
+}
+.slide-content .main-card{
+  display: flex;
+  justify-content: space-evenly;
+  width: 200%;
+  transition: 1s;
+}
+#two:checked ~ .main-card{
+  margin-left: -100%;
+}
+.slide-content .main-card .cards{
+  width: calc(100% / 2 - 10px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px;
+  justify-content: space-between;
+}
+.main-card .cards .card{
+  width: calc(100% / 3 - 10px);
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+}
+.main-card .cards .card:hover{
+  transform: translateY(-15px);
+}
+.cards .card .content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.cards .card .content .img{
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #086db5;
+  margin-bottom: 14px;
+}
+.card .content .img img{
+  height: 100%;
+  width: 100%;
+  border: 3px solid #ffff;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card .content .name{
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px;
+}
+.card .content .job{
+  font-size: 20px;
+  color: #086db5;
+  margin: 20px;
+}
+.card .content .media-icons{
+  margin-top: 10px;
+  display: flex;
+
+}
+.media-icons a{
+  text-align: center;
+  line-height: 33px;
+  height: 35px;
+  width: 35px;
+  margin: 0 4px;
+  font-size: 14px;
+  color: #FFF;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: #086db5;
+  transition: all 0.3s ease;
+}
+.media-icons a:hover{
+  color: #086db5;
+  background-color: #fff;
+  border-color: #086db5;
+}
+ .slide-content .button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.button label{
+  height: 15px;
+  width: 15px;
+  border-radius: 20px;
+  background: #086db5;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.button label.active{
+  width: 35px;
+}
+#one:checked ~ .button .one{
+  width: 35px;
+}
+#one:checked ~ .button .two{
+  width: 15px;
+}
+#two:checked ~ .button .one{
+  width: 15px;
+}
+#two:checked ~ .button .two{
+  width: 35px;
+}
+input[type="radio"]{
+  display: none;
+}
+@media (max-width: 768px) {
+  .main-card .cards .card{
+    margin: 20px 0 10px 0;
+    width: calc(100% / 2 - 10px);
+  }
+}
+@media (max-width: 600px) {
+  .main-card .cards .card{
+    /* margin: 20px 0 10px 0; */
+    width: 100%;
+  }
+}
+
+
+  /* Body */
+  .container-header {
+    display: flex;
+    align-items: center;
+  }
+  .title{
+    margin: 30px;
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  .content {
+    margin: 30px;
+  }
+
+  .content-2 {
+    margin: 50px;
+  }
+
+  .container-second{
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+  }
+
+  .title-2{
+    margin: 50px;
+    font-size: 35px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .bn45 {
+    width: 170px;
+    height: 50px;
+  } 
+
+  .bn46 {
+    width: 170px;
+    height: 50px;
+  }
+
+  @media (max-width: 767px) {
+    .container-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .col-sm-7, .col-sm-5 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .col-sm-5 img {
+      width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+  
+    .content {
+      text-align: left;
+      padding: 0 15px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .container-second {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .col-sm-5, .col-sm-7 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .col-sm-5 img {
+      width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+  
+    .content-2 a img {
+      max-width: 80%;
+      height: auto;
+      margin: 10px 0;
+    }
+  }
+
+.container-third {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+
+}
+
+.card-items {
+  margin: 20px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.card-items:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  border-radius: 8px !important;
+  transition: transform 0.2s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(0.8);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin: 20px 0;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.parallax {
+  background-image: url('https://moitruongachau.com/vnt_upload/weblink/banner_trang_chu_nang_luc_5.png');
+  max-height: 400px;
+  min-height: 300px;
+  width: 100%;
+
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-checkout{
+  background-color: transparent;
+  text-align: center;
+
+  
+}
+.text-title { 
+  font-size:36px;
+  font-weight: 500;
+  color: #fff;
+  margin: 20px 0;
+}
+
+.text-content {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn-search{
+  width: 200px;
+  height: 60px;
+  font-weight: 500;
+  color: white;
+  border: 1px solid #fff;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.btn-search:hover{
+  background-color: #fff;
+  color: black;
+  font-weight: 500;
+}
+
+.btn-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
