@@ -45,7 +45,7 @@
                       ba lô, túi xách,.. trực tiếp từ nhà máy</div>
                   </div>
                   <div class="media-icons">
-                    <div class="btn btn-outline-dark">Xem thêm</div>
+                    <div class="btn-infomation">Xem thêm</div>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@
                       ba lô, túi xách,.. trực tiếp từ nhà máy</div>
                   </div>
                   <div class="media-icons">
-                    <div class="btn btn-outline-dark">Xem thêm</div>
+                    <div class="btn-infomation">Xem thêm</div>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@
                       ba lô, túi xách,.. trực tiếp từ nhà máy</div>
                   </div>
                   <div class="media-icons">
-                    <div class="btn btn-outline-dark">Xem thêm</div>
+                    <div class="btn-infomation">Xem thêm</div>
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                       ba lô, túi xách,.. trực tiếp từ nhà máy</div>
                   </div>
                   <div class="media-icons">
-                    <div class="btn btn-outline-dark">Xem thêm</div>
+                    <div class="btn-infomation">Xem thêm</div>
                   </div>
                 </div>
               </div>
@@ -107,7 +107,7 @@
                       ba lô, túi xách,.. trực tiếp từ nhà máy</div>
                   </div>
                   <div class="media-icons">
-                    <div class="btn btn-outline-dark">Xem thêm</div>
+                    <div class="btn-infomation">Xem thêm</div>
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@
                       ba lô, túi xách,.. trực tiếp từ nhà máy</div>
                   </div>
                   <div class="media-icons">
-                    <div class="btn btn-outline-dark">Xem thêm</div>
+                    <div class="btn-infomation">Xem thêm</div>
                   </div>
                 </div>
               </div>

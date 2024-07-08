@@ -263,6 +263,26 @@ input[type="radio"]{
 
 }
 
+.btn-infomation {
+  width: 100px;
+  height: 45px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 500;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.btn-infomation:hover{
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+
 .card-items {
   margin: 20px;
   transition: transform 0.2s ease;
