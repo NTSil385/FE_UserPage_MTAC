@@ -14,6 +14,223 @@ body {
   overflow-x: hidden;
 }
 
+ /* Body */
+ .container-header {
+  display: flex;
+  align-items: center;
+}
+.title{
+  margin: 30px;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.content {
+  margin: 30px;
+}
+
+.content-2 {
+  margin: 50px;
+}
+
+.container-second{
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+
+.title-2{
+  margin: 50px;
+  font-size: 35px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.bn45 {
+  width: 170px;
+  height: 50px;
+} 
+
+.bn46 {
+  width: 170px;
+  height: 50px;
+}
+
+@media (max-width: 767px) {
+  .container-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-sm-7, .col-sm-5 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .col-sm-5 img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .content {
+    text-align: left;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container-second {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-sm-5, .col-sm-7 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .col-sm-5 img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .content-2 a img {
+    max-width: 80%;
+    height: auto;
+    margin: 10px 0;
+  }
+}
+
+.container-third {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+
+}
+
+.btn-infomation {
+width: 100px;
+height: 45px;
+border: 1px solid var(--primary-color);
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+font-weight: 500;
+color: var(--primary-color);
+cursor: pointer;
+}
+
+.btn-infomation:hover{
+background-color: var(--primary-color);
+color: #fff;
+cursor: pointer;
+}
+
+.card-items {
+margin: 20px;
+transition: transform 0.2s ease;
+cursor: pointer;
+}
+
+.card-items:hover {
+transform: scale(1.05);
+}
+
+.card-img-top {
+border-radius: 8px !important;
+transition: transform 0.2s ease;
+}
+
+.card-img-top:hover {
+transform: scale(1.1);
+}
+
+.card-title {
+font-size: 1.25rem;
+margin: 20px 0;
+}
+
+.card-text {
+font-size: 1rem;
+line-height: 1.5;
+color: #666;
+}
+
+.parallax {
+background-image: url('https://moitruongachau.com/vnt_upload/weblink/banner_trang_chu_nang_luc_5.png');
+max-height: 400px;
+min-height: 300px;
+width: 100%;
+
+
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.content-checkout{
+background-color: transparent;
+text-align: center;
+
+
+}
+.text-title { 
+font-size:36px;
+font-weight: 500;
+color: #fff;
+margin: 20px 0;
+}
+
+.text-content {
+font-size: 18px;
+line-height: 1.6;
+margin-bottom: 20px;
+background-color: transparent;
+color: #fff;
+}
+
+.btn-search{
+width: 200px;
+height: 60px;
+font-weight: 500;
+color: white;
+border: 1px solid #fff;
+margin: 20px auto;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+
+}
+
+.btn-search:hover{
+background-color: #fff;
+color: black;
+font-weight: 500;
+}
+
+.btn-text {
+font-size: 18px;
+font-weight: 500;
+color: #fff;
+margin: 0 auto;
+text-align: center;
+}
+
+/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+.parallax {
+  background-attachment: scroll;
+}
+}
+
 
 .layout_padding {
   padding: 40px 0;
