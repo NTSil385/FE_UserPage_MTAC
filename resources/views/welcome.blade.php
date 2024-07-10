@@ -1,18 +1,16 @@
 @extends('layouts.client')
 
 @section('content')
-    <div class="body">
+        <div class="body">
       <div class="row">
         <div class="container-header">
-          <div class="col-md-12">
-            <img width="1900px" height="550px" src="home/img/landing.png" alt="hinh-anh-doi-tac">
-          </div>
+          <img width="1900px" height="550px" src="./home/img/landing.png" alt="hinh-anh-doi-tac">
         </div>
       </div>
       <div class="row">
         <div class="container-second">
           <div class="col-sm-5">
-            <img style="margin: 40px; border-radius: 8px;" class="img-fluid" src="home/img/MTAC_02_1.png"
+            <img style="margin: 40px; border-radius: 8px; max-width: 83%;" class="img-fluid" src="./home/img/MTAC_02_1.png"
               alt="hinh-anh-doi-tac">
           </div>
           <div class="col-sm-7">
@@ -28,6 +26,7 @@
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="slide-content">
           <input type="radio" name="dot" id="one" />
@@ -37,7 +36,7 @@
               <div class="card">
                 <div class="content">
                   <div class="img">
-                    <img src="home/img/icon_phe_lieu_72.png" alt="" />
+                    <img src="#" alt="" />
                   </div>
                   <div class="details">
                     <div class="job">Phế Liệu</div>
@@ -52,7 +51,7 @@
               <div class="card">
                 <div class="content">
                   <div class="img">
-                    <img src="home/img/icon_phe_lieu_72.png" alt="" />
+                    <img src="#" alt="" />
                   </div>
                   <div class="details">
                     <div class="job">Phế Liệu</div>
@@ -67,7 +66,7 @@
               <div class="card">
                 <div class="content">
                   <div class="img">
-                    <img src="home/img/icon_phe_lieu_72.png" alt="" />
+                    <img src="#" alt="" />
                   </div>
                   <div class="details">
                     <div class="job">Phế Liệu</div>
@@ -84,7 +83,7 @@
               <div class="card">
                 <div class="content">
                   <div class="img">
-                    <img src="home/img/icon_phe_lieu_72.png" alt="" />
+                    <img src="#" alt="" />
                   </div>
                   <div class="details">
                     <div class="job">Phế Liệu</div>
@@ -99,7 +98,7 @@
               <div class="card">
                 <div class="content">
                   <div class="img">
-                    <img src="home/img/icon_phe_lieu_72.png" alt="" />
+                    <img src="#" alt="" />
                   </div>
                   <div class="details">
                     <div class="job">Phế Liệu</div>
@@ -114,7 +113,7 @@
               <div class="card">
                 <div class="content">
                   <div class="img">
-                    <img src="home/img/icon_phe_lieu_72.png" alt="" />
+                    <img src="#" alt="" />
                   </div>
                   <div class="details">
                     <div class="job">Phế Liệu</div>
@@ -135,9 +134,191 @@
         </div>
       </div>
       <div class="row">
+
+        <section class="blog_section ">
+          <div class="container">
+            <div class="heading_container">
+              <h2>
+                TIN TỨC NỔI BẬT
+              </h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/200x200" alt="">
+                    <h4 class="blog_date">
+                      15 <br>
+                      July
+                    </h4>
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente excepturi
+                      nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti delectus. Quis, cumque
+                      voluptatum! Pariatur reiciendis dolorum libero obcaecati.
+                    </p>
+                    <a style="border-radius: 8px;" href="">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/200x200" alt="">
+                    <h4 class="blog_date">
+                      15 <br>
+                      July
+                    </h4>
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente excepturi
+                      nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti delectus. Quis, cumque
+                      voluptatum! Pariatur reiciendis dolorum libero obcaecati.
+                    </p>
+                    <a style="border-radius: 8px;" href="">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/200x200" alt="">
+                    <h4 class="blog_date">
+                      15 <br>
+                      July
+                    </h4>
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente excepturi
+                      nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti delectus. Quis, cumque
+                      voluptatum! Pariatur reiciendis dolorum libero obcaecati.
+                    </p>
+                    <a style="border-radius: 8px;" href="">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <section class="client_section layout_padding">
+          <div class="container">
+            <div class="heading_container">
+              <h2>
+                NHẬN XÉT TỪ MỌI NGƯỜI
+              </h2>
+            </div>
+            <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col-md-11 col-lg-10 mx-auto">
+                      <div class="box">
+                        <div class="img-box">
+                          <img src="#" alt="" />
+                        </div>
+                        <div class="detail-box">
+                          <div class="name">
+                            <h6>
+                              GUESS ID
+                            </h6>
+                          </div>
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis repudiandae praesentium error
+                            beatae! Impedit repellat, recusandae maxime rerum amet neque deserunt facere corrupti
+                            repellendus iste voluptatibus sapiente officiis accusantium nobis.
+                          </p>
+                          <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col-md-11 col-lg-10 mx-auto">
+                      <div class="box">
+                        <div class="img-box">
+                          <img src="#" alt="" />
+                        </div>
+                        <div class="detail-box">
+                          <div class="name">
+                            <h6>
+                              USER ID
+                            </h6>
+                          </div>
+                          <p>
+                            It is a long established fact that a reader will be
+                            distracted by the readable cIt is a long established fact
+                            that a reader will be distracted by the readable c
+                          </p>
+                          <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row">
+                    <div class="col-md-11 col-lg-10 mx-auto">
+                      <div class="box">
+                        <div class="img-box">
+                          <img src="#" alt="" />
+                        </div>
+                        <div class="detail-box">
+                          <div class="name">
+                            <h6>
+                              Samantha Jonas
+                            </h6>
+                          </div>
+                          <p>
+                            It is a long established fact that a reader will be
+                            distracted by the readable cIt is a long established fact
+                            that a reader will be distracted by the readable c
+                          </p>
+                          <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel_btn-container">
+                <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+                  <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+                  <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row">
         <div class="title">ĐỐI TÁC TIÊU BIỂU</div>
-        <div class="container-third">
-          <div class="col-md-4">
+        <div class="container-third" style="padding-bottom:30px ;">
+          <div class="col-md-3">
             <div class="card-items mb-3">
               <a href="#" class="img-link">
                 <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Company 1">
@@ -149,7 +330,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="card-items mb-3">
               <a href="#" class="img-link">
                 <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Company 2">
@@ -162,7 +343,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="card-items mb-1">
               <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Company 3">
               <div class="card-body">
@@ -197,7 +378,6 @@
           <div class="parallax"></div>
         </div>
       </div>
-   
 
     </div>
 @endsection
