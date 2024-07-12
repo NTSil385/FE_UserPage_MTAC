@@ -27,110 +27,93 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="slide-content">
-          <input type="radio" name="dot" id="one" />
-          <input type="radio" name="dot" id="two" />
-          <div class="main-card">
-            <div class="cards">
-              <div class="card">
-                <div class="content">
-                  <div class="img">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="details">
-                    <div class="job">Phế Liệu</div>
-                    <div class="name">Nhận thầu trọn gói phế liệu, phế phẩm & hàng tồn kho các loại ngành may mặc, dệt,
-                      ba lô, túi xách,.. trực tiếp từ nhà máy</div>
-                  </div>
-                  <div class="media-icons">
-                    <div class="btn-infomation">Xem thêm</div>
-                  </div>
+       <div class="row" style="margin: 20px 0;">
+        <div class="carousel-id">
+          <!-- list item -->
+          <div class="list">
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+                <div class="title">NỘI DUNG 1</div>
+                <div class="des">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
                 </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="img">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="details">
-                    <div class="job">Phế Liệu</div>
-                    <div class="name">Nhận thầu trọn gói phế liệu, phế phẩm & hàng tồn kho các loại ngành may mặc, dệt,
-                      ba lô, túi xách,.. trực tiếp từ nhà máy</div>
-                  </div>
-                  <div class="media-icons">
-                    <div class="btn-infomation">Xem thêm</div>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="content">
-                  <div class="img">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="details">
-                    <div class="job">Phế Liệu</div>
-                    <div class="name">Nhận thầu trọn gói phế liệu, phế phẩm & hàng tồn kho các loại ngành may mặc, dệt,
-                      ba lô, túi xách,.. trực tiếp từ nhà máy</div>
-                  </div>
-                  <div class="media-icons">
-                    <div class="btn-infomation">Xem thêm</div>
-                  </div>
+                <div class="buttons">
+                  <button>SEE MORE</button>
                 </div>
               </div>
             </div>
-            <div class="cards">
-              <div class="card">
-                <div class="content">
-                  <div class="img">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="details">
-                    <div class="job">Phế Liệu</div>
-                    <div class="name">Nhận thầu trọn gói phế liệu, phế phẩm & hàng tồn kho các loại ngành may mặc, dệt,
-                      ba lô, túi xách,.. trực tiếp từ nhà máy</div>
-                  </div>
-                  <div class="media-icons">
-                    <div class="btn-infomation">Xem thêm</div>
-                  </div>
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+                <div class="title">NỘI DUNG 2</div>
+                <div class="des">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                </div>
+                <div class="buttons">
+                  <button>SEE MORE</button>
                 </div>
               </div>
-              <div class="card">
-                <div class="content">
-                  <div class="img">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="details">
-                    <div class="job">Phế Liệu</div>
-                    <div class="name">Nhận thầu trọn gói phế liệu, phế phẩm & hàng tồn kho các loại ngành may mặc, dệt,
-                      ba lô, túi xách,.. trực tiếp từ nhà máy</div>
-                  </div>
-                  <div class="media-icons">
-                    <div class="btn-infomation">Xem thêm</div>
-                  </div>
+            </div>
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+                <div class="title">NỘI DUNG 3</div>
+                <div class="des">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                </div>
+                <div class="buttons">
+                  <button>SEE MORE</button>
                 </div>
               </div>
-              <div class="card">
-                <div class="content">
-                  <div class="img">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="details">
-                    <div class="job">Phế Liệu</div>
-                    <div class="name">Nhận thầu trọn gói phế liệu, phế phẩm & hàng tồn kho các loại ngành may mặc, dệt,
-                      ba lô, túi xách,.. trực tiếp từ nhà máy</div>
-                  </div>
-                  <div class="media-icons">
-                    <div class="btn-infomation">Xem thêm</div>
-                  </div>
+            </div>
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+                <div class="title">NỘI DUNG 4</div>
+                <div class="des">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                </div>
+                <div class="buttons">
+                  <button>SEE MORE</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="button">
-            <label for="one" class="active one"></label>
-            <label for="two" class="two"></label>
+          <!-- list thumbnail -->
+          <div class="thumbnail">
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+
+              </div>
+            </div>
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+               
+              </div>
+            </div>
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+               
+              </div>
+            </div>
+            <div class="item">
+              <img src="https://via.placeholder.com/200x200">
+              <div class="content">
+                
+              </div>
+            </div>
           </div>
+          <!-- next prev -->
+          <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+          </div>
+          <!-- time running -->
+          <div class="time"></div>
         </div>
       </div>
       <div class="row">
@@ -316,7 +299,7 @@
         </section>
       </div>
       <div class="row">
-        <div class="title">ĐỐI TÁC TIÊU BIỂU</div>
+        <div class="header-title">ĐỐI TÁC TIÊU BIỂU</div>
         <div class="container-third" style="padding-bottom:30px ;">
           <div class="col-md-3">
             <div class="card-items mb-3">
