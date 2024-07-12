@@ -60,14 +60,3 @@ function showSlider(type) {
     }, timeAutoNext);
 }
 
-// Responsive behavior adjustment
-window.addEventListener('resize', function() {
-    // Stop auto slide on small screens
-    if (window.innerWidth <= 768) {
-        clearTimeout(runNextAuto);
-    } else {
-        runNextAuto = setTimeout(() => {
-            nextDom.click();
-        }, timeAutoNext);
-    }
-});
