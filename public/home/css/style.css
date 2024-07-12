@@ -539,11 +539,12 @@ h2 {
 }
 
 
+
 /* carousel */
 .carousel-id .list .item img,
 .thumbnail .item img {
-  width: 100%;
-  height: 100%;
+  width: 700px; 
+  height: 400px; 
   object-fit: cover;
   border-radius: 8px; 
 }
@@ -555,43 +556,54 @@ h2 {
   position: relative;
 }
 
-
 .carousel-id {
-  height: 60vh;
-  margin-top: -50px;
+  height: 400px; 
   width: 100vw;
   overflow: hidden;
   position: relative;
   margin: 20px;
 }
+
 .carousel-id .list .item {
-  width: 60%;
-  height: 72%;
+  width: 700px; 
+  height: 400px; 
   position: absolute;
   inset: 0 0 0 0;
-  display: none;
+  display: none; 
+  margin-left: 300px;
 }
 
 .carousel-id .list .item.active {
-    display: block; 
-  }
+  display: block; 
+}
 
 .carousel-id .list .item img {
-  width: 100%;
-  height: 100%;
+  width: 700px; 
+  height: 400px; 
   object-fit: cover;
 }
+
 .carousel-id .list .item .content {
   position: absolute;
-  top: 45%;
+  top: 33%;
   width: 1140px;
   max-width: 80%;
-  right: -125%;
+  right: -144%;
   transform: translateX(-50%);
   padding-right: 30%;
   box-sizing: border-box;
   color: #ccc;
+  
 }
+
+.des{
+  display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 4; 
+}
+
 .carousel-id .list .item .author {
   font-weight: bold;
   letter-spacing: 10px;
@@ -617,7 +629,7 @@ h2 {
   border: none;
   background-color: var(--primary-color);
   letter-spacing: 3px;
-  font-family:  "Roboto", sans-serif;
+  font-family: Poppins;
   font-weight: 500;
   color: #FFF;
   width: 150px;
@@ -633,7 +645,7 @@ h2 {
 /* thumbnail */
 .thumbnail {
   position: absolute;
-  bottom: 62%;
+  bottom: 45%;
   left: 61%;
   width: max-content;
   z-index: 100;
@@ -648,7 +660,7 @@ h2 {
 }
 .thumbnail .item img {
   width: 100%;
-  height: 100%;
+  height: 70%;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -684,7 +696,7 @@ h2 {
   background-color: var(--primary-color);
   border: none;
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: monospace;
   font-weight: bold;
   transition: .5s;
 }
@@ -828,27 +840,38 @@ h2 {
     opacity: 0;
   }
 }
+
+
+
 @media screen and (max-width: 1600px) {
+  .carousel-id .list .item {
+    width: 700px;
+    height: 400px;
+    position: absolute;
+    inset: 0 0 0 0;
+    display: none;
+    margin-left: 10px;
+}
   .thumbnail {
     position: absolute;
-    bottom: 50%;
-    left: 61%;
+    bottom: 45%;
+    left: 51%;
     width: max-content;
     z-index: 100;
     display: flex;
     gap: 20px;
   }
   .carousel-id .list .item .content {
-    top: 56%;
+    top: 35%;
     width: 80%;
     margin-top: 50px;
     padding: 0;
-  max-width: 100%;
-  right: -125%;
-  transform: translateX(-50%);
-  box-sizing: border-box;
-  text-align: left;
-  display: none;
+    max-width: 100%;
+    right: -130%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    text-align: left;
+    display: none;
 }
 
 .carousel-id .list .item.active .content {
@@ -864,8 +887,8 @@ h2 {
 
 .arrows {
   position: absolute;
-  bottom: 11%;
-  right: 55%;
+  bottom: 0%;
+  right: 5%;
   z-index: 100;
   width: 300px;
   max-width: 30%;
@@ -875,6 +898,7 @@ h2 {
 }
 
 }
+
 
 @media screen and (max-width: 768px) {
   .thumbnail .item {
@@ -910,4 +934,4 @@ h2 {
   }
 
   
-}
+  }

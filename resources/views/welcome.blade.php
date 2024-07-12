@@ -32,7 +32,7 @@
           <!-- list item -->
           <div class="list">
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/700x400">
               <div class="content">
                 <div class="title">NỘI DUNG 1</div>
                 <div class="des">
@@ -44,7 +44,7 @@
               </div>
             </div>
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/700x400">
               <div class="content">
                 <div class="title">NỘI DUNG 2</div>
                 <div class="des">
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/700x400">
               <div class="content">
                 <div class="title">NỘI DUNG 3</div>
                 <div class="des">
@@ -68,7 +68,7 @@
               </div>
             </div>
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/700x400">
               <div class="content">
                 <div class="title">NỘI DUNG 4</div>
                 <div class="des">
