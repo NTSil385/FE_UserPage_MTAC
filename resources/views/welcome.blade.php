@@ -1,16 +1,16 @@
 @extends('layouts.client')
 
 @section('content')
-        <div class="body">
+      <div class="body">
       <div class="row">
         <div class="container-header">
-          <img width="1900px" height="550px" src="./home/img/landing.png" alt="hinh-anh-doi-tac">
+          <img width="1900px" height="550px" src="home/img/landing.png" alt="hinh-anh-doi-tac">
         </div>
       </div>
       <div class="row">
         <div class="container-second">
           <div class="col-sm-5">
-            <img style="margin: 40px; border-radius: 8px; max-width: 83%;" class="img-fluid" src="./home/img/MTAC_02_1.png"
+            <img style="margin: 40px; border-radius: 8px; max-width: 83%;" class="img-fluid" src="home/img/MTAC_02_1.png"
               alt="hinh-anh-doi-tac">
           </div>
           <div class="col-sm-7">
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-       <div class="row" style="margin: 20px 0;">
+      <div class="row" style="margin: 20px 0;">
         <div class="carousel-id">
           <!-- list item -->
           <div class="list">
@@ -83,25 +83,25 @@
           <!-- list thumbnail -->
           <div class="thumbnail">
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/150x150">
               <div class="content">
 
               </div>
             </div>
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/150x150">
               <div class="content">
                
               </div>
             </div>
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/150x150">
               <div class="content">
                
               </div>
             </div>
             <div class="item">
-              <img src="https://via.placeholder.com/200x200">
+              <img src="https://via.placeholder.com/150x150">
               <div class="content">
                 
               </div>
@@ -129,7 +129,7 @@
               <div class="col-md-4">
                 <div class="box">
                   <div class="img-box">
-                    <img src="https://via.placeholder.com/200x200" alt="">
+                    <img src="https://via.placeholder.com/400x400" alt="">
                     <h4 class="blog_date">
                       15 <br>
                       July
@@ -153,7 +153,7 @@
               <div class="col-md-4">
                 <div class="box">
                   <div class="img-box">
-                    <img src="https://via.placeholder.com/200x200" alt="">
+                    <img src="https://via.placeholder.com/400x400" alt="">
                     <h4 class="blog_date">
                       15 <br>
                       July
@@ -177,7 +177,7 @@
               <div class="col-md-4">
                 <div class="box">
                   <div class="img-box">
-                    <img src="https://via.placeholder.com/200x200" alt="">
+                    <img src="https://via.placeholder.com/400x400" alt="">
                     <h4 class="blog_date">
                       15 <br>
                       July
@@ -269,13 +269,11 @@
                         <div class="detail-box">
                           <div class="name">
                             <h6>
-                              Samantha Jonas
+                              ID USER
                             </h6>
                           </div>
                           <p>
-                            It is a long established fact that a reader will be
-                            distracted by the readable cIt is a long established fact
-                            that a reader will be distracted by the readable c
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, amet totam. Itaque placeat eos eveniet praesentium? Nulla quis facilis numquam animi deserunt adipisci distinctio, earum veniam non, ipsam vero assumenda!
                           </p>
                           <i class="fa fa-quote-left" aria-hidden="true"></i>
                         </div>
@@ -304,7 +302,7 @@
           <div class="col-md-3">
             <div class="card-items mb-3">
               <a href="#" class="img-link">
-                <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Company 1">
+                <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="Company 1">
               </a>
               <div class="card-body">
                 <h5 class="card-title">Citenco</h5>
@@ -316,7 +314,7 @@
           <div class="col-md-3">
             <div class="card-items mb-3">
               <a href="#" class="img-link">
-                <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Company 2">
+                <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="Company 2">
               </a>
               <div class="card-body">
                 <h5 class="card-title">TINSEE ECOCYCLE</h5>
@@ -328,7 +326,7 @@
           </div>
           <div class="col-md-3">
             <div class="card-items mb-1">
-              <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Company 3">
+              <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="Company 3">
               <div class="card-body">
                 <h5 class="card-title">Vicem Hà Tiên 1</h5>
                 <p class="card-text">Phát triển kinh tế, bảo vệ môi trường, cam kết xã hội là 3 trụ cột trong quan điểm
