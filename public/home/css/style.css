@@ -900,6 +900,120 @@ h2 {
 }
 
 
+@media screen and (max-width: 1024px) {
+  .carousel-id .list .item {
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    inset: 0 0 0 0;
+    display: none;
+    margin-left: 10px;
+}
+  .thumbnail {
+    position: absolute;
+    bottom: 45%;
+    left: 51%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+  }
+  .carousel-id .list .item .content {
+    top: 35%;
+    width: 80%;
+    margin-top: 50px;
+    padding: 0;
+    max-width: 100%;
+    right: -130%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    text-align: left;
+    display: none;
+}
+
+.carousel-id .list .item.active .content {
+    display: block;
+  }
+
+.carousel-id .list .item .title{
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.3em;
+  color: var(--primary-color);
+}
+
+.arrows {
+  position: absolute;
+  bottom: 0%;
+  right: 5%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+}
+
+@media screen and (max-width: 912px) {
+  .carousel-id .list .item {
+    width: 380px;
+    height: 400px;
+    position: absolute;
+    inset: 0 0 0 0;
+    display: none;
+    margin-left: 10px;
+}
+  .thumbnail {
+    position: absolute;
+    bottom: 45%;
+    left: 51%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+  }
+  .carousel-id .list .item .content {
+    top: 35%;
+    width: 80%;
+    margin-top: 50px;
+    padding: 0;
+    max-width: 100%;
+    right: -130%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    text-align: left;
+    display: none;
+}
+
+.carousel-id .list .item.active .content {
+    display: block;
+  }
+
+.carousel-id .list .item .title{
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.3em;
+  color: var(--primary-color);
+}
+
+.arrows {
+  position: absolute;
+  bottom: 0%;
+  right: 5%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+}
+
 @media screen and (max-width: 768px) {
   .thumbnail .item {
     display: none;
