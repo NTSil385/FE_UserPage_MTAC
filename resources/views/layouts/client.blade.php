@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="./home/css/base.css">
   <link rel="stylesheet" href="./home/css/style.css">
 
-
+   <!-- JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>

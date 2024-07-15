@@ -361,4 +361,20 @@
       </div>
 
     </div>
+     <script>
+    ScrollReveal({ 
+      reset: true, 
+      distance: '60px',
+      duration: 2500,
+      delay: 400,
+     });
+     ScrollReveal().reveal('.img-fluid', {delay: 500, origin: 'right '});
+     ScrollReveal().reveal('.title-2');
+     ScrollReveal().reveal('.content-2');
+     ScrollReveal().reveal('.carousel-id');
+     ScrollReveal().reveal('.blog_section .heading_container', {delay: 500, origin: 'left '});
+     ScrollReveal().reveal('.heading_container',{delay: 500, origin: 'left '});
+     ScrollReveal().reveal('.header-title',{delay: 500, origin: 'left '});
+     ScrollReveal().reveal('.show');
+  </script>
 @endsection
