@@ -116,92 +116,300 @@
           <div class="time"></div>
         </div>
       </div>
+       <div class="row" style="margin-top: 30px;">
+        <div class="blog-title">TIN TỨC NỔI BẬT</div>
+      </div>
       <div class="row">
 
-        <section class="blog_section ">
-          <div class="container">
-            <div class="heading_container">
-              <h2>
-                TIN TỨC NỔI BẬT
-              </h2>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="box">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/400x400" alt="">
-                    <h4 class="blog_date">
-                      15 <br>
-                      July
-                    </h4>
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?
-                    </h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente excepturi
-                      nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti delectus. Quis, cumque
-                      voluptatum! Pariatur reiciendis dolorum libero obcaecati.
-                    </p>
-                    <a style="border-radius: 8px;" href="">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="box">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/400x400" alt="">
-                    <h4 class="blog_date">
-                      15 <br>
-                      July
-                    </h4>
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?
-                    </h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente excepturi
-                      nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti delectus. Quis, cumque
-                      voluptatum! Pariatur reiciendis dolorum libero obcaecati.
-                    </p>
-                    <a style="border-radius: 8px;" href="">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="box">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/400x400" alt="">
-                    <h4 class="blog_date">
-                      15 <br>
-                      July
-                    </h4>
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?
-                    </h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente excepturi
-                      nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti delectus. Quis, cumque
-                      voluptatum! Pariatur reiciendis dolorum libero obcaecati.
-                    </p>
-                    <a style="border-radius: 8px;" href="">
-                      Read More
-                    </a>
+        <div class="container-content3">
+          <div class="col-md-6">
+            <section class="blog_section">
+              <div class="container" style="width: 800px;">
+                <div class="row showblog">
+                  <div class="col-md-12">
+                    <div class="box">
+                      <div class="img-box">
+                        <img style="border-radius: 8px;" src="https://via.placeholder.com/750x500" alt="">
+                      </div>
+                      <div class="detail-box">
+                        <h5>Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente
+                          excepturi nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti
+                          delectus. Quis, cumque voluptatum! Pariatur reiciendis dolorum libero obcaecati.</p>
+                        <div class="btn-sub">
+
+                          <a class="btn-read" href="">
+                            Xem thêm
+                            <i class="fa-solid fa-arrow-right"></i>
+                          </a>
+
+                          <div class="btn-cmt">
+                            <i class="fa-regular fa-comment"></i>
+                            10
+                          </div>
+                          <div class="btn-share">
+                            <i class="fa-solid fa-share"></i>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="box-cmt">
+                        <div class="content-item-cmt">
+                          <div class="img-box">
+                            <img src="https://via.placeholder.com/80x80" alt="">
+                          </div>
+                          <div class="detail-content" style="color: #fff;">
+                            <h5>User id</h5>
+                            <p>Mô tả ngắn gọn về cảm nghĩ...</p>
+                          </div>
+                        </div>
+                        <div class="content-item-cmt">
+                          <div class="img-box">
+                            <img src="https://via.placeholder.com/80x80" alt="">
+                          </div>
+                          <div class="detail-content" style="color: #fff;">
+                            <h5>User id</h5>
+                            <p>Mô tả ngắn gọn về cảm nghĩ...</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              
+            </section>
+          </div>
+
+          <div class="col-md-6">
+            <div class="side-content">
+
+              <div class="sublayout-content">
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="content-item">
+                  <div class="img-box">
+                    <img src="https://via.placeholder.com/100x100" alt="">
+                  </div>
+                  <div class="detail-content">
+                    <h5>Tiêu đề bài viết</h5>
+                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
+                    <div class="btn-status">
+                      <div class="btn-fav">
+                        <i class="fa-regular fa-heart"></i>
+                      </div>
+                      <div class="btn-save">
+                        <i class="fa-regular fa-bookmark"></i>
+                      </div>
+                      <div class="btn-share-item">
+                        <i class="fa-solid fa-share"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+
             </div>
           </div>
-        </section>
+        </div>
         <section class="client_section layout_padding">
           <div class="container">
             <div class="heading_container">
@@ -361,20 +569,21 @@
       </div>
 
     </div>
-     <script>
-    ScrollReveal({ 
-      reset: true, 
+      <script>
+    ScrollReveal({
+      reset: true,
       distance: '60px',
       duration: 2500,
       delay: 400,
-     });
-     ScrollReveal().reveal('.img-fluid', {delay: 500, origin: 'right '});
-     ScrollReveal().reveal('.title-2');
-     ScrollReveal().reveal('.content-2');
-     ScrollReveal().reveal('.carousel-id');
-     ScrollReveal().reveal('.blog_section .heading_container', {delay: 500, origin: 'left '});
-     ScrollReveal().reveal('.heading_container',{delay: 500, origin: 'left '});
-     ScrollReveal().reveal('.header-title',{delay: 500, origin: 'left '});
-     ScrollReveal().reveal('.show');
+    });
+    ScrollReveal().reveal('.img-fluid', { delay: 500, origin: 'right ' });
+    ScrollReveal().reveal('.title-2');
+    ScrollReveal().reveal('.content-2');
+    ScrollReveal().reveal('.carousel-id');
+    ScrollReveal().reveal('.blog-title', { delay: 500, origin: 'left ' });
+    ScrollReveal().reveal('.container-content3');
+    ScrollReveal().reveal('.heading_container', { delay: 500, origin: 'left ' });
+    ScrollReveal().reveal('.header-title', { delay: 500, origin: 'left ' });
+    ScrollReveal().reveal('.show');
   </script>
 @endsection
