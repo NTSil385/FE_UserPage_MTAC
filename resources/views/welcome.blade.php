@@ -7,16 +7,51 @@
           <img width="1900px" height="550px" src="home/img/landing.png" alt="hinh-anh-doi-tac">
         </div>
       </div>
+      <div class="row" style="margin: 20px 0px;">
+        <div class="tools">
+          <a href="#" class="tools-item">
+            <div class="tools-icon">
+              <img class="icon-img" src="home/icon/hoso.png" alt="Hồ sơ">
+            </div>
+            <div class="tools-content">Hồ sơ</div>
+          </a>
+          <a href="#" class="tools-item">
+            <div class="tools-icon">
+              <img class="icon-img" style="margin-left: 12px;" width="70px" height="70px"
+                src="home/icon/hopdong.png" alt="Hợp đồng">
+            </div>
+            <div class="tools-content">Hợp đồng</div>
+          </a>
+          <a href="#" class="tools-item">
+            <div class="tools-icon" style="margin: 0 auto;">
+              <img class="icon-img" src="home/icon/thanhtoan.png" alt="Thanh toán">
+            </div>
+            <div class="tools-content">Thanh toán</div>
+          </a>
+          <a href="#" class="tools-item">
+            <div class="tools-icon">
+              <img class="icon-img" width="96px" height="96px" src="home/icon/thugom.png" alt="Hồ sơ">
+            </div>
+            <div class="tools-content">Thu gom</div>
+          </a>
+          <a href="#" class="tools-item">
+            <div class="tools-icon">
+              <img class="icon-img" src="home/icon/taiche.png" alt="Hồ sơ">
+            </div>
+            <div class="tools-content">Tái chế</div>
+          </a>
+        </div>
+      </div>
       <div class="row">
         <div class="container-second">
           <div class="col-sm-5">
-            <img style="margin: 40px; border-radius: 8px; max-width: 83%;" class="img-fluid" src="home/img/MTAC_02_1.png"
-              alt="hinh-anh-doi-tac">
+            <img style="margin: 40px; border-radius: 8px; max-width: 83%;" class="img-fluid"
+              src="home/img/MTAC_02_1.png" alt="hinh-anh-doi-tac">
           </div>
           <div class="col-sm-7">
             <div class="title-2">Bắt đầu trải nghiệm của bạn trên nền tảng ứng dụng di động</div>
             <div class="content-2">
-              <a href="/" tabIndex="0"><img class="bn46"
+              <a href="#" href="/" tabIndex="0"><img class="bn46"
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                   alt="bn45" /></a>
               <a href="/" tabIndex="0"><img class="bn45"
@@ -36,7 +71,10 @@
               <div class="content">
                 <div class="title">NỘI DUNG 1</div>
                 <div class="des">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
+                  placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
+                  ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus
+                  unde. Ut, exercitationem eum aperiam illo illum laudantium?
                 </div>
                 <div class="buttons">
                   <button>SEE MORE</button>
@@ -48,7 +86,10 @@
               <div class="content">
                 <div class="title">NỘI DUNG 2</div>
                 <div class="des">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
+                  placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
+                  ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus
+                  unde. Ut, exercitationem eum aperiam illo illum laudantium?
                 </div>
                 <div class="buttons">
                   <button>SEE MORE</button>
@@ -60,7 +101,10 @@
               <div class="content">
                 <div class="title">NỘI DUNG 3</div>
                 <div class="des">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
+                  placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
+                  ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus
+                  unde. Ut, exercitationem eum aperiam illo illum laudantium?
                 </div>
                 <div class="buttons">
                   <button>SEE MORE</button>
@@ -72,7 +116,10 @@
               <div class="content">
                 <div class="title">NỘI DUNG 4</div>
                 <div class="des">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
+                  placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
+                  ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus
+                  unde. Ut, exercitationem eum aperiam illo illum laudantium?
                 </div>
                 <div class="buttons">
                   <button>SEE MORE</button>
@@ -91,33 +138,34 @@
             <div class="item">
               <img src="https://via.placeholder.com/150x150">
               <div class="content">
-               
+
               </div>
             </div>
             <div class="item">
               <img src="https://via.placeholder.com/150x150">
               <div class="content">
-               
+
               </div>
             </div>
             <div class="item">
               <img src="https://via.placeholder.com/150x150">
               <div class="content">
-                
+
               </div>
             </div>
           </div>
           <!-- next prev -->
           <div class="arrows">
-            <button id="prev"><</button>
-            <button id="next">></button>
+            <button id="prev">
+              < </button>
+                <button id="next">></button>
           </div>
           <!-- time running -->
           <div class="time"></div>
         </div>
       </div>
-       <div class="row" style="margin-top: 30px;">
-        <div class="blog-title">TIN TỨC NỔI BẬT</div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="blog-title">TIN TỨC NỔI BẬT </div>
       </div>
       <div class="row">
 
@@ -481,7 +529,9 @@
                             </h6>
                           </div>
                           <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, amet totam. Itaque placeat eos eveniet praesentium? Nulla quis facilis numquam animi deserunt adipisci distinctio, earum veniam non, ipsam vero assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, amet totam. Itaque
+                            placeat eos eveniet praesentium? Nulla quis facilis numquam animi deserunt adipisci
+                            distinctio, earum veniam non, ipsam vero assumenda!
                           </p>
                           <i class="fa fa-quote-left" aria-hidden="true"></i>
                         </div>
@@ -505,12 +555,12 @@
         </section>
       </div>
       <div class="row">
-        <div class="header-title">ĐỐI TÁC TIÊU BIỂU</div>
-        <div class="container-third" style="padding-bottom:30px ;">
-          <div class="col-md-3">
-            <div class="card-items mb-3">
+        <div class="header-title">BẰNG KHEN</div>
+        <div class="container-third show" style="padding-bottom:30px ;">
+          <div class="col-md-4">
+            <div class="card-items mb-4">
               <a href="#" class="img-link">
-                <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="Company 1">
+                <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 1">
               </a>
               <div class="card-body">
                 <h5 class="card-title">Citenco</h5>
@@ -519,10 +569,10 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card-items mb-3">
+          <div class="col-md-4">
+            <div class="card-items mb-4">
               <a href="#" class="img-link">
-                <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="Company 2">
+                <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 2">
               </a>
               <div class="card-body">
                 <h5 class="card-title">TINSEE ECOCYCLE</h5>
@@ -532,9 +582,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card-items mb-1">
-              <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="Company 3">
+          <div class="col-md-4">
+            <div class="card-items mb-4">
+              <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 3">
               <div class="card-body">
                 <h5 class="card-title">Vicem Hà Tiên 1</h5>
                 <p class="card-text">Phát triển kinh tế, bảo vệ môi trường, cam kết xã hội là 3 trụ cột trong quan điểm
@@ -569,7 +619,7 @@
       </div>
 
     </div>
-      <script>
+    <script>
     ScrollReveal({
       reset: true,
       distance: '60px',
@@ -577,6 +627,7 @@
       delay: 400,
     });
     ScrollReveal().reveal('.img-fluid', { delay: 500, origin: 'right ' });
+    ScrollReveal().reveal('.tools-item', { delay: 500, origin: 'top' });
     ScrollReveal().reveal('.title-2');
     ScrollReveal().reveal('.content-2');
     ScrollReveal().reveal('.carousel-id');
