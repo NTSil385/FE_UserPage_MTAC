@@ -38,6 +38,8 @@ body{
   margin-right: 0;
 }
 
+
+
 img {
   max-width: 100%;
   height: auto;
@@ -72,7 +74,7 @@ img {
   height: 60px;
   width: 300px;
   background: var(--primary-color);
-  border: 1px solid #fff;
+  border: 1px solid #ccc;
   border-radius: 6px;
   opacity: 0;
   pointer-events: none;
@@ -352,6 +354,48 @@ img {
 
 /* Form styles */
 
+.popup {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 50px;
+
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
 .header-form {
   font-size: 30px;
   font-weight: 500;
@@ -360,6 +404,7 @@ img {
   margin-bottom: 20px;
 }
 .popup-form {
+  margin: 0 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -375,13 +420,12 @@ img {
   align-self: flex-end;
 }
 
-.flex-column > label {
-  color: #151717;
-  font-weight: 600;
+.flex-column  {
+  padding: 5px 0px;
 }
 
 .inputForm {
-  border: 1.5px solid #ecedec;
+  border: 2px solid #726c6c;
   border-radius: 10px;
   height: 50px;
   display: flex;
@@ -414,6 +458,22 @@ img {
   justify-content: space-between;
 }
 
+.btn-social {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+}
+
+.btn-google, .btn-apple{
+  background-color: #fff;
+  border: none;
+  margin: 0 20px;
+}
+
+
 .flex-row > div > label {
   font-size: 14px;
   color: black;
@@ -421,9 +481,9 @@ img {
 }
 
 .span {
-  font-size: 14px;
+  font-size: 18px;
   margin-left: 5px;
-  color: #2d79f3;
+  color: #2B3D4F;
   font-weight: 500;
   cursor: pointer;
 }
@@ -476,6 +536,15 @@ img {
 .checked {
   display: flex;
   align-items: center;
+}
+
+.line {
+  color: #ccc;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+
 }
 
 .no-scroll {
