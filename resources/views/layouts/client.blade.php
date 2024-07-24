@@ -5,6 +5,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="./home/css/base.css">
   <link rel="stylesheet" href="./home/css/style.css">
+  <link rel="stylesheet" href="./home/css/tintuc.css">
 
    <!-- JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
