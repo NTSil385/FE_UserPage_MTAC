@@ -15,4 +15,27 @@ class HomeController extends Controller
     {
         return view('blog');
     }
+    public function blogDetail()
+    {
+        return view('blogdetail');
+    }
+
+    public function blogVideo()
+    {
+        return view('blogvideo');
+    }
+
+    
+    public function project()
+    {
+        return view('project');
+    }
+
+    public function projectGallery()
+    {
+        return view('projectgallery');
+    }
+
+
+
 }

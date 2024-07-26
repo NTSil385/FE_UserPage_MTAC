@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get("/tintuc",[HomeController::class, 'blog']);
+Route::get("/duan",[HomeController::class, 'project']);
+Route::get("/tintuc-chitiet",[HomeController::class, 'blogDetail']);
+Route::get("/tintuc-video",[HomeController::class, 'blogVideo']);
+Route::get("/duan-chitiet",[HomeController::class, 'projectgallery']);

@@ -10,8 +10,7 @@
                 <div id="nav-bar">
                    
                     <div id="nav-header">
-                     
-                     
+
                       <hr/>
                     </div>
                     <div id="nav-content">

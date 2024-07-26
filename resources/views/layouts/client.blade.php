@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="./home/css/base.css">
   <link rel="stylesheet" href="./home/css/style.css">
   <link rel="stylesheet" href="./home/css/tintuc.css">
+  <link rel="stylesheet" href="./home/css/project.css">
+  <link rel="stylesheet" href="./home/css/project-gallary.css">
 
    <!-- JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -108,10 +110,10 @@
       </label>
       <div class="menu">
         <div class="nav-content ">
-          <div class="menu-item">TRANG CHỦ</div>
-          <div class="menu-item" data-target="#submenu-1">DỰ ÁN</div>
-          <div class="menu-item" data-target="#submenu-2">GIẢI PHÁP</div>
-          <div class="menu-item" data-target="#submenu-3">TIN TỨC</div>
+          <a href="http://127.0.0.1:8000/" class="menu-item">TRANG CHỦ</a>
+          <a href="http://127.0.0.1:8000/duan" class="menu-item" data-target="#submenu-1">DỰ ÁN</a>
+          <a href="http://127.0.0.1:8000/tintuc" class="menu-item" data-target="#submenu-3">TIN TỨC</a>
+          <div class="menu-item" data-target="#submenu-2">THƯ VIỆN</div>
 
         </div>
         <div class="btn-user">
@@ -385,6 +387,7 @@
     </div>
   </div>
   <script src="./home/js/slider.js"></script>
+  <script src="./home/js/timeline.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
