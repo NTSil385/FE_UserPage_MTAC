@@ -1543,7 +1543,7 @@ p{
   }
   
   .video-card h3,h1 {
-
+    font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
     margin-bottom: 0;
     display:inline-block;

@@ -265,7 +265,7 @@
               <div class="header-video">Video</div>
               <div class="side-blog">
                
-                <a href="#" class="video-item">
+                <a href="http://127.0.0.1:8000/tintuc-video" class="video-item">
                     <div class="video-box" >
                         <video style="border-radius: 10px;" width="500" height="240" autoplay>
                             <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">

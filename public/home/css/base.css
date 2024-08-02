@@ -204,6 +204,7 @@ img {
   justify-content: space-between;
   padding:10px 20px;
   cursor: pointer;
+  color: var(--primary-color);
 }
 
 .icon {
