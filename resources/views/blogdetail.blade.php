@@ -349,7 +349,7 @@
                 <a href="#" class="video-item">
                     <div class="video-box" >
                         <video style="border-radius: 10px;" width="500" height="240" autoplay>
-                            <source src="home/video/rdfl.mp4" type="video/mp4">
+                            <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                             
                           Your browser does not support the video tag.
                           </video>
@@ -365,7 +365,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -384,7 +384,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -403,7 +403,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -421,7 +421,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -440,7 +440,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -459,7 +459,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -478,7 +478,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -497,7 +497,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -516,7 +516,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -534,7 +534,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -553,7 +553,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -572,7 +572,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>
@@ -591,7 +591,7 @@
                         <div class="img-box">
                             <div class="video-box" >
                                 <video style="border-radius: 10px;" width="150" height="100" >
-                                    <source src="home/video/rdfl.mp4" type="video/mp4">
+                                    <source src="{{asset('home/video/rdfl.mp4')}}" type="video/mp4">
                                     
                                   Your browser does not support the video tag.
                                   </video>

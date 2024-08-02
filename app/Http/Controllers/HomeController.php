@@ -11,6 +11,7 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    // BLOG
     public function blog()
     {
         return view('blog');
@@ -25,7 +26,7 @@ class HomeController extends Controller
         return view('blogvideo');
     }
 
-    
+    // PROJECT
     public function project()
     {
         return view('project');
@@ -35,6 +36,29 @@ class HomeController extends Controller
     {
         return view('projectgallery');
     }
+
+    // LIBRARY
+
+    public function library()
+    {
+        return view('library');
+    }
+
+    public function legalDoc()
+    {
+        return view('legal');
+    }
+
+    public function detailsLib()
+    {
+        return view('libraryDetail');
+    }
+
+
+
+
+
+
 
 
 

@@ -480,7 +480,7 @@
                               GUESS ID
                             </h6>
                           </div>
-                          <p>
+                          <p style = "color: white">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis repudiandae praesentium error
                             beatae! Impedit repellat, recusandae maxime rerum amet neque deserunt facere corrupti
                             repellendus iste voluptatibus sapiente officiis accusantium nobis.
@@ -504,7 +504,7 @@
                               USER ID
                             </h6>
                           </div>
-                          <p>
+                          <p style = "color: white">
                             It is a long established fact that a reader will be
                             distracted by the readable cIt is a long established fact
                             that a reader will be distracted by the readable c

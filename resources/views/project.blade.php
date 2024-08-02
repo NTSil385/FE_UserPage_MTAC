@@ -4,7 +4,7 @@
       <div class="body">
       <div class="row">
         <div class="container-header">
-          <img width="1900px" height="550px" src="home/img/landing.png" alt="hinh-anh-doi-tac">
+          <img width="1900px" height="550px" src="{{ asset('./home/img/lib.png') }}" alt="hinh-anh-doi-tac">
         </div>
       </div>
       <div class="row" style="margin-top: 20px;">

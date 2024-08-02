@@ -3,12 +3,14 @@
 
 <head>
   <!-- CSS -->
-  <link rel="stylesheet" href="./home/css/base.css">
-  <link rel="stylesheet" href="./home/css/style.css">
-  <link rel="stylesheet" href="./home/css/tintuc.css">
-  <link rel="stylesheet" href="./home/css/project.css">
-  <link rel="stylesheet" href="./home/css/project-gallary.css">
-
+  <link rel="stylesheet" href="{{ asset('/home/css/base.css') }}">
+  <link rel="stylesheet" href="{{ asset('/home/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('/home/css/tintuc.css') }}">
+  <link rel="stylesheet" href="{{ asset('/home/css/project.css') }}">
+  <link rel="stylesheet" href="{{ asset('/home/css/project-gallary.css') }}">
+  <link rel="stylesheet" href="{{ asset('/home/css/lib.css') }}">
+  <link rel="stylesheet" href="{{asset('./home/dflip/css/dflip.min.css')}}">
+  <link rel="stylesheet" href="{{asset('./home/dflip/css/themify-icons.min.css')}}">
    <!-- JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
     <script src="home/js/showform.js"></script>
@@ -113,7 +115,8 @@
           <a href="http://127.0.0.1:8000/" class="menu-item">TRANG CHỦ</a>
           <a href="http://127.0.0.1:8000/duan" class="menu-item" data-target="#submenu-1">DỰ ÁN</a>
           <a href="http://127.0.0.1:8000/tintuc" class="menu-item" data-target="#submenu-3">TIN TỨC</a>
-          <div class="menu-item" data-target="#submenu-2">THƯ VIỆN</div>
+          <a href="http://127.0.0.1:8000/thu-vien" class="menu-item" data-target="#submenu-4">THƯ VIỆN</a>
+          {{-- <div class="menu-item" data-target="#submenu-2">THƯ VIỆN</div> --}}
 
         </div>
         <div class="btn-user">
@@ -132,11 +135,11 @@
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
-          <div class="submenu-item" data-target="#submenu2-1-2">Thu hồi pin thải
+          <a href="http://127.0.0.1:8000/duan/phan-loai" class="submenu-item" data-target="#submenu2-1-2">Thu hồi pin thải
             <div class="icon">
               <i class="fa-solid fa-arrow-right"></i>
             </div>
-          </div>
+          </a>
         </div>
         <div class="submenu-right">
           <div id="submenu2-1-1" class="submenu2">
@@ -386,8 +389,9 @@
 
     </div>
   </div>
-  <script src="./home/js/slider.js"></script>
-  <script src="./home/js/timeline.js"></script>
+  <script src="{{ asset('./home/js/slider.js') }}"></script>
+  <script src="{{ asset('./home/js/timeline.js') }}"></script>
+  <script src="{{asset('./home/dflip/js/dflip.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
