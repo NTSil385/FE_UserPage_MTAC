@@ -1,6 +1,8 @@
 @extends('layouts.client')
 @section('content')
-     
+  <link rel="stylesheet" href="{{ asset('/home/css/lib.css') }}">   
+  <link rel="stylesheet" href="{{asset('./home/dflip/css/dflip.min.css')}}">
+  <link rel="stylesheet" href="{{asset('./home/dflip/css/themify-icons.min.css')}}">
   <div class="body">
       <div class="row">
         <div class="container-header">

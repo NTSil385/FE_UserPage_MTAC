@@ -324,7 +324,6 @@ img {
 /* Footer */
 
 .footer {
-  padding: 40px 0;
   color: #333;
  
 }
@@ -546,6 +545,15 @@ img {
   font-weight: 500;
   font-family: "Roboto", sans-serif;
 
+}
+
+.description {
+  font-family: "Roboto", sans-serif;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3; 
 }
 
 .no-scroll {

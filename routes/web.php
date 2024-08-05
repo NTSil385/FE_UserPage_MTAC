@@ -29,3 +29,5 @@ Route::get("/duan/phan-loai",[HomeController::class, 'projectgallery']);
 Route::get("/thu-vien",[HomeController::class, 'library']);
 Route::get("/thu-vien/van-ban-quy-pham-phap-luat",[HomeController::class, 'legalDoc']);
 Route::get("/thu-vien/chi-tiet",[HomeController::class, 'detailsLib']);
+
+Route::get("/bao-gia",[HomeController::class, 'quotation']);

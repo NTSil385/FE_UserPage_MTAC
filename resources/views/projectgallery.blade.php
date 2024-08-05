@@ -1,5 +1,7 @@
 @extends('layouts.client')
 @section('content')
+      <link rel="stylesheet" href="{{ asset('/home/css/project.css') }}">
+      <link rel="stylesheet" href="{{ asset('/home/css/project-gallary.css') }}">
       <div class="body">
         <div class="row">
             <div class="container-header">

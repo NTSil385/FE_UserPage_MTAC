@@ -5,15 +5,13 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{ asset('/home/css/base.css') }}">
   <link rel="stylesheet" href="{{ asset('/home/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('/home/css/tintuc.css') }}">
-  <link rel="stylesheet" href="{{ asset('/home/css/project.css') }}">
-  <link rel="stylesheet" href="{{ asset('/home/css/project-gallary.css') }}">
-  <link rel="stylesheet" href="{{ asset('/home/css/lib.css') }}">
-  <link rel="stylesheet" href="{{asset('./home/dflip/css/dflip.min.css')}}">
-  <link rel="stylesheet" href="{{asset('./home/dflip/css/themify-icons.min.css')}}">
+
+ 
+
+
    <!-- JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="home/js/showform.js"></script>
+  <script src="{{asset('home/js/showform.js')}}"></script>
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -42,7 +40,7 @@
 <body>
   <div class="container-content">
         <!-- SUBNAV -->
-    <nav style="position: relative; z-index: 2; height: 35px;"
+    <nav style="position: relative; z-index: 16; height: 35px;"
       class="subnav navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid" style="background-color: #f8f9fa;">
 
@@ -105,7 +103,7 @@
       </div>
     </nav>
     <!-- MAIN NAV -->
-    <nav style="position: relative; z-index: 1;">
+    <nav style="position: relative; z-index: 15;">
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fa-solid fa-bars"></i>
@@ -115,7 +113,9 @@
           <a href="http://127.0.0.1:8000/" class="menu-item">TRANG CHỦ</a>
           <a href="http://127.0.0.1:8000/duan" class="menu-item" data-target="#submenu-1">DỰ ÁN</a>
           <a href="http://127.0.0.1:8000/tintuc" class="menu-item" data-target="#submenu-3">TIN TỨC</a>
-          <a href="http://127.0.0.1:8000/thu-vien" class="menu-item" data-target="#submenu-4">THƯ VIỆN</a>
+          <a href="http://127.0.0.1:8000/bao-gia" class="menu-item" data-target="#submenu-4">BÁO GIÁ</a>
+          <a href="http://127.0.0.1:8000/thu-vien" class="menu-item" data-target="#submenu-5">THƯ VIỆN</a>
+
           {{-- <div class="menu-item" data-target="#submenu-2">THƯ VIỆN</div> --}}
 
         </div>
@@ -207,6 +207,42 @@
             <div class="submenu-item">3.2.1</div>
             <div class="submenu-item">3.2.2</div>
             <div class="submenu-item">3.2.3</div>
+          </div>
+        </div>
+      </div>
+      <div id="submenu-4" class="submenu-container">
+        <div class="submenu-left">
+          <div class="submenu-item" data-target="#submenu4-2-1">Xử lý chất thải
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="submenu-item" data-target="#submenu4-2-2">Hồ sơ môi trường
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="submenu-item" data-target="#submenu4-2-2">Nhóm cồng kềnh
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="submenu-right">
+          <div id="submenu4-2-1" class="submenu2">
+            <div class="submenu-item" onclick="openFormXLCHT600()">Xử lý chất thải nguy hại nhỏ bằng 600KG/Năm</div>
+            <div class="submenu-item" onclick="openFormXLCHT_600()">Xử lý chất thải nguy hại lớn bằng 600KG/Năm</div>
+            <div class="submenu-item" onclick="openFormCTTMM2000()">Xử lý Chất thải ngành may mặc nhỏ hơn 2000KG</div>
+            <div class="submenu-item" onclick="openFormCTTMM_2000()">Xử lý Chất thải ngành may mặc lớn hơn 2000KG</div>
+          </div>
+          <div id="submenu4-2-2" class="submenu2">
+            <div class="submenu-item" onclick="openFormGPMT()">Giấy phép môi trường</div>
+            <div class="submenu-item" onclick="openFormDGTD()">Đánh giá tác động môi trường</div>
+            <div class="submenu-item" onclick="openFormBCCTBVMT2022()">Báo cáo công tác bảo vệ môi trường 2022</div>
+          </div>
+           <div id="submenu4-2-3" class="submenu2">
+            <div class="submenu-item" onclick="openFormCTCK2000()">Xử lý chất thải Cồng Kềnh nhỏ hơn 2000KG</div>
+            <div class="submenu-item" onclick="openFormCTCK_2000()">Xử lý chất thải Cồng Kềnh lớn hơn 2000KG</div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 @extends('layouts.client')
 @section('content')
-
+      <link rel="stylesheet" href="{{ asset('/home/css/project.css') }}">
       <div class="body">
       <div class="row">
         <div class="container-header">
@@ -200,4 +200,16 @@
       </div>
     </div>
     </div>
+     <script>
+    ScrollReveal({
+      reset: true,
+      distance: '60px',
+      duration: 2500,
+      delay: 400,
+    });
+    ScrollReveal().reveal('.img-fluid', { delay: 500, origin: 'right ' });
+    ScrollReveal().reveal('.card-project', { delay: 500, origin: 'top' });
+
+  </script>
+  
 @endsection

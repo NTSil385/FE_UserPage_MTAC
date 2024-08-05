@@ -181,9 +181,9 @@
                       </div>
                       <div class="detail-box">
                         <h5>Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente
+                        <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente
                           excepturi nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti
-                          delectus. Quis, cumque voluptatum! Pariatur reiciendis dolorum libero obcaecati.</p>
+                          delectus. Quis, cumque voluptatum! Pariatur reiciendis dolorum libero obcaecati.</div>
                         <div class="btn-sub">
 
                           <a class="btn-read" href="">

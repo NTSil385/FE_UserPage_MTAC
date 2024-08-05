@@ -1,5 +1,6 @@
 @extends('layouts.client')
 @section('content')
+  <link rel="stylesheet" href="{{ asset('/home/css/tintuc.css') }}">
      <div class="body">
         <div class="row"  style="margin-top: 10px;" >
             <div class="title">TIN TỨC </div>

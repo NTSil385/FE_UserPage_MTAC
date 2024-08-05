@@ -54,6 +54,12 @@ class HomeController extends Controller
         return view('libraryDetail');
     }
 
+    
+    public function quotation()
+    {
+        return view('quotation');
+    }
+
 
 
 
