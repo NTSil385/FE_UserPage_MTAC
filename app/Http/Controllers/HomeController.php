@@ -8,56 +8,56 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('guestPage.welcome');
     }
 
     // BLOG
     public function blog()
     {
-        return view('view-blog.blog');
+        return view('guestPage.view-blog.blog');
     }
     public function blogDetail()
     {
-        return view('view-blog.blogdetail');
+        return view('guestPage.view-blog.blogdetail');
     }
 
     public function blogVideo()
     {
-        return view('view-blog.blogvideo');
+        return view('guestPage.view-blog.blogvideo');
     }
 
     // PROJECT
     public function project()
     {
-        return view('view-project.project');
+        return view('guestPage.view-project.project');
     }
 
     public function projectGallery()
     {
-        return view('view-project.projectgallery');
+        return view('guestPage.view-project.projectgallery');
     }
 
     // LIBRARY
 
     public function library()
     {
-        return view('view-lib.library');
+        return view('guestPage.view-lib.library');
     }
 
     public function legalDoc()
     {
-        return view('view-lib.legal');
+        return view('guestPage.view-lib.legal');
     }
 
     public function detailsLib()
     {
-        return view('view-lib.libraryDetail');
+        return view('guestPage.view-lib.libraryDetail');
     }
 
     
     public function quotation()
     {
-        return view('view-quotation.quotation');
+        return view('guestPage.view-quotation.quotation');
     }
 
 
