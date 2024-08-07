@@ -14,50 +14,50 @@ class HomeController extends Controller
     // BLOG
     public function blog()
     {
-        return view('blog');
+        return view('view-blog.blog');
     }
     public function blogDetail()
     {
-        return view('blogdetail');
+        return view('view-blog.blogdetail');
     }
 
     public function blogVideo()
     {
-        return view('blogvideo');
+        return view('view-blog.blogvideo');
     }
 
     // PROJECT
     public function project()
     {
-        return view('project');
+        return view('view-project.project');
     }
 
     public function projectGallery()
     {
-        return view('projectgallery');
+        return view('view-project.projectgallery');
     }
 
     // LIBRARY
 
     public function library()
     {
-        return view('library');
+        return view('view-lib.library');
     }
 
     public function legalDoc()
     {
-        return view('legal');
+        return view('view-lib.legal');
     }
 
     public function detailsLib()
     {
-        return view('libraryDetail');
+        return view('view-lib.libraryDetail');
     }
 
     
     public function quotation()
     {
-        return view('quotation');
+        return view('view-quotation.quotation');
     }
 
 

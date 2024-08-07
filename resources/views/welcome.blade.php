@@ -160,8 +160,6 @@
               < </button>
                 <button id="next">></button>
           </div>
-          <!-- time running -->
-          <div class="time"></div>
         </div>
       </div>
       <div class="row" style="margin-top: 30px;">

@@ -31,11 +31,11 @@
 
 .carousel-indicators {
     top: 0px !important;
-    width: 75%;
-    margin-left: 14%;
+    width: 100%;
     position: static;
     margin-bottom: 40px;
     margin-top: 75px;
+    margin-left: 0%;
 }
 
 .experience-slide-one {
