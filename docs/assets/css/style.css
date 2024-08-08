@@ -1322,7 +1322,7 @@ h2 {
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
   .side-content {
     display: none;
   }

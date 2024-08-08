@@ -248,3 +248,96 @@
   }
   
   
+/* Đối với tablet */
+@media (max-width: 768px) {
+  .container-header img.ladding {
+      width: 100%;
+      height: 100%;
+  }
+
+  .container-dropdown {
+    
+      justify-content: flex-start;
+      align-items: flex-start;
+  }
+
+  .menu-dropdown .link {
+      padding: 12px 30px;
+  }
+
+  .card-project {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .content {
+      margin: 0;
+      top: 0;
+  }
+
+  .img-project {
+      max-width: 100%;
+      max-height: auto;
+      margin: 20px 0;
+  }
+
+  .img-fluid {
+      display: none !important;
+  }
+}
+
+/* Đối với mobile */
+@media (max-width: 576px) {
+  .container-header img.ladding {
+      width: 100%;
+      height: auto;
+  }
+
+  .container-dropdown {
+      display: flex;
+
+      justify-content: flex-start;
+      align-items: flex-start;
+  }
+
+  .menu-dropdown .link {
+      padding: 12px 20px;
+  }
+
+  .menu-dropdown .link svg {
+      width: 16px;
+      height: 16px;
+  }
+
+  .card-project {
+      flex-direction: column;
+      padding: 20px;
+      max-width: 100%;
+  }
+
+  .content-header {
+      font-size: 18px;
+  }
+
+  .des {
+      font-size: 16px;
+  }
+
+  .btn-more {
+      font-size: 18px;
+  }
+
+  .img-project {
+      max-width: 100%;
+      max-height: auto;
+      margin: 20px 0;
+  }
+
+  .img-fluid {
+      margin: 0;
+  }
+
+  .count {
+      font-size: 60px;
+  }
+}
