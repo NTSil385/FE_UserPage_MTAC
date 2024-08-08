@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #086db5;
+}
+
+#myTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    font-size: 18px;
+}
+
+#myTable th {
+    background-color: #fdfafa;
+}
+
+#myTable th,
+#myTable td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+#myTable th:nth-child(2),
+#myTable td:nth-child(2),
+#myTable th:nth-child(4),
+#myTable td:nth-child(4),
+#myTable th:nth-child(6),
+#myTable td:nth-child(6),
+#myTable th:nth-child(7),
+#myTable td:nth-child(7) {
+    width: 150px;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+#myTable tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+#myTable tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+#myTable tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+#myTable tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    width: 98.3% !important;
+    margin: 0 12px;
+    padding-top: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.btn-filter {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+.filter-header svg {
+    width: 20px;
+    height: 20px;
+    font-weight: 500;
+}
+
+.btn-infomation{
+    padding: 10px 30px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-infomation:hover{
+    background-color: #fff;
+    color: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+}
