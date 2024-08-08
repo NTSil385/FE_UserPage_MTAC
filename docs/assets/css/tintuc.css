@@ -1678,6 +1678,10 @@ p{
     font-size:0.8em
   }
   
+  .row-content {
+    margin: 0px 20px !important;
+  }
+
   .livideo{
     position:relative;  
      width:23px;
@@ -1685,6 +1689,8 @@ p{
      display:inline-block;
      vertical-align:middle;
   }
+
+
   .livideo:before{
     content:"";
      background-size:250px;
@@ -1737,34 +1743,13 @@ p{
     }
   }
   
-  @media (max-width:500px){
-    .utility-info li:last-of-type{
-      width:100%
-    }
-    .card-info{
-      display:none
-    }
-    .video-card:hover .title-content,.title-content{
-    margin-top:40px
-  }
-  .video-card{
-    height:300px
-  }
-  .video-card h3{
-    font-size:1.3em
-  }
-  .intro{
-    font-size:0.8em
-  }
-  }
-  
+
   @media screen and (max-width: 1024px) {
    .hash-video{
     width: 550px;
    }
    .row-content {
     flex-direction: column;
-
     border-radius: 10px;
     box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
     background-size: 100%;
@@ -1773,7 +1758,6 @@ p{
     margin-top: 20px;
     position: relative;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.6);
     transition: all 0.4s;
     cursor: pointer;
     text-align: center;
@@ -1793,7 +1777,9 @@ p{
     transition: all 0.4s;
     background-size: 100%;
 }
-  }
+
+
+
 
   ul {
     list-style: none;
@@ -1893,3 +1879,30 @@ p{
   .example-2 .icon-content a[data-social="comment"] ~ .tooltip {
     background-color: var(--primary-color);
   }
+
+  }
+
+  @media screen and (max-width: 450px) {
+    .hash-video{
+     width: 550px;
+    }
+    .row-content {
+     flex-direction: column;
+     margin: 0 0px 0px -150px !important;
+     cursor: pointer;
+    }
+    .video-card {
+     width: 400px !important;
+     height: fit-content;
+     position: relative;
+     color: #fff;
+     right: 0;
+     left: 0px;
+     overflow: hidden;
+     border-radius: 10px;
+     box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
+     text-align: center;
+     transition: all 0.4s;
+     background-size: 100%;
+  }
+    }

@@ -842,6 +842,96 @@ h2 {
   }
 }
 
+/* Styles for mobile section */
+.mobile_client_section {
+  padding: 20px;
+}
+
+.mobile_heading_container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mobile_header-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mobile_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.mobile_img-box {
+  margin-bottom: 15px;
+}
+
+.mobile_img-box img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #fff; 
+}
+
+.mobile_detail-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile_name h6 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #000; 
+}
+
+.mobile_detail-box p {
+  font-size: 16px;
+  color: #000;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 6; 
+}
+
+.mobile_buttons {
+  margin-top: 15px;
+}
+
+.mobile_buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mobile_buttons button:hover {
+  background-color: var(--primary-color);
+}
+
+.mobile_carousel_btn-container {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.mobile_carousel_btn-container a {
+  font-size: 24px;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 -25px;
+}
+
+.mobile_carousel_btn-container a:hover {
+  color: var(--primary-color);
+}
 
 
 @media screen and (max-width: 1600px) {
@@ -1033,43 +1123,6 @@ h2 {
 }
 
 
-@media screen and (max-width: 768px) {
-  .thumbnail .item {
-    display: none;
-  }
-  .carousel-id .list .item {
-    width: 50%;
-    height: 60%;
-    position: absolute;
-    inset: 0 0 0 0;
-    display: none;
-  }
-
-  
-
-  .carousel-id .list .item .content {
-    top: -17%;
-    width: 80%;
-    margin-top: 50px;
-    padding: 0;
-    max-width: 100%;
-    right: -150%;
-    transform: translateX(-50%);
-    box-sizing: border-box;
-    text-align: left;
-    display: none;
-  }
-
-  .des{
-    display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 7; 
-  }
-
-  
-  }
 
   /* BLOG */
   .container-content3 {
@@ -1258,10 +1311,17 @@ h2 {
 .demo:hover {
   opacity: 1;
 }
+
+.container-third {
+  display: flex;
+  flex-direction: column;
 }
 
+.img-box img {
+  margin-top: 10px;
+}
 
-
+}
 
 
 
