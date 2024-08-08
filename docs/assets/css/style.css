@@ -936,6 +936,7 @@ h2 {
 
 .carousel-id .list .item.active .content {
     display: block;
+    top: 135px;
   }
 
 .carousel-id .list .item .title{
@@ -957,6 +958,20 @@ h2 {
   gap: 10px;
   align-items: center;
 }
+
+.side-content{ 
+  padding: 50px;
+  height: 885px !important;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+.side-content::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
+}
+
 
 }
 
@@ -1213,7 +1228,7 @@ h2 {
 @media screen and (max-width: 1024px) {
 
   .box {
-    max-width: 370px;
+    max-width: 100%;
   }
 
   .demo {
