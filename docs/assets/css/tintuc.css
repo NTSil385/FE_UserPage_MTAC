@@ -1725,8 +1725,13 @@ p{
   
   }
   
-  @media (max-width:750px)
+  @media (max-width:768px)
   {
+    
+
+    .col-tag {
+      display: none;
+    }
     .utility-info {
       text-align:center;
     }
