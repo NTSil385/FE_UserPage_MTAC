@@ -1088,9 +1088,7 @@ p{
     display: none !important;
   }
 
-  .col-md-4 {
-    margin-left: 150px;
-  }
+
 
   .blog-card {
     max-width: 750px;
@@ -1750,6 +1748,12 @@ p{
   
 
   @media screen and (max-width: 1024px) {
+    .row-detail--blog {
+      display: flex;
+      flex-wrap: nowrap !important;
+    }
+
+
    .hash-video{
     width: 550px;
    }
@@ -1888,6 +1892,11 @@ p{
   }
 
   @media screen and (max-width: 450px) {
+    .row-detail--blog {
+      display: flex;
+      flex-wrap: wrap !important;
+    }
+
     .hash-video{
      width: 550px;
     }
