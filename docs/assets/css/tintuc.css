@@ -1784,6 +1784,7 @@ p{
   
   .row-content {
     margin: 0px 20px !important;
+
   }
 
   .livideo{
@@ -1852,12 +1853,42 @@ p{
     }
   }
   
+  @media (max-width: 900px) {
+    .row-video {
+      display: flex !important;
 
+      flex-direction: column;
+    }
+  
+    .row-content {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; 
+    }
+  
+    .video-card {
+      max-width: 700px;
+      width: 390px !important;
+      height: 400px;
+      position: relative;
+      color: #fff;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: all 0.4s;
+      background-size: cover;
+      flex-shrink: 0; /* Đảm bảo video-card không bị co lại */
+    }
+  }
+  
   @media screen and (max-width: 1024px) {
     .row-detail--blog {
       display: flex;
       flex-wrap: nowrap !important;
     }
+
 
     .col-blog--side {
       margin-top: 40px !important;
@@ -1868,7 +1899,7 @@ p{
     width: 550px;
    }
    .row-content {
-    flex-direction: column;
+   
     border-radius: 10px;
     box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
     background-size: 100%;
@@ -1880,10 +1911,39 @@ p{
     transition: all 0.4s;
     cursor: pointer;
     text-align: center;
+    overflow-x: auto;
+      -webkit-overflow-scrolling: touch; 
    }
+
+   /* Tùy chỉnh thanh cuộn cho Chrome, Safari và các trình duyệt dựa trên WebKit */
+.row-content::-webkit-scrollbar {
+  width: 8px; /* Chiều rộng của thanh cuộn */
+}
+
+.row-content::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền của thanh cuộn */
+  border-radius: 10px; /* Bo góc cho thanh cuộn */
+}
+
+.row-content::-webkit-scrollbar-thumb {
+  background: #888; /* Màu của thanh cuộn */
+  border-radius: 10px; /* Bo góc cho thanh cuộn */
+}
+
+.row-content::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Màu của thanh cuộn khi hover */
+}
+
+/* Tùy chỉnh thanh cuộn cho Firefox */
+.row-content {
+  scrollbar-width: thin; /* Kích thước thanh cuộn: 'auto' hoặc 'thin' */
+  scrollbar-color: var(--primary-color) #f1f1f1; /* Màu thanh cuộn và nền của thanh cuộn */
+}
+
+
    .video-card {
     max-width: 700px;
-    width: 600px;
+    width: 315px;
     height: 400px;
     position: relative;
     color: #fff;
