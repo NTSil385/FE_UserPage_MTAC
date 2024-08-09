@@ -1185,6 +1185,12 @@ p{
   right: 135px;
 }
 
+.list-blog--details{
+  width: 500px;
+  position: relative;
+  right: 135px;
+}
+
 .side-blog{
   float: left;
   position: relative;
@@ -1753,6 +1759,10 @@ p{
       flex-wrap: nowrap !important;
     }
 
+    .col-blog--side {
+      margin-top: 40px !important;
+      margin-left: 150px !important;
+    }
 
    .hash-video{
     width: 550px;
