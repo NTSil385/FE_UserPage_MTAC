@@ -366,6 +366,13 @@ input:not(:placeholder-shown) ~ .reset {
 	width: 100%;
 }
 
+@media (max-width: 1024px) {
+  .courses-container {
+    position: relative;
+    left: 60%;
+    transform: translateX(-50%);
+  }
+}
 
 @media (max-width: 768px) {
   .courses-container {

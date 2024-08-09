@@ -529,9 +529,9 @@ height: 100%;
 overflow: auto; 
 background-color: rgb(0,0,0); 
 background-color: rgba(0,0,0,0.4); 
-overflow: auto;
-overflow: -moz-scrollbars-none;
--ms-overflow-style: none;
+overflow: auto !important;
+overflow: -moz-scrollbars-none !important;
+-ms-overflow-style: none !important;
 }
 
 .form-popup::-webkit-scrollbar { 
@@ -1162,6 +1162,7 @@ border: 1.5px solid #2d79f3;
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  
   .popup-content--quotation {
       width: 90%;
       margin: 10% auto;
