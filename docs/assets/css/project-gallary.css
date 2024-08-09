@@ -326,7 +326,7 @@
       -moz-border-radius: 50%;
       border-radius: 50%;
       position: relative;
-      left: -32px;
+      left: -32px !important;
   }
   
   
