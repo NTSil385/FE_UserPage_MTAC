@@ -1,24 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Chọn các phần tử carousel
-  const desktopCarousel = document.querySelector('.desktop-carousel');
-  const mobileCarousel = document.querySelector('#mobileCarousel');
-  
-  function handleCarousel() {
-    // Xác định kích thước màn hình (768px là điểm phân cách có thể thay đổi theo nhu cầu)
-    const isMobile = window.innerWidth < 768;
+let mobileFragment = document.createDocumentFragment();
+let desktopFragment = document.createDocumentFragment();
 
-    if (isMobile) {
-      // Hiển thị carousel mobile và ẩn carousel desktop
-      desktopCarousel.style.display = 'none';
-      mobileCarousel.style.display = 'block';
-    } else {
-      // Hiển thị carousel desktop và ẩn carousel mobile
-      desktopCarousel.style.display = 'block';
-      mobileCarousel.style.display = 'none';
+function toggleSections() {
+  const mobileSection = document.querySelector('.mobile_client_section');
+  const desktopSection = document.querySelector('.desktop-carousel');
+
+  if (window.innerWidth <= 768) { // Tỷ lệ mobile (<= 768px)
+    if (desktopSection && desktopSection.parentNode) {
+      desktopFragment.appendChild(desktopSection);
+    }
+    if (!mobileSection.parentNode && mobileFragment.contains(mobileSection)) {
+      document.querySelector('.row').appendChild(mobileSection);
+    }
+  } else { // Tỷ lệ desktop (> 768px)
+    if (mobileSection && mobileSection.parentNode) {
+      mobileFragment.appendChild(mobileSection);
+    }
+    if (!desktopSection.parentNode && desktopFragment.contains(desktopSection)) {
+      document.querySelector('.row').appendChild(desktopSection);
     }
   }
+}
 
-  // Gọi hàm khi trang được tải và khi kích thước cửa sổ thay đổi
-  handleCarousel();
-  window.addEventListener('resize', handleCarousel);
-});
+// Gọi hàm khi tải trang
+window.addEventListener('load', toggleSections);
+
+// Gọi hàm khi thay đổi kích thước màn hình
+window.addEventListener('resize', toggleSections);
