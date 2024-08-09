@@ -1148,6 +1148,45 @@ h2 {
 
 }
 
+@media screen and (max-width: 480px) {
+
+  .content-2 {
+    margin: 45px !important;
+}
+
+  .thumbnail {
+    display: none !important;
+  }
+
+  .carousel-id {
+    height: 700px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
+}
+.carousel-id .list .item {
+  margin-left: -2px !important;
+}
+  .carousel-id .list .item .content {
+    top: 35%;
+    width: 80%;
+    margin-top: 0px !important;
+    padding: 0;
+    max-width: 100%;
+    right: -150px;
+    top: 430px !important;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    text-align: left;
+    display: none;
+   
+}
+
+}
+
+
+
 
 
 
