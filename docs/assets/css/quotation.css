@@ -25,7 +25,7 @@ body {
 
 .carousel-indicators {
   top: -90px;
-  width: 100%;
+  width: 75%;
   margin-left: 14%;
   position: static;
   margin-bottom: 40px;
@@ -75,6 +75,14 @@ body {
   transform: translateX(-50%);
   width: 120px;
   font-size: 14px;
+}
+
+.carousel-control-prev {
+  left: -80px !important;
+}
+
+.carousel-control-next {
+  right: -80px !important;
 }
 
 .carousel-indicators button svg {
