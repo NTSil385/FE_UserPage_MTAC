@@ -466,6 +466,21 @@ img {
   border: 1.5px solid #2d79f3;
 }
 
+.suggestions {
+  display: none;
+  position: absolute;
+  left: 105%;
+  top: 0;
+  background-color: #fff;
+  width: 200px;
+  padding: 10px;
+  z-index: 10;
+  color: var(--primary-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -602,4 +617,36 @@ img {
   float: left;
   font-weight: 400;
   color: #000;
+}
+
+#popupForm,
+#popupFormRegister,
+#myForm,
+#xlct-600,
+#ctmm2000,
+#ctmm-2000,
+#gpmt,
+#dgtd,
+#bcctbvm2022,
+#xlctck2000,
+#xlctck-2000 {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .popup-content--quotation {
+      width: 90%;
+      margin: 10% auto;
+      padding: 20px;
+  }
+
+  .content-01 {
+      margin: 30px 10px;
+  }
+
+  .btn-continute {
+      width: 100%;
+      text-align: center;
+  }
 }
