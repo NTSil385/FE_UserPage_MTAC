@@ -817,50 +817,50 @@
       }
       
       </script> 
-<script>
-$(document).ready(function () {
-  $('.submenu-container').hide();
+      <script>
+      $(document).ready(function () {
+        $('.submenu-container').hide();
 
-  $('.menu-item').mouseenter(function () {
-    var target = $(this).data('target');
-    $(target).stop(true, true).fadeIn(200); // Hiển thị submenu-container của menu-item này
-  });
+        $('.menu-item').mouseenter(function () {
+          var target = $(this).data('target');
+          $(target).stop(true, true).fadeIn(200); // Hiển thị submenu-container của menu-item này
+        });
 
-  $('.menu-item').mouseleave(function () {
-    var target = $(this).data('target');
-    setTimeout(function () {
-      if (!$(target).is(':hover')) {
-        $(target).stop(true, true).fadeOut(200); // Ẩn submenu-container nếu không hover vào target
-      }
-    }, 200);
-  });
+        $('.menu-item').mouseleave(function () {
+          var target = $(this).data('target');
+          setTimeout(function () {
+            if (!$(target).is(':hover')) {
+              $(target).stop(true, true).fadeOut(200); // Ẩn submenu-container nếu không hover vào target
+            }
+          }, 200);
+        });
 
-  $('.submenu-container').mouseleave(function () {
-    $(this).stop(true, true).slideDown(200); // Ẩn submenu-container khi rời chuột ra khỏi nó
-    $(this).hide();
-  });
+        $('.submenu-container').mouseleave(function () {
+          $(this).stop(true, true).slideDown(200); // Ẩn submenu-container khi rời chuột ra khỏi nó
+          $(this).hide();
+        });
 
-  $('.submenu-left .submenu-item').mouseenter(function () {
-    var target = $(this).data('target');
-    $('.submenu2').not(target).stop(true, true).fadeOut(200); // Ẩn tất cả các submenu2 khác
-    $(target).stop(true, true).fadeIn(200); // Hiển thị submenu2 của menu-item này
-  });
+        $('.submenu-left .submenu-item').mouseenter(function () {
+          var target = $(this).data('target');
+          $('.submenu2').not(target).stop(true, true).fadeOut(200); // Ẩn tất cả các submenu2 khác
+          $(target).stop(true, true).fadeIn(200); // Hiển thị submenu2 của menu-item này
+        });
 
-  $('.submenu-left .submenu-item').mouseleave(function () {
-    var target = $(this).data('target');
-    setTimeout(function () {
-      if (!$(target).is(':hover')) {
-        $(target).stop(true, true).fadeOut(200); // Ẩn submenu2 nếu không hover vào target
-      }
-    }, 200);
-  });
+        $('.submenu-left .submenu-item').mouseleave(function () {
+          var target = $(this).data('target');
+          setTimeout(function () {
+            if (!$(target).is(':hover')) {
+              $(target).stop(true, true).fadeOut(200); // Ẩn submenu2 nếu không hover vào target
+            }
+          }, 200);
+        });
 
-  $('.submenu2').mouseleave(function () {
-    $(this).stop(true, true).fadeOut(200); // Ẩn submenu2 khi rời chuột ra khỏi nó
-  });
-});
+        $('.submenu2').mouseleave(function () {
+          $(this).stop(true, true).fadeOut(200); // Ẩn submenu2 khi rời chuột ra khỏi nó
+        });
+      });
 
-</script>
+      </script>
 
     <div class="body">
       <div class="row">
