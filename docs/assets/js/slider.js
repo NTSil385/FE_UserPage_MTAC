@@ -38,7 +38,7 @@ function showSlider(type) {
     if (type === 'next') {
         SliderDom.appendChild(SliderItemsDom[0]);
         thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
+        // carouselDom.classList.add('next');
     } else {
         SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
         thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
