@@ -279,7 +279,7 @@
   }
 }
 
-/* Đối với mobile */
+  
 @media (max-width: 576px) {
   .container-header img.ladding {
       width: 100%;
