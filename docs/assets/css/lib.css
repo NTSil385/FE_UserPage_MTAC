@@ -16,7 +16,7 @@
 }
 
 .menu-header {
-  max-width: 1300px !important;
+  
   margin: auto;
   display: flex;
   align-items: center;
@@ -309,10 +309,9 @@ input:not(:placeholder-shown) ~ .reset {
 	border-radius: 10px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	display: flex;
-	max-width: 100%;
-	margin: 20px;
+	width: 100%;
+	margin: 20px 0px;
 	overflow: hidden;
-	width: 800px;
 }
 
 .course h6 {
@@ -348,7 +347,6 @@ input:not(:placeholder-shown) ~ .reset {
 .course-preview {
 	background-color: #fff;
 	color: #000;
-	max-width: 250px;
   border-left: 1px solid #ccc;
 }
 
@@ -372,6 +370,15 @@ input:not(:placeholder-shown) ~ .reset {
     left: 60%;
     transform: translateX(-50%);
   }
+
+  .tools-header {
+    padding: 20px 0px;
+    margin-left: 0 !important;
+    max-width: 1000px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 }
 
 @media (max-width: 768px) {

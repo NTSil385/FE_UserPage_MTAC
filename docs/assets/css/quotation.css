@@ -399,6 +399,10 @@ body {
       color: #fff;
   }
 
+  .button:hover {
+     background: var(--primary-color);
+     color: #fff;
+  }
   .popup-form {
       margin: 0;
       padding: 10px;
