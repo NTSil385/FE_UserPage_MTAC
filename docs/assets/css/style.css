@@ -874,7 +874,7 @@ h2 {
   .thumbnail {
     position: absolute;
     bottom: 45%;
-    left: 51%;
+    left: 51% !important;
     width: max-content;
     z-index: 100;
     display: flex;
