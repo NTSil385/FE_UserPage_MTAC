@@ -245,7 +245,7 @@
   }
   }
   
-  @media screen and (max-width: 912px){
+  @media screen and (max-width: 991px){
     .ag-timeline-card_point {
       height: 30px;
       line-height: 50px;
@@ -316,8 +316,65 @@
   }
   
   }
+
+    
+  @media screen and (max-width: 500px){
+    .js-ag-active.ag-timeline_item:nth-child(2n +1) .ag-timeline-card_item,
+    .js-ag-active.ag-timeline_item:nth-child(2n) .ag-timeline-card_item {
+      width: 50% !important;
+      background-color: #fff;
+      opacity: 1;
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      transform: translateX(0);
+    }
+    
+    .ag-timeline-card_point {
+      height: 30px;
+      line-height: 50px;
+      width: 30px;
+      border: 3px solid var(--primary-color);
+      background-color: #ccc;
+      font-size: 20px;
+      color: #fff;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      position: relative;
+      left: -26px !important;
+  }
   
-  @media screen and (max-width: 450px){
+  
+  .card-project--gallery {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: -70px;
+  }
+  
+  .img-fluid {
+    display: none !important;
+  }
+  
+  .col-sm-5 {
+    flex: 0 0 auto;
+    position: relative;
+    left: 0;
+   
+  }
+
+  .col-sm-4 {
+    display: none;
+  }
+  
+  }
+  
+  
+
+  
+  @media screen and (max-width: 420px){
     .js-ag-active.ag-timeline_item:nth-child(2n +1) .ag-timeline-card_item,
     .js-ag-active.ag-timeline_item:nth-child(2n) .ag-timeline-card_item {
       width: 50% !important;
