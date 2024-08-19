@@ -862,7 +862,7 @@ h2 {
 
 
 
-@media screen and (max-width: 1680px) {
+@media screen and (min-width: 1680px) {
 
   .carousel-id .list .item {
     inset: 0 0 0 0;
