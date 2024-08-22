@@ -642,7 +642,7 @@ h2 {
 .thumbnail {
   position: absolute;
   bottom: 45%;
-  left: 61%;
+  left: 52%;
   width: max-content;
   z-index: 100;
   display: flex;
@@ -1066,7 +1066,7 @@ h2 {
 
 .side-content {
   padding: 15px 15px 15px 0px;
-  height: 985px;
+  height: 900px;
   overflow: auto;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
