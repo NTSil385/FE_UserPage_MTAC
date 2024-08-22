@@ -119,10 +119,6 @@ function closeFormCTCK_2000() {
     document.body.classList.remove("no-scroll");
 }
 
-function handleFormSubmit(event) {
-    event.preventDefault(); // Ngăn form submit mặc định
-    document.getElementById('result-column').classList.remove('hidden'); // Hiển thị cột kết quả
-}
 
 
 
