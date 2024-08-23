@@ -7,6 +7,8 @@
     border-spacing: 0;
     width: 100%;
     font-size: 18px;
+    table-layout: fixed
+;
 }
 
 #myTable th {
@@ -20,28 +22,35 @@
     border: 1px solid #ccc;
 }
 
-#myTable th:nth-child(2),
-#myTable td:nth-child(2),
-#myTable th:nth-child(4),
-#myTable td:nth-child(4),
-#myTable th:nth-child(6),
-#myTable td:nth-child(6),
-#myTable th:nth-child(7),
-#myTable td:nth-child(7) {
-    width: 150px;
-    max-width: 250px;
+#myTable th:nth-child(1), #myTable td:nth-child(1) {
+    width:5%;
+    max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-#myTable tr {
-    border-bottom: 1px solid #ddd;
+  #myTable th:nth-child(2), #myTable td:nth-child(2) {
+    width: 10%;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-#myTable tr.header,
-#myTable tr:hover {
-    background-color: #f1f1f1;
+#myTable th:nth-child(3), #myTable td:nth-child(3) {
+  width: 20%;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#myTable th:nth-child(4), #myTable td:nth-child(4) {
+    width: 10%;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -94,6 +103,7 @@
     font-weight: 500;
     border-radius: 10px;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-infomation:hover{

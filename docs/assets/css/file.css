@@ -1,0 +1,26 @@
+
+#myTable {
+    border-collapse: collapse; 
+    width: 100%;
+    font-size: 18px; 
+  }
+  
+  #myTable th, #myTable td {
+    text-align: left; 
+    padding: 12px;
+   
+  }
+  #myTable th:nth-child(1), #myTable td:nth-child(1) {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  #myTable th:nth-child(2), #myTable td:nth-child(2) {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

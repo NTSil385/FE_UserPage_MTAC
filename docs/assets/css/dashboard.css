@@ -311,33 +311,6 @@
   fill: var(--primary-color);
 }
 
-
-  @media screen and (max-width: 400px){
-    .sidebar{
-      width: 240px;
-    }
-    .sidebar.close{
-      width: 78px;
-    }
-    .sidebar .profile-details{
-      width: 240px;
-    }
-    .sidebar.close .profile-details{
-      background: none;
-    }
-    .sidebar.close .profile-details{
-      width: 78px;
-    }
-    .home-section{
-      left: 240px;
-      width: calc(100% - 240px);
-    }
-    .sidebar.close ~ .home-section{
-      left: 78px;
-      width: calc(100% - 78px);
-    }
-  }
-
   .header-page {
     font-size: var(--cal-text);
     font-weight: 500;
@@ -345,13 +318,40 @@
 
   .content-01 {
     border-right: 2px solid #ccc;
-    margin: 25px 50px ;
-  }
+    margin: 20px 10px !important;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  width: 100% !important;
+  padding-top: 10px;
+  padding-left: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   
-  .content-02 {
-    margin: 25px 50px ;
-  }
-  
+}
+.btn-filter{
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.filter-header svg {
+  width: 20px;
+  height: 20px;
+  font-weight: 500;
+}
+
+
+
+.content-02 {
+    margin: 20px 10px !important;
+}
   .row-content {
     display: flex;
     align-items: center;
@@ -379,25 +379,38 @@
   }
   
   .header-lable {
-    min-width: 150px;
+    min-width: 100px;
     height: 50px;
     color: var(--primary-color);
     font-weight: 500;
-  } 
-  
-  .text-content {
-    min-width: 300px;
+}
+
+.text-content {
+    min-width: 150px;
     height: 50px;
     float: left;
     font-weight: 400;
     color: #000;
-  }
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
 
   .lable-status {
     font-size: 12px;
     margin-top: 10px;
     display: flex;
     align-items: center;
+  }
+
+  .status-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
   }
 
   .status-color{
@@ -451,3 +464,79 @@
 .text-expires {
   color:  #EB2027;
 }
+
+.lable-status--doc {
+  padding: 5px;
+  background-color:#B3DFFF;
+  border-radius: 20px;
+  margin-top: -2px;
+}
+
+.doc {
+  background-color: #086DB5;
+}
+
+.text-doc {
+  color:  #086DB5;
+}
+
+.lable-status--contract {
+  padding: 5px;
+  background-color:#FCE9D4;
+  border-radius: 20px;
+  margin-top: -2px;
+}
+
+.contract {
+  background-color: #BA4B14;
+}
+
+.text-contract {
+  color:  #BA4B14;
+}
+
+
+.lable-status--deft {
+  padding: 5px;
+  background-color:#D4CCFF;
+  border-radius: 20px;
+  margin-top: -2px;
+}
+
+.deft {
+  background-color: #62598F;
+}
+
+.text-deft {
+  color:  #62598F;
+}
+
+
+
+@media screen and (max-width: 400px){
+  .sidebar{
+    width: 240px;
+  }
+  .sidebar.close{
+    width: 78px;
+  }
+  .sidebar .profile-details{
+    width: 240px;
+  }
+  .sidebar.close .profile-details{
+    background: none;
+  }
+  .sidebar.close .profile-details{
+    width: 78px;
+  }
+  .home-section{
+    left: 240px;
+    width: calc(100% - 240px);
+  }
+  .sidebar.close ~ .home-section{
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+}
+
+

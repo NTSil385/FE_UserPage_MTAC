@@ -1,0 +1,102 @@
+:root {
+    --primary-color: #086db5;
+}
+
+.accordion-parent .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion-parent .accordion-item button[aria-expanded='true'] {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.accordion-parent button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.accordion-parent button:hover,
+.accordion-parent button:focus {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.accordion-parent button:hover::after,
+.accordion-parent button:focus::after {
+  cursor: pointer;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.accordion-parent button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+
+.accordion-parent button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+
+.accordion-parent button .icon::before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion-parent button .icon::after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+.accordion-parent button[aria-expanded='true'] {
+  color: var(--primary-color);
+}
+.accordion-parent button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+.accordion-parent button[aria-expanded='true'] + .accordion-content {
+  opacity: 1;
+  max-height: max-content;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion-parent .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion-parent .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2em 0;
+}
+
+
+

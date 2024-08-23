@@ -1,0 +1,83 @@
+.header-combo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.combo-01 {
+    display: flex;
+    align-items: center;
+}
+
+
+.hashtag svg {
+    width: 15px;
+    height: 15px;
+    fill:  #00000099;
+}
+
+.hashtag {
+    font-size: 12px;
+    background-color: #ccc;
+    padding: 5px ;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+.combo-02 {
+    width: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+.combo-02 svg {
+   
+    width: 15px;
+    height: 15px;
+    fill:  #00000099;
+}
+
+.title-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-01 {
+    display: flex;
+    align-items: center;
+}
+
+.avt {
+    border-radius: 50%;
+}
+
+.mail-name {
+    display: inline-flex;
+    margin: 0 10px;
+}
+
+.name {
+    margin-right: 10px;
+}
+
+.info-02 {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info-datetime {
+    display: flex;
+    align-items: center;
+}
+
+.mail-header--content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content {
+    font-weight: 500;
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Công Ty Môi Trường Á Châu | UserPage </title>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/logo-nhan-dien MTAC - 20.05.2022.png" />
+
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/contract-detail.css">
+
+  <!-- Boxiocns CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+    integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <!-- MAIN NAV -->
+  <nav style="position: relative; z-index: 11;">
+
+    <div class="menu">
+      <div class="nav-content ">
+      </div>
+      <div class="btn-user">
+
+        <div class="combo-text" onclick="showPopup()">
+          <div class="text-say">Chào buổi sáng !</div>
+          <div class="user-name">USERNAME</div>
+        </div>
+        <div class="btn-avatar">
+          <img src="../../assets/img/test.jpg" width="50px" height="50px" style="border-radius: 50%; margin: 0 10px;"
+            alt="" srcset="">
+        </div>
+      </div>
+
+    </div>
+
+    </a>
+
+  </nav>
+  <div class="sidebar">
+
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i style="margin: 0 1px;" class='bx bx-home'></i>
+          <span class="link_name">Home</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="../dasboard.html">Home</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <img style="margin: 0 25px;" height="30px" width="30px" src="../../assets/icon/hd_side.png" alt="" srcset="">
+            <span class="link_name">Hợp đồng</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Hợp đồng</a></li>
+          <li><a href="./contract-stv.html">Còn hiệu lực</a></li>
+          <li><a href="./contract-expires.html">Đã hết hạn</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </li>
+      <li style="margin-top: 10px;">
+        <div class="iocn-link">
+          <a href="#">
+            <img style="margin: 0 25px;" height="30px" width="30px" src="../../assets/icon/thanhtoan_side.png" alt=""
+              srcset="">
+            <span class="link_name">Thanh toán</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Thanh toán</a></li>
+          <li><a href="#">Đã thanh toán</a></li>
+          <li><a href="#">Chưa thanh toán</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </li>
+
+      <li style=" padding: 10px 0">
+        <a href="#">
+          <img style="margin: 0 25px;" height="30px" width="30px" src="../../assets/icon/thugom_side.png" alt="" srcset="">
+          <span class="link_name">Thu gom</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Thu gom</a></li>
+        </ul>
+      </li>
+
+      <li>
+      <li class="profile-details">
+        <div class="iocn-link">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M256 48C141.1 48 48 141.1 48 256l0 40c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-40C0 114.6 114.6 0 256 0S512 114.6 512 256l0 144.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24l-32 0c-26.5 0-48-21.5-48-48s21.5-48 48-48l32 0c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40L464 256c0-114.9-93.1-208-208-208zM144 208l16 0c17.7 0 32 14.3 32 32l0 112c0 17.7-14.3 32-32 32l-16 0c-35.3 0-64-28.7-64-64l0-48c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64l0 48c0 35.3-28.7 64-64 64l-16 0c-17.7 0-32-14.3-32-32l0-112c0-17.7 14.3-32 32-32l16 0z" />
+            </svg>
+            <span class="link_name">Yêu cầu hỗ trợ</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Yêu cầu hỗ trợ</a></li>
+          <li><a href="#">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Gửi yêu cầu hỗ trợ</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+        <li class="profile-details">
+          <div class="iocn-link">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+              </svg>
+              <span class="link_name">Cá nhân</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Cá nhân</a></li>
+            </ul>
+          </div>
+        </li>
+       
+        <li class="profile-details">
+          <div  class="iocn-link">
+            <a href="#">
+              <svg fill="#c71e1e" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+              </svg>
+              <span style="color:#c71e1e" class="link_name">Đăng xuất</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Đăng xuất</a></li>
+            </ul>
+          </div>
+  
+        </li>
+      </li>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu'></i>
+        <div class="header-page">
+            Khối lượng thu gom
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px; border-bottom: 2px solid #ccc;">
+        <div class="col-md-6">
+            <div class="content-02"style="border-right: 2px solid #ccc;">
+                <div class="header-content--02" >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+                    <div class="header-02">Thông tin</div>
+                </div>
+              <div class="row-content">
+                  <div class="header-lable">Hợp đồng số:</div>
+                  <div class="text-content">631_2022.HDCT.MTAC</div>
+              </div>
+              <div class="row-content">
+                  <div class="header-lable">Nội dung thực hiện: </div>
+                  <div class="text-content">Cung cấp giải pháp vận chuyển và xử lý chất thải nguy hại</div>
+              </div>
+          
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="content-02">
+                <div class="header-content--02" style="margin-top: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 256 256" id="Flat">
+                        <path d="M231.99951,208a8.00039,8.00039,0,0,1-8,8h-192a8.00039,8.00039,0,0,1-8-8V48a8,8,0,0,1,16,0V156.68848l50.3457-50.34571a8.00122,8.00122,0,0,1,11.31446,0l26.34277,26.34375L176.68848,84,162.34521,69.65674A8.00038,8.00038,0,0,1,168.00244,56h40a8.00039,8.00039,0,0,1,8,8v40a8.00018,8.00018,0,0,1-13.65723,5.65674L188.00244,95.314l-54.34277,54.34327a8.00122,8.00122,0,0,1-11.31446,0L96.00244,123.31348l-56.00293,56.0039V200h184A8.00039,8.00039,0,0,1,231.99951,208Z"/>
+                      </svg>
+                    <div class="header-02">Tiến độ thực hiện</div>
+                </div>
+              <div class="row-content">
+                  <div class="header-lable">Số chuyến đã gom:</div>
+                  <div class="text-content"></div>
+              </div>
+              <div class="row-content">
+                  <div class="header-lable" style="width: 200px;">Tổng khối lượng gom: </div>
+                  <div class="text-content"></div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px ;">
+        <div class="content-02">
+            <div class="row-address">
+                <div class="header-content--02">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M384 192c0 87.4-117 243-168.3 307.2c-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192C0 86 86 0 192 0S384 86 384 192z"/></svg>
+                    <div class="header-02">Địa chỉ thực hiện</div>
+                </div>
+                <div class="address">Tất cả các chi nhánh thu gom</div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style=" border-top: 2px solid #ccc;">
+        <div class="col-md-12">
+            <div class="content-02">
+                <div class="row-address">
+                    <div class="header-content--02">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M40 48C26.7 48 16 58.7 16 72l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L40 48zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM16 232l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0z"/></svg>
+                        <div class="header-02">Danh sách chất thải</div>
+                    </div>
+                    
+                </div>
+            </div>
+           <div class="row" style="height: 400px; padding:0px 50px;">
+            <div class="table-responsive-sm"> 
+                <table class="table table-bordered" >
+                    <tr class="header"> 
+                        <th>Tên chất thải</th>
+                        <th>Mã chất thải</th>
+                        <th>Tổng khối lượng chất thải đã gom</th> 
+                    </tr>
+                    <tr>
+                        <td>Hộp mực in thải có các thành phần nguy hại</td>
+                        <td>08 02 04</td>
+                        <td>1kg</td>
+                    </tr>
+                    <tr>
+                        <td>Hộp mực in thải có các thành phần nguy hại</td>
+                        <td>08 02 04</td>
+                        <td>1kg</td>
+                    </tr>
+                    <tr>
+                        <td>Hộp mực in thải có các thành phần nguy hại</td>
+                        <td>08 02 04</td>
+                        <td>1kg</td>
+                    </tr>
+                    <tr>
+                        <td>Hộp mực in thải có các thành phần nguy hại</td>
+                        <td>08 02 04</td>
+                        <td>1kg</td>
+                    </tr>
+                    <tr>
+                        <td>Hộp mực in thải có các thành phần nguy hại</td>
+                        <td>08 02 04</td>
+                        <td>1kg</td>
+                    </tr>
+                  
+                  
+                </table>
+            </div>
+           </div>
+        </div>
+         
+            
+    </div>
+  </section>
+
+  <script src="../../assets/js/sidebar.js"></script>
+
+</body>
+
+</html>

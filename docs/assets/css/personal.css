@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+a {
+    text-decoration: none !important;
+}
+.header-combo {
+    display: flex;
+    align-items: center;
+    padding:0  0  30px 0px ;
+}
+
+.personal-info {
+    margin: 0 20px;
+}
+
+.header-nav--menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-menu--item {
+  padding: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #333; 
+  border-bottom: 2px solid transparent; 
+  transition: all 0.3s ease;
+}
+
+.nav-menu--item.active {
+  border-bottom: 2px solid #006db5; 
+  color: #006db5;
+}
+.filter-combo {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+
+.side-content {
+    padding: 15px 15px 15px 0px;
+    height: 985px;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+  }
+  
+  .side-content::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+  
+  .content-item {
+    display: flex;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+
+    padding: 10px;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+  
+  .content-item .img-box {
+    flex: 0 0 100px;
+    margin-right: 10px;
+  }
+  
+  .content-item .img-box img {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 8px;
+  }
+  
+  .content-item .detail-content {
+    flex: 1;
+  }
+  
+  .content-item .detail-content h5 {
+    margin: 0 0 5px 0;
+    color: #000;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+  }
+  .content-item .detail-content p {
+
+    color: #000;
+  }
+  
+  
+  .content-item .detail-content p {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+  }
+  
+  .blog_section .heading_container {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .btn-rate {
+    display: flex ;
+  }
+  
+  .datetime-cmt {
+    height: 60%;
+  }
+
+  .date-time {
+    color:  #ccc;
+  }
+
+
+  .des-cmt {
+    color: #000;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+  }
+
+  
+  .form-group {
+    padding: 20px;
+  }
+
+  .header-form {
+    text-align: center;
+    font-size: 23px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;  
+  }
+
+  .row-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-title {
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    
+  }
+
+  .form-field {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    color: var(--input-color);
+    border: 1px solid #E4E7EB;
+    background: #F7F7F7;
+    transition: border 0.3s ease;
+ }
+  .form-field::placeholder {
+    color: #CBD1DC;
+ }
+  .form-field:focus {
+    outline: none;
+    border-color: var(--input-border-focus);
+ }
+
+ .btn-submit {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+ }
+
+ .submit {
+  padding: 10px 30px;
+  border-radius: 8px;
+  background: #086DB5;
+  border: none !important;
+  color: #fff;
+ }
+
+
+
+.form-select-container > select {
+  visibility: hidden;
+  position: absolute;
+}
+
+.form-select-container > .form-selected {
+  border: 1px solid #E4E7EB;
+  background: #F7F7F7;
+  border-radius: 8px;
+  position: relative;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-select-container.active > .form-selected {
+  border-color: transparent;
+}
+
+.form-select-container > .form-selected > .form-option-placeholder {
+  padding: 8px 16px;
+  position: relative;
+  cursor: pointer;
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1) 120ms;
+}
+
+.form-select-container > .form-selected > .form-option-placeholder::after {
+  content: "";
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  border-bottom: 3px solid #CCC;
+  border-left: 3px solid #CCC;
+  transform: rotate(-45deg) translateY(-100%);
+}
+
+.form-select-container.active > .form-selected > .form-option-placeholder {
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-select-container > .form-selected > .form-option-wrapper {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 2px 1px 16px rgba(0, 0, 0, 0.15);
+  background-color: #FFF;
+  border-radius: 5px;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 180ms cubic-bezier(0.4, 0, 0.2, 1) 180ms;
+}
+
+.form-select-container.active > .form-selected > .form-option-wrapper {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.375s cubic-bezier(0.4, 0, 0.2, 1) 120ms, visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-placeholder-container > .form-option-placeholder, .form-select-container > .form-selected > .form-option-wrapper > .form-option-container > .form-option {
+  cursor: pointer;
+  transition: background-color 180ms ease-in-out;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-placeholder-container > .form-option-placeholder:hover, .form-select-container > .form-selected > .form-option-wrapper > .form-option-container > .form-option:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-placeholder-container {
+  border-bottom: 1px solid #E6E6E6;
+  padding: 5px;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-placeholder-container > .form-option-placeholder {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #AAA;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 180ms cubic-bezier(0.4, 0, 0.2, 1), padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-select-container.active > .form-selected > .form-option-wrapper > .form-option-container {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1) 120ms, padding-top 0.5s cubic-bezier(0.4, 0, 0.2, 1) 180ms, padding-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1) 180ms;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-container > .form-option {
+  padding: 1rem;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-container > .form-option.active {
+  background-color: #BBDEFB;
+}
+
+.form-select-container > .form-selected > .form-option-wrapper > .form-option-container > .form-option.active:hover {
+  background-color: #E3F2FD;
+}

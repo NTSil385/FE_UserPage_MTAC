@@ -22,11 +22,20 @@ img {
   height: auto;
 }
 
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /*=============== CARD ===============*/
 
 .card {
   position: relative;
-  width: 450px;
+  width: 100%;
   height: 450px;
   border-radius: 10px;
   text-align: center;
@@ -176,3 +185,261 @@ img {
   }
 }
 
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 430px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.175);;
+}
+
+.flip-card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  padding-top: 40px; /* Chỉnh lại khoảng cách để tránh bị che bởi nút close */
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+label {
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+
+textarea {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.give-star {
+  border: 1px solid #ccc ;
+  padding: 10px;
+  border-radius: 10px !important;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: white;
+}
+
+.give-star:hover {
+  background-color: #ffc73a;
+  color: white;
+}
+
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 0.3rem;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 2rem;
+  height: 2rem;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+  transition: 0s;
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+}
+
+
+/* CSS cho nút Close */
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px; 
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#close-btn i {
+  color: #333 !important;
+}
+
+
+
+/* Phong cách ban đầu của textarea và placeholder-text */
+.textarea-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  padding: 20px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  box-sizing: border-box;
+  outline: none;
+  background: transparent; 
+  transition: border-color 0.3s ease; 
+}
+
+/* Placeholder text */
+.placeholder-text {
+  position: absolute;
+  top: 20px; 
+  left: 10px;
+  background-color: #fff; 
+  padding: 0 5px;
+  font-size: 14px;
+  color: #999;
+  transition: all 0.3s ease; 
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+
+textarea:hover + .placeholder-text,
+textarea:focus + .placeholder-text,
+textarea:not(:placeholder-shown) + .placeholder-text {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+
+textarea:valid + .placeholder-text {
+  top: -10px; 
+  left: 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.row-lable {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.des {
+  margin-left: 20px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+#form1 {
+  padding: 50px;
+}
+
+.tag {
+  font-weight: 500;
+}

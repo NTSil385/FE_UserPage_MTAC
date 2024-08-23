@@ -2,7 +2,7 @@
     background-image: url('/css/searchicon.png');
     background-position: 10px 12px; 
     background-repeat: no-repeat; 
-    width: 90%; 
+    width: 70%; 
     font-size: 16px; 
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd; 
@@ -23,16 +23,18 @@
     padding: 12px;
    
   }
+
   #myTable th:nth-child(1), #myTable td:nth-child(1) {
     width: 20%;
-    max-width: 250px;
+    max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
   #myTable th:nth-child(2), #myTable td:nth-child(2) {
-    width: 20%;
-    max-width: 250px;
+    width: 10%;
+    max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -40,38 +42,35 @@
 
 #myTable th:nth-child(3), #myTable td:nth-child(3) {
   width: 10%;
-  max-width: 250px;
+  max-width: 150px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
 #myTable th:nth-child(4), #myTable td:nth-child(4) {
-    max-width: 15%;
+    width: 12%;
+    max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+
 #myTable th:nth-child(5), #myTable td:nth-child(5) {
-  width: 10%;
-  max-width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
-
-#myTable th:nth-child(6), #myTable td:nth-child(6) {
-    width: 10%;
+    width: 28%;
     max-width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+#myTable th:nth-child(6), #myTable td:nth-child(6) {
+  width: 15%;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #myTable th:nth-child(7), #myTable td:nth-child(7) {
     width: 15%;
     max-width: 250px;
@@ -91,3 +90,14 @@
     background-color: #f1f1f1;
   }
   
+
+  .btn-search {
+    width: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-search svg {
+    font-size: 18px;
+     margin-right: 10px
+  }

@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root {
+    --primary-color: #006db5;
+}
+
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  color: #333;
+  height: 100vh;
+}
+.select {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    transition: 300ms;
+    color: white;
+    overflow: hidden;
+  
+  }
+  
+  .selected {
+    background-color: #fff;
+    padding: 5px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 14;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+    color: #000;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    height: 45px;
+    padding: 12px 10px 10px 10px;
+    
+  }
+  
+  .arrow {
+    position: relative;
+    right: 0px;
+    height: 10px;
+    transform: rotate(-90deg);
+    width: 25px;
+    fill: #000;
+    z-index: 100000;
+    transition: 300ms;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    top: -100px;
+    opacity: 0;
+    transition: 300ms;
+    border: 1px solid #ccc;
+    z-index: 9;
+  }
+  
+  .select:hover > .options {
+    opacity: 1;
+    top: 0;
+  }
+  
+  .select:hover > .selected .arrow {
+    transform: rotate(0deg);
+  }
+  
+  .option {
+    border-radius: 5px;
+    padding: 5px;
+    transition: 300ms;
+    background-color: #fff;
+    color: #000;
+    width: 150px;
+    font-size: 15px;
+    z-index: 10;
+  }
+  .option:hover {
+    background-color: #ccc;
+  }
+  
+  .options input[type="radio"] {
+    display: none;
+  }
+  
+  .options label {
+    display: inline-block;
+  }
+  .options label::before {
+    content: attr(data-txt);
+  }
+  
+  .options input[type="radio"]:checked + label {
+    display: none;
+  }
+  
+  .options input[type="radio"]#all:checked + label {
+    display: none;
+  }
+  
+  .select:has(.options input[type="radio"]#all:checked) .selected::before {
+    content: attr(data-default);
+  }
+  .select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+    content: attr(data-one);
+  }
+  .select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+    content: attr(data-two);
+  }
+  .select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+    content: attr(data-three);
+  }
+  
+  *, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out, margin 0.3s ease;
+    -webkit-transition: all 0.3s ease-in-out, margin 0.3s ease;
+}
+
+/* RESET FORM ELEMENTS */
+.input-container input[type="date"],
+.input-container input[type="text"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* INPUT CONTAINER  */
+.input-container {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  min-width: 217px;
+  height: 45px;
+  padding: 12px 10px 10px 10px;
+  background: #fff;
+  border-radius: 8px;
+  filter: drop-shadow(0px 0px 3px #000);
+  -webkit-filter: drop-shadow(0px 0px 3px #000);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+
+.input-container input {
+  position: relative;
+  align-items: center;
+  width: auto;
+  height: auto;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.05em;
+  line-height: 21px;
+  text-transform: uppercase;
+  margin-left: 0px;
+}
+
+
+.button-container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 197px;
+  height: 50px;
+  padding: 1px;
+  padding-bottom: 2px;
+  background: var(--primary-color);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor:pointer;
+  margin-top: 30px;
+}
+
+
+.button-container .button {
+  position: relative;
+  width: 100%;
+  min-height: 50px;
+  height:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: #fff;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.button-container .button.ok {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.reservation-box {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  height: auto;
+  padding:20px;
+  border-radius: 7px;
+  background-color: rgba(255,255,255,1);
+  
+}
+.reservation-box .static {
+  position:relative;
+  float:left;
+  width: 100%;
+  margin-right: 20px;
+}
+.reservation-box .flex {
+  position:relative;
+  display: flex;
+  float:left;
+  flex-direction: table;
+  align-items: center;
+  gap:20px;
+  width:auto;
+}
+.reservation-box .top {
+  display: flex;
+  flex-direction: table;
+}
+.reservation-box .bottom {
+  position:relative;
+  width: 100%;
+  text-align: right; 
+}
+ 
+.reservation-box .info {
+  width: auto;
+  color: #000;
+  font-weight:500;
+  text-decoration: none;
+  text-align: right;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.reservation-box .info:hover,
+.reservation-box .info:focus,
+.reservation-box .info:active {
+  color: #000;
+  border-bottom: 2px solid #09f;
+}
+
+/* RESERVATION BOX SMALL */
+.reservation-box.small, .reservation-box.small .flex {
+  flex-direction: column;
+}
+.reservation-box.small .top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.reservation-box.small .static {
+  margin-right: 0px;
+} 
+.reservation-box.small .bottom {
+  text-align: center;
+}
+.reservation-box.small .button-container {min-width: 217px;}
+
+.btn-search {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-top: -70px;
+}
+.btn-search::before {
+    content: "";
+    position: relative;
+    
+    
+}
+
+.title {
+    color: #000;
+    margin-bottom: 10px
+}
+
+.des {
+    color: #666;
+    font-size: 20px;
+   margin: 20px 20px 20px 20px;
+}
+
+.wrapper {
+  width: 100%;
+  display: block;
+
+}
+
+.custom-select {
+			display: block;
+			width: 100%;
+			height: 45px;
+			font-size: 13px;
+			line-height: 1.1;
+			padding: 5px 20px;
+			color: #4D4E50;
+			border: 1.5px solid #000;
+			border-radius: 3px;
+			background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polyline points="10,50 70,110 130,50" style="fill:none;stroke:%238B8C8F;stroke-width:15;stroke-linecap:round"/></svg>') no-repeat right 15px center;
+			background-size: 10px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			cursor: pointer;
+
+			box-sizing: border-box;
+			display: block;
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: #007bff;
+}

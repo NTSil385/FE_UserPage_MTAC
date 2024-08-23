@@ -278,7 +278,7 @@
                 </div>
                 <span class="span">Quên mật khẩu?</span>
               </div>
-              <button class="button-submit">Đăng nhập</button>
+              <button class="button-submit" onclick="goDashboard()">Đăng nhập</button>
     
               <p class="p">Chưa có tài khoản?<span
                   style="cursor: pointer; font-size: 20px; font-weight: 500; margin-left: 5px;" class="login-link"
@@ -1581,10 +1581,13 @@
     ScrollReveal().reveal('.header-title', { delay: 100, origin: 'left ' });
     ScrollReveal().reveal('.show');
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script>
+    function goDashboard() {
+      window.location.href = "./userPage/dasboard.html";
+    }
+  </script>
 </body>
 
 
