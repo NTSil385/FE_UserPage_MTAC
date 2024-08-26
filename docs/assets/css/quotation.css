@@ -43,7 +43,7 @@ body {
   border: none;
   margin: 0 !important;
   position: relative;
-  width: 20% !important; 
+  width: 40% !important; 
   padding: 0;
 }
 
@@ -75,7 +75,8 @@ body {
   position: absolute;
   left: 52%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 100%;
+  max-width: 250px;
   font-size: 14px;
 }
 
@@ -225,13 +226,19 @@ body {
 
 .popup-content--quotation {
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 0% auto; 
   padding: 20px;
   border: 1px solid #888;
   width: 100%;
   max-width: 100%;
   border-radius: 10px;
   padding: 50px;
+}
+
+.scroll-box {
+  overflow: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
 }
 
 .close {
@@ -249,10 +256,35 @@ body {
 }
 
 .header-form {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 500;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.header-form p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #888;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.col-md-7 {
+  max-height: 500px;
+  overflow: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.col-md-7::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
 }
 
 .popup-form {
@@ -261,24 +293,28 @@ body {
   flex-direction: column;
   gap: 10px;
   background-color: #ffffff;
+
 }
+
 
 ::placeholder {
   font-family: "Roboto", sans-serif;
 }
 
 .popup-form button {
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .flex-column {
   padding: 5px 0px;
 }
-
+.col-md-7 .inputForm{
+  max-width: 60%;
+} 
 .inputForm {
   border: 2px solid #726c6c;
   border-radius: 10px;
-  height: 50px;
+  height: 45px;
   display: flex;
   align-items: center;
   padding-left: 10px;
@@ -422,7 +458,7 @@ body {
 @media (max-width: 1024px) {
   .carousel-indicators {
       width: 100% !important;
-      margin-left: -60px !important;
+      margin-left: -20px !important;
   }
 
   .carousel-indicators button {

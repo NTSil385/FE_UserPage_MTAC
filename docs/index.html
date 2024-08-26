@@ -334,15 +334,20 @@
           <div class="popup-content--quotation">
             <span class="close" onclick="closeFormXLCHT600()">&times;</span>
               <div class="row">
-                  <div class="col-md-5">
+                <div class="header-form" style="color:#000">
+                  Bạn đang chọn gói: Xử lý chất thải nguy hại nhỏ bằng 600KG/Năm
+                  <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+                </div>
+                  <div class="col-md-7" 
+                  style="max-height: 500px;
+                  overflow: auto;
+                    overflow: -moz-scrollbars-none;
+                    -ms-overflow-style: none;">
                     <form class="popup-form">
-                      <div class="header-form" style="color:#000">
-                        Xử lý chất thải nguy hại nhỏ bằng 600KG/Năm
-                      </div>
                       <div class="flex-column">
                         <label style="color:#000" for="dia-diem">Địa điểm phát sinh chất thải *</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input type="text" id="dia-diem" class="input" placeholder="Địa điểm phát sinh chất thải" required onfocus="showSuggestions(this)" onblur="hideSuggestions(this)">
                         <div class="suggestions" id="dia-diem-suggestions">
                           Trường này chỉ nơi tạo ra chất thải
@@ -351,7 +356,7 @@
                       <div class="flex-column">
                         <label style="color:#000" for="so-chuyen">Số chuyến vận chuyển trong 1 năm *</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input type="text" id="so-chuyen" class="input" placeholder="Nhập vào số chuyến vận chuyển trong 1 năm" required onfocus="showSuggestions(this)" onblur="hideSuggestions(this)">
                         <div class="suggestions" id="so-chuyen-suggestions">
                           Trường này chỉ số chuyến vận chuyển
@@ -360,7 +365,7 @@
                       <div class="flex-column">
                         <label style="color:#000" for="chat-thai-thong-thuong">Chất thải thông thường *</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input type="text" id="chat-thai-thong-thuong" class="input" placeholder="Nhập theo khối lượng (kg)" required onfocus="showSuggestions(this)" onblur="hideSuggestions(this)">
                         <div class="suggestions" id="chat-thai-thong-thuong-suggestions">
                           Trường này chỉ khối lượng chất thải thông thường
@@ -369,7 +374,7 @@
                       <div class="flex-column">
                         <label style="color:#000" for="chat-thai-bong-den">Chất thải bóng đèn (nếu có)</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input type="text" id="chat-thai-bong-den" class="input" placeholder="Nhập theo khối lượng (kg)" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)">
                         <div class="suggestions" id="chat-thai-bong-den-suggestions">
                           Trường này chỉ khối lượng chất thải bóng đèn
@@ -378,7 +383,7 @@
                       <div class="flex-column">
                         <label style="color:#000" for="chat-thai-ma-13">Chất thải mã 13 (nếu có)</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input type="text" id="chat-thai-ma-13" class="input" placeholder="Nhập theo khối lượng (kg)" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)">
                         <div class="suggestions" id="chat-thai-ma-13-suggestions">
                           Chất thải từ nghành y tế và thú y (trừ chất thải sinh hoạt từ nghành này)
@@ -390,7 +395,7 @@
                       <div class="flex-column">
                         <label style="color:#000" for="chat-thai-ma-14">Chất thải mã 14 (nếu có)</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input type="text" id="chat-thai-ma-14" class="input" placeholder="Nhập theo khối lượng (kg)" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)">
                         <div class="suggestions" id="chat-thai-ma-14-suggestions">
                           Chất thải từ nghành nông nghiệp
@@ -401,10 +406,10 @@
                           Chất thải có dư lượng hóa chất trừ sâu và các loại gây hại (chuột, gián, muỗi…)
                         </div>
                       </div>
-                      <button class="button-submit">Tra cứu giá xử lý</button>
+                      <button style="max-width: 60%;" class="button-submit">Tra cứu giá xử lý</button>
                     </form>
                   </div>
-                  <div class="col-md-7"></div>
+                  <div class="col-md-5"></div>
               </div>
           </div>
         </div>
@@ -413,11 +418,12 @@
               <div class="popup-content--quotation">
                 <span class="close" onclick="closeFormXLCHT_600()">&times;</span>
                 <div class="row">
+                  <div class="header-form" style="color:#000">
+                    Bạn đang chọn gói: Xử lý chất thải nguy hại lớn hơn 600KG/Năm
+                    <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+                  </div>
                   <div class="col-md-5">
                   <form class="popup-form">
-                      <div class="header-form" style="color:#000">
-                        Xử lý chất thải nguy hại lớn hơn 600KG/Năm
-                      </div>
                       <div class="flex-column">
                        <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                       </div>
@@ -470,11 +476,12 @@
           <div class="popup-content--quotation">
             <span class="close" onclick="closeFormCTTMM2000()">&times;</span>
             <div class="row">
+              <div class="header-form" style="color:#000">
+                Bạn đang chọn gói: Xử lý chất ngành may mặc nhỏ hơn 200KG
+                <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+              </div>
                <div class="col-md-5">
               <form class="popup-form">
-                  <div class="header-form" style="color:#000">
-                    Xử lý chất ngành may mặc nhỏ hơn 200KG
-                  </div>
                   <div class="flex-column">
                    <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                   </div>
@@ -519,15 +526,16 @@
               <div class="popup-content--quotation">
                 <span class="close" onclick="closeFormCTTMM_2000()">&times;</span>
                 <div class="row">
+                  <div class="header-form" style="color:#000">
+                    Bạn đang chọn gói: Xử lý chất ngành may mặc lớn hơn 200KG
+                    <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+                  </div>
                   <div class="col-md-5">
                   <form class="popup-form">
-                      <div class="header-form" style="color:#000">
-                        Xử lý chất ngành may mặc lớn hơn 200KG
-                      </div>
                       <div class="flex-column">
                        <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                       </div>
-                      <div class="inputForm">
+                      <div class="inputForm--quotation">
                         <input id="dia-diem" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)" type="text" class="input" placeholder="Chọn địa chỉ" required>
                         <div class="suggestions" id="dia-diem-suggestions">
                           Trường này chỉ nơi tạo ra chất thải
@@ -537,7 +545,7 @@
                       <div class="flex-column">
                           <label style="color:#000" for="">Tần xuất vận chuyển trong 1 tháng *</label>
                       </div>
-                      <div class="inputForm">                      
+                      <div class="inputForm--quotation">                      
                         <input id="tan-xuat" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)" type="text" class="input" placeholder="Mời bạn nhập tần xuất " required>                 
                         <div class="suggestions" id="tan-xuat-suggestions">
                           Trường này số lần vận chuyển trên tháng
@@ -546,7 +554,7 @@
                       <div class="flex-column">
                           <label style="color:#000" for="">Tổng khối lượng chất thải trong 1 tháng *</label>
                       </div>
-                      <div class="inputForm">                      
+                      <div class="inputForm--quotation">                      
                         <input id="khoi-luong" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)" type="text" class="input" placeholder="Mời bạn chọn khối lượng (kg)" required>                 
                         <div class="suggestions" id="khoi-luong-suggestions">
                           Trường này chỉ tổng khối lượng chất thải phát sinh trong 1 tháng
@@ -568,15 +576,16 @@
         <div class="popup-content--quotation">
             <span class="close" onclick="closeFormGPMT()">&times;</span>
             <div class="row">
+              <div style="color:#000" class="header-form">
+                  Bạn đang chọn gói: Giấy phép môi trường
+                  <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+              </div>
                 <div class="col-md-5">
                     <form class="popup-form" onsubmit="handleFormSubmit(event)">
-                        <div style="color:#000" class="header-form">
-                            Giấy phép môi trường
-                        </div>
                         <div class="flex-column">
                             <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                         </div>
-                        <div class="inputForm">
+                        <div class="inputForm--quotation">
                             <input id="dia-diem" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)" type="text" class="input" placeholder="Chọn địa chỉ" required>
                             <div class="suggestions" id="dia-diem-suggestions">
                                 Trường này chỉ nơi tạo ra chất thải
@@ -585,7 +594,7 @@
                         <div class="flex-column">
                             <label style="color:#000"  for="">Cơ quan cấp hồ sơ</label>
                         </div>
-                        <div class="inputForm">
+                        <div class="inputForm--quotation">
                             <input id="co-quan" onfocus="showSuggestions(this)" onblur="hideSuggestions(this)" type="text" class="input" placeholder="Chọn cơ quan " required>
                             <div class="suggestions" id="co-quan-suggestions">
                                 Trường này chỉ nơi cấp giấy phép, hồ sơ
@@ -642,11 +651,12 @@
           <div class="popup-content--quotation">
             <span class="close" onclick="closeFormDGTD()">&times;</span>
             <div class="row">
+              <div class="header-form" style="color:#000">
+                Bạn đang chọn gói: Đánh giá tác động môi trường
+                <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+              </div>
               <div class="col-md-5">
               <form class="popup-form">
-                  <div class="header-form" style="color:#000">
-                    Đánh giá tác động môi trường
-                  </div>
                   <div class="flex-column">
                    <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                   </div>
@@ -681,11 +691,12 @@
           <div class="popup-content--quotation">
             <span class="close" onclick="closeFormBCCTBVMT2022()">&times;</span>
             <div class="row">
+              <div class="header-form" style="color:#000">
+                Bạn đang chọn gói: Báo cáo công tác bảo vệ môi trường 2022
+                <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+              </div>
                <div class="col-md-5">
               <form class="popup-form">
-                  <div class="header-form" style="color:#000">
-                    Báo cáo công tác bảo vệ môi trường 2022
-                  </div>
                   <div class="flex-column">
                    <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                   </div>
@@ -721,11 +732,12 @@
           <div class="popup-content--quotation">
             <span class="close" onclick="closeFormCTCK2000()">&times;</span>
               <div class="row">
+                <div class="header-form" style="color:#000">
+                  Bạn đang chọn gói: Xử lý chất thải Cồng Kềnh nhỏ hơn 2000KG
+                  <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+                </div>
                 <div class="col-md-5">
               <form class="popup-form">
-                  <div class="header-form" style="color:#000">
-                    Xử lý chất thải Cồng Kềnh nhỏ hơn 2000KG
-                  </div>
                   <div class="flex-column">
                    <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                   </div>
@@ -770,11 +782,12 @@
           <div class="popup-content--quotation">
             <span class="close" onclick="closeFormCTCK_2000()">&times;</span>
             <div class="row">
+              <div class="header-form" style="color:#000">
+                Bạn đang chọn gói: Xử lý chất thải Cồng Kềnh lớn hơn 2000KG
+                <div class="point"><p>Vui lòng thực hiện đầy đủ các bước * bên dưới để hoàn tất quá trình tra cứu giá</p></div>
+              </div>
                 <div class="col-md-5">
               <form class="popup-form">
-                  <div class="header-form" style="color:#000">
-                    Xử lý chất thải Cồng Kềnh lớn hơn 2000KG
-                  </div>
                   <div class="flex-column">
                    <label style="color:#000" for="">Địa điểm phát sinh chất thải *</label>
                   </div>
