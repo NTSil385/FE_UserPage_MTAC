@@ -119,7 +119,12 @@ function closeFormCTCK_2000() {
     document.body.classList.remove("no-scroll");
 }
 
-
+//Hiển thị kết quả khi submit
+function handleFormSubmit(event) {
+    event.preventDefault(); // Ngăn chặn form submit thật sự
+    document.getElementById("result-column").classList.remove("hidden"); // Hiển thị cột chứa kết quả
+}
+  
 
 
 // Thêm sự kiện cho các nút đóng popup của từng form
