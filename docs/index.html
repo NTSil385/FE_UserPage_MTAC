@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/base.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-
 
   <!-- JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -16,15 +14,11 @@
     integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
-
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="UTF-8">
@@ -36,70 +30,7 @@
 </head>
 
 <body>
-  <div class="container-content">
-    <!-- SUBNAV -->
-    <nav style="position: relative; z-index: 16; height: 35px;"
-      class="subnav navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid" style="background-color: #f8f9fa;">
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Tài khoản
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Cá nhân</a></li>
-                <li><a class="dropdown-item" href="#">Khách</a></li>
-
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Công cụ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Hỗ trợ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Liên hệ</a>
-            </li>
-
-
-          </ul>
-
-          <div class="combo-btn" style="display: flex; ">
-            <div class="search-box">
-              <i class='bx bx-search'></i>
-              <div class="input-box">
-                <input type="text" placeholder="Search...">
-              </div>
-            </div>
-            <div id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-language"></i>
-                  </a>
-                  <ul class="dropdown-menu" style="left: -96px;" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
-                    <li><a class="dropdown-item" href="#">Tiếng Anh</a></li>
-
-                  </ul>
-                </li>
-
-              </ul>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <div class="container-content"> 
     <!-- MAIN NAV -->
     <nav style="position: relative; z-index: 15;">
       <input type="checkbox" id="check">
@@ -117,8 +48,31 @@
 
         </div>
         <div class="btn-user">
+
           <div class="btn-login" onclick="showPopup()">ĐĂNG NHẬP</div>
           <div class="btn-login" onclick="showRegister()">ĐĂNG KÝ</div>
+          <div class="combo-btn" style="display: flex;align-items: center; margin: 0 10px;">
+            <div class="search-box" style="margin-right: 10px;">
+              <i class='bx bx-search'></i>
+            </div>
+            <div id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-language" style="color: #fff;"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
+                    <li><a class="dropdown-item" href="#">Tiếng Anh</a></li>
+
+                  </ul>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
         </div>
 
       </div>
@@ -923,10 +877,10 @@
     <div class="body">
       <div class="row">
         <div class="container-header">
-          <img class="ladding" width="100%" height="550px" src="./assets/img/landing.png" alt="hinh-anh-doi-tac">
+          <img class="ladding" width="100%" height="550px" src="https://via.placeholder.com/1475x500" alt="hinh-anh-doi-tac">
         </div>
       </div>
-      <div class="row" style="margin: 20px 0px;">
+      <div class="row" style="margin: 10px 0px;">
         <div class="tools">
           <a href="#" class="tools-item">
             <div class="tools-icon">
@@ -982,196 +936,25 @@
       </div>
 
       <div class="row" style="margin: 20px 0;">
-        <div class="carousel-id">
-          <div class="list">
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
-                  <img src="https://placehold.co/900x400?text=900x400 Slide 1">
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
-
-                  <div class="content">
-                    <div class="title">NỘI DUNG 1</div>
-                    <div class="des">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa dicta blanditiis velit minus nulla
-                      cupiditate eaque dolores delectus sequi, odio porro assumenda voluptatem vero error et atque
-                      necessitatibus pariatur laboriosam.
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, dicta assumenda labore eligendi quas
-                      quasi dolores unde dolorem tempora. Laboriosam, impedit pariatur. Mollitia nam magnam
-                      perspiciatis! Soluta veniam facere doloremque.
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur dolor assumenda ducimus,
-                      doloremque cumque qui praesentium eos sunt nihil vel itaque quibusdam laboriosam. Cumque officia
-                      repellat quisquam ducimus ea provident!
-                    </div>
-                    <div class="buttons">
-                      <button>SEE MORE</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item ">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-xl-6">
-                  <img src="https://placehold.co/900x400?text=900x400 Slide 2">
-                </div>
-                <div class="col-md-6 col-sm-6 col-xl-6">
-
-                  <div class="content">
-                    <div class="title">NỘI DUNG 2</div>
-                    <div class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
-                      placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
-                      ducimus aut doloribus non numquam.
-                    </div>
-                    <div class="buttons">
-                      <button>SEE MORE</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item ">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-xl-6">
-                  <img src="https://placehold.co/900x400?text=900x400 Slide 3">
-                </div>
-                <div class="col-md-6 col-sm-6 col-xl-6">
-
-                  <div class="content">
-                    <div class="title">NỘI DUNG 3</div>
-                    <div class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
-                      placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
-                      ducimus aut doloribus non numquam.
-                    </div>
-                    <div class="buttons">
-                      <button>SEE MORE</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item ">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-xl-6">
-                  <img src="https://placehold.co/900x400?text=900x400 Slide 4">
-                </div>
-                <div class="col-md-6 col-sm-6 col-xl-6">
-
-                  <div class="content">
-                    <div class="title">NỘI DUNG 4</div>
-                    <div class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima
-                      placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi
-                      ducimus aut doloribus non numquam.
-                    </div>
-                    <div class="buttons">
-                      <button>SEE MORE</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- list thumbnail -->
-
-          <div class="thumbnail">
-            <div class="item">
-              <img src="https://placehold.co/150x150?text=150x150 Slide 1">
-              <div class="content">
-
-              </div>
-            </div>
-            <div class="item">
-              <img src="https://placehold.co/150x150?text=150x150 Slide 2">
-              <div class="content">
-
-              </div>
-            </div>
-            <div class="item">
-              <img src="https://placehold.co/150x150?text=150x150 Slide 3">
-              <div class="content">
-
-              </div>
-            </div>
-            <div class="item">
-              <img src="https://placehold.co/150x150?text=150x150 Slide 4">
-              <div class="content">
-
-              </div>
-            </div>
-          </div>
-
-          <!-- next prev -->
-          <div class="arrows">
-            <button id="prev">
-              < </button>
-                <button id="next">></button>
-          </div>
-          <!-- time running -->
-          <div class="time"></div>
-        </div>
-      </div>
-
-      <div class="row" style="margin: 20px 0;">
-        <div class="header-title">TIN TỨC NỔI BẬT </div>
+        <div class="header-title">VIDEO HƯỚNG DẪN SỬ DỤNG ỨNG DỤNG </div>
       </div>
       <div class="row">
 
         <div class="container-content4">
-          <div class="col-md-7 col-sm-7 col-lg-7">
+          <div class="col-md-7 col-sm-7 col-lg-7" id="video-detail">
             <section class="blog_section" style="padding: 15px 0 0 0;">
               <div class="container">
                 <div class="row showblog">
                   <div class="col-md-12">
                     <div class="box">
                       <div class="img-box">
-                        <img style="border-radius: 8px;" src="https://placehold.co/1150x700" alt="">
+                        <iframe id="video-iframe" width="100%" height="500px" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                       </div>
-                      <div class="detail-box">
-                        <h5>Phần 4: Trách nhiệm xử lý đối với pin dùng một lần theo quy định EPR như thế nào?</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, similique sapiente
-                          excepturi nesciunt itaque aliquid nostrum quaerat. Odio maiores consequuntur corrupti
-                          delectus. Quis, cumque voluptatum! Pariatur reiciendis dolorum libero obcaecati.</p>
-                        <div class="btn-sub">
-
-                          <a class="btn-read" href="">
-                            Xem thêm
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </a>
-
-                          <div class="btn-cmt">
-                            <i class="fa-regular fa-comment"></i>
-                            10
-                          </div>
-                          <div class="btn-share">
-                            <i class="fa-solid fa-share"></i>
-                          </div>
-                        </div>
-
-                      </div>
-                      <div class="box-cmt">
-                        <div class="content-item-cmt">
-                          <div class="img-box">
-                            <img src="https://via.placeholder.com/80x80" alt="">
-                          </div>
-                          <div class="detail-content" style="color: #fff;">
-                            <h5>User id</h5>
-                            <p>Mô tả ngắn gọn về cảm nghĩ...</p>
-                          </div>
-                        </div>
-                        <div class="content-item-cmt">
-                          <div class="img-box">
-                            <img src="https://via.placeholder.com/80x80" alt="">
-                          </div>
-                          <div class="detail-content" style="color: #fff;">
-                            <h5>User id</h5>
-                            <p>Mô tả ngắn gọn về cảm nghĩ...</p>
-                          </div>
-                        </div>
-                      </div>
+                      <!-- <div class="detail-box">
+                        <h2 id="video-title">Chọn một video</h2>
+                        <p id="video-description">Mô tả video sẽ được hiển thị ở đây.</p>
+                      </div> -->
+                     
                     </div>
                   </div>
                 </div>
@@ -1181,239 +964,78 @@
 
           <div class="col-md-5 col-sm-5 col-lg-5">
             <div class="side-content">
-
-              <div class="sublayout-content">
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="content-item">
-                  <div class="img-box">
-                    <img src="https://via.placeholder.com/120x120" alt="">
-                  </div>
-                  <div class="detail-content">
-                    <h5>Tiêu đề bài viết</h5>
-                    <p>Mô tả ngắn gọn về nội dung bài viết...</p>
-                    <div class="btn-status">
-                      <div class="btn-fav">
-                        <i class="fa-regular fa-heart"></i>
-                      </div>
-                      <div class="btn-save">
-                        <i class="fa-regular fa-bookmark"></i>
-                      </div>
-                      <div class="btn-share-item">
-                        <i class="fa-solid fa-share"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-              </div>
+              <ul id="video-list" class="list-unstyled" >             
+                <li data-title="Video 2" data-video-id="-qmJ0mCtFkA " data-description="Mô tả ngắn về Video 2">
+                    <img src="https://img.youtube.com/vi/-qmJ0mCtFkA/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>Câu chuyện cuối tuần: Cậu bé và chiếc vỏ hộp sữa</p>
+                </li>
+                <li data-title="Video 3" data-video-id="DOOpWX0yshQ" data-description="Mô tả ngắn về Video 3">
+                    <img src="https://img.youtube.com/vi/DOOpWX0yshQ/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>Quận Gò Vấp tổ chức Ngày thứ Bảy Tái Chế lần 3, gần 2 tấn rác được thu hồi, tái chế!</p>
+                </li>
+                <li data-title="Video 3" data-video-id="t3Xm9NuM3Kg" data-description="Mô tả ngắn về Video 3">
+                    <img src="https://img.youtube.com/vi/t3Xm9NuM3Kg/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>"Quỳnh Lưu xanh 2024": Những mầm non thu gom, tái chế vỏ hộp sữa, bảo vệ môi trường từ học đường!</p>
+                </li>
+                <li data-title="Video 3" data-video-id="YP3YLFZDu3U" data-description="Mô tả ngắn về Video 3">
+                    <img src="https://img.youtube.com/vi/YP3YLFZDu3U/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>Câu chuyện cuối tuần| Giàu hay nghèo?</p>
+                </li>
+                <li data-title="Video 3" data-video-id="pLfcDWt4LRE" data-description="Mô tả ngắn về Video 3">
+                    <img src="https://img.youtube.com/vi/pLfcDWt4LRE/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>Câu chuyện cuối tuần| Nhát búa 10.000$: Vì sao phải trở thành chuyên gia trong chính lĩnh vực của mình?</p>
+                </li>
+                <li data-title="Video 3" data-video-id="TRSYyPDUgpY" data-description="Mô tả ngắn về Video 3">
+                    <img src="https://img.youtube.com/vi/TRSYyPDUgpY/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>Câu chuyện cuối tuần| Con cáo và chùm nho!</p>
+                </li>
+                <li data-title="Video 3" data-video-id="0JbEnCw4Rr8" data-description="Mô tả ngắn về Video 3">
+                    <img src="https://img.youtube.com/vi/0JbEnCw4Rr8/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                    <p>Câu chuyện cuối tuần | Ngôi nhà ốc sên</p>
+                </li>
+                <li data-title="Video 3" data-video-id="0XEuhh1H-xQ" data-description="Mô tả ngắn về Video 3">
+                  <img src="https://img.youtube.com/vi/0XEuhh1H-xQ/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                  <p>Cùng HTV Hành Động Xanh: Khi rác thải cũng là tài nguyên!</p>
+                </li>
+                <li data-title="Video 3" data-video-id="voiy2gNjHcw" data-description="Mô tả ngắn về Video 3">
+                <img src="https://img.youtube.com/vi/voiy2gNjHcw/hqdefault.jpg" alt="Thumbnail" class="img-thumb">
+                <p>Câu chuyện cuối tuần: Phép màu Giáng sinh từ bãi rác ?!</p>
+                </li>
+                
+            </ul>
 
             </div>
           </div>
         </div>
+        
+    <script>
+      $(document).ready(function() {
+          // Chức năng khi nhấn vào một item trong danh sách
+          $('#video-list li').click(function() {
+              // Lấy dữ liệu từ video được chọn
+              var title = $(this).data('title');
+              var videoId = $(this).data('video-id');
+              var description = $(this).data('description');
+
+              // Cập nhật nội dung của col-md-7 (video và mô tả)
+              $('#video-title').text(title);
+              $('#video-iframe').attr('src', 'https://www.youtube.com/embed/' + videoId);
+              $('#video-description').text(description);
+
+              // Thêm class 'active' vào item được chọn và loại bỏ khỏi các item khác
+              $('#video-list li').removeClass('active');
+              $(this).addClass('active');
+          });
+
+          // Tự động click vào item đầu tiên trong danh sách khi trang được tải
+          $('#video-list li').first().click();
+      });
+    </script>
         <section class="client_section layout_padding">
           <div class="container">
             <div class="heading_container">
               <div class="header-title">
-                NHẬN XÉT TỪ MỌI NGƯỜI
+                CỤM TÍNH NĂNG CỦA ỨNG DỤNG
               </div>
             </div>
             <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
@@ -1427,9 +1049,9 @@
                         </div>
                         <div class="detail-box">
                           <div class="name">
-                            <div class="header-title">
+                            <h6>
                               GUESS ID
-                            </div>
+                            </h6>
                           </div>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis repudiandae praesentium error
@@ -1506,15 +1128,17 @@
         </section>
       </div>
       <div class="row">
-        <div class="header-title">BẰNG KHEN</div>
+        <div class="header-title">TIN TỨC VỀ ỨNG DỤNG</div>
         <div class="container-third show" style="padding-bottom:20px ;">
           <div class="col-md-4 col-sm-4 col-lg-4 ">
             <div class="card-items mb-4">
               <a href="#" class="img-link">
-                <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 1">
+                <div class="card-img-container">
+                  <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 3">
+              </div>
               </a>
               <div class="card-body">
-                <h5 class="card-title">Citenco</h5>
+                <h3 class="card-title">Citenco</h3>
                 <p class="card-text">Công ty TNHH MTV Môi trường đô thị TP.HCM (CITENCO) là một doanh nghiệp công ích
                   trực thuộc UBND Thành phố Hồ Chí Minh. Với bề dày 45 năm kinh nghiệm</p>
               </div>
@@ -1523,10 +1147,12 @@
           <div class="col-md-4 col-sm-4 col-lg-4">
             <div class="card-items mb-4">
               <a href="#" class="img-link">
-                <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 2">
+                <div class="card-img-container">
+                  <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 3">
+              </div>
               </a>
               <div class="card-body">
-                <h5 class="card-title">TINSEE ECOCYCLE</h5>
+                <h3 class="card-title">TINSEE ECOCYCLE</h3>
                 <p class="card-text">INSEE Ecocycle là đơn vị thuộc tập đoàn Siam City Cement với hơn 15 năm kinh nghiệm
                   trong ngành quản lý chất thải, chuyên cung cấp các giải pháp xử lý chất</p>
 
@@ -1535,56 +1161,31 @@
           </div>
           <div class="col-md-4 col-sm-4 col-lg-4">
             <div class="card-items mb-4">
-              <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 3">
+              <a href="#" class="img-link">
+                <div class="card-img-container">
+                  <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Company 3">
+              </div>
+              </a>
               <div class="card-body">
-                <h5 class="card-title">Vicem Hà Tiên 1</h5>
+                <h3 class="card-title">Vicem Hà Tiên 1</h3>
                 <p class="card-text">Phát triển kinh tế, bảo vệ môi trường, cam kết xã hội là 3 trụ cột trong quan điểm
                   phát triển bền vững của Tổng công ty Xi măng Việt Nam (VICEM)</p>
-
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="container-third">
-          <div class="parallax"></div>
-          <div class="col-md-12" style="background-color: black;">
-            <div class="content-checkout">
-              <div class="text-title">
-                TRA CỨU GIÁ
-              </div>
-              <div class="text-content">
-                Chỉ 03 phút thao tác để nhận trực tiếp báo giá/hợp đồng - Công khai, tiết kiệm thời gian đơn giản hóa và
-                đáp ứng tối ưu nhu cầu đa dạng của Khách hàng về dịch vụ môi trường!
-              </div>
-              <div class="btn-search">
-                TRA CỨU ONLINE
-              </div>
-            </div>
-          </div>
-
-
-          <div class="parallax"></div>
-        </div>
-      </div>
-
     </div>
     <div class="footer">
       <div class="footer bg-light pt-4 mt-4">
         <div class="container">
           <div class="row">
-            <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="col-md-3 col-sm-3 col-lg-3">
               <h5>Customer Support</h5>
               <p>Hotline: 1900 54 54 50 (909 VND/min) - (+84)362851122 (Whatsapp, Viber)</p>
-              <h6>Our regional customer & partner services center in Vietnam:</h6>
-              <p>Northern Services Center: 033 8351122</p>
-              <p>Central Services Center: 0902 450585</p>
-              <p>HCMC – Eastern Services Center: 033 8351122</p>
-              <p>Southern Services Center: 0902 912586</p>
-              <p>Email: info@moitruongachau.com</p>
+              <h5>Security and privacy policy</h5>
             </div>
-            <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="col-md-3 col-sm-3 col-lg-3">
               <h5>Visit us</h5>
               <ul class="list-unstyled">
                 <li><a href="#">About Us</a></li>
@@ -1600,7 +1201,7 @@
                 <li><a href="#">Wastewater Treatment</a></li>
               </ul>
             </div>
-            <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="col-md-3 col-sm-3 col-lg-3">
               <h5>Follow Us</h5>
               <ul class="list-unstyled">
                 <li><a href="#">Facebook</a></li>
@@ -1613,6 +1214,15 @@
               <h6>Visitors</h6>
               <p>Online : 172</p>
               <p>Visitors : 2877131</p>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3">
+              
+              <h5>Our regional customer & partner services center in Vietnam:</h5>
+              <p>Northern Services Center: 033 8351122</p>
+              <p>Central Services Center: 0902 450585</p>
+              <p>HCMC – Eastern Services Center: 033 8351122</p>
+              <p>Southern Services Center: 0902 912586</p>
+              <p>Email: info@moitruongachau.com</p>
             </div>
           </div>
         </div>
@@ -1629,6 +1239,7 @@
       duration: 2500,
       delay: 400,
     });
+    ScrollReveal().reveal('.tools',{ delay: 200, origin: 'bottom' });
     ScrollReveal().reveal('.img-fluid', { delay: 200, origin: 'right ' });
     ScrollReveal().reveal('.title-2');
     ScrollReveal().reveal('.content-2');
@@ -1647,7 +1258,4 @@
     }
   </script>
 </body>
-
-
-
 </html>
