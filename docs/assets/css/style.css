@@ -32,19 +32,35 @@ body {
 }
 
 /* CÔNG CỤ */
+
+
+.slick-next:before, .slick-prev:before {
+  font-family: slick;
+  font-size: 30px !important;
+  line-height: 1;
+  opacity: .75;
+  color: var(--primary-color) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .tools {
-  min-height: 200px;
+  
+  min-height: 170px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: nowrap;
-  background-color: #EBF7FF;
   cursor: pointer;
+ 
+}
+
+.tools-item {
+  width: 100px !important;
 }
 
 .tools-icon {
-  background-color: #FFF;
-  border-radius: 50%;
+  background-color: #ccc;
+  border-radius: 12px;
   width: 100px;
   height: 100px;
   display: flex;
@@ -73,11 +89,15 @@ body {
 }
 
 @media (max-width: 768px) {
+
+  .row-mobile {
+    padding: 0 !important;
+    margin: 10px 0 !important;
+  }
+
   .tools {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   .tools-item {
