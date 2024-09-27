@@ -409,6 +409,10 @@ img {
   flex-wrap: wrap;
 }
 
+.vntfooter .footer-content > div {
+  padding: 0 10px;
+}
+
 .footer-column {
   width: 16.666666%;
   position: relative;
@@ -416,7 +420,7 @@ img {
 
 .titlelink {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  cursor: pointer; /* Con trỏ khi hover */
+  cursor: pointer; 
 }
 
 .contlink {
@@ -512,16 +516,19 @@ img {
 
 
 @media (max-width: 768px) {
+  .colm {
+    width: 100% !important;
+  }
   .footer-column {
-    width: 100%; /* Chiếm toàn bộ chiều rộng trên mobile */
+    width: 100%; 
   }
 
   .dropdown-content {
-    display: none; /* Ẩn nội dung dropdown mặc định */
+    display: none; 
   }
 
   .footer-column.active .dropdown-content {
-    display: block; /* Hiện nội dung khi footer-column có class active */
+    display: block;
   }
 }
 
