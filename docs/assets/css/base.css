@@ -330,6 +330,12 @@ img {
     padding: 10px 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+  .combo-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

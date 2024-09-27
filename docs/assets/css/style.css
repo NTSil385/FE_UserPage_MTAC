@@ -64,7 +64,8 @@ body {
 }
 
 .tools-icon {
-  background-color: #ccc;
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
   border-radius: 12px;
   width: 100px;
   height: 100px;
@@ -72,6 +73,11 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
+}
+
+.tools-icon svg {
+  width: 96px;
+  height: 96px;
 }
 
 .tools-icon:hover {
@@ -85,12 +91,11 @@ body {
 }
 
 .tools-content {
-  font-family: 'UTM';
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: #086db5;
   text-align: center;
-  line-height: 50px;
+
 }
 
 @media (max-width: 768px) {
