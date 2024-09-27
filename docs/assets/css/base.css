@@ -165,7 +165,7 @@ img {
 
 .menu {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   background-color: #006db5;
   padding: 10px 0;

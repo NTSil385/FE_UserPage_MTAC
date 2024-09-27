@@ -55,7 +55,12 @@ body {
 }
 
 .tools-item {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
   width: 100px !important;
+  text-align: center;
 }
 
 .tools-icon {
@@ -91,18 +96,25 @@ body {
 @media (max-width: 768px) {
 
   .row-mobile {
-    padding: 0 !important;
+    padding: 0 35px !important;
     margin: 10px 0 !important;
   }
 
   .tools {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between; 
   }
 
   .tools-item {
     flex: 0 0 auto;
-    margin-right: 25px;
+    margin-right: 0;
+    width: calc(25% - 10px);
+    display: flex !important; 
+    flex-direction: column !important; 
+    align-items: center !important; 
+    justify-content: center!important; 
+    text-align: center;
   }
 
   .tools-icon {
