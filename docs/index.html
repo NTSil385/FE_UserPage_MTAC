@@ -1304,10 +1304,10 @@
         <div class="wrapper">
           <div class="footer-content">
             <div class="footer-column colm">
-              <div class="titlelink">
+              <div class="titlelink" onclick="toggleDropdown(this)">
                 <h2>Hỗ Trợ Khách Hàng</h2>
               </div>
-              <div class="contlink">
+              <div class="contlink dropdown-content">
                 <p>Hotline: <strong><a href="tel:1900545450">1900 545450</a></strong> (909đ/phút) - <strong><a
                       href="https://zalo.me/0338351122">033 8351122</a></strong> (Zalo)</p>
                 <p>Góp ý CLDV: <a href="tel:0339751122"><strong>033 9751122</strong></a> - <a
@@ -1320,10 +1320,10 @@
             </div>
 
             <div class="footer-column">
-              <div class="titlelink">
+              <div class="titlelink" onclick="toggleDropdown(this)">
                 <h2>Về Chúng Tôi</h2>
               </div>
-              <div class="contlink">
+              <div class="contlink dropdown-content">
                 <ul>
                   <li><a href="#">Chiến lược phát triển</a></li>
                   <li><a href="#">Giá Trị Cốt Lõi</a></li>
@@ -1334,10 +1334,10 @@
             </div>
 
             <div class="footer-column">
-              <div class="titlelink">
+              <div class="titlelink" onclick="toggleDropdown(this)">
                 <h2>Lĩnh vực hoạt động</h2>
               </div>
-              <div class="contlink">
+              <div class="contlink dropdown-content">
                 <ul>
                   <li><a href="#">Phế liệu</a></li>
                   <li><a href="#">Chất thải</a></li>
@@ -1348,10 +1348,10 @@
             </div>
 
             <div class="footer-column">
-              <div class="titlelink">
+              <div class="titlelink" onclick="toggleDropdown(this)">
                 <h2>Theo Dõi Chúng Tôi</h2>
               </div>
-              <div class="contlink">
+              <div class="contlink dropdown-content">
                 <ul class="social-links">
                   <li><a href="https://www.facebook.com/MoiTruongAChau/">Facebook</a></li>
                   <li><a href="https://zalo.me/491330044074352041">Zalo</a></li>
@@ -1362,10 +1362,10 @@
             </div>
 
             <div class="footer-column">
-              <div class="titlelink">
+              <div class="titlelink" onclick="toggleDropdown(this)">
                 <h2>Lượt Truy Cập</h2>
               </div>
-              <div class="contlink">
+              <div class="contlink dropdown-content">
                 <p>Online: <span id="stats_online">239</span></p>
                 <p>Lượt truy cập: <span id="stats_totals">3418684</span></p>
               </div>
@@ -1388,9 +1388,7 @@
               </div>
               <div class="colr">
                 <div class="iicongfoot vhflex vhflex-wrap">
-                  <div class="iifootl">
-
-                  </div>
+                  <div class="iifootl"></div>
                   <div class="iifoor">
                     <a onmousedown="return rwt(this,'advertise',5)"
                       href="https://www.dmca.com/Protection/Status.aspx?ID=afd9cecf-a58e-439b-8805-0b5404bb4cdd&amp;refurl=https://moitruongachau.com/"
@@ -1409,7 +1407,23 @@
         </div>
       </div>
     </footer>
+    <script>
+      function toggleDropdown(element) {
+        const parentColumn = element.parentElement;
+        const allColumns = document.querySelectorAll('.footer-column');
 
+        allColumns.forEach(column => {
+          // Nếu không phải là cột hiện tại, gỡ bỏ class active
+          if (column !== parentColumn) {
+            column.classList.remove('active');
+          }
+        });
+
+        // Chuyển đổi class active cho cột hiện tại
+        parentColumn.classList.toggle('active');
+      }
+
+    </script>
   </div>
   <script src="./assets/js/slider.js"></script>
   <script>

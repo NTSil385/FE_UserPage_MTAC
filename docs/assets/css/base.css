@@ -386,6 +386,7 @@ img {
 
 /* Footer */
 
+
 #vnt-footer {
   padding-top: 25px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -398,24 +399,24 @@ img {
   padding: 0 15px;
 }
 
+.colm {
+  width: 33.333333% !important;
+}
+
 .footer-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.colm {
-  width: 33.333333% !important;
-}
-
 .footer-column {
   width: 16.666666%;
-  padding: 0 15px;
+  position: relative;
 }
 
 .titlelink {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  pointer-events: none;
+  cursor: pointer; /* Con trỏ khi hover */
 }
 
 .contlink {
@@ -423,7 +424,6 @@ img {
 }
 
 .footer-column h2 {
-  font-family: 'Roboto' sans-serif;
   font-weight: bold;
   font-size: 14px;
   line-height: 25px;
@@ -452,25 +452,20 @@ img {
 
 .footer-column ul li a {
   color: #333;
-  text-decoration: none;
 }
 
 .footer-column ul li a:hover {
   color: #007bff;
 }
+
 .social-links {
   display: flex;
   flex-direction: column;
-}
-.social-links li {
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .footer-bottom {
   text-align: center;
   padding: 25px 0;
-  text-align: center;
   color: #fff;
   background: rgb(39, 62, 144);
   background: linear-gradient(90deg, rgba(39, 62, 144, 1) 0%, rgba(1, 97, 200, 1) 100%);
@@ -497,7 +492,7 @@ img {
 
 .linkchinhsach ul {
   list-style: none;
-  padding-left: 15px;
+  padding-left: 0px;
 }
 
 .vhflex-ali-center li a {
@@ -505,9 +500,19 @@ img {
   color: #666666;
 }
 
-.footer-bottom p {
-  margin: 0;
-  font-size: 13px;
+
+@media (max-width: 768px) {
+  .footer-column {
+    width: 100%; /* Chiếm toàn bộ chiều rộng trên mobile */
+  }
+
+  .dropdown-content {
+    display: none; /* Ẩn nội dung dropdown mặc định */
+  }
+
+  .footer-column.active .dropdown-content {
+    display: block; /* Hiện nội dung khi footer-column có class active */
+  }
 }
 
 /* Form styles */
