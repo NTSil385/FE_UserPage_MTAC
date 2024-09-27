@@ -15,6 +15,19 @@
   --fontsize-navigation: 15px;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #006db5; 
+}
 
 * {
   margin: 0;
@@ -373,34 +386,128 @@ img {
 
 /* Footer */
 
-.footer {
+#vnt-footer {
+  padding-top: 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
 
-  color: #333;
- 
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
-.footer h5 {
-  font-size: 18px;
-  color: var(--primary-color);
-  margin-bottom: 20px;
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.footer p {
+
+.colm {
+  width: 33.333333% !important;
+}
+
+.footer-column {
+  width: 16.666666%;
+  padding: 0 15px;
+}
+
+.titlelink {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.contlink {
+  padding-top: 10px;
+}
+
+.footer-column h2 {
+  font-family: 'Roboto' sans-serif;
+  font-weight: bold;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 25px;
+  text-transform: uppercase;
 }
-.footer ul {
+
+.footer-column a {
+  color: #666666;
+  text-decoration: none;
+}
+
+.footer-column p, .footer-column ul {
+  font-size: 13px;
+  line-height: 21px;
+  color: #666666;
+}
+
+.footer-column ul {
   list-style: none;
   padding: 0;
 }
-.footer ul li {
+
+.footer-column ul li {
   margin-bottom: 10px;
 }
-.footer ul li a {
+
+.footer-column ul li a {
   color: #333;
   text-decoration: none;
-  font-size: 14px;
 }
-.footer ul li a:hover {
-  color: var(--primary-color);
+
+.footer-column ul li a:hover {
+  color: #007bff;
+}
+.social-links {
+  display: flex;
+  flex-direction: column;
+}
+.social-links li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 25px 0;
+  text-align: center;
+  color: #fff;
+  background: rgb(39, 62, 144);
+  background: linear-gradient(90deg, rgba(39, 62, 144, 1) 0%, rgba(1, 97, 200, 1) 100%);
+}
+
+.ccinfofoot {
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.vntfooter .grccfoot {
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.vhflex-wrap {
+  flex-wrap: wrap;
+}
+.vhflex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linkchinhsach ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.vhflex-ali-center li a {
+  font-size: 13px;
+  color: #666666;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 13px;
 }
 
 /* Form styles */
