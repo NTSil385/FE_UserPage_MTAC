@@ -427,6 +427,11 @@ img {
   padding-top: 10px;
 }
 
+.contlink .dropdown-content {
+  font-size: 13px !important;
+  padding: 5px 0;
+}
+
 .footer-column h2 {
   font-weight: bold;
   font-size: 14px;
