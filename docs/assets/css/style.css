@@ -905,6 +905,10 @@ h2 {
   color: #000;
 }
 
+.row-card {
+  padding: 20px 60px;
+}
+
 .container-card {
   max-width: 1120px;
   width: 100%;
