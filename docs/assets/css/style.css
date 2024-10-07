@@ -1013,7 +1013,7 @@ h2 {
 
 @media screen and (max-width: 768px) {
   .row-card {
-    padding: 20px 0px !important;
+    padding: 0px !important;
   }
   .swiper-navBtn {
     display: none;
