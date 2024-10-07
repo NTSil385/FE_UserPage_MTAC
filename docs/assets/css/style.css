@@ -170,15 +170,6 @@ body {
   color: #fff;
 }
 
-.bn45 {
-  width: 170px;
-  height: 50px;
-}
-
-.bn46 {
-  width: 170px;
-  height: 50px;
-}
 
 @media (max-width: 767px) {
   .container-header {
@@ -628,7 +619,7 @@ h2 {
 }
 
 .side-content {
-  padding: 35px 15px 15px 0px;
+  padding: 15px 0px 0px;
   height: 535px;
   overflow: auto;
   overflow: -moz-scrollbars-none;
@@ -982,6 +973,10 @@ h2 {
   background-color: #000;
 }
 
+.swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+}
+
 .swiper-button-next, .swiper-button-prev {
   color: var(--primary-color) !important;
 }
@@ -1026,4 +1021,37 @@ h2 {
     font-size: var(--cal-text);
     text-transform: uppercase;
   }
+}
+
+
+/* BANNER FOOTER */
+.logo-app {
+  width: 260px;
+}
+
+.bn45 {
+  width: 130px;
+}
+
+.bnf-row {
+  display: flex;
+  align-items: center;
+
+}
+
+.bnf-qr {
+  width: 150px;
+  margin-right: 5px;
+}
+
+.banft-header {
+  font-family: 'UTM';
+  font-size: var(--cal-text);
+  color: var(--primary-color);
+  line-height: 40px;
+}
+
+.banft-lef--img {
+  width: 100%;
+  height: 350px;
 }
