@@ -58,7 +58,7 @@
         </div>
         <div class="btn-user">
 
-          <div class="btn-login" onclick="showPopup()">
+          <div class="btn-login" onclick="goLogin()">
             <svg xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
               <path
@@ -239,90 +239,6 @@
         </div>
       </div>
     </nav>
-    <!-- POPUP FORM LOGIN -->
-    <div id="popupForm" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="hidePopup()">&times;</span>
-        <form class="popup-form">
-          <div class="header-form">
-            Đăng nhập
-          </div>
-          <div class="flex-column">
-
-          </div>
-          <div class="inputForm">
-
-
-
-            <input type="text" class="input" placeholder="Số điện thoại hoặc mã số thuế" required>
-          </div>
-
-          <div class="flex-column">
-
-          </div>
-          <div class="inputForm">
-
-            <input type="password" class="input" placeholder="Nhập mật khẩu" required>
-
-          </div>
-
-          <div class="flex-row">
-            <div class="checked">
-              <input type="checkbox" style="margin-right: 10px;">
-              <label>Ghi nhớ đăng nhập </label>
-            </div>
-            <span class="span">Quên mật khẩu?</span>
-          </div>
-          <button class="button-submit">Đăng nhập</button>
-
-          <p class="p">Chưa có tài khoản?<span
-              style="cursor: pointer; font-size: 20px; font-weight: 500; margin-left: 5px;" class="login-link"
-              onclick="showRegister()">Đăng ký</span></p>
-          <p class=" line">Hoặc Đăng nhập với</p>
-
-          <div class="btn-social">
-            <button class="btn-google">
-              <img src="home/icon/google_icon.png" alt="" srcset="">
-            </button>
-            <button class="btn-apple">
-              <img src="home/icon/Apple_icon.png" alt="" srcset="">
-
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- POPUP FORM REGISTER -->
-    <div id="popupFormRegister" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="hideRegister()">&times;</span>
-        <form class="popup-form">
-          <div class="header-form">Đăng ký</div>
-          <div class="inputForm">
-            <input type="text" class="input" placeholder="Số điện thoại hoặc mã số thuế" required>
-          </div>
-          <div class="inputForm" style="margin-top: 10px;">
-            <input type="password" class="input" placeholder="Nhập mật khẩu" required>
-          </div>
-          <div class="inputForm" style="margin-top: 10px;">
-            <input type="password" class="input" placeholder="Nhập lại mật khẩu" required>
-          </div>
-          <button class="button-submit">Đăng ký</button>
-          <p class="p">Đã có tài khoản? <span
-              style="cursor: pointer; font-size: 20px; font-weight: 500; margin-left: 5px;" class="login-link"
-              onclick="showPopup()">Đăng nhập</span></p>
-          <p class="line">Hoặc Đăng nhập với</p>
-          <div class="btn-social">
-            <button class="btn-google">
-              <img src="home/icon/google_icon.png" alt="">
-            </button>
-            <button class="btn-apple">
-              <img src="home/icon/Apple_icon.png" alt="">
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
 
     <!-- POPUP FORM XLCT nguy hại <600kg -->
     <div class="form-popup" id="myForm">
@@ -1283,6 +1199,9 @@
         parentColumn.classList.toggle('active');
       }
 
+      function goLogin() {
+        window.location.href = './login-page.html';  
+      }
     </script>
   </div>
   <script src="./assets/js/dropdown.js"></script>
