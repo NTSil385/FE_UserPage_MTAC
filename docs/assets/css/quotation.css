@@ -1,6 +1,10 @@
 :root {
   --primary-color: #086db5;
+  --cal-text: 22px;
+  --text-title: 15px;
+  --text-content: 14px;
 }
+
 a {
   text-decoration: none !important;
 }
@@ -65,12 +69,14 @@ body {
 }
 
 .carousel-indicators button h4 {
+  font-family: "UTM";
+  font-size: var(--text-title);
   margin-top: -30px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
-  font-size: 16px;
+  font-size: var(--text-title);
 }
 
 .carousel-indicators button p {
@@ -80,7 +86,7 @@ body {
   transform: translateX(-50%);
   width: 100%;
   max-width: 250px;
-  font-size: 14px;
+  font-size: var(--text-content);
 }
 
 .carousel-control-prev {
@@ -104,11 +110,12 @@ body {
 }
 
 .carousel-indicators button.active h4 {
+  font-family: "UTM";
+  font-size: var(--text-title);
   color: #086db5;
-  font-size: 20px;
   position: absolute;
   left: 50%;
-  margin-top: -40px;
+  margin-top: -30px;
   width: 100px;
 }
 
@@ -142,6 +149,8 @@ body {
 }
 
 .col-md-4 h4 {
+  font-family: "UTM";
+  font-size: var(--cal-text);
   color: var(--primary-color);
   text-align: center;
 }
@@ -214,145 +223,8 @@ body {
   color: var(--primary-color);
 }
 
-/* Form styles */
-.form-popup {
-  display: none; 
-  position: fixed; 
-  z-index: 999; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4); 
-}
-
-.popup-content--quotation {
-  background-color: #fefefe;
-  margin: 0% auto; 
-  padding: 20px;
-  border: 1px solid #888;
-  width: 100%;
-  max-width: 100%;
-  border-radius: 10px;
-  padding: 50px;
-}
-
-.scroll-box {
-  overflow: auto;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.header-form {
-  font-size: 22px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.header-form p {
-  font-size: 18px;
-  font-weight: 400;
-  color: #888;
-}
-
-.point {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.col-md-7 {
-  max-height: 500px;
-  overflow: auto;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
-}
-
-.col-md-7::-webkit-scrollbar { 
-  width: 0 !important;
-  display: none; 
-}
-
-.popup-form {
-  margin: 0 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background-color: #ffffff;
-
-}
-
-
-::placeholder {
-  font-family: "Roboto", sans-serif;
-}
-
-.popup-form button {
-  align-self: flex-start;
-}
-
-.flex-column {
-  padding: 5px 0px;
-}
-.col-md-7 .inputForm{
-  max-width: 60%;
-} 
-.inputForm {
-  border: 2px solid #726c6c;
-  border-radius: 10px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  transition: 0.2s ease-in-out;
-}
-
-.input {
-  margin-left: 10px;
-  border-radius: 10px;
-  border: none;
-  width: 85%;
-  height: 100%;
-}
-
-.input:focus {
-  outline: none;
-}
-
-.inputForm:focus-within {
-  border: 1.5px solid #2d79f3;
-}
-
-.suggestions {
-  display: none;
-  position: absolute;
-  left: 105%;
-  top: 0;
-  background-color: #fff;
-  width: 200px;
-  padding: 10px;
-  z-index: 10;
-  color: var(--primary-color);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+.carousel-control-next, .carousel-control-prev  {
+  z-index: 2 !important;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -392,7 +264,7 @@ body {
   }
 
   .col-md-4 {
-      flex: 1 0 !important;
+     
   }
 
   .carousel-control-next,
@@ -475,15 +347,14 @@ body {
   }
 
   .carousel-indicators button h4 {
-      margin-top: -20px;
+    font-family: "UTM";
+    font-size: 15px;
+      margin-top: -25px;
       width: 100%;
       left: 50%;
       transform: translateX(-50%);
   }
 
-  .carousel-indicators button p {
-      display: none;
-  }
 
   .carousel-indicators button svg {
       left: calc(100% - 20px);
@@ -491,10 +362,6 @@ body {
 
   .experience-slide-one {
       padding: 0 30px;
-  }
-
-  .col-md-4 {
-      flex: 1 0 !important;
   }
 
   .carousel-control-next,
@@ -635,18 +502,21 @@ body {
   }
 
   .carousel-indicators button h4 {
-      margin-top: -45px;
+    font-family: "UTM";
+    font-size: 14px;
+      margin-top: -30px;
       width: 100%;
       left: 50%;
       transform: translateX(-50%);
   }
 
   .carousel-indicators button.active h4 {
+    font-family: "UTM";
     color: #086db5;
-    font-size: 20px;
+    font-size: 15px;
     position: absolute;
     left: 50%;
-    margin-top: -50px;
+    margin-top: -40px;
     width: 100px;
 }
 
@@ -662,9 +532,6 @@ body {
       padding: 0 30px;
   }
 
-  .col-md-4 {
-      flex: 0 !important;
-  }
 
   .carousel-control-next,
   .carousel-control-prev {
@@ -726,4 +593,88 @@ body {
   .header-form {
       font-size: 24px;
   }
+}
+
+
+/* js implementation */
+.quotation-service {
+  width: 100%;
+}
+
+.service-item {
+  border: 1px solid var(--primary-color);
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+.service-item:hover {
+  background-color: #fff !important; 
+}
+
+.service-header {
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  border-radius: 8px; 
+}
+
+.service-header span {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.service-header:hover {
+  background-color: var(--primary-color);
+  color: #fff; 
+}
+
+.service-item.active .service-header {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.service-content {
+  display: none;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 0 8px; 
+}
+
+.btn-price {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-check--quotation {
+  font-family: "UTM";
+  font-size: 15px;
+  background-color: #086db5;
+  padding: 10px;
+  color: #fff;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 8px;
+}
+
+.btn-check--quotation:hover {
+  background-color: #fff;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.service-content p {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 10;
 }
