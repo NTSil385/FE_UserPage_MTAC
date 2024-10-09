@@ -4,9 +4,8 @@
 <head>
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/base.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./dflip/css/dflip.min.css">
-  <link rel="stylesheet" href="./dflip/css/themify-icons.min.css">
+  <link rel="stylesheet" href="./assets/css/quotation-form.css">
+
   <!-- JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="./assets/js/showform.js"></script>
@@ -15,7 +14,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
     integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,7 +35,6 @@
 
 <body>
   <div class="container-content">
-
     <!-- MAIN NAV -->
     <nav style="position: relative; z-index: 15;">
       <input type="checkbox" id="check">
@@ -202,8 +199,8 @@
           </div>
         </div>
       </div>
-    </nav>
 
+    </nav>
     <script>
       $(document).ready(function () {
         $('.submenu-container').hide();
@@ -251,16 +248,114 @@
 
 
     <div class="body">
-      <div class="row">
-        <div class="container-header">
-          <img width="100%" height="550px" src="./assets/img/lib.png" alt="hinh-anh-doi-tac">
-        </div>
-      </div>
-      <div class="row" style="margin-top: 10px; font-size: 22px; font-weight: 500; text-align: center;">
-        <div class="title">[Sổ Tay] Chương trình Trường Học Xanh: đồng hành cùng Nhà trường xây dựng trường học thân
-          thiện, bền vững </div>
-      </div>
-      <div class="_df_book" height=700 source="./file/filetest.pdf"></div>
+
+        <div class="row" style="margin: 10px;">       
+            <div class="col-md-6">
+                <div class="tab-container">
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <button class="tab-button active" onclick="openTab(event, 'XLCT')">XỬ LÝ CHẤT THẢI</button>
+                        <button class="tab-button" onclick="openTab(event, 'BCMT')">HỒ SƠ MÔI TRƯỜNG</button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content" id="XLCT">
+                        <form id="form-XLCT" action="#" method="POST" autocomplete="off" onsubmit="event.preventDefault(); calculatePrice_XLCT();showResultColumn();">
+                            <label for="input1">Vị trí:</label>
+                            <input type="text" id="input1" name="input1" oninput="updateFrequencyOptions()" required>                                                  
+                            <label for="input3">Tên chất thải:</label>
+                            <input type="text" id="input3" name="input3" list="keywordList"
+                                oninput="filterKeywords()">
+                            <ul class="list" id="keywordList"></ul>
+                            <label for="input4">Thuộc loại dịch vụ:</label>
+                            <input type="text" id="input4" name="input4" readonly>
+                            <label for="inputFrequency">Tần suất:</label>
+                            <select id="inputFrequency" style="height: 45px; margin-bottom: 10px;">
+                            </select>     
+                            <label for="input2">Khối Lượng:</label>
+                            <input type="text" id="input2" name="input2" required oninput="checkConditionalInputs()">
+                            <!-- Hai input mới sẽ được hiển thị nếu điều kiện được thỏa mãn -->
+                            <div id="conditionalInputs" style="display:none; flex-direction: column;">
+                                <label for="mass-light">Khối lượng chất thải bóng đèn (Nếu có):</label>
+                                <input type="text" id="mass-light" name="mass-light">
+                                <label for="inputMass13">Khối lượng chất thải mã 13 (Nếu có):</label>
+                                <input type="text" id="inputMass13" name="inputMass13">
+                                <label for="inputMass14">Khối lượng chất thải mã 14 (Nếu có):</label>
+                                <input type="text" id="inputMass14" name="inputMass14">
+                            </div>
+                            <ul id="selectedKeywords"></ul>
+                            <div class="action">
+                                <button class="btn-reset" type="button" onclick="clearInputs()" >Làm mới</button>
+                                <button class="btn-submit" type="submit">Tra cứu</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-content" id="BCMT" style="display:none;">
+                        <form id="myForm" action="#" method="POST">
+                            <label for="inputServiceForm">Chọn loại dịch vụ:</label>
+                            <select id="inputServiceForm" style="height: 45px; margin-bottom:10px;">
+                                <option value="Giấy phép môi trường">Giấy phép môi trường</option>
+                                <option value="Đánh giá tác động môi trường">Đánh giá tác động môi trường</option>
+                                <option value="Báo cáo tác động môi trường 2022">Báo cáo tác động môi trường 2022</option>
+                            </select>
+                            
+                            <label for="location">Chọn địa điểm:</label>
+                            <select id="location" style="height: 45px; margin-bottom:10px;">
+                                <!-- Vị trí sẽ được cập nhật tự động qua JavaScript -->
+                            </select>
+                            
+                            <label id="labelAgency" for="inputAgency">Cơ quan cấp hồ sơ / Hạng mục thực hiện:</label>
+                            <select id="inputAgency" style="height: 45px; margin-bottom:10px;">
+                                <!-- Cơ quan hoặc hạng mục sẽ được cập nhật tự động qua JavaScript -->
+                            </select>
+                            <button type="submit">Tra cứu</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="resultColumn" style="display: none;" >
+                <div class="title-page">
+                    Kết quả tra cứu
+                </div>         
+                <div class="priceDisplay"></div> 
+                <p class="text-sub">Chi phí thực hiện dịch vụ trọn gói </p>           
+                <div class="btn-view--more">
+                    <div class="btn-contract">
+                        <svg fill="#0a6ab2" height="50px" width="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.783 237.783" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 237.783 237.783"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="m42.735,50.071h96.959c3.313,0 6,2.687 6,6s-2.687,6-6,6h-96.959c-3.313,0-6-2.687-6-6s2.686-6 6-6zm0,25.934h96.959c3.313,0 6,2.687 6,6s-2.687,6-6,6h-96.959c-3.313,0-6-2.687-6-6s2.686-6 6-6zm0,25.935h96.959c3.313,0 6,2.687 6,6s-2.687,6-6,6h-96.959c-3.313,0-6-2.687-6-6s2.686-6 6-6zm0,25.935h96.959c3.313,0 6,2.687 6,6s-2.687,6-6,6h-96.959c-3.313,0-6-2.687-6-6s2.686-6 6-6z"></path> <path d="m42.735,62.071h96.959c3.313,0 6-2.687 6-6s-2.687-6-6-6h-96.959c-3.313,0-6,2.687-6,6s2.686,6 6,6z"></path> <path d="m42.735,88.005h96.959c3.313,0 6-2.687 6-6s-2.687-6-6-6h-96.959c-3.313,0-6,2.687-6,6s2.686,6 6,6z"></path> <path d="m42.735,113.94h96.959c3.313,0 6-2.687 6-6s-2.687-6-6-6h-96.959c-3.313,0-6,2.687-6,6s2.686,6 6,6z"></path> <path d="m42.735,139.875h96.959c3.313,0 6-2.687 6-6s-2.687-6-6-6h-96.959c-3.313,0-6,2.687-6,6s2.686,6 6,6z"></path> <path d="m237.783,98.361c0-1.591-0.632-3.117-1.757-4.243l-16.356-16.355c-1.125-1.125-2.651-1.757-4.243-1.757s-3.117,0.632-4.243,1.757l-28.756,28.756v-88.117c0-3.313-2.686-6-6-6h-170.428c-3.314,0-6,2.687-6,6v200.979c0,3.313 2.686,6 6,6h170.429c3.314,0 6-2.687 6-6v-63.18l53.597-53.597c1.125-1.125 1.757-2.651 1.757-4.243zm-225.783,115.02v-188.979h158.429v94.117l-35.291,35.291h-92.403c-3.313,0-6,2.687-6,6s2.687,6 6,6h80.403l-1.033,1.033c-0.777,0.777-1.326,1.753-1.586,2.821l-4.157,17.05h-25.148c-3.313,0-6,2.687-6,6s2.687,6 6,6c0,0 29.714,0 29.86,0 0.473,0 0.95-0.056 1.421-0.171l21.629-5.273c1.068-0.26 2.044-0.809 2.821-1.586l23.482-23.482v45.181h-158.427zm127.649-31.374l-10.408,2.538 2.538-10.408 83.648-83.648 7.871,7.871-83.649,83.647z"></path> </g> </g></svg>
+                        Biểu mẫu hợp đồng</div>
+                    <div class="btn-quatation--plan">
+                        <svg fill="#0a6ab2" height="50px" width="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278.004 278.004" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 278.004 278.004" stroke="#0a6ab2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="m119.818,152.941c3.313,0 6-2.687 6-6s-2.687-6-6-6h-3.518v-50.227c0-3.313-2.687-6-6-6s-6,2.687-6,6v50.227h-7.465v-57.583c0-3.313-2.687-6-6-6s-6,2.687-6,6v57.583h-7.464v-28.698c0-3.313-2.687-6-6-6s-6,2.687-6,6v28.698h-1.23c-3.313,0-6,2.687-6,6s2.687,6 6,6h55.677z"></path> <path d="m275.913,143.728l-25.422-42.021c-3.244-5.36-9.15-8.69-15.415-8.69h-61.571v-36.768c6.034-1.784 10.453-7.368 10.453-13.973 0-8.037-6.538-14.576-14.575-14.576h-154.808c-8.037,0.001-14.575,6.539-14.575,14.577 0,6.605 4.419,12.189 10.453,13.973v117.385c0,3.313 2.687,6 6,6h45.01l-13.88,58.669h-6.793c-3.313,0-6,2.687-6,6s2.687,6 6,6h19.617c3.313,0 6-2.687 6-6s-2.687-6-6-6h-0.493l13.88-58.669h36.37l13.88,58.669h-0.493c-3.313,0-6,2.687-6,6s2.687,6 6,6h19.617c3.313,0 6-2.687 6-6s-2.687-6-6-6h-6.793l-13.88-58.669h45.009c3.313,0 6-2.687 6-6v-51.729h22.625v120.872c0,3.313 2.687,6 6,6h39.722c3.313,0 6-2.687 6-6v-89.625l3.345,5.529c4.124,6.813 13.021,9.005 19.835,4.881 3.301-1.997 5.627-5.16 6.549-8.906s0.33-7.628-1.667-10.929zm-9.985,8.061c-0.09,0.367-0.354,1.051-1.107,1.506-1.152,0.698-2.659,0.327-3.356-0.825l-14.479-23.934c-1.394-2.304-4.149-3.398-6.746-2.674-2.594,0.724-4.388,3.086-4.388,5.779v28.659h-27.722v-44.395c0-3.313-2.687-6-6-6h-55.886c-1.348,0-2.444-1.096-2.444-2.444s1.097-2.444 2.444-2.444h69.746v39.045c0,3.313 2.687,6 6,6s6-2.687 6-6v-39.045h7.086c2.092,0 4.065,1.113 5.148,2.903l25.421,42.02c0.457,0.754 0.374,1.482 0.283,1.849zm-43.938,26.472c-3.313,0-6,2.687-6,6v52.517h-7.86v-64.478h27.722v64.478h-7.861v-52.517c-0.001-3.314-2.687-6-6.001-6zm-207.415-138.56h154.808c1.42,7.10543e-15 2.575,1.155 2.575,2.576s-1.155,2.576-2.575,2.576h-154.808c-1.42,0-2.575-1.155-2.575-2.576s1.155-2.576 2.575-2.576zm7.878,17.151h139.052v36.166h-15.261c-7.965,0-14.444,6.479-14.444,14.444s6.479,14.444 14.444,14.444h15.261v45.729h-139.052v-110.783z"></path> <path d="m221.99,87.997c11.896,0 21.573-9.678 21.573-21.573s-9.678-21.572-21.573-21.572c-11.895,0-21.572,9.677-21.572,21.572s9.678,21.573 21.572,21.573zm0-31.145c5.278,0 9.573,4.294 9.573,9.572s-4.295,9.573-9.573,9.573-9.572-4.294-9.572-9.573 4.294-9.572 9.572-9.572z"></path> </g> </g></svg>
+                        Quy trình xử lý báo giá</div>
+                    <div class="btn-noted">
+                        <svg fill="#0a6ab2" height="50px" width="50px"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,9a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0V10A1,1,0,0,0,12,9Zm7-7H5A3,3,0,0,0,2,5V15a3,3,0,0,0,3,3H16.59l3.7,3.71A1,1,0,0,0,21,22a.84.84,0,0,0,.38-.08A1,1,0,0,0,22,21V5A3,3,0,0,0,19,2Zm1,16.59-2.29-2.3A1,1,0,0,0,17,16H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM12,6a1,1,0,1,0,1,1A1,1,0,0,0,12,6Z"></path></g></svg>
+                        Chú thích thuật ngữ</div>
+                </div>
+                <div class="detail-service"></div>
+                <div class="result-plantion">
+                    <ul class="plantion"> <strong> Kết quả thực hiện:</strong>
+                        <li><strong>Sau khi đồng ý sử dụng dịch vụ:</strong> Hoàn tất hợp đồng đầy đủ 2 chữ ký giữa khách hàng và chú xử lý.</li>
+                        <li><strong>Ngay sau khi tiếp nhận CTNH:</strong> Môi Trường Á Châu hoàn thành trả chứng từ CTNH liên số 03.</li>
+                        <li><strong>Sau khi hoàn tất việc xử lý CTNH:</strong> <strong>Môi Trường Á Châu</strong> hoàn trả chứng từ CTNH liên số 4 sau khi đã được xử lý</li>
+                    </ul>
+                </div>
+                <div class="noted">
+                    <strong>Ghi chú</strong>
+                    <p>- Nếu khách hàng có phát snh thêm chuyến vận chuyển thì chi phí cho mỗi chuyến là: 1.283.750đ</p>
+                    <p>- Đơn giá chưa có phí bảo vệ môi trường đối với chất thải rắn nguy hại</p>
+                    <p>- Giá trị dịch vụ chưa bao gồm VAT. (VAT được áp dụng tại thời điểm xuất hóa đơn theo quy định hiện hành)</p>
+                    <p>- Các loại chất thải phải được lưu trữ riêng biệt có dán nhãn và mã CTNH trước khi bàn giao. Chủ nguồn thải phải chịu trách nhiệm trang bị thiết bị 
+                        và kho lưu chưa phù hợp theo quy định hiện hành về quản lý chất thải.
+                    </p>
+                    <p>- Sản phẩm, dịch vụ, đơn giá và chính sách CCDV được công bó tại đây có thể điều chỉnh, ngừng cung cấp hoặc bổ sung mới để phù hợp với thực tế và quy định pháp luật hiện hành </p>
+                </div>
+                <div class="request">
+                    <a href="./quotation.html" class="btn-back">Trở về mục báo giá</a>
+                    <a class="btn-request">Gửi yêu cầu xử lý</a>
+                </div>
+            </div>
+            </div>
 
     </div>
     <footer id="vnt-footer">
@@ -395,13 +490,11 @@
       }
     </script>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./dflip/js/dflip.min.js"></script>
+  <script src="./assets/js/autocomplate.js"></script>
+  <script src="./assets/js/enviromentForm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 </body>
 
 

@@ -1,0 +1,248 @@
+:root {
+    --primary-color: #086db5;
+    --cal-text: 22px;
+    --text-title: 15px;
+    --text-content: 14px;
+  }
+  
+@font-face {
+    font-family: 'UTM';
+    src: url('../fonts/UTMHelvetIns.woff2') format('woff2'),
+        url('../fonts/UTMHelvetIns.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  
+
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none !important;
+}
+.body {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4%;
+}
+
+.tab-container {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: none;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #006db5;
+    color: white;
+}
+
+.tab-content {
+    padding: 20px;
+    display: none;
+}
+
+.tab-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-content form label {
+    margin-bottom: 5px;
+}
+
+.tab-content form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.tab-content form button {
+    padding: 10px;
+    background-color: #006db5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.tab-content form button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style: none;
+}
+
+.list {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+}
+
+.list-items {
+    padding: 10px 5px;
+}
+
+.list-items:hover {
+    background-color: #dddddd;
+}
+#selectedKeywords {
+    list-style-type: none;
+    padding: 0;
+}
+
+#selectedKeywords li {
+    display: inline-block;
+    background-color: #f1f1f1;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+#selectedKeywords li span {
+    cursor: pointer;
+    margin-left: 8px;
+    font-weight: bold;
+    color: red;
+}
+
+.title-page {
+    font-size: 22px;
+    font-family: 'UTM';
+    color: #0056b3;
+    text-align: center;
+}
+
+.priceDisplay {
+    text-align: center;
+    font-weight: 500;
+    font-size: 15;
+}
+
+.text-sub {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    font-style: italic;
+}
+
+.btn-view--more {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.btn-contract, .btn-quatation--plan, .btn-noted  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #006db5;
+    padding: 10px;
+    border-radius: 10px;
+    color: #0056b3;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+
+
+
+.btn-contract:hover, .btn-quatation--plan:hover, .btn-noted:hover{
+    background-color: #0056b3;
+    color: white;
+
+    svg {
+        fill: #ffffff !important;
+    }
+}
+
+.plantion {
+    font-size: 15px;
+    padding: 0 !important;
+}
+
+.plantion li {
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.noted {
+    font-size: 15px;
+}
+
+.noted p {
+    font-size: 14px
+}
+
+.request {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.btn-back {
+    width: 30%;
+    border: 1px solid var(--primary-color);
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-request {
+    width: 30%;
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-request:hover {
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+.action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
+}
+.btn-reset, .btn-submit {
+    width: 40%;
+}
