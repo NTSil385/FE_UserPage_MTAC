@@ -4,7 +4,10 @@
   --navbar-width: 256px;
   --navbar-width-min: 80px;
   --primary-color: #086db5;
-  --cal-text: 22px;
+  --text-header: 30px;
+  --text-title: 22px;
+  --text-content: 14px;
+
 }
 
 
@@ -23,15 +26,18 @@ a {
 
 /* TITLE */
 .title {
-  font-size: var(--cal-text);
-  font-weight: 500;
-  margin: 0 30px;
+  font-family: "UTM";
+  color: #333;
+  font-size: var(--text-header);
+  margin: 0 30px 11px 30px;
+  line-height: 45px !important;
 }
 
 .title-second {
-  font-size: var(--cal-text);
+  font-family: "UTM";
+  font-size: var(--text-header);
   font-weight: 500;
-  margin: 10px 50px;
+  margin: 10px 30px;
   padding: 50px 0px 0px 0px;
 }
 
@@ -166,6 +172,9 @@ a {
 }
 
 .nav-button span {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
   transition: opacity 1s;
 }
 
@@ -266,6 +275,13 @@ a {
   z-index: 1;
   transition: color 0.2s;
   background-color: #EFF8FD;
+}
+
+.nav-button--second {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #555;
 }
 
 .img-second {
@@ -443,6 +459,8 @@ a {
 }
 
 .blog-title {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--text-title);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -451,6 +469,9 @@ a {
 }
 
 .card-info {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--text-content);
+  line-height: 22px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -883,8 +904,16 @@ h3:after {
   color: #000;
 }
 
-.list-des {
+.list-content h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--text-title);
+  color: #333;
+}
 
+.list-des {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--text-content);
+  color: #555;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -911,7 +940,8 @@ h3:after {
 }
 
 .header-video {
-  font-size: var(--cal-text);
+  font-family: "UTM";
+  font-size: var(--text-header);
   font-weight: 500;
   margin-left: 30px;
 }
@@ -928,8 +958,9 @@ h3:after {
 }
 
 .video-title {
+  font-size: var(--text-title);
   margin-top: 10px;
-  color: #000;
+  color: #333;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -951,7 +982,8 @@ h3:after {
 }
 
 .title-right {
-  font-size: var(--cal-text);
+  font-family: "UTM";
+  font-size: var(--text-header);
   font-weight: 500;
   margin: 25px 30px;
 }
@@ -1088,7 +1120,9 @@ h1 {
   -webkit-line-clamp: 4;
   color: #333;
   font-family: 'Roboto';
-  font-size: 26px;
+  font-size: var(--text-title);
+  line-height: 34px;
+  font-weight: 700;
 }
 
 .date-number {
@@ -1113,15 +1147,16 @@ h1 {
 
 p {
   text-align: justify;
+  font-family: "Roboto", sans-serif;
   padding-top: 10px;
-  font-size: 0.95rem;
-  line-height: 150%;
-  color: #4B4B4B;
+  font-size: var(--text-content);
+  line-height: 22px;
+  color: #555;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 13;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1024px) {
@@ -1325,20 +1360,34 @@ p {
   margin: 20px 20px;
 }
 
+.vhdate {
+  margin-bottom: 10px;
+  color: #999999;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.vhdate svg {
+  width: 12px;
+  height: 12px;
+  fill: #999999;
+  display: inline-block;
+  position: relative;
+}
+
 .img-detail {
   margin: 20px 20px;
 }
 
 .title-detail {
-  font-size: var(--cal-text);
-  font-weight: 500;
-  line-height: 35px;
+  font-size: 35px;
+  line-height: 47px;
+  font-weight: 400;
   margin-bottom: 20px;
 }
 
 .sub-title {
-  font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
 
 }
 
@@ -1710,7 +1759,8 @@ p {
 .video-card h3 a {
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.2s;
-  font-size: var(--cal-text);
+  font-family: "Roboto", sans-serif;
+  font-size: var(--text-title);
 }
 
 .video-card h3 a:hover {

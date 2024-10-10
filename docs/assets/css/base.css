@@ -29,6 +29,16 @@
   background: #006db5; 
 }
 
+::-webkit-scrollbar:horizontal{
+  height: 6px;
+
+}
+::-webkit-scrollbar-thumb:horizontal{
+        background: var(--primary-color);
+        border-radius: 10px;
+        
+    }
+
 * {
   margin: 0;
   padding: 0;
