@@ -259,97 +259,46 @@
           <a href="#" class="header-content">Tài liệu môi trường</a>
           <a href="#" class="header-content">Tài liệu hướng dẫn QLMT</a>
           <a href="legal-doc.html" class="header-content">Văn bản quy phạm pháp luật</a>
-      </div>
-      <select class="dropdown-menu--hidden" onchange="changePage(this)">
+          <a href="#" class="header-content">VIDEO</a>
+        </div>
+        <select class="dropdown-menu--hidden" onchange="changePage(this)">
           <option value="libary" selected="selected">Tất cả</option>
           <option value="profile">Hồ sơ năng lực</option>
           <option value="partner">Hồ sơ đối tác</option>
           <option value="environment">Tài liệu môi trường</option>
           <option value="guidelines">Tài liệu hướng dẫn QLMT</option>
-          <option value="legal-doc" >Văn bản quy phạm pháp luật</option>
-      </select>
+          <option value="legal-doc">Văn bản quy phạm pháp luật</option>
+        </select>
       </div>
       <script>
         function changePage(select) {
           var value = select.value;
           switch (value) {
             case 'libary':
-              window.location.href = './libary.html'; 
+              window.location.href = './libary.html';
               break;
             case 'profile':
-              window.location.href = '#'; 
+              window.location.href = '#';
               break;
             case 'partner':
-              window.location.href = '#'; 
+              window.location.href = '#';
               break;
             case 'environment':
               window.location.href = '#';
               break;
             case 'guidelines':
-              window.location.href = '#'; 
+              window.location.href = '#';
               break;
             case 'legal-doc':
-              window.location.href = 'legal-doc.html'; // Đường dẫn của 'Văn bản quy phạm pháp luật'
+              window.location.href = 'legal-doc.html'; 
               break;
           }
         }
 
       </script>
 
-      <div class="row" style="display: flex; justify-content: center;">
-        <div class="tools-header">
-          <form class="form">
-            <button>
-              <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-                aria-labelledby="search">
-                <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
-                  stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </button>
-            <input class="input" placeholder="Nhập từ khóa, số liệu văn bản" type="text">
-            <button class="reset" type="reset">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </form>
-          <div class="menu-dropdown--tools">
-            <div class="item">
-              <a href="#" class="link">
-                <span> Lĩnh vực </span>
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z" />
-                </svg>
-              </a>
-              <div class="submenu">
-                <div class="submenu-item--dropdown">
-                  <a href="#" class="submenu-link"> Thừa Thiên Huế </a>
-                </div>
-                <div class="submenu-item--dropdown">
-                  <a href="#" class="submenu-link"> Đồng Nai </a>
-                </div>
-                <div class="submenu-item--dropdown">
-                  <a href="#" class="submenu-link"> Tiền Giang </a>
-                </div>
-                <div class="submenu-item--dropdown">
-                  <a href="#" class="submenu-link"> Long An </a>
-                </div>
-                <div class="submenu-item--dropdown">
-                  <a href="#" class="submenu-link"> Bình Dương </a>
-                </div>
-                <div class="submenu-item--dropdown">
-                  <a href="#" class="submenu-link"> Hồ Chí Minh </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="button-search">Tìm kiếm</div>
-        </div>
-      </div>
-      <div class="header">THƯ VIỆN</div>
+    
+      <div class="header" style = "margin-top: 20px;">THƯ VIỆN</div>
       <div class="row">
         <div class="card-container">
           <a href="./detail-lib.html" class="card-lib">
