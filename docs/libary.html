@@ -260,16 +260,34 @@
           <a href="#" class="header-content">Tài liệu hướng dẫn QLMT</a>
           <a href="legal-doc.html" class="header-content">Văn bản quy phạm pháp luật</a>
         </div>
-        <select class="dropdown-menu--hidden" onchange="location = this.value;">
-          <option value="#">Tất cả</option>
-          <option value="#">Hồ sơ năng lực</option>
-          <option value="#">Hồ sơ đối tác</option>
-          <option value="#">Tài liệu môi trường</option>
-          <option value="#">Tài liệu hướng dẫn QLMT</option>
-          <option value="legal-doc.html">Văn bản quy phạm pháp luật</option>
-        </select>
+        <select class="dropdown-menu--hidden" onchange="changePage(this)">
+          <option value="libary">Tất cả</option>
+          <option value="profile">Hồ sơ năng lực</option>
+          <option value="partner">Hồ sơ đối tác</option>
+          <option value="environment">Tài liệu môi trường</option>
+          <option value="guidelines">Tài liệu hướng dẫn QLMT</option>
+          <option value="legal-doc" selected>Văn bản quy phạm pháp luật</option>
+      </select>
       </div>
+      <script>
+        function changePage(selectElement) {
 
+          const selectedValue = selectElement.value;
+          const pages = {
+            libary: 'libary.html',
+            profile: 'profile.html',
+            partner: 'partner.html',
+            environment: 'environment.html',
+            guidelines: 'guidelines.html',
+            'legal-doc': 'legal-doc.html'
+          };
+
+
+          if (pages[selectedValue]) {
+            window.location.href = pages[selectedValue];
+          }
+        }
+      </script>
 
       <div class="row" style="display: flex; justify-content: center;">
         <div class="tools-header">
@@ -336,11 +354,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -353,11 +372,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -370,11 +390,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -387,11 +408,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -404,11 +426,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -421,11 +444,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -438,11 +462,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -455,11 +480,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -472,11 +498,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -489,11 +516,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -506,11 +534,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -523,11 +552,12 @@
                 <div class="card-img-hovered"></div>
               </a>
               <div class="card-info">
-  
-                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto provident
+
+                <h1 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto
+                  provident
                   sit officia, hic ipsa, deleniti quia porro eaque tempore aut ut non, ducimus maxime sapiente earum
                   nostrum sed sequi.</h1>
-  
+
               </div>
             </div>
           </a>
@@ -640,7 +670,7 @@
         <div class="wrapper">
           <div class="bbcontfoot">
             <p>Copyright 2013 - 2022 © <strong>CÔNG TY TNHH MTV SX TM DV MÔI TRƯỜNG Á CHÂU</strong></p>
-            
+
           </div>
         </div>
       </div>
@@ -656,13 +686,12 @@
             column.classList.remove('active');
           }
         });
-
         // Chuyển đổi class active cho cột hiện tại
         parentColumn.classList.toggle('active');
       }
 
       function goLogin() {
-        window.location.href = './login-page.html';  
+        window.location.href = './login-page.html';
       }
     </script>
   </div>

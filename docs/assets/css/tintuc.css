@@ -1612,13 +1612,15 @@ p {
 .btn-more {
   max-width: 900px;
   margin: 20px 20px;
-  border: 1px solid #000;
+  border: 1px solid var(--primary-color);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-color);
+  background-color: #fff;
 }
 
 .btn-more:hover {
