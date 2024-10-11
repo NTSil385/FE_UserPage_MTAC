@@ -1582,6 +1582,22 @@ p {
   padding: 10px;
   max-width: 900px;
   max-height: 300px;
+  margin-bottom: 20px;
+}
+
+.comment-content {
+    text-align: justify;
+    font-family: "Roboto", sans-serif;
+    padding-top: 10px;
+    font-size: var(--text-content);
+    line-height: 22px;
+    color: #555;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+  
 }
 
 .comment .img-box {
