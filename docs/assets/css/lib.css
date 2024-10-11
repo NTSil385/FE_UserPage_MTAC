@@ -54,12 +54,27 @@ body {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 }
+
 
 .btn-download svg {
   width: 20px;
   height: 20px;
   fill: #fff;
+}
+
+
+.btn-download:hover {
+  background-color: #fff; 
+  color: var(--primary-color); 
+  border: 1px solid var(--primary-color);
+}
+
+.btn-download:hover svg {
+  fill: var(--primary-color); 
 }
 
 .menu-header {
