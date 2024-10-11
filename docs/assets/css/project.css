@@ -18,12 +18,6 @@
     
   }
 
-  .container-dropdown{
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
 
   
 /* BODY */
@@ -249,16 +243,6 @@
       height: 100%;
   }
 
-  .container-dropdown {
-    
-      justify-content: flex-end;
-      align-items: flex-end;
-  }
-
-  .menu-dropdown .link {
-      padding: 12px 30px;
-  }
-
   .card-project {
       flex-direction: column;
       padding: 20px;
@@ -287,21 +271,7 @@
       height: auto;
   }
 
-  .container-dropdown {
-      display: flex;
-
-      justify-content: flex-start;
-      align-items: flex-start;
-  }
-
-  .menu-dropdown .link {
-      padding: 12px 20px;
-  }
-
-  .menu-dropdown .link svg {
-      width: 16px;
-      height: 16px;
-  }
+ 
 
   .card-project {
       flex-direction: column;
