@@ -335,3 +335,51 @@
       font-size: 60px;
   }
 }
+
+.vhpadding-lg-col-15 {
+  padding: 0 15px;
+}
+
+.vhcol-lg-4 {
+  width: 25%;
+}
+.thecontpj{
+  max-width: 770px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 23px;
+}
+.frmsearchpj{
+  padding: 25px 0 15px;
+  background-color: #eff1f4;
+}
+.pjform{
+  margin-bottom: 15px;
+}
+.pjform select{
+  height: 45px;
+  padding: 0 20px 0 10px;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+@media (max-width: 420px) {
+  .vhcol-lg-2, .vhcol-lg-4, .vhcol-sm-1, .vhcol-sm-2 {
+    width: 100%; 
+  }
+  
+  .vhpadding-lg-col-15, .vhpadding-xs-col-5 {
+    padding: 0 10px; 
+  }
+
+  .vhflex {
+    flex-wrap: wrap !important; 
+  }
+
+  .pjform button {
+    margin-top: 10px; 
+  }
+}

@@ -6,7 +6,7 @@
   --primary-color: #086db5;
   --cal-text: 22px;
   --text-content: 14px;
-  --text-header: 30px;
+
 }
 
 a {
@@ -21,12 +21,6 @@ body {
   overflow-x: hidden;
 }
 
-.header {
-  font-family: "UTM";
-  font-size: var(--text-header);
-  text-align: center;
-  text-transform: uppercase;
-}
 
 .title-lib {
   width: 60%;
