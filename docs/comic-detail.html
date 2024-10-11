@@ -279,18 +279,7 @@
           </a>
         </div>
       </div>
-      <script>
-        document.getElementById('downloadBtn').addEventListener('click', function () {
-          // Lấy URL từ thuộc tính source của thẻ div
-          const pdfSource = document.querySelector('._df_book').getAttribute('source');
-
-          // Tạo thẻ a tạm thời để tải file
-          const link = document.createElement('a');
-          link.href = pdfSource; // Đặt URL file PDF
-          link.download = 'comic.pdf'; // Đặt tên file muốn tải
-          link.click(); // Tự động click để tải file
-        });
-      </script>
+      
     </div>
     <footer id="vnt-footer">
       <div class="vntfooter">
@@ -424,7 +413,7 @@
       }
     </script>
   </div>
-
+  <script src="./assets/js/download.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
