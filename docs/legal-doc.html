@@ -267,29 +267,33 @@
           <option value="#">Hồ sơ đối tác</option>
           <option value="#">Tài liệu môi trường</option>
           <option value="#">Tài liệu hướng dẫn QLMT</option>
-          <option value="legal-doc">Văn bản quy phạm pháp luật</option>
+          <option value="legal-doc" selected="selected">Văn bản quy phạm pháp luật</option>
       </select>
       </div>
       <script>
-              function changePage(selectElement) {
-      
-        const selectedValue = selectElement.value;
-
-                
-        const pages = {
-            libary: 'libary.html',
-            // profile: 'profile.html',
-            // partner: 'partner.html',
-            // environment: 'environment.html',
-            // guidelines: 'guidelines.html',
-            'legal-doc': 'legal-doc.html'
-        };
-
-    
-        if (pages[selectedValue]) {
-            window.location.href = pages[selectedValue];
+           function changePage(select) {
+          var value = select.value;
+          switch (value) {
+            case 'libary':
+              window.location.href = './libary.html'; 
+              break;
+            case 'profile':
+              window.location.href = '#'; 
+              break;
+            case 'partner':
+              window.location.href = '#'; 
+              break;
+            case 'environment':
+              window.location.href = '#';
+              break;
+            case 'guidelines':
+              window.location.href = '#'; 
+              break;
+            case 'legal-doc':
+              window.location.href = 'legal-doc.html'; // Đường dẫn của 'Văn bản quy phạm pháp luật'
+              break;
+          }
         }
-    }
       </script>
 
 

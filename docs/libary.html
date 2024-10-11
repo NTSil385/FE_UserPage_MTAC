@@ -259,34 +259,41 @@
           <a href="#" class="header-content">Tài liệu môi trường</a>
           <a href="#" class="header-content">Tài liệu hướng dẫn QLMT</a>
           <a href="legal-doc.html" class="header-content">Văn bản quy phạm pháp luật</a>
-        </div>
-        <select class="dropdown-menu--hidden" onchange="changePage(this)">
-          <option value="libary">Tất cả</option>
+      </div>
+      <select class="dropdown-menu--hidden" onchange="changePage(this)">
+          <option value="libary" selected="selected">Tất cả</option>
           <option value="profile">Hồ sơ năng lực</option>
           <option value="partner">Hồ sơ đối tác</option>
           <option value="environment">Tài liệu môi trường</option>
           <option value="guidelines">Tài liệu hướng dẫn QLMT</option>
-          <option value="legal-doc" selected>Văn bản quy phạm pháp luật</option>
+          <option value="legal-doc" >Văn bản quy phạm pháp luật</option>
       </select>
       </div>
       <script>
-        function changePage(selectElement) {
-
-          const selectedValue = selectElement.value;
-          const pages = {
-            libary: 'libary.html',
-            profile: 'profile.html',
-            partner: 'partner.html',
-            environment: 'environment.html',
-            guidelines: 'guidelines.html',
-            'legal-doc': 'legal-doc.html'
-          };
-
-
-          if (pages[selectedValue]) {
-            window.location.href = pages[selectedValue];
+        function changePage(select) {
+          var value = select.value;
+          switch (value) {
+            case 'libary':
+              window.location.href = './libary.html'; 
+              break;
+            case 'profile':
+              window.location.href = '#'; 
+              break;
+            case 'partner':
+              window.location.href = '#'; 
+              break;
+            case 'environment':
+              window.location.href = '#';
+              break;
+            case 'guidelines':
+              window.location.href = '#'; 
+              break;
+            case 'legal-doc':
+              window.location.href = 'legal-doc.html'; // Đường dẫn của 'Văn bản quy phạm pháp luật'
+              break;
           }
         }
+
       </script>
 
       <div class="row" style="display: flex; justify-content: center;">
