@@ -263,19 +263,19 @@ function showResultColumn() {
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".tab-button.active").click();
 
-    // Gán sự kiện cho trường vị trí
+    
     document.getElementById("input1").addEventListener("input", updateFrequencyOptions);
 });
 
 function clearResults() {
-    // Xóa nội dung hiển thị giá và bảng chi tiết dịch vụ
+   
     document.querySelector(".priceDisplay").textContent = "";
     document.querySelector('.detail-service').innerHTML = "";
     
-    // Ẩn cột kết quả
+    
     document.getElementById("resultColumn").style.display = "none";
 
-    // Nếu cần xóa giá trị của các input
+    
     document.getElementById("inputServiceForm").value = "";
     document.getElementById("location").innerHTML = "";
     document.getElementById("inputAgency").innerHTML = "";
@@ -284,66 +284,62 @@ function clearResults() {
 
 // Hàm mở tab
 function openTab(event, tabName) {
-    clearResults(); // Gọi hàm làm sạch kết quả
+    clearResults(); 
 
-    // Ẩn tất cả các tab
+   
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => {
         tab.style.display = 'none';
     });
 
-    // Xóa lớp 'active' khỏi tất cả các tab button
+   
     const tabButtons = document.querySelectorAll('.tab-button');
     tabButtons.forEach(button => {
         button.classList.remove('active');
     });
 
-    // Hiện tab được chọn và đánh dấu nó là active
     document.getElementById(tabName).style.display = 'block';
     event.currentTarget.classList.add('active');
 }
 
-// Hàm để làm sạch các giá trị input và select trong form
+
+// Hàm reset Form
 function clearInputs() {
-    // Reset form
+    
     const form = document.getElementById('form-XLCT');
     form.reset();
 
-    // Xóa giá trị của các input cụ thể
+   
     const inputIds = ["input1", "input2", "input3", "input4", "mass-light", "inputMass13", "inputMass14"];
     inputIds.forEach(id => {
         const element = document.getElementById(id);
         if (element) element.value = "";
     });
 
-    // Reset select elements
+
     const selectElements = form.querySelectorAll('select');
     selectElements.forEach(select => {
         select.selectedIndex = 0;
     });
 
 
-    // Xóa danh sách từ khóa đã chọn
     document.getElementById('selectedKeywords').innerHTML = '';
     selectedKeywords = [];
     selectedService = null;
 
-    // Ẩn các phần tử điều kiện và kết quả
+    
     document.getElementById('conditionalInputs').style.display = 'none';
     document.getElementById('resultColumn').style.display = 'none';
 
-    // Xóa nội dung hiển thị giá và bảng chi tiết dịch vụ
+   
     document.querySelector(".priceDisplay").textContent = "";
     document.querySelector('.detail-service').innerHTML = "";
 
-    // Reset các biến global nếu có
-    // (Thêm vào đây nếu có các biến global khác cần reset)
 
-    // Cập nhật UI sau khi xóa
     updateFrequencyOptions();
 }
 
-// Thêm event listener cho nút "Làm mới"
+
 document.addEventListener('DOMContentLoaded', function() {
     const resetButton = document.querySelector('button');
     if (resetButton && resetButton.textContent.trim() === 'Làm mới') {
