@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/base.css">
+<link rel="stylesheet" href="./assets/css/quotation.css">
+
+  <!-- JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="./assets/js/showform.js"></script>
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+    integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="./assets/img/logo-nhan-dien MTAC - 20.05.2022.png" />
+  <title>Môi Trường Á Châu - Đồng hành cùng khách hàng</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container-content">
+    <!-- MAIN NAV -->
+    <nav style="position: relative; z-index: 15;">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+      <div class="menu">
+        <div class="nav-content ">
+          <a href="index.html" class="menu-item">TRANG CHỦ</a>
+          <a href="project.html" class="menu-item" data-target="#submenu-1">DỰ ÁN</a>
+          <a href="blog.html" class="menu-item" data-target="#submenu-3">TIN TỨC</a>
+          <a href="quotation.html" class="menu-item" data-target="#submenu-4">BÁO GIÁ</a>
+          <a href="libary.html" class="menu-item">THƯ VIỆN</a>
+          <a href="index.html" class="menu-item" data-target="#submenu-5">CÔNG CỤ & TIỆN ÍCH</a>
+          <a href="index.html" class="menu-item">HỖ TRỢ</a>
+
+
+        </div>
+        <div class="btn-user">
+
+          <div class="btn-login" onclick="goLogin()">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+            </svg>
+            ĐĂNG NHẬP MTAC+
+          </div>
+
+          <div class="combo-btn" style="display: flex;align-items: center; margin: 0 10px;">
+            <div class="search-box" style="margin-right: 10px;">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g clip-path="url(#clip0_15_152)">
+                    <circle cx="10.5" cy="10.5" r="6.5" stroke="#fff" stroke-linejoin="round"></circle>
+                    <path
+                      d="M19.6464 20.3536C19.8417 20.5488 20.1583 20.5488 20.3536 20.3536C20.5488 20.1583 20.5488 19.8417 20.3536 19.6464L19.6464 20.3536ZM20.3536 19.6464L15.3536 14.6464L14.6464 15.3536L19.6464 20.3536L20.3536 19.6464Z"
+                      fill="#fff"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_15_152">
+                      <rect width="24" height="24" fill="white"></rect>
+                    </clipPath>
+                  </defs>
+                </g>
+              </svg>
+            </div>
+            <div id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px"
+                      height="800px" viewBox="0 0 32 32" version="1.1">
+                      <g id="icomoon-ignore">
+                      </g>
+                      <path
+                        d="M16 2.672c-0.004 0-0.007 0-0.011 0-0.002 0-0.003 0-0.005 0-0.005 0-0.010 0.001-0.016 0.001-7.347 0.017-13.296 5.977-13.296 13.327 0 7.348 5.949 13.309 13.296 13.327 0.005 0 0.010 0.001 0.016 0.001 0.002 0 0.004 0 0.005 0 0.004 0 0.008 0 0.011 0 7.36 0 13.328-5.968 13.328-13.328s-5.968-13.328-13.328-13.328zM16.533 10.648c1.413-0.039 2.788-0.225 4.112-0.548 0.399 1.571 0.647 3.382 0.686 5.367h-4.798v-4.819zM16.533 9.582v-5.759c1.437 0.398 2.893 2.314 3.821 5.252-1.231 0.297-2.509 0.47-3.821 0.507zM15.467 3.81v5.772c-1.323-0.037-2.611-0.213-3.852-0.515 0.936-2.956 2.405-4.879 3.852-5.256zM15.467 10.647v4.82h-4.831c0.039-1.988 0.287-3.801 0.687-5.373 1.334 0.326 2.72 0.515 4.144 0.553zM9.563 15.467h-5.811c0.118-2.741 1.139-5.252 2.773-7.241 1.187 0.654 2.446 1.189 3.766 1.589-0.431 1.7-0.689 3.617-0.728 5.652zM9.563 16.533c0.039 2.034 0.297 3.951 0.728 5.651-1.319 0.401-2.579 0.936-3.766 1.59-1.635-1.989-2.656-4.5-2.773-7.241h5.811zM10.636 16.533h4.831v4.814c-1.424 0.038-2.81 0.228-4.145 0.555-0.399-1.571-0.647-3.383-0.686-5.369zM15.467 22.412v5.778c-1.448-0.378-2.919-2.303-3.854-5.263 1.241-0.302 2.53-0.478 3.854-0.515zM16.533 28.178v-5.765c1.313 0.038 2.591 0.211 3.822 0.508-0.928 2.941-2.384 4.86-3.822 5.257zM16.533 21.347v-4.814h4.798c-0.039 1.983-0.286 3.791-0.684 5.361-1.325-0.323-2.7-0.51-4.113-0.548zM22.404 16.533h5.845c-0.118 2.741-1.138 5.251-2.773 7.24-1.197-0.658-2.467-1.197-3.797-1.599 0.43-1.698 0.687-3.611 0.726-5.64zM22.404 15.467c-0.039-2.033-0.297-3.946-0.727-5.646 1.33-0.402 2.599-0.94 3.795-1.598 1.636 1.989 2.658 4.501 2.776 7.244h-5.845zM24.738 7.409c-1.061 0.564-2.18 1.031-3.35 1.385-0.623-2.005-1.498-3.642-2.533-4.717 2.27 0.545 4.297 1.719 5.883 3.332zM13.103 4.087c-1.029 1.073-1.9 2.702-2.521 4.697-1.158-0.353-2.268-0.815-3.319-1.375 1.575-1.602 3.587-2.774 5.84-3.322zM7.259 24.587c1.052-0.561 2.163-1.024 3.322-1.377 0.621 1.997 1.492 3.629 2.522 4.702-2.255-0.549-4.268-1.721-5.844-3.326zM18.855 27.922c1.036-1.075 1.911-2.712 2.535-4.721 1.17 0.355 2.29 0.82 3.351 1.387-1.586 1.614-3.614 2.791-5.886 3.334z"
+                        fill="#fff">
+
+                      </path>
+                    </svg>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
+                    <li><a class="dropdown-item" href="#">Tiếng Anh</a></li>
+
+                  </ul>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </a>
+      <div id="submenu-1" class="submenu-container">
+        <div class="submenu-left">
+          <div class="submenu-item" data-target="#submenu2-1-1">
+            Địa điểm
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <a href="project-gallery.html" class="submenu-item" data-target="#submenu2-1-2">Thu hồi pin thải
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
+        <div class="submenu-right">
+          <div id="submenu2-1-1" class="submenu2">
+            <div class="submenu-item">Thừa Thiên Huế</div>
+            <div class="submenu-item">Đồng Nai</div>
+            <div class="submenu-item">Tiền Giang</div>
+            <div class="submenu-item">Long An</div>
+            <div class="submenu-item">Bình Dương</div>
+            <div class="submenu-item">Hồ Chí Minh</div>
+          </div>
+          <div id="submenu2-1-2" class="submenu2">
+            <div class="submenu-item">1.2.1</div>
+            <div class="submenu-item">1.2.2</div>
+            <div class="submenu-item">1.2.3</div>
+          </div>
+        </div>
+      </div>
+      <div id="submenu-2" class="submenu-container">
+        <div class="submenu-left">
+          <div class="submenu-item" data-target="#submenu2-2-1">
+            2.1
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="submenu-item" data-target="#submenu2-2-2">2.2
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="submenu-right">
+          <div id="submenu2-2-1" class="submenu2">
+            <div class="submenu-item">2.1.1</div>
+            <div class="submenu-item">2.1.2</div>
+            <div class="submenu-item">2.1.3</div>
+          </div>
+          <div id="submenu2-2-2" class="submenu2">
+            <div class="submenu-item">2.2.1</div>
+            <div class="submenu-item">2.2.2</div>
+            <div class="submenu-item">2.2.3</div>
+          </div>
+        </div>
+      </div>
+      <div id="submenu-3" class="submenu-container">
+        <div class="submenu-left">
+          <div class="submenu-item" data-target="#submenu3-2-1">3.1
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="submenu-item" data-target="#submenu3-2-2">3.2
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="submenu-right">
+          <div id="submenu3-2-1" class="submenu2">
+            <div class="submenu-item">3.1.1</div>
+            <div class="submenu-item">3.1.2</div>
+            <div class="submenu-item">3.1.3</div>
+          </div>
+          <div id="submenu3-2-2" class="submenu2">
+            <div class="submenu-item">3.2.1</div>
+            <div class="submenu-item">3.2.2</div>
+            <div class="submenu-item">3.2.3</div>
+          </div>
+        </div>
+      </div>
+      <div id="submenu-5" class="submenu-container">
+        <div class="submenu-left">
+          <div class="submenu-item" data-target="#submenu5-1-1">
+            Hồ sơ tư vấn
+            <div class="icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="submenu-right">
+          <div id="submenu5-1-1" class="submenu2">
+            <div class="submenu-item">BCCT Biểu mẫu 5A</div>
+            <div class="submenu-item">BCCT Biểu mẫu 5B</div>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+
+
+    <script>
+      $(document).ready(function () {
+        $('.submenu-container').hide();
+
+        $('.menu-item').mouseenter(function () {
+          var target = $(this).data('target');
+          $(target).stop(true, true).fadeIn(200); // Hiển thị submenu-container của menu-item này
+        });
+
+        $('.menu-item').mouseleave(function () {
+          var target = $(this).data('target');
+          setTimeout(function () {
+            if (!$(target).is(':hover')) {
+              $(target).stop(true, true).fadeOut(200); // Ẩn submenu-container nếu không hover vào target
+            }
+          }, 200);
+        });
+
+        $('.submenu-container').mouseleave(function () {
+          $(this).stop(true, true).slideDown(200); // Ẩn submenu-container khi rời chuột ra khỏi nó
+          $(this).hide();
+        });
+
+        $('.submenu-left .submenu-item').mouseenter(function () {
+          var target = $(this).data('target');
+          $('.submenu2').not(target).stop(true, true).fadeOut(200); // Ẩn tất cả các submenu2 khác
+          $(target).stop(true, true).fadeIn(200); // Hiển thị submenu2 của menu-item này
+        });
+
+        $('.submenu-left .submenu-item').mouseleave(function () {
+          var target = $(this).data('target');
+          setTimeout(function () {
+            if (!$(target).is(':hover')) {
+              $(target).stop(true, true).fadeOut(200); // Ẩn submenu2 nếu không hover vào target
+            }
+          }, 200);
+        });
+
+        $('.submenu2').mouseleave(function () {
+          $(this).stop(true, true).fadeOut(200); // Ẩn submenu2 khi rời chuột ra khỏi nó
+        });
+      });
+
+    </script>
+
+
+    <div class="body">
+
+      <section class="timeline">
+        <div class="container" style="max-width: 100%;">
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1">
+                <h4>BƯỚC 1</h4>
+                <i class="fa-solid fa-bullseye"></i>
+                <p>Xác định loại dịch vụ</p>
+              </button>
+
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2">
+                <h4>BƯỚC 2</h4>
+                <i class="fa-solid fa-bullseye"></i>
+                <p>Điền thông tin & Dự toán chi phí</p>
+              </button>
+
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3">
+                <h4>BƯỚC 3</h4>
+                <i class="fa-solid fa-bullseye"></i>
+                <p>Gửi yêu cầu xử lý</p>
+              </button>
+
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="experience-slide-one row h-100 align-items-center">
+                        <div class="service-dashboard" style="z-index: 2;">
+                            <div class="dashboard-container">
+                                <div class="service-menu">
+                                    <div class="service-item active" data-service="waste-management">
+                                        <i class="fas fa-recycle"></i>
+                                        <span>Xử Lý Chất Thải</span>
+                                    </div>
+                                    <div class="service-item" data-service="environmental-consulting">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Hồ Sơ Tư Vấn</span>
+                                    </div>
+                                </div>
+                                <div class="service-display">
+                                    <div class="service-content active" id="waste-management">
+                                        <h3>Xử Lý Chất Thải</h3>
+                                        <div class="service-grid">
+                                            <div class="service-card" data-info="hazardous-waste">
+                                                <div class="card-icon"><i class="fas fa-biohazard"></i></div>
+                                                <h4>Chất thải Nguy hại</h4>
+                                                <p>Xử lý an toàn, tuân thủ quy định</p>
+                                            </div>
+                                            <div class="service-card" data-info="textile-waste">
+                                                <div class="card-icon"><i class="fas fa-tshirt"></i></div>
+                                                <h4>Chất thải May mặc</h4>
+                                                <p>Tái chế và xử lý chuyên biệt</p>
+                                            </div>
+                                            <div class="service-card" data-info="industrial-waste">
+                                                <div class="card-icon"><i class="fas fa-industry"></i></div>
+                                                <h4>Chất thải Công nghiệp</h4>
+                                                <p>Quản lý toàn diện, thân thiện môi trường</p>
+                                            </div>
+                                            <div class="service-card" data-info="bulky-waste">
+                                                <div class="card-icon"><i class="fas fa-couch"></i></div>
+                                                <h4>Chất thải Cồng Kềnh</h4>
+                                                <p>Thu gom, xử lý hiệu quả</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service-content" id="environmental-consulting">
+                                        <h3>Hồ Sơ Tư Vấn</h3>
+                                        <div class="service-grid">
+                                            <div class="service-card" data-info="environmental-permit">
+                                                <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                                                <h4>Giấy phép môi trường</h4>
+                                                <p>Hỗ trợ xin cấp và gia hạn</p>
+                                            </div>
+                                            <div class="service-card" data-info="eia">
+                                                <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                                                <h4>Đánh giá tác động môi trường</h4>
+                                                <p>Báo cáo chuyên sâu, đề xuất giải pháp</p>
+                                            </div>
+                                            <div class="service-card" data-info="environmental-protection-report">
+                                                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                                                <h4>BCCT Bảo Vệ Môi Trường</h4>
+                                                <p>Lập báo cáo chi tiết, đáp ứng yêu cầu</p>
+                                            </div>
+                                            <div class="service-card" data-info="environmental-registration">
+                                                <div class="card-icon"><i class="fas fa-registered"></i></div>
+                                                <h4>Đăng Ký Môi Trường</h4>
+                                                <p>Hỗ trợ đăng ký, đảm bảo tuân thủ</p>
+                                            </div>
+                                            <div class="service-card" data-info="waste-classification">
+                                                <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                                                <h4>Phân Định CTCN Phải Kiểm Soát</h4>
+                                                <p>Đánh giá, phân loại chuyên nghiệp</p>
+                                            </div>
+                                            <div class="service-card" data-info="work-environment-monitoring">
+                                                <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+                                                <h4>Đo Kiểm Môi Trường Lao Động</h4>
+                                                <p>Đánh giá, đề xuất cải thiện</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-details">
+                                <div class="details-content"></div>
+                            </div>
+                        </div>
+                        
+                        <style>
+                        :root {
+                            --primary-color: #006db5;
+                            --primary-light: #0088e8;
+                            --primary-dark: #005492;
+                            --secondary-color: #00a0e9;
+                            --text-color: #333;
+                            --text-light: #666;
+                            --background-color: #f0f8ff;
+                            --card-bg-color: #ffffff;
+                            --card-hover-bg-color: #e6f3ff;
+                            --transition-speed: 0.3s;
+                        }
+                        
+                        body {
+                            font-family: 'Roboto', sans-serif;
+                            color: var(--text-color);
+                            line-height: 1.6;
+                        }
+                        
+                        .service-dashboard {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 40px 20px;
+                            background-color: var(--background-color);
+                            border-radius: 15px;
+                            box-shadow: 0 10px 30px rgba(0, 109, 181, 0.1);
+                        }
+                        
+                        .dashboard-header {
+                            text-align: center;
+                            margin-bottom: 40px;
+                            position: relative;
+                        }
+                        
+                        .dashboard-title {
+                            color: var(--primary-color);
+                            font-size: 2.8em;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                            margin-bottom: 10px;
+                        }
+                        
+                        .dashboard-subtitle {
+                            color: var(--text-light);
+                            font-size: 1.2em;
+                            font-style: italic;
+                        }
+                        
+                        .dashboard-container {
+                            display: flex;
+                            background-color: var(--card-bg-color);
+                            border-radius: 10px;
+                            overflow: hidden;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                        }
+                        
+                        .service-menu {
+                            width: 250px;
+                            background-color: var(--primary-color);
+                            padding: 20px 0;
+                        }
+                        
+                        .service-item {
+                            padding: 15px 20px;
+                            color: #fff;
+                            cursor: pointer;
+                            transition: background-color var(--transition-speed), transform var(--transition-speed);
+                            display: flex;
+                            align-items: center;
+                            border-left: 4px solid transparent;
+                        }
+                        
+                         .service-item.active {
+                            background-color: var(--primary-light);
+                            transform: translateX(5px);
+                        
+                        }
+                        
+                        .service-item i {
+                            margin-right: 10px;
+                            font-size: 1.2em;
+                        }
+                        
+                        .service-display {
+                            flex: 1;
+                            padding: 30px;
+                        }
+                        
+                        .service-content {
+                            display: none;
+                        }
+                        
+                        .service-content.active {
+                            display: block;
+                            animation: fadeIn 0.5s ease-out;
+                        }
+                        
+                        @keyframes fadeIn {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
+                        }
+                        
+                        .service-content h3 {
+                            color: var(--primary-color);
+                            margin-bottom: 20px;
+                            font-size: 2em;
+                            border-bottom: 2px solid var(--primary-color);
+                            padding-bottom: 10px;
+                            position: relative;
+                        }
+                        
+
+                        
+                        .service-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                            gap: 20px;
+                        }
+                        
+                        .service-card {
+                            background-color: var(--card-bg-color);
+                            border-radius: 10px;
+                            padding: 20px;
+                            text-align: center;
+                            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+                            cursor: pointer;
+                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        
+                        .service-card::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            height: 4px;
+                            background-color: var(--primary-color);
+                            transform: scaleX(0);
+                            transition: transform var(--transition-speed);
+                        }
+                        
+                        .service-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                        }
+                        
+                        .service-card:hover::before {
+                            transform: scaleX(1);
+                        }
+                        
+                        .card-icon {
+                            font-size: 2.5em;
+                            color: var(--primary-color);
+                            margin-bottom: 15px;
+                        }
+                        
+                        .service-card h4 {
+                            color: var(--primary-dark);
+                            margin-bottom: 10px;
+                            font-size: 1.2em;
+                        }
+                        
+                        .service-card p {
+                            color: var(--text-light);
+                            font-size: 0.9em;
+                        }
+                        
+                        .service-details {
+                            margin-top: 30px;
+                            background-color: var(--card-bg-color);
+                            border-radius: 10px;
+                            padding: 30px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                        }
+                        
+                        .details-content h3 {
+                            color: var(--primary-color);
+                            font-size: 2em;
+                            margin-bottom: 20px;
+                            border-bottom: 2px solid var(--primary-color);
+                            padding-bottom: 10px;
+                        }
+                        
+                        .details-content .lead {
+                            font-size: 1.1em;
+                            color: var(--text-color);
+                            margin-bottom: 20px;
+                        }
+                        
+                        .btn-checked--price {
+                            display: inline-block;
+                            padding: 12px 24px;
+                            background-color: var(--primary-color);
+                            color: #fff;
+                            text-decoration: none;
+                            border-radius: 5px;
+                            transition: background-color var(--transition-speed), transform var(--transition-speed);
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                        }
+                        
+                        .btn-checked--price:hover {
+                            background-color: var(--primary-dark);
+                            transform: translateY(-2px);
+                        }
+                        
+                        @media (max-width: 768px) {
+                            .dashboard-container {
+                                flex-direction: column;
+                            }
+                        
+                            .service-menu {
+                                width: 100%;
+                                display: flex;
+                                overflow-x: auto;
+                                padding: 10px 0;
+                            }
+                        
+                            .service-item {
+                                flex: 0 0 auto;
+                                border-left: none;
+                                border-bottom: 4px solid transparent;
+                            }
+                        
+                            .service-item.active {
+                                transform: translateY(-5px);
+                                
+                            }
+                        
+                            .service-grid {
+                                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                            }
+                        }
+                        
+                        .animate-fade-in {
+                            animation: fadeIn 0.5s ease-out;
+                        }
+                        
+                        @keyframes fadeIn {
+                            from { opacity: 0; transform: translateY(20px); }
+                            to { opacity: 1; transform: translateY(0); }
+                        }
+                        </style>
+                        
+                        <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const serviceItems = document.querySelectorAll('.service-item');
+                            const serviceContents = document.querySelectorAll('.service-content');
+                            const serviceCards = document.querySelectorAll('.service-card');
+                            const serviceDetailss = document.querySelector('.service-details');
+                            const detailsContent = document.querySelector('.details-content');
+                        
+                            const serviceOverview = {
+                                'waste-management': {
+                                    title: 'Xử Lý Chất Thải',
+                                    description: 'Giải pháp toàn diện cho quản lý và xử lý chất thải',
+                                    services: [
+                                        'Chất thải Nguy hại',
+                                        'Chất thải May mặc',
+                                        'Chất thải Công nghiệp',
+                                        'Chất thải Cồng Kềnh'
+                                    ]
+                                },
+                                'environmental-consulting': {
+                                    title: 'Hồ Sơ Tư Vấn',
+                                    description: 'Hỗ trợ pháp lý và tư vấn môi trường chuyên nghiệp',
+                                    services: [
+                                        'Giấy phép môi trường',
+                                        'Đánh giá tác động môi trường',
+                                        'BCCT Bảo Vệ Môi Trường',
+                                        'Đăng Ký Môi Trường',
+                                        'Phân Định CTCN Phải Kiểm Soát',
+                                        'Đo Kiểm Môi Trường Lao Động'
+                                    ]
+                                }
+                            };
+                        
+                            const serviceDetails = {
+                                'hazardous-waste': {
+                                    title: 'Chất thải Nguy hại',
+                                    description: 'Xử lý an toàn và hiệu quả các loại chất thải nguy hại, tuân thủ nghiêm ngặt các quy định môi trường.',
+                                    content: 'Chúng tôi cung cấp dịch vụ xử lý chất thải nguy hại toàn diện, bao gồm thu gom, vận chuyển, lưu trữ và xử lý cuối cùng. Đội ngũ chuyên gia của chúng tôi đảm bảo tuân thủ tất cả các quy định hiện hành và sử dụng công nghệ tiên tiến để giảm thiểu tác động môi trường.'
+                                },
+                                'textile-waste': {
+                                    title: 'Chất thải May mặc',
+                                    description: 'Giải pháp tái chế và xử lý chuyên biệt cho chất thải từ ngành công nghiệp may mặc.',
+                                    content: 'Dịch vụ xử lý chất thải may mặc của chúng tôi tập trung vào việc tái chế và tái sử dụng tối đa. Chúng tôi xử lý các loại vải thừa, chỉ, nút và các phụ liệu khác, đồng thời tìm kiếm cơ hội để chuyển đổi chúng thành nguyên liệu mới hoặc sản phẩm có giá trị.'
+                                },
+                                'industrial-waste': {
+                                    title: 'Chất thải Công nghiệp',
+                                    description: 'Quản lý và xử lý toàn diện chất thải công nghiệp, đảm bảo tuân thủ các tiêu chuẩn môi trường.',
+                                    content: 'Dịch vụ xử lý chất thải công nghiệp của chúng tôi bao gồm việc đánh giá, phân loại và xử lý các loại chất thải từ các quy trình sản xuất. Chúng tôi áp dụng các phương pháp xử lý tiên tiến để giảm thiểu tác động môi trường và tối ưu hóa việc tái chế khi có thể.'
+                                },
+                                'bulky-waste': {
+                                    title: 'Chất thải Cồng Kềnh',
+                                    description: 'Xử lý chất thải cồng kềnh hiệu quả',
+                                    content: 'Chúng tôi cung cấp dịch vụ xử lý chất thải cồng kềnh cho cả khối lượng nhỏ (dưới 2000KG) và lớn (trên 2000KG). Dịch vụ bao gồm thu gom, phân loại, và xử lý an toàn, đảm bảo tuân thủ các quy định môi trường. Chúng tôi cũng tìm kiếm cơ hội để tái chế hoặc tái sử dụng các vật liệu khi có thể.'
+                                },
+                                'environmental-permit': {
+                                    title: 'Giấy phép môi trường',
+                                    description: 'Hỗ trợ doanh nghiệp trong việc xin cấp và gia hạn giấy phép môi trường, đảm bảo tuân thủ pháp luật.',
+                                    content: 'Dịch vụ của chúng tôi bao gồm việc chuẩn bị hồ sơ, tư vấn về các yêu cầu pháp lý, và hỗ trợ trong quá trình xin cấp và gia hạn giấy phép môi trường. Chúng tôi đảm bảo rằng doanh nghiệp của bạn luôn tuân thủ các quy định mới nhất về bảo vệ môi trường.'
+                                },
+                                'eia': {
+                                    title: 'Đánh giá tác động môi trường',
+                                    description: 'Thực hiện đánh giá tác động môi trường chuyên nghiệp cho các dự án, đảm bảo tính khả thi và bền vững.',
+                                    content: 'Chúng tôi cung cấp dịch vụ đánh giá tác động môi trường toàn diện, bao gồm khảo sát thực địa, phân tích dữ liệu, dự báo tác động và đề xuất các biện pháp giảm thiểu. Báo cáo của chúng tôi đáp ứng đầy đủ các yêu cầu pháp lý và cung cấp thông tin quan trọng cho việc ra quyết định của dự án.'
+                                },
+                                'environmental-protection-report': {
+                                    title: 'BCCT Bảo Vệ Môi Trường',
+                                    description: 'Lập báo cáo cam kết bảo vệ môi trường chi tiết và đầy đủ, đáp ứng yêu cầu của cơ quan quản lý.',
+                                    content: 'Dịch vụ lập báo cáo cam kết bảo vệ môi trường của chúng tôi bao gồm việc thu thập dữ liệu, phân tích tác động môi trường, và đề xuất các biện pháp bảo vệ môi trường phù hợp. Chúng tôi đảm bảo báo cáo đáp ứng đầy đủ các yêu cầu pháp lý và cung cấp một kế hoạch hành động cụ thể cho doanh nghiệp.'
+                                },
+                                'environmental-registration': {
+                                    title: 'Đăng Ký Môi Trường',
+                                    description: 'Hỗ trợ doanh nghiệp trong quá trình đăng ký môi trường, đảm bảo tuân thủ các quy định hiện hành.',
+                                    content: 'Dịch vụ đăng ký môi trường của chúng tôi bao gồm việc chuẩn bị hồ sơ, tư vấn về các yêu cầu pháp lý, và hỗ trợ trong quá trình nộp hồ sơ và theo dõi. Chúng tôi đảm bảo rằng doanh nghiệp của bạn đáp ứng đầy đủ các yêu cầu về đăng ký môi trường theo quy định mới nhất.'
+                                },
+                                'waste-classification': {
+                                    title: 'Phân Định CTCN Phải Kiểm Soát',
+                                    description: 'Hỗ trợ doanh nghiệp trong việc phân loại và quản lý chất thải công nghiệp cần kiểm soát.',
+                                    content: 'Dịch vụ của chúng tôi bao gồm việc đánh giá, phân loại và lập kế hoạch quản lý cho các loại chất thải công nghiệp cần kiểm soát. Chúng tôi áp dụng các tiêu chuẩn và quy định mới nhất để đảm bảo việc phân loại chính xác và quản lý an toàn.'
+                                },
+                                'work-environment-monitoring': {
+                                    title: 'Đo Kiểm Môi Trường Lao Động',
+                                    description: 'Thực hiện đo kiểm và đánh giá môi trường lao động để đảm bảo an toàn và sức khỏe cho người lao động.',
+                                    content: 'Dịch vụ đo kiểm môi trường lao động của chúng tôi bao gồm việc đánh giá các yếu tố vật lý, hóa học và sinh học tại nơi làm việc. Chúng tôi sử dụng các thiết bị hiện đại và phương pháp tiên tiến để đo lường chính xác và đề xuất các biện pháp cải thiện môi trường làm việc.'
+                                }
+                            };
+                        
+                            serviceItems.forEach(item => {
+                                item.addEventListener('click', () => {
+                                    const serviceType = item.getAttribute('data-service');
+                                    
+                                    serviceItems.forEach(i => i.classList.remove('active'));
+                                    serviceContents.forEach(c => c.classList.remove('active'));
+                                    
+                                    item.classList.add('active');
+                                    document.getElementById(serviceType).classList.add('active');
+                                    
+                                    serviceDetailss.style.display = 'none';
+                                });
+                            });
+                        
+                            serviceCards.forEach(card => {
+                                card.addEventListener('click', () => {
+                                    const infoType = card.getAttribute('data-info');
+                                    showServiceDetails(infoType);
+                                });
+                            });
+                        
+                            function showServiceDetails(infoType) {
+                                const info = serviceDetails[infoType];
+                                
+                                let detailsHTML = `
+                                    <h3 class="animate-fade-in">${info.title}</h3>
+                                    <p class="lead animate-fade-in" style="animation-delay: 0.1s">${info.description}</p>
+                                    <p class="animate-fade-in" style="animation-delay: 0.2s">${info.content}</p>
+                                    <div class="text-center mt-4 animate-fade-in" style="animation-delay: 0.3s">
+                                        <a href="./quotation-form.html" class="btn-checked--price">Tra cứu ngay</a>
+                                    </div>
+                                `;
+                                
+                                detailsContent.innerHTML = detailsHTML;
+                                serviceDetailss.style.display = 'block';
+                                serviceDetailss.scrollIntoView({behavior: "smooth", block: "start"});
+                            }
+                        
+                            // Thêm hiệu ứng parallax cho nền
+                            window.addEventListener('scroll', () => {
+                                const scrolled = window.scrollY;
+                                document.querySelector('.service-dashboard').style.backgroundPositionY = -scrolled * 0.5 + 'px';
+                            });
+                        });
+                        </script>
+                    </div>
+                </div>
+
+              
+              <div class="carousel-item">
+                <div class="experience-slide-one row h-100 align-items-center">
+                  <div class="col-md-5">
+
+                    <div class="experience-slide-img">
+                      <img src="./assets/img/test.jpg" alt="" class="rounded img-fluid">
+                    </div>
+
+                  </div>
+                  <div class="col-md-7">
+                    <h3>VIDEO HƯỚNG DẪN</h3>
+                    <div class="experience-slide-text">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum expedita neque natus
+                      incidunt nisi quis aut dolor ipsam esse dicta amet molestiae quas, repellat est unde maiores vero
+                      quod?
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="experience-slide-one row h-100 align-items-center">
+                  <div class="col-md-5">
+
+                    <div class="experience-slide-img">
+                      <img src="./assets/img/test.jpg" alt="" class="rounded img-fluid">
+                    </div>
+
+                  </div>
+                  <div class="col-md-7">
+                    <h3>VIDEO HƯỚNG DẪN</h3>
+                    <div class="experience-slide-text">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum expedita neque natus
+                      incidunt nisi quis aut dolor ipsam esse dicta amet molestiae quas, repellat est unde maiores vero
+                      quod?
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev" style="width: 2% !important;">
+                <span class="carousel-control-prev-icon">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </span>
+
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next" style="width: 2% !important;">
+                <span class="carousel-control-next-icon">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+    <footer id="vnt-footer">
+      <div class="vntfooter">
+        <div class="wrapper">
+          <div class="footer-content">
+            <div class="footer-column colm">
+              <div class="titlelink" onclick="toggleDropdown(this)">
+                <h2>Hỗ Trợ Khách Hàng</h2>
+              </div>
+              <div class="contlink dropdown-content">
+                <p>Hotline: <strong><a href="tel:1900545450">1900 545450</a></strong> (909đ/phút) - <strong><a
+                      href="https://zalo.me/0338351122">033 8351122</a></strong> (Zalo)</p>
+                <p>Góp ý CLDV: <a href="tel:0339751122"><strong>033 9751122</strong></a> - <a
+                    href="tel:0972851122"><strong>0972 851122</strong></a></p>
+                <p>Văn phòng miền Bắc: <a href="https://zalo.me/0338351122">033 8351122</a></p>
+                <p>Văn phòng miền Trung – Tây Nguyên: <a href="https://zalo.me/0902450585">0902 450585</a></p>
+                <p>Văn phòng TP.HCM – miền Đông: <a href="https://zalo.me/0338351122">033 8351122</a></p>
+                <p>Contact us (English): <a href="tel:+84362851122">+84 362 851122</a> (Whatsapp, Viber)</p>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="titlelink" onclick="toggleDropdown(this)">
+                <h2>Về Chúng Tôi</h2>
+              </div>
+              <div class="contlink dropdown-content">
+                <ul>
+                  <li><a href="#">Chiến lược phát triển</a></li>
+                  <li><a href="#">Giá Trị Cốt Lõi</a></li>
+                  <li><a href="#">Hình thành và phát triển</a></li>
+                  <li><a href="#">Hồ sơ năng lực</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="titlelink" onclick="toggleDropdown(this)">
+                <h2>Lĩnh vực hoạt động</h2>
+              </div>
+              <div class="contlink dropdown-content">
+                <ul>
+                  <li><a href="#">Phế liệu</a></li>
+                  <li><a href="#">Chất thải</a></li>
+                  <li><a href="#">Tái chế</a></li>
+                  <li><a href="#">Xử lý nước</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="titlelink" onclick="toggleDropdown(this)">
+                <h2>Theo Dõi Chúng Tôi</h2>
+              </div>
+              <div class="contlink dropdown-content">
+                <ul class="social-links">
+                  <li><a href="https://www.facebook.com/MoiTruongAChau/">Facebook</a></li>
+                  <li><a href="https://zalo.me/491330044074352041">Zalo</a></li>
+                  <li><a href="https://www.youtube.com/channel/UC-cD2gCrQ2KGvBSXs1pcLBA">YouTube</a></li>
+                  <li><a href="https://www.linkedin.com/company/a-chau-environment">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <div class="titlelink" onclick="toggleDropdown(this)">
+                <h2>Lượt Truy Cập</h2>
+              </div>
+              <div class="contlink dropdown-content">
+                <p>Online: <span id="stats_online">239</span></p>
+                <p>Lượt truy cập: <span id="stats_totals">3418684</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ccinfofoot">
+        <div class="wrapper">
+          <div class="cccontfoot">
+            <div class="grccfoot vhflex vhflex-wrap">
+              <div class="coll">
+                <div class="linkchinhsach">
+                  <ul class="vhflex vhflex-ali-center">
+                    <li><a
+                        href="https://moitruongachau.com/vn/chinh-sach-ve-bao-mat-va-quyen-rieng-tu-moi-truong-a-chau.html"
+                        target="_self" rel="nofollow">Chính sách bảo mật</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="colr">
+                <div class="iicongfoot vhflex vhflex-wrap">
+                  <div class="iifootl"></div>
+                  <div class="iifoor">
+                    <a onmousedown="return rwt(this,'advertise',5)"
+                      href="https://www.dmca.com/Protection/Status.aspx?ID=afd9cecf-a58e-439b-8805-0b5404bb4cdd&amp;refurl=https://moitruongachau.com/"
+                      target="_blank"><img
+                        src="https://moitruongachau.com/vnt_upload/weblink/dmca_badge_w150_5x1_06.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="wrapper">
+          <div class="bbcontfoot">
+            <p>Copyright 2013 - 2022 © <strong>CÔNG TY TNHH MTV SX TM DV MÔI TRƯỜNG Á CHÂU</strong></p>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./assets/js/test.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+</body>
+
+
+
+</html>

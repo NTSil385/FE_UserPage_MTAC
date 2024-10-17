@@ -86,7 +86,7 @@ input.addEventListener("keyup", (e) => {
     });
 });
 
-// Function to display selected names as keywords
+// Hàm lấy keyword
 function displayNames(value) {
     input.value = value;
     removeElements();
@@ -103,7 +103,7 @@ function displayNames(value) {
     if (serviceFound) {
         if (selectedService && selectedService.name !== serviceFound.name) {
             alert('Từ khóa không thuộc cùng một dịch vụ.');
-            input.value = ''; // Reset input
+            input.value = ''; 
             return;
         }
 
@@ -116,7 +116,7 @@ function displayNames(value) {
             updateFrequencyOptions();
 
             displaySelectedKeywords();
-            input.value = ''; // Reset input
+            input.value = ''; 
         }
     }
 }
@@ -152,12 +152,11 @@ function removeKeyword(index) {
 }
 
 function removeElements() {
-    // clear all the item
     let items = document.querySelectorAll(".list-items");
     items.forEach((item) => {
         item.remove();
     });
-    keywordList.style.display = 'none'; // Ẩn danh sách sau khi xóa
+    keywordList.style.display = 'none'; 
 }
 
 function checkConditionalInputs() {
@@ -166,7 +165,6 @@ function checkConditionalInputs() {
     const conditionalInputsDiv = document.getElementById("conditionalInputs");
     conditionalInputsDiv.style.display = (input4Value === 'Chất thải nguy hại' && input2Value > 600) ? "flex" : "none";
 
-    // Gọi hàm cập nhật tần suất khi vị trí thay đổi
     updateFrequencyOptions();
 }
 
@@ -298,7 +296,7 @@ function openTab(event, tabName) {
         button.classList.remove('active');
     });
 
-    document.getElementById(tabName).style.display = 'block';
+    document.getElementById(tabName).style.display = 'flex';
     event.currentTarget.classList.add('active');
 }
 
@@ -351,3 +349,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Không tìm thấy nút "Làm mới"');
     }
 });
+
+
+//DEMO

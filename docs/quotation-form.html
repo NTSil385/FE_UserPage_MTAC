@@ -248,8 +248,8 @@
 
 
     <div class="body">
-        <div class="row">
-          <div class="header" style="color: var(--primary-color);">TRA CỨU GIÁ</div>
+        <div class="row" style="margin-top: 10px;">
+          <div class="header" style="color: var(--primary-color);">Điền thông tin & dự toán chi phí</div>
         </div>
         <div class="row" style="margin: 10px;">       
             <div class="col-md-6">
@@ -257,7 +257,6 @@
                     <!-- Tabs -->
                     <div class="tabs">
                         <button class="tab-button active" onclick="openTab(event, 'XLCT')">XỬ LÝ CHẤT THẢI</button>
-                        <button class="tab-button" onclick="openTab(event, 'BCMT')">HỒ SƠ MÔI TRƯỜNG</button>
                         <button class="tab-button" onclick="openTab(event, 'BCMT')">HỒ SƠ MÔI TRƯỜNG</button>
                     </div>
 
@@ -293,7 +292,6 @@
                             </div>
                         </form>
                     </div>
-
                     <div class="tab-content" id="BCMT" style="display:none;">
                         <form id="myForm" action="#" method="POST">
                             <label for="inputServiceForm">Chọn loại dịch vụ:</label>
@@ -358,7 +356,7 @@
                     <a class="btn-request">Gửi yêu cầu xử lý</a>
                 </div>
             </div>
-            </div>
+        </div>
 
     </div>
     <footer id="vnt-footer">
@@ -493,6 +491,7 @@
       }
     </script>
   </div>
+
   <script src="./assets/js/autocomplate.js"></script>
   <script src="./assets/js/enviromentForm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
