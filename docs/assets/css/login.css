@@ -246,6 +246,14 @@ img {
 
 
 @media (max-width:1024px){
+  .popup-form {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: #ffffff;
+     font-family: "Roboto", sans-serif  
+  }
   .popup-content {
     padding: 0px !important;
   }

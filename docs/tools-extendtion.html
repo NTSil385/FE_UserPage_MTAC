@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính năng và Tiện ích - Môi Trường Á Châu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/tools-extention.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+
+    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+       <!-- MAIN NAV -->
+       <nav style="position: relative; z-index: 15;">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+        <div class="menu">
+          <div class="nav-content ">
+            <a href="index.html" class="menu-item">TRANG CHỦ</a>
+            <a href="project.html" class="menu-item" data-target="#submenu-1">DỰ ÁN</a>
+            <a href="blog.html" class="menu-item" data-target="#submenu-3">TIN TỨC</a>
+            <a href="quotation.html" class="menu-item" data-target="#submenu-4">BÁO GIÁ</a>
+            <a href="libary.html" class="menu-item">THƯ VIỆN</a>
+            <a href="tools-extendtion.html" class="menu-item"  data-target="#submenu-5">CÔNG CỤ & TIỆN ÍCH</a>
+            <a href="index.html" class="menu-item">HỖ TRỢ</a>
+  
+  
+          </div>
+          <div class="btn-user">
+  
+            <div class="btn-login" onclick="goLogin()">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+              </svg>
+              ĐĂNG NHẬP MTAC+
+            </div>
+  
+            <div class="combo-btn" style="display: flex;align-items: center; margin: 0 10px;">
+              <div class="search-box" style="margin-right: 10px;">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g clip-path="url(#clip0_15_152)">
+                      <circle cx="10.5" cy="10.5" r="6.5" stroke="#fff" stroke-linejoin="round"></circle>
+                      <path
+                        d="M19.6464 20.3536C19.8417 20.5488 20.1583 20.5488 20.3536 20.3536C20.5488 20.1583 20.5488 19.8417 20.3536 19.6464L19.6464 20.3536ZM20.3536 19.6464L15.3536 14.6464L14.6464 15.3536L19.6464 20.3536L20.3536 19.6464Z"
+                        fill="#fff"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_15_152">
+                        <rect width="24" height="24" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </g>
+                </svg>
+              </div>
+              <div id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdown" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px"
+                        height="800px" viewBox="0 0 32 32" version="1.1">
+                        <g id="icomoon-ignore">
+                        </g>
+                        <path
+                          d="M16 2.672c-0.004 0-0.007 0-0.011 0-0.002 0-0.003 0-0.005 0-0.005 0-0.010 0.001-0.016 0.001-7.347 0.017-13.296 5.977-13.296 13.327 0 7.348 5.949 13.309 13.296 13.327 0.005 0 0.010 0.001 0.016 0.001 0.002 0 0.004 0 0.005 0 0.004 0 0.008 0 0.011 0 7.36 0 13.328-5.968 13.328-13.328s-5.968-13.328-13.328-13.328zM16.533 10.648c1.413-0.039 2.788-0.225 4.112-0.548 0.399 1.571 0.647 3.382 0.686 5.367h-4.798v-4.819zM16.533 9.582v-5.759c1.437 0.398 2.893 2.314 3.821 5.252-1.231 0.297-2.509 0.47-3.821 0.507zM15.467 3.81v5.772c-1.323-0.037-2.611-0.213-3.852-0.515 0.936-2.956 2.405-4.879 3.852-5.256zM15.467 10.647v4.82h-4.831c0.039-1.988 0.287-3.801 0.687-5.373 1.334 0.326 2.72 0.515 4.144 0.553zM9.563 15.467h-5.811c0.118-2.741 1.139-5.252 2.773-7.241 1.187 0.654 2.446 1.189 3.766 1.589-0.431 1.7-0.689 3.617-0.728 5.652zM9.563 16.533c0.039 2.034 0.297 3.951 0.728 5.651-1.319 0.401-2.579 0.936-3.766 1.59-1.635-1.989-2.656-4.5-2.773-7.241h5.811zM10.636 16.533h4.831v4.814c-1.424 0.038-2.81 0.228-4.145 0.555-0.399-1.571-0.647-3.383-0.686-5.369zM15.467 22.412v5.778c-1.448-0.378-2.919-2.303-3.854-5.263 1.241-0.302 2.53-0.478 3.854-0.515zM16.533 28.178v-5.765c1.313 0.038 2.591 0.211 3.822 0.508-0.928 2.941-2.384 4.86-3.822 5.257zM16.533 21.347v-4.814h4.798c-0.039 1.983-0.286 3.791-0.684 5.361-1.325-0.323-2.7-0.51-4.113-0.548zM22.404 16.533h5.845c-0.118 2.741-1.138 5.251-2.773 7.24-1.197-0.658-2.467-1.197-3.797-1.599 0.43-1.698 0.687-3.611 0.726-5.64zM22.404 15.467c-0.039-2.033-0.297-3.946-0.727-5.646 1.33-0.402 2.599-0.94 3.795-1.598 1.636 1.989 2.658 4.501 2.776 7.244h-5.845zM24.738 7.409c-1.061 0.564-2.18 1.031-3.35 1.385-0.623-2.005-1.498-3.642-2.533-4.717 2.27 0.545 4.297 1.719 5.883 3.332zM13.103 4.087c-1.029 1.073-1.9 2.702-2.521 4.697-1.158-0.353-2.268-0.815-3.319-1.375 1.575-1.602 3.587-2.774 5.84-3.322zM7.259 24.587c1.052-0.561 2.163-1.024 3.322-1.377 0.621 1.997 1.492 3.629 2.522 4.702-2.255-0.549-4.268-1.721-5.844-3.326zM18.855 27.922c1.036-1.075 1.911-2.712 2.535-4.721 1.17 0.355 2.29 0.82 3.351 1.387-1.586 1.614-3.614 2.791-5.886 3.334z"
+                          fill="#fff">
+  
+                        </path>
+                      </svg>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
+                      <li><a class="dropdown-item" href="#">Tiếng Anh</a></li>
+  
+                    </ul>
+                  </li>
+  
+                </ul>
+  
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+        </a>
+        <div id="submenu-1" class="submenu-container">
+          <div class="submenu-left">
+            <div class="submenu-item" data-target="#submenu2-1-1">
+              Địa điểm
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+            <a href="project-gallery.html" class="submenu-item" data-target="#submenu2-1-2">Thu hồi pin thải
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+          </div>
+          <div class="submenu-right">
+            <div id="submenu2-1-1" class="submenu2">
+              <div class="submenu-item">Thừa Thiên Huế</div>
+              <div class="submenu-item">Đồng Nai</div>
+              <div class="submenu-item">Tiền Giang</div>
+              <div class="submenu-item">Long An</div>
+              <div class="submenu-item">Bình Dương</div>
+              <div class="submenu-item">Hồ Chí Minh</div>
+            </div>
+            <div id="submenu2-1-2" class="submenu2">
+              <div class="submenu-item">1.2.1</div>
+              <div class="submenu-item">1.2.2</div>
+              <div class="submenu-item">1.2.3</div>
+            </div>
+          </div>
+        </div>
+        <div id="submenu-2" class="submenu-container">
+          <div class="submenu-left">
+            <div class="submenu-item" data-target="#submenu2-2-1">
+              2.1
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="submenu-item" data-target="#submenu2-2-2">2.2
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="submenu-right">
+            <div id="submenu2-2-1" class="submenu2">
+              <div class="submenu-item">2.1.1</div>
+              <div class="submenu-item">2.1.2</div>
+              <div class="submenu-item">2.1.3</div>
+            </div>
+            <div id="submenu2-2-2" class="submenu2">
+              <div class="submenu-item">2.2.1</div>
+              <div class="submenu-item">2.2.2</div>
+              <div class="submenu-item">2.2.3</div>
+            </div>
+          </div>
+        </div>
+        <div id="submenu-3" class="submenu-container">
+          <div class="submenu-left">
+            <div class="submenu-item" data-target="#submenu3-2-1">3.1
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="submenu-item" data-target="#submenu3-2-2">3.2
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="submenu-right">
+            <div id="submenu3-2-1" class="submenu2">
+              <div class="submenu-item">3.1.1</div>
+              <div class="submenu-item">3.1.2</div>
+              <div class="submenu-item">3.1.3</div>
+            </div>
+            <div id="submenu3-2-2" class="submenu2">
+              <div class="submenu-item">3.2.1</div>
+              <div class="submenu-item">3.2.2</div>
+              <div class="submenu-item">3.2.3</div>
+            </div>
+          </div>
+        </div>
+        <div id="submenu-5" class="submenu-container">
+          <div class="submenu-left">
+            <div class="submenu-item" data-target="#submenu5-1-1">
+              Hồ sơ tư vấn
+              <div class="icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+           
+          </div>
+          <div class="submenu-right">
+            <div id="submenu5-1-1" class="submenu2">
+              <div class="submenu-item">BCCT Biểu mẫu 5A</div>
+              <div class="submenu-item">BCCT Biểu mẫu 5B</div>
+            </div>
+            
+          </div>
+        </div>
+      </nav>
+      <script>
+        $(document).ready(function () {
+          $('.submenu-container').hide();
+  
+          $('.menu-item').mouseenter(function () {
+            var target = $(this).data('target');
+            $(target).stop(true, true).fadeIn(200); // Hiển thị submenu-container của menu-item này
+          });
+  
+          $('.menu-item').mouseleave(function () {
+            var target = $(this).data('target');
+            setTimeout(function () {
+              if (!$(target).is(':hover')) {
+                $(target).stop(true, true).fadeOut(200); // Ẩn submenu-container nếu không hover vào target
+              }
+            }, 200);
+          });
+  
+          $('.submenu-container').mouseleave(function () {
+            $(this).stop(true, true).slideDown(200); // Ẩn submenu-container khi rời chuột ra khỏi nó
+            $(this).hide();
+          });
+  
+          $('.submenu-left .submenu-item').mouseenter(function () {
+            var target = $(this).data('target');
+            $('.submenu2').not(target).stop(true, true).fadeOut(200); // Ẩn tất cả các submenu2 khác
+            $(target).stop(true, true).fadeIn(200); // Hiển thị submenu2 của menu-item này
+          });
+  
+          $('.submenu-left .submenu-item').mouseleave(function () {
+            var target = $(this).data('target');
+            setTimeout(function () {
+              if (!$(target).is(':hover')) {
+                $(target).stop(true, true).fadeOut(200); // Ẩn submenu2 nếu không hover vào target
+              }
+            }, 200);
+          });
+  
+          $('.submenu2').mouseleave(function () {
+            $(this).stop(true, true).fadeOut(200); // Ẩn submenu2 khi rời chuột ra khỏi nó
+          });
+        });
+  
+      </script>
+    <main>
+        <!-- <section class="banner">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Tính năng và Tiện ích</h1>
+                    <p>Khám phá sức mạnh của công nghệ trong bảo vệ môi trường</p>
+                    <a href="#features" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+        </section> -->
+
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Tính năng nổi bật</h2>
+                <div class="feature-tabs">
+                    <div class="feature-tab active" data-tab="quanly">Quản lý</div>
+                    <div class="feature-tab" data-tab="thugom">Thu gom & Tái chế</div>
+                    <div class="feature-tab" data-tab="baocao">Báo cáo & Phân tích</div>
+                </div>
+                <div class="feature-content active" id="quanly">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                        <h3>Quản lý hồ sơ</h3>
+                        <p>Tạo, lưu trữ và quản lý hồ sơ môi trường một cách hiệu quả.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Quản lý hợp đồng</h3>
+                        <p>Theo dõi và quản lý các hợp đồng với khách hàng và đối tác.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>Quản lý thanh toán</h3>
+                        <p>Xử lý và theo dõi các giao dịch tài chính một cách dễ dàng.</p>
+                    </div>
+                </div>
+                <div class="feature-content" id="thugom">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                        <h3>Quản lý thu gom</h3>
+                        <p>Lên kế hoạch và theo dõi quá trình thu gom chất thải.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-recycle"></i></div>
+                        <h3>Quản lý tái chế</h3>
+                        <p>Theo dõi và quản lý toàn bộ quy trình tái chế từ đầu đến cuối.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>Tối ưu hóa lộ trình</h3>
+                        <p>Tối ưu hóa lộ trình thu gom để tiết kiệm thời gian và chi phí.</p>
+                    </div>
+                </div>
+                <div class="feature-content" id="baocao">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Báo cáo chi tiết</h3>
+                        <p>Tạo báo cáo chi tiết và trực quan về hoạt động môi trường.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Phân tích dữ liệu</h3>
+                        <p>Phân tích dữ liệu để đưa ra quyết định thông minh.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Bảng điều khiển</h3>
+                        <p>Theo dõi các chỉ số quan trọng trên bảng điều khiển trực quan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="    background-image: linear-gradient(45deg, #04456a, #086db5, #3385c9, #66a3db, #99c2ed);">
+            <div class="container-extention ">
+                <div class="row">
+                    <div class="mtac-tools-column">
+                        <ul class="mtac-tools-list">
+                            <li id="hoso-section" class="tools-item active" data-tool="hoso">
+                                <i class="fas fa-folder tools-icon"></i>Hồ sơ
+                            </li>
+                            <li id="hopdong-section" class="tools-item" data-tool="hopdong">
+                                <i class="fas fa-file-contract tools-icon"></i>Hợp đồng
+                            </li>
+                            <li id="thanhtoan-section" class="tools-item" data-tool="thanhtoan">
+                                <i class="fas fa-money-bill-wave tools-icon"></i>Thanh toán
+                            </li>
+                            <li id="thugom-section" class="tools-item" data-tool="thugom">
+                                <i class="fas fa-truck tools-icon"></i>Thu gom
+                            </li>
+                            <li id="taiche-section" class="tools-item" data-tool="taiche">
+                                <i class="fas fa-recycle tools-icon"></i>Tái chế
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-column">
+                        <div class="content-area" id="content-hoso">
+                            <h2 class="content-title">Hồ sơ</h2>
+                            <p class="content-description">Quản lý và truy cập các biểu mẫu hồ sơ quan trọng.</p>
+                            <ul class="form-list">
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-file-alt form-icon"></i>
+                                        Biểu mẫu A: Đăng ký thông tin doanh nghiệp
+                                    </a>
+                                </li>
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-file-alt form-icon"></i>
+                                        Biểu mẫu B: Báo cáo hoạt động môi trường
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-area" id="content-hopdong" style="display: none;">
+                            <h2 class="content-title">Hợp đồng</h2>
+                            <p class="content-description">Quản lý các hợp đồng với khách hàng và đối tác.</p>
+                            <ul class="form-list">
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-file-signature form-icon"></i>
+                                        Mẫu hợp đồng thu gom chất thải
+                                    </a>
+                                </li>
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-file-signature form-icon"></i>
+                                        Mẫu hợp đồng tái chế
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-area" id="content-thanhtoan" style="display: none;">
+                            <h2 class="content-title">Thanh toán</h2>
+                            <p class="content-description">Quản lý các giao dịch tài chính và thanh toán.</p>
+                            <ul class="form-list">
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-receipt form-icon"></i>
+                                        Hóa đơn điện tử
+                                    </a>
+                                </li>
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-chart-line form-icon"></i>
+                                        Báo cáo tài chính
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-area" id="content-thugom" style="display: none;">
+                            <h2 class="content-title">Thu gom</h2>
+                            <p class="content-description">Quản lý quy trình thu gom chất thải.</p>
+                            <ul class="form-list">
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-map-marked-alt form-icon"></i>
+                                        Lịch trình thu gom
+                                    </a>
+                                </li>
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-clipboard-list form-icon"></i>
+                                        Báo cáo thu gom
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-area" id="content-taiche" style="display: none;">
+                            <h2 class="content-title">Tái chế</h2>
+                            <p class="content-description">Quản lý quy trình tái chế chất thải.</p>
+                            <ul class="form-list">
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-cogs form-icon"></i>
+                                        Quy trình tái chế
+                                    </a>
+                                </li>
+                                <li class="form-item">
+                                    <a href="#" class="form-link">
+                                        <i class="fas fa-chart-pie form-icon"></i>
+                                        Thống kê tái chế
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toolItems = document.querySelectorAll('.tools-item');
+                const contentAreas = document.querySelectorAll('.content-area');
+    
+                toolItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const tool = this.getAttribute('data-tool');
+                        
+                        toolItems.forEach(ti => ti.classList.remove('active'));
+                        this.classList.add('active');
+    
+                        contentAreas.forEach(ca => {
+                            if (ca.id === `content-${tool}`) {
+                                ca.style.display = 'block';
+                            } else {
+                                ca.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+        <section id="feature-articles" class="section">
+            <div class="container">
+                <h2 class="section-title">Giới thiệu nhanh về tính năng</h2>
+                <div class="article-grid">
+                    <article class="feature-article">
+                        <h3>Quản lý hiệu quả với Môi Trường Á Châu</h3>
+                        <p>Hệ thống quản lý của chúng tôi giúp bạn dễ dàng theo dõi và quản lý mọi khía cạnh của hoạt động môi trường.</p>
+                        <span class="read-more" data-article="quanly">Đọc thêm</span>
+                    </article>
+                    <article class="feature-article">
+                        <h3>Tối ưu hóa quy trình thu gom và tái chế</h3>
+                        <p>Khám phá cách chúng tôi cách mạng hóa quy trình thu gom và tái chế chất thải với công nghệ tiên tiến.</p>
+                        <span class="read-more" data-article="thugom">Đọc thêm</span>
+                    </article>
+                    <article class="feature-article">
+                        <h3>Báo cáo và phân tích dữ liệu môi trường</h3>
+                        <p>Tìm hiểu cách chúng tôi biến dữ liệu phức tạp thành những thông tin có giá trị để đưa ra quyết định.</p>
+                        <span class="read-more" data-article="baocao">Đọc thêm</span>
+                    </article>
+                </div>
+                <div class="article-full-content" id="article-quanly">
+                    <h3>Quản lý hiệu quả với Môi Trường Á Châu</h3>
+                    <p>Hệ thống quản lý của chúng tôi giúp bạn dễ dàng theo dõi và quản lý mọi khía cạnh của hoạt động môi trường. Từ quản lý hồ sơ đến theo dõi hợp đồng và thanh toán, chúng tôi cung cấp giải pháp toàn diện để tối ưu hóa quy trình làm việc của bạn.</p>
+                    <p>Với tính năng quản lý hồ sơ, bạn có thể dễ dàng tạo, lưu trữ và truy cập các tài liệu quan trọng. Hệ thống quản lý hợp đồng giúp bạn theo dõi và quản lý tất cả các thỏa thuận với khách hàng và đối tác. Cuối cùng, tính năng thanh toán tích hợp giúp bạn theo dõi và xử lý các giao dịch tài chính một cách hiệu quả.</p>
+                    <p>Bằng cách tích hợp tất cả các khía cạnh này vào một hệ thống duy nhất, Môi Trường Á Châu giúp bạn tiết kiệm thời gian, giảm thiểu sai sót và tăng cường hiệu quả hoạt động tổng thể của doanh nghiệp.</p>
+                </div>
+                <div class="article-full-content" id="article-thugom">
+                    <h3>Tối ưu hóa quy trình thu gom và tái chế</h3>
+                    <p>Khám phá cách chúng tôi cách mạng hóa quy trình thu gom và tái chế chất thải với công nghệ tiên tiến. Từ lập kế hoạch thu gom thông minh đến quản lý quy trình tái chế hiệu quả, chúng tôi giúp bạn tiết kiệm thời gian và nguồn lực.</p>
+                    <p>Hệ thống của chúng tôi sử dụng thuật toán tiên tiến để tối ưu hóa lộ trình thu gom, giúp giảm thiểu thời gian di chuyển và tiêu thụ nhiên liệu. Chúng tôi cũng cung cấp các công cụ để theo dõi và quản lý toàn bộ quy trình tái chế, từ phân loại ban đầu đến xử lý cuối cùng.</p>
+                    <p>Bằng cách áp dụng công nghệ vào quy trình thu gom và tái chế, chúng tôi không chỉ giúp bạn tiết kiệm chi phí mà còn đóng góp vào việc bảo vệ môi trường thông qua việc tăng cường hiệu quả và giảm thiểu lãng phí.</p>
+                </div>
+                <div class="article-full-content" id="article-baocao">
+                    <h3>Báo cáo và phân tích dữ liệu môi trường</h3>
+                    <p>Tìm hiểu cách chúng tôi biến dữ liệu phức tạp thành những thông tin có giá trị để đưa ra quyết định. Với các công cụ báo cáo và phân tích tiên tiến, chúng tôi giúp bạn hiểu rõ hơn về hoạt động môi trường và đưa ra các quyết định dựa trên dữ liệu.</p>
+                    <p>Hệ thống của chúng tôi tự động thu thập và xử lý dữ liệu từ nhiều nguồn khác nhau, tạo ra các báo cáo chi tiết và trực quan. Bảng điều khiển tương tác cho phép bạn theo dõi các chỉ số quan trọng trong thời gian thực, giúp bạn nhanh chóng phát hiện xu hướng và đưa ra quyết định kịp thời.</p>
+                    <p>Với khả năng phân tích dữ liệu nâng cao, chúng tôi giúp bạn không chỉ hiểu rõ về tình hình hiện tại mà còn có thể dự đoán và lập kế hoạch cho tương lai. Điều này giúp bạn luôn đi đầu trong việc quản lý môi trường và đưa ra các quyết định chiến lược dựa trên thông tin chính xác và đáng tin cậy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonial-section">
+            <div class="container">
+                <h2 class="section-title">Khách hàng nói gì về chúng tôi</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <p class="testimonial-content">"Ứng dụng Môi Trường Á Châu đã giúp chúng tôi tối ưu hóa quy trình quản lý chất thải và tiết kiệm đáng kể chi phí vận hành."</p>
+                        <p class="testimonial-author">- Nguyễn Văn A, Giám đốc Công ty XYZ</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-content">"Chúng tôi đặc biệt ấn tượng với tính năng báo cáo và phân tích dữ liệu. Nó giúp chúng tôi đưa ra quyết định nhanh chóng và chính xác."</p>
+                        <p class="testimonial-author">- Trần Thị B, Trưởng phòng Môi trường Công ty ABC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section">
+            <div class="container">
+                <h2 class="section-title">Tin tức mới nhất</h2>
+                <div class="news-container">
+                    <div class="news-grid">
+                        <article class="news-item">
+                            <img src="https://placehold.co/800x800" alt="Tin tức 1" class="news-image">
+                            <div class="news-content">
+                                <h3>Khi cứu trợ mùa lũ không đơn thuần là cứu đói, cứu khát...</h3>
+                                <div class="news-meta">
+                                    <img src="https://placehold.co/800x800" alt="Tác giả" class="author-avatar">
+                                    <span class="author-name">Rachel Võ</span>
+                                    <span class="news-date">18 Th9</span>
+                                </div>
+                                <a href="#" class="news-link">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <img src="https://placehold.co/800x800" alt="Tin tức 1" class="news-image">
+                            <div class="news-content">
+                                <h3>Khi cứu trợ mùa lũ không đơn thuần là cứu đói, cứu khát...</h3>
+                                <div class="news-meta">
+                                    <img src="https://placehold.co/800x800" alt="Tác giả" class="author-avatar">
+                                    <span class="author-name">Rachel Võ</span>
+                                    <span class="news-date">18 Th9</span>
+                                </div>
+                                <a href="#" class="news-link">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <img src="https://placehold.co/800x800" alt="Tin tức 1" class="news-image">
+                            <div class="news-content">
+                                <h3>Khi cứu trợ mùa lũ không đơn thuần là cứu đói, cứu khát...</h3>
+                                <div class="news-meta">
+                                    <img src="https://placehold.co/800x800" alt="Tác giả" class="author-avatar">
+                                    <span class="author-name">Rachel Võ</span>
+                                    <span class="news-date">18 Th9</span>
+                                </div>
+                                <a href="#" class="news-link">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <img src="https://placehold.co/800x800" alt="Tin tức 1" class="news-image">
+                            <div class="news-content">
+                                <h3>Khi cứu trợ mùa lũ không đơn thuần là cứu đói, cứu khát...</h3>
+                                <div class="news-meta">
+                                    <img src="https://placehold.co/800x800" alt="Tác giả" class="author-avatar">
+                                    <span class="author-name">Rachel Võ</span>
+                                    <span class="news-date">18 Th9</span>
+                                </div>
+                                <a href="#" class="news-link">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="news-item">
+                            <img src="https://placehold.co/800x800" alt="Tin tức 1" class="news-image">
+                            <div class="news-content">
+                                <h3>Khi cứu trợ mùa lũ không đơn thuần là cứu đói, cứu khát...</h3>
+                                <div class="news-meta">
+                                    <img src="https://placehold.co/800x800" alt="Tác giả" class="author-avatar">
+                                    <span class="author-name">Rachel Võ</span>
+                                    <span class="news-date">18 Th9</span>
+                                </div>
+                                <a href="#" class="news-link">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="news-navigation">
+                    <button class="nav-button prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-button next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Bắt đầu sử dụng ngay hôm nay</h2>
+                <p>Trải nghiệm sức mạnh của công nghệ trong quản lý môi trường</p>
+                <div class="combo-download">
+                    <a href="#" tabindex="0"><img class="bn45" src="./assets/icon/btn-appstore.png" alt="bn45"></a>
+                    <a href="/" tabindex="0"><img class="bn45" src="./assets/icon/btn-chplay.png" alt="bn45"></a>
+                  </div>
+            </div>
+        </section>
+
+        <section class="section faq-section">
+            <div class="container">
+                <h2 class="section-title">Câu hỏi thường gặp</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Làm thế nào để bắt đầu sử dụng ứng dụng?</div>
+                    <div class="faq-answer">Để bắt đầu sử dụng ứng dụng, bạn chỉ cần đăng ký tài khoản trên trang web của chúng tôi. Sau khi xác nhận email, bạn có thể đăng nhập và bắt đầu sử dụng các tính năng của ứng dụng.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Ứng dụng có hỗ trợ nhiều ngôn ngữ không?</div>
+                    <div class="faq-answer">Có, ứng dụng của chúng tôi hỗ trợ nhiều ngôn ngữ, bao gồm tiếng Việt, tiếng Anh và một số ngôn ngữ khác. Bạn có thể dễ dàng chuyển đổi ngôn ngữ trong phần cài đặt của ứng dụng.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Làm thế nào để nhận hỗ trợ kỹ thuật?</div>
+                    <div class="faq-answer">Chúng tôi cung cấp hỗ trợ kỹ thuật qua email, điện thoại và chat trực tuyến. Bạn có thể liên hệ với đội ngũ hỗ trợ của chúng tôi bất cứ lúc nào trong giờ làm việc.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="vnt-footer">
+        <div class="vntfooter">
+          <div class="wrapper">
+            <div class="footer-content">
+              <div class="footer-column colm">
+                <div class="titlelink" onclick="toggleDropdown(this)">
+                  <h2>Hỗ Trợ Khách Hàng</h2>
+                </div>
+                <div class="contlink dropdown-content">
+                  <p>Hotline: <strong><a href="tel:1900545450">1900 545450</a></strong> (909đ/phút) - <strong><a
+                        href="https://zalo.me/0338351122">033 8351122</a></strong> (Zalo)</p>
+                  <p>Góp ý CLDV: <a href="tel:0339751122"><strong>033 9751122</strong></a> - <a
+                      href="tel:0972851122"><strong>0972 851122</strong></a></p>
+                  <p>Văn phòng miền Bắc: <a href="https://zalo.me/0338351122">033 8351122</a></p>
+                  <p>Văn phòng miền Trung – Tây Nguyên: <a href="https://zalo.me/0902450585">0902 450585</a></p>
+                  <p>Văn phòng TP.HCM – miền Đông: <a href="https://zalo.me/0338351122">033 8351122</a></p>
+                  <p>Contact us (English): <a href="tel:+84362851122">+84 362 851122</a> (Whatsapp, Viber)</p>
+                </div>
+              </div>
+  
+              <div class="footer-column">
+                <div class="titlelink" onclick="toggleDropdown(this)">
+                  <h2>Về Chúng Tôi</h2>
+                </div>
+                <div class="contlink dropdown-content">
+                  <ul>
+                    <li><a href="#">Chiến lược phát triển</a></li>
+                    <li><a href="#">Giá Trị Cốt Lõi</a></li>
+                    <li><a href="#">Hình thành và phát triển</a></li>
+                    <li><a href="#">Hồ sơ năng lực</a></li>
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="footer-column">
+                <div class="titlelink" onclick="toggleDropdown(this)">
+                  <h2>Lĩnh vực hoạt động</h2>
+                </div>
+                <div class="contlink dropdown-content">
+                  <ul>
+                    <li><a href="#">Phế liệu</a></li>
+                    <li><a href="#">Chất thải</a></li>
+                    <li><a href="#">Tái chế</a></li>
+                    <li><a href="#">Xử lý nước</a></li>
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="footer-column">
+                <div class="titlelink" onclick="toggleDropdown(this)">
+                  <h2>Theo Dõi Chúng Tôi</h2>
+                </div>
+                <div class="contlink dropdown-content">
+                  <ul class="social-links">
+                    <li><a href="https://www.facebook.com/MoiTruongAChau/">Facebook</a></li>
+                    <li><a href="https://zalo.me/491330044074352041">Zalo</a></li>
+                    <li><a href="https://www.youtube.com/channel/UC-cD2gCrQ2KGvBSXs1pcLBA">YouTube</a></li>
+                    <li><a href="https://www.linkedin.com/company/a-chau-environment">LinkedIn</a></li>
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="footer-column">
+                <div class="titlelink" onclick="toggleDropdown(this)">
+                  <h2>Lượt Truy Cập</h2>
+                </div>
+                <div class="contlink dropdown-content">
+                  <p>Online: <span id="stats_online">239</span></p>
+                  <p>Lượt truy cập: <span id="stats_totals">3418684</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ccinfofoot">
+          <div class="wrapper">
+            <div class="cccontfoot">
+              <div class="grccfoot vhflex vhflex-wrap">
+                <div class="coll">
+                  <div class="linkchinhsach">
+                    <ul class="vhflex vhflex-ali-center">
+                      <li><a
+                          href="https://moitruongachau.com/vn/chinh-sach-ve-bao-mat-va-quyen-rieng-tu-moi-truong-a-chau.html"
+                          target="_self" rel="nofollow">Chính sách bảo mật</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="colr">
+                  <div class="iicongfoot vhflex vhflex-wrap">
+                    <div class="iifootl"></div>
+                    <div class="iifoor">
+                      <a onmousedown="return rwt(this,'advertise',5)"
+                        href="https://www.dmca.com/Protection/Status.aspx?ID=afd9cecf-a58e-439b-8805-0b5404bb4cdd&amp;refurl=https://moitruongachau.com/"
+                        target="_blank"><img
+                          src="https://moitruongachau.com/vnt_upload/weblink/dmca_badge_w150_5x1_06.png" alt=""></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="wrapper">
+            <div class="bbcontfoot">
+              <p>Copyright 2013 - 2022 © <strong>CÔNG TY TNHH MTV SX TM DV MÔI TRƯỜNG Á CHÂU</strong></p>
+  
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+        function toggleDropdown(element) {
+          const parentColumn = element.parentElement;
+          const allColumns = document.querySelectorAll('.footer-column');
+  
+          allColumns.forEach(column => {
+            // Nếu không phải là cột hiện tại, gỡ bỏ class active
+            if (column !== parentColumn) {
+              column.classList.remove('active');
+            }
+          });
+  
+          // Chuyển đổi class active cho cột hiện tại
+          parentColumn.classList.toggle('active');
+        }
+  
+      </script>
+
+    <div class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+    function initializeApp() {
+    initializeNewsSlider();
+    initializeFeatureTabs();
+    initializeFAQ();
+    initializeReadMore();
+    initializeSmoothScroll();
+    initializeAnimationOnScroll();
+    initializeScrollToTop();
+    initializeToolItems();
+    initializeChatbot();
+}
+
+function initializeNewsSlider() {
+    let currentIndex = 0;
+    const itemsPerView = 2;
+
+    function moveSlide(direction) {
+        const newsGrid = document.querySelector('.news-grid');
+        const newsItems = document.querySelectorAll('.news-item');
+        const totalItems = newsItems.length;
+
+        if (newsGrid && newsItems.length > 0) {
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            } else if (currentIndex > totalItems - itemsPerView) {
+                currentIndex = totalItems - itemsPerView;
+            }
+
+            const translateX = -currentIndex * (100 / itemsPerView);
+            newsGrid.style.transform = `translateX(${translateX}%)`;
+        }
+    }
+
+    const prevButton = document.querySelector('.nav-button.prev');
+    const nextButton = document.querySelector('.nav-button.next');
+
+    if (prevButton) {
+        prevButton.onclick = () => moveSlide(-1);
+    }
+    if (nextButton) {
+        nextButton.onclick = () => moveSlide(1);
+    }
+}
+
+function initializeFeatureTabs() {
+    const tabs = document.querySelectorAll('.feature-tab');
+    const contents = document.querySelectorAll('.feature-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            contents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === target) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
+function initializeFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            question.classList.toggle('active');
+            const answer = question.nextElementSibling;
+            if (question.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = null;
+            }
+        });
+    });
+}
+
+function initializeReadMore() {
+    const readMoreButtons = document.querySelectorAll('.read-more');
+    const articleFullContents = document.querySelectorAll('.article-full-content');
+
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const articleId = button.dataset.article;
+            const fullContent = document.getElementById(`article-${articleId}`);
+            
+            if (fullContent) {
+                articleFullContents.forEach(content => {
+                    if (content !== fullContent) {
+                        content.style.display = 'none';
+                    }
+                });
+
+                if (fullContent.style.display === 'none' || fullContent.style.display === '') {
+                    fullContent.style.display = 'block';
+                    fullContent.style.opacity = '0';
+                    setTimeout(() => {
+                        fullContent.style.opacity = '1';
+                    }, 10);
+                    button.textContent = 'Thu gọn';
+                } else {
+                    fullContent.style.opacity = '0';
+                    setTimeout(() => {
+                        fullContent.style.display = 'none';
+                    }, 300);
+                    button.textContent = 'Đọc thêm';
+                }
+
+                fullContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+}
+
+function initializeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+function initializeAnimationOnScroll() {
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.feature-item, .feature-article, .testimonial, .faq-item');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 100) {
+                element.classList.add('animate-on-scroll');
+                element.classList.add('animated');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+}
+
+function initializeScrollToTop() {
+    const scrollToTop = document.querySelector('.scroll-to-top');
+    if (scrollToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                scrollToTop.classList.add('show');
+            } else {
+                scrollToTop.classList.remove('show');
+            }
+        });
+
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+function initializeToolItems() {
+    const toolItems = document.querySelectorAll('.mtac-tools-item');
+    toolItems.forEach(item => {
+        item.addEventListener('click', function() {
+            toolItems.forEach(ti => ti.classList.remove('active'));
+            this.classList.add('active');
+            
+            const tool = this.getAttribute('data-tool');
+            const contentAreas = document.querySelectorAll('.mtac-content-area');
+            contentAreas.forEach(area => {
+                area.style.display = area.id === `content-${tool}` ? 'block' : 'none';
+            });
+        });
+    });
+}
+function initializeChatbot() {
+    const chatbotIcon = document.querySelector('.chatbot-icon');
+    if (chatbotIcon) {
+        chatbotIcon.addEventListener('click', function() {
+            console.log('Chatbot clicked');
+        });
+    }
+}
+
+function scrollToSection() {
+    const hash = window.location.hash;
+    if (hash) {
+        setTimeout(() => {
+            const section = document.querySelector(hash);
+            if (section) {
+                // Kích hoạt tab tương ứng
+                const tool = section.getAttribute('data-tool');
+                const contentArea = document.getElementById(`content-${tool}`);
+                if (contentArea) {
+                    document.querySelectorAll('.content-area').forEach(area => area.style.display = 'none');
+                    contentArea.style.display = 'block';
+                }
+                document.querySelectorAll('.tools-item').forEach(item => item.classList.remove('active'));
+                section.classList.add('active');
+
+                // Cuộn đến phần tử cha của section để hiển thị toàn bộ nội dung
+                const parentElement = section.closest('.tools-column') || section.parentElement;
+                if (parentElement) {
+                    parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }, 100);
+    }
+}
+
+// Chạy các hàm khởi tạo khi trang được tải
+window.addEventListener('load', () => {
+    initializeApp();
+    scrollToSection();
+});
+
+// Chạy hàm khi hash thay đổi (nếu người dùng điều hướng bằng nút Back/Forward của trình duyệt)
+window.addEventListener('hashchange', scrollToSection); 
+
+    </script>
+</body>
+</html>

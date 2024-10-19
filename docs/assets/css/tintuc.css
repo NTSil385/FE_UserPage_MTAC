@@ -254,6 +254,16 @@ a {
   top: 394px;
 }
 
+.nav-button:nth-of-type(9):hover {
+  color: var(--primary-color);
+  margin-left: 30px
+}
+
+.nav-button:nth-of-type(9):hover~#nav-content-highlight {
+  top: 448px;
+}
+
+
 
 .nav-button.active {
   color: var(--primary-color);
