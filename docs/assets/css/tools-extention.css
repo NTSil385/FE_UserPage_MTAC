@@ -668,12 +668,21 @@ background-color: var(--secondary-color);
 }
 
 .combo-download a {
-    max-width: 13%;
+    max-width: 172px;
 }
 
 @media (max-width: 768px) {
     .mtac-tools-column, .content-column {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    .news-grid {
+        display: flex;
+        place-self: start;
     }
 }
