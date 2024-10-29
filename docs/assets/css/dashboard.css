@@ -143,6 +143,7 @@
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 0 7px;
   }
   .sidebar .nav-links li.showMenu i.arrow{
     transform: rotate(-180deg);

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTAC Analytics Center</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --primary: #006db5;
+            --bg: #f0f2f5;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background: var(--bg);
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+        }
+    
+        /* Layout chính */
+        .command-center {
+            padding: 1.5rem;
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "main main side"
+                "bottom bottom bottom";
+            grid-template-columns: 1fr 1fr 350px;
+            gap: 1.5rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+    
+        /* Header Stats */
+        .header-stats {
+            grid-area: header;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    
+        .stat-pill {
+            background: var(--card);
+            padding: 1.25rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 220px;
+            transition: transform 0.2s;
+        }
+    
+        /* Main Chart Area */
+        .main-chart {
+            grid-area: main;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Side Panel */
+        .side-panel {
+            grid-area: side;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Bottom Grid */
+        /* Bottom Grid */
+.bottom-grid {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+}
+
+/* Điều chỉnh độ rộng của từng card */
+.bottom-grid .info-card:nth-child(1),
+.bottom-grid .info-card:nth-child(2),
+.bottom-grid .info-card:nth-child(3) {
+    grid-column: span 4; /* Mỗi card chiếm 4 cột trong tổng số 12 cột */
+}
+
+.bottom-grid .info-card:last-child {
+    grid-column: 1 / -1; /* Card cuối cùng sẽ chiếm hết chiều rộng (tất cả 12 cột) */
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .bottom-grid .info-card:nth-child(1),
+    .bottom-grid .info-card:nth-child(2),
+    .bottom-grid .info-card:nth-child(3) {
+        grid-column: span 6; /* Ở màn hình nhỏ hơn, mỗi card chiếm 6 cột */
+    }
+}
+
+@media (max-width: 768px) {
+    .bottom-grid .info-card:nth-child(1),
+    .bottom-grid .info-card:nth-child(2),
+    .bottom-grid .info-card:nth-child(3) {
+        grid-column: 1 / -1; /* Ở màn hình mobile, mỗi card chiếm full width */
+    }
+}
+    
+        /* Card Styles */
+        .info-card {
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    
+        .widget-header {
+            padding: 1rem 1.5rem;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .widget-header h3 {
+            font-size: 1.1rem;
+            margin: 0;
+            color: var(--text);
+        }
+    
+        /* Table Styles */
+        .table-container {
+            padding: 0;
+        }
+    
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+    
+        .table thead th {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+    
+        .table tbody td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+    
+        /* Status Styles */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.813rem;
+            font-weight: 500;
+        }
+    
+        .status-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+    
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+    
+        /* Button Styles */
+        .btn-outline-primary {
+            height: 36px;
+            padding: 0 1rem;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            color: var(--primary);
+            background: transparent;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+    
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+        }
+    
+        /* Activity Feed */
+        .activity-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+    
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .command-center {
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "side"
+                    "bottom";
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1rem;
+            }
+    
+            .header-stats {
+                gap: 0.75rem;
+            }
+    
+            .stat-pill {
+                padding: 1rem;
+                min-width: 200px;
+            }
+    
+            .widget-header {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            .table-responsive {
+                overflow-x: auto;
+            }
+    
+            .table td, 
+            .table th {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="command-center">
+
+
+        <!-- Header Stats -->
+        <div class="header-stats">
+            <div class="stat-pill weather-widget">
+                <i class='bx bx-loader-alt'></i>
+                <div>
+                    <small>Thời tiết</small>
+                    <div class="weather-info">
+                        <span id="temperature">--°C</span>
+                        <span id="humidity">Độ ẩm: --%</span>
+                        <small id="location">Đang tải...</small>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-pill">
+                <i class='bx bx-file'></i>
+                <div>
+                    <small>Tổng hợp đồng</small>
+                    <h3>2,845</h3>
+                </div>
+            </div>
+            <div class="stat-pill">
+                <i class='bx bx-trending-up'></i>
+                <div>
+                    <small>Doanh thu tháng</small>
+                    <h3>156.5M</h3>
+                </div>
+            </div>
+            <div class="stat-pill">
+                <i class='bx bx-time'></i>
+                <div>
+                    <small>Đang xử lý</small>
+                    <h3>24</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chart Area -->
+        <div class="main-chart">
+            <canvas id="revenueChart"></canvas>
+        </div>
+
+        <!-- Side Panel -->
+        <div class="side-panel">
+            <h3>Hoạt động gần đây</h3>
+            <div class="activity-feed">
+                <!-- Activities will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Bottom Grid -->
+        <div class="bottom-grid">
+            <div class="info-card">
+                <h3>Phân loại hợp đồng</h3>
+                <canvas id="contractTypes"></canvas>
+            </div>
+            <div class="info-card">
+                <div class="widget-header">
+                    <h3>Thống kê hợp đồng</h3>
+                    <button class="btn-outline-primary">
+                        <i class='bx bx-download'></i>
+                        <span>Xuất báo cáo</span>
+                    </button>
+                </div>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Trạng thái</th>
+                                    <th>Số lượng</th>
+                                    <th>Tỷ lệ</th>
+                                    <th>So với tháng trước</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="status-item">
+                                            <span class="status-dot bg-success"></span>
+                                            <span>Đang hoạt động</span>
+                                        </span>
+                                    </td>
+                                    <td>750</td>
+                                    <td>75%</td>
+                                    <td>
+                                        <span class="trend-indicator trend-up">
+                                            <i class='bx bx-up-arrow-alt'></i>
+                                            <span>5%</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="status-item">
+                                            <span class="status-dot bg-warning"></span>
+                                            <span>Sắp hết hạn</span>
+                                        </span>
+                                    </td>
+                                    <td>150</td>
+                                    <td>15%</td>
+                                    <td>
+                                        <span class="trend-indicator trend-down">
+                                            <i class='bx bx-down-arrow-alt'></i>
+                                            <span>2%</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="status-item">
+                                            <span class="status-dot bg-danger"></span>
+                                            <span>Đã kết thúc</span>
+                                        </span>
+                                    </td>
+                                    <td>50</td>
+                                    <td>5%</td>
+                                    <td>
+                                        <span class="trend-indicator trend-up">
+                                            <i class='bx bx-up-arrow-alt'></i>
+                                            <span>1%</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="status-item">
+                                            <span class="status-dot bg-secondary"></span>
+                                            <span>Tạm dừng</span>
+                                        </span>
+                                    </td>
+                                    <td>50</td>
+                                    <td>5%</td>
+                                    <td>
+                                        <span class="trend-indicator trend-neutral">
+                                            <i class='bx bx-minus'></i>
+                                            <span>0%</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td><strong>Tổng cộng</strong></td>
+                                    <td><strong>1,000</strong></td>
+                                    <td><strong>100%</strong></td>
+                                    <td>
+                                        <span class="trend-indicator trend-up">
+                                            <i class='bx bx-up-arrow-alt'></i>
+                                            <span>4%</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3>Thu gom gần đây</h3>
+                <table class="data-table">
+                    <tbody>
+                        <tr>
+                            <td>15/03/2024</td>
+                            <td>Công ty ABC</td>
+                            <td>500 kg</td>
+                            <td><span class="status-badge status-success">Hoàn thành</span></td>
+                        </tr>
+                        <tr>
+                            <td>14/03/2024</td>
+                            <td>Công ty XYZ</td>
+                            <td>750 kg</td>
+                            <td><span class="status-badge status-warning">Đang xử lý</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-card" style="grid-column: 1 / -1;">
+                <div class="widget-header">
+                    <h3>Lịch sử chuyển giao gần đây</h3>
+                    <button class="btn-outline-primary">
+                        <i class='bx bx-download'></i>
+                        <span>Xuất báo cáo</span>
+                    </button>
+                </div>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ngày</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Biển số xe</th>
+                                    <th>Khối lượng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15/03/2024</td>
+                                    <td>123 Đường ABC, Q.1</td>
+                                    <td>51F-123.45</td>
+                                    <td>500 kg</td>
+                                    <td>
+                                        <span class="status-item">
+                                            <span class="status-dot bg-success"></span>
+                                            <span>Hoàn thành</span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn-outline-primary">
+                                            <i class='bx bx-show'></i>
+                                        </button>
+                                        <button class="btn-outline-primary">
+                                            <i class='bx bx-download'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>14/03/2024</td>
+                                    <td>456 Đường XYZ, Q.2</td>
+                                    <td>51F-678.90</td>
+                                    <td>750 kg</td>
+                                    <td>
+                                        <span class="status-item">
+                                            <span class="status-dot bg-warning"></span>
+                                            <span>Đang xử lý</span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn-outline-primary">
+                                            <i class='bx bx-show'></i>
+                                        </button>
+                                        <button class="btn-outline-primary">
+                                            <i class='bx bx-download'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div>
+    </div>
+    <!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+    <script>
+
+
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+                datasets: [{
+                    label: 'Doanh thu (triệu)',
+                    data: [120, 190, 300, 250, 280, 320],
+                    borderColor: '#006db5',
+                    backgroundColor: 'rgba(0,109,181,0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            borderDash: [2, 4]
+                        }
+                    }
+                }
+            }
+        });
+
+        // Contract Types Chart
+        const contractCtx = document.getElementById('contractTypes').getContext('2d');
+        new Chart(contractCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Đang hoạt động', 'Sắp hết hạn', 'Đã kết thúc'],
+                datasets: [{
+                    data: [70, 20, 10],
+                    backgroundColor: [
+                        '#006db5',
+                        '#f59e0b',
+                        '#ef4444'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Add Activities
+        const activities = [
+            {
+                title: 'Hợp đồng mới',
+                description: 'Công ty ABC đã ký hợp đồng mới',
+                time: '2 giờ trước',
+                icon: 'bx-file'
+            },
+            {
+                title: 'Thanh toán',
+                description: 'Đã nhận thanh toán từ Công ty XYZ',
+                time: '4 giờ trước',
+                icon: 'bx-money'
+            },
+            {
+                title: 'Thu gom',
+                description: 'Hoàn thành thu gom tại Q.1',
+                time: '6 giờ trước',
+                icon: 'bx-trash'
+            }
+        ];
+
+        const activityFeed = document.querySelector('.activity-feed');
+        activities.forEach(activity => {
+            const div = document.createElement('div');
+            div.className = 'activity-item';
+            div.innerHTML = `
+                <div class="activity-icon">
+                    <i class='bx ${activity.icon}'></i>
+                </div>
+                <div>
+                    <strong>${activity.title}</strong>
+                    <p>${activity.description}</p>
+                    <small>${activity.time}</small>
+                </div>
+            `;
+            activityFeed.appendChild(div);
+        });
+
+        // Add Quick Stats
+        const quickStats = [
+            { label: 'Tổng khối lượng', value: '1,250 kg' },
+            { label: 'Số chuyến thu gom', value: '45' },
+            { label: 'Tỷ lệ hoàn thành', value: '95%' }
+        ];
+
+        const quickStatsContainer = document.getElementById('quickStats');
+        quickStats.forEach(stat => {
+            const div = document.createElement('div');
+            div.style.marginBottom = '16px';
+            div.innerHTML = `
+                <div style="color: var(--text-light)">${stat.label}</div>
+                <div style="font-size: 24px; font-weight: 600;">${stat.value}</div>
+            `;
+            quickStatsContainer.appendChild(div);
+        });
+
+        $(document).ready(function () {
+            $('#contractAnalytics').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/vi.json"
+                },
+                "pageLength": 5,
+                "ordering": true,
+                "searching": true,
+                "info": true,
+                "responsive": true,
+                "autoWidth": false,
+                "dom": '<"top"f>rt<"bottom"lip><"clear">',
+                "order": [[1, "desc"]], // Sắp xếp theo số lượng
+                "columnDefs": [
+                    {
+                        "targets": [3, 4, 5], // Cột progress bar, xu hướng và trạng thái
+                        "orderable": false
+                    }
+                ]
+            });
+
+            // Thêm tooltip cho các xu hướng
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>
