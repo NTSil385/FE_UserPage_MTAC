@@ -11,15 +11,12 @@
 ;
 }
 
-#myTable th {
-    background-color: #fdfafa;
-}
 
 #myTable th,
 #myTable td {
     text-align: left;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #f0efef;
 }
 
 #myTable th:nth-child(1), #myTable td:nth-child(1) {
@@ -54,32 +51,16 @@
 }
 
 
-#myTable tr:first-child th:first-child {
-    border-top-left-radius: 10px;
-}
-
-#myTable tr:first-child th:last-child {
-    border-top-right-radius: 10px;
-}
-
-#myTable tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-}
-
-#myTable tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
-}
 
 .filter-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #ccc;
+    border: 1px solid #efefef;
     width: 98.3% !important;
     margin: 0 12px;
     padding-top: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+
 }
 
 .btn-filter {

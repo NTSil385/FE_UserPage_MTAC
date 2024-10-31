@@ -1,0 +1,118 @@
+:root {
+    --primary-color: #086db5;
+    --box-title: 22px;
+  }
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .widget {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid #006db5;
+  }
+
+  .widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .widget-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .chart-container {
+    height: 300px;
+  }
+
+  .progress-bar {
+    height: 8px;
+    border-radius: 4px;
+  }
+
+  .table th {
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .table td {
+    vertical-align: middle;
+  }
+
+
+
+  .badge {
+    padding: 0.5em 0.75em;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .gird-box--title {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--box-title);
+    font-weight: 500;
+  }
+
+  .active>.page-link, .page-link.active  {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+
+  .page-link {
+    color: var(--primary-color) !important;
+  }
+
+  .btn-normal {
+    margin: 10px auto;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 10px 50px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 4px;
+  }
+
+  .btn-normal:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: #fff;
+  }
