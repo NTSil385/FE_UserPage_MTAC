@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra Cứu Báo Giá</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .wizard {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .progress {
+            height: 5px;
+            background: #007bff;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wizard">
+    <h2>Tra Cứu Báo Giá</h2>
+    <div class="progress" id="progress" style="width: 0%;"></div>
+
+    <div class="step active" id="step1">
+        <h3>Bước 1: Chọn Loại Dịch Vụ</h3>
+        <select id="serviceType">
+            <option value="">Chọn loại dịch vụ</option>
+            <option value="giay-phep-moi-truong">Giấy phép môi trường</option>
+            <option value="giay-phep-xa-thai">Giấy phép xả thải</option>
+            <!-- Thêm các tùy chọn khác -->
+        </select>
+    </div>
+
+    <div class="step" id="step2">
+        <h3>Bước 2: Chọn Địa Điểm</h3>
+        <select id="location">
+            <option value="">Chọn địa điểm</option>
+            <option value="ho-chi-minh">Hồ Chí Minh</option>
+            <option value="ha-noi">Hà Nội</option>
+            <!-- Thêm các tùy chọn khác -->
+        </select>
+    </div>
+
+    <div class="step" id="step3">
+        <h3>Bước 3: Nhập Thông Tin Chi Tiết</h3>
+        <input type="text" id="details" placeholder="Nhập thông tin chi tiết" />
+    </div>
+
+    <div class="buttons">
+        <button class="button" id="prevBtn" onclick="prevStep()" style="display: none;">Quay lại</button>
+        <button class="button" id="nextBtn" onclick="nextStep()">Tiếp theo</button>
+        <button class="button" id="submitBtn" onclick="submitForm()" style="display: none;">Gửi</button>
+    </div>
+</div>
+
+<script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+    const progress = document.getElementById('progress');
+
+    function showStep(step) {
+        steps.forEach((s, index) => {
+            s.classList.toggle('active', index === step);
+        });
+        progress.style.width = ((step + 1) / steps.length) * 100 + '%';
+        document.getElementById('prevBtn').style.display = step === 0 ? 'none' : 'inline-block';
+        document.getElementById('nextBtn').style.display = step === steps.length - 1 ? 'none' : 'inline-block';
+        document.getElementById('submitBtn').style.display = step === steps.length - 1 ? 'inline-block' : 'none';
+    }
+
+    function nextStep() {
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    function submitForm() {
+        // Xử lý gửi form ở đây
+        alert('Form đã được gửi!');
+    }
+
+    showStep(currentStep);
+</script>
+
+</body>
+</html>

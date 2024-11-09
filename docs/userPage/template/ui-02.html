@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="../../assets/css/dashboard.css">
   <link rel="stylesheet" href="../../assets/css/demo.css">
-  <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/debt.css">
 
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -52,9 +51,9 @@
     </div>
   </nav>
 
-    <div class="sidebar">
+    <div class="sidebar" style="z-index: 999 !important; background-color: #fff;">
 
-      <ul class="nav-links">
+      <ul class="nav-links" style="padding: 0px 0 150px 0 !important;">
         <li style="
       display: flex;
       align-items: center;
@@ -62,7 +61,7 @@
       /* margin-bottom: 50px; */
       margin: 20px;
   ">
-          <img src="../../assets/img/logo-app.png" alt="" srcset="" style="/* display: flex; */width: 150px;/* height: auto; */align-items: center;justify-content: center;">
+          <img src="../../assets/img/logo-app.png" alt="" srcset="" style="display: flex; max-width: 150px; width: 100%; object-fit: cover; align-items: center;justify-content: center;">
           
       </li>
         <li>
@@ -247,137 +246,6 @@
               </div>
             </div>
           </div>
-      </div>
-
-      <div class="row" style="width: 100%;">
-        <footer id="vnt-footer">
-          <div class="vntfooter">
-            <div class="wrapper">
-              <div class="footer-content">
-                <div class="footer-column colm">
-                  <div class="titlelink" onclick="toggleDropdown(this)">
-                    <h2>Hỗ Trợ Khách Hàng</h2>
-                  </div>
-                  <div class="contlink dropdown-content">
-                    <p>Hotline: <strong><a href="tel:1900545450">1900 545450</a></strong> (909đ/phút) - <strong><a
-                          href="https://zalo.me/0338351122">033 8351122</a></strong> (Zalo)</p>
-                    <p>Góp ý CLDV: <a href="tel:0339751122"><strong>033 9751122</strong></a> - <a
-                        href="tel:0972851122"><strong>0972 851122</strong></a></p>
-                    <p>Văn phòng miền Bắc: <a href="https://zalo.me/0338351122">033 8351122</a></p>
-                    <p>Văn phòng miền Trung – Tây Nguyên: <a href="https://zalo.me/0902450585">0902 450585</a></p>
-                    <p>Văn phòng TP.HCM – miền Đông: <a href="https://zalo.me/0338351122">033 8351122</a></p>
-                    <p>Contact us (English): <a href="tel:+84362851122">+84 362 851122</a> (Whatsapp, Viber)</p>
-                  </div>
-                </div>
-    
-                <div class="footer-column">
-                  <div class="titlelink" onclick="toggleDropdown(this)">
-                    <h2>Về Chúng Tôi</h2>
-                  </div>
-                  <div class="contlink dropdown-content">
-                    <ul>
-                      <li><a href="#">Chiến lược phát triển</a></li>
-                      <li><a href="#">Giá Trị Cốt Lõi</a></li>
-                      <li><a href="#">Hình thành và phát triển</a></li>
-                      <li><a href="#">Hồ sơ năng lực</a></li>
-                    </ul>
-                  </div>
-                </div>
-    
-                <div class="footer-column">
-                  <div class="titlelink" onclick="toggleDropdown(this)">
-                    <h2>Lĩnh vực hoạt động</h2>
-                  </div>
-                  <div class="contlink dropdown-content">
-                    <ul>
-                      <li><a href="#">Phế liệu</a></li>
-                      <li><a href="#">Chất thải</a></li>
-                      <li><a href="#">Tái chế</a></li>
-                      <li><a href="#">Xử lý nước</a></li>
-                    </ul>
-                  </div>
-                </div>
-    
-                <div class="footer-column">
-                  <div class="titlelink" onclick="toggleDropdown(this)">
-                    <h2>Theo Dõi Chúng Tôi</h2>
-                  </div>
-                  <div class="contlink dropdown-content">
-                    <ul class="social-links">
-                      <li><a href="https://www.facebook.com/MoiTruongAChau/">Facebook</a></li>
-                      <li><a href="https://zalo.me/491330044074352041">Zalo</a></li>
-                      <li><a href="https://www.youtube.com/channel/UC-cD2gCrQ2KGvBSXs1pcLBA">YouTube</a></li>
-                      <li><a href="https://www.linkedin.com/company/a-chau-environment">LinkedIn</a></li>
-                    </ul>
-                  </div>
-                </div>
-    
-                <div class="footer-column">
-                  <div class="titlelink" onclick="toggleDropdown(this)">
-                    <h2>Lượt Truy Cập</h2>
-                  </div>
-                  <div class="contlink dropdown-content">
-                    <p>Online: <span id="stats_online">239</span></p>
-                    <p>Lượt truy cập: <span id="stats_totals">3418684</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ccinfofoot">
-            <div class="wrapper">
-              <div class="cccontfoot">
-                <div class="grccfoot vhflex vhflex-wrap">
-                  <div class="coll">
-                    <div class="linkchinhsach">
-                      <ul class="vhflex vhflex-ali-center">
-                        <li><a
-                            href="https://moitruongachau.com/vn/chinh-sach-ve-bao-mat-va-quyen-rieng-tu-moi-truong-a-chau.html"
-                            target="_self" rel="nofollow">Chính sách bảo mật</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="colr">
-                    <div class="iicongfoot vhflex vhflex-wrap">
-                      <div class="iifootl"></div>
-                      <div class="iifoor">
-                        <a onmousedown="return rwt(this,'advertise',5)"
-                          href="https://www.dmca.com/Protection/Status.aspx?ID=afd9cecf-a58e-439b-8805-0b5404bb4cdd&amp;refurl=https://moitruongachau.com/"
-                          target="_blank"><img
-                            src="https://moitruongachau.com/vnt_upload/weblink/dmca_badge_w150_5x1_06.png" alt=""></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <div class="wrapper">
-              <div class="bbcontfoot">
-                <p>Copyright 2013 - 2022 © <strong>CÔNG TY TNHH MTV SX TM DV MÔI TRƯỜNG Á CHÂU</strong></p>
-    
-              </div>
-            </div>
-          </div>
-        </footer>
-        <script>
-          function toggleDropdown(element) {
-            const parentColumn = element.parentElement;
-            const allColumns = document.querySelectorAll('.footer-column');
-    
-            allColumns.forEach(column => {
-              // Nếu không phải là cột hiện tại, gỡ bỏ class active
-              if (column !== parentColumn) {
-                column.classList.remove('active');
-              }
-            });
-    
-            // Chuyển đổi class active cho cột hiện tại
-            parentColumn.classList.toggle('active');
-          }
-    
-        </script>
       </div>
       <div class="row" style="height: 50px;"></div>
     </section>
