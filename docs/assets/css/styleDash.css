@@ -1,0 +1,784 @@
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --accent-color: #90e0ef;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
+    /* Ngăn cuộn ngang */
+  }
+
+.back-to-top {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  z-index: 99999;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  background: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.back-to-top i {
+  line-height: 40px;
+}
+
+/* Responsive adjustment */
+@media screen and (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+  /* Dashboard Container */
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  /* Widget Styles */
+  .widget {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Header Widget */
+  .header-widget {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 2rem;
+  }
+
+  .header-widget h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Stats Cards */
+  .stat-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: var(--background-color);
+    transition: transform 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    color: var(--primary-color);
+  }
+
+  .stat-info .stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  .stat-info .stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* Charts */
+  .chart-widget {
+    height: 450px;
+  }
+
+  .chart-container {
+    height: calc(100% - 60px);
+  }
+
+  /* Activity Feed */
+  .activity-widget {
+    height: 450px;
+  }
+
+  .activity-list {
+    height: calc(100% - 60px);
+    overflow-y: auto;
+  }
+
+  .activity-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .activity-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Table Widget */
+  .table-widget {
+    overflow: hidden;
+  }
+
+  .table th {
+    background: var(--background-color);
+    font-weight: 600;
+  }
+
+  /* Quick Actions */
+  .action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .action-button {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: white;
+    transition: all 0.3s ease;
+  }
+
+  .action-button:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+
+  /* Contract Statistics Styles */
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .bg-success {
+    background-color: #28a745;
+  }
+
+  .bg-warning {
+    background-color: #ffc107;
+  }
+
+  .bg-danger {
+    background-color: #dc3545;
+  }
+
+  .bg-secondary {
+    background-color: #6c757d;
+  }
+
+  /* Table Styles */
+  .table td,
+  .table th {
+    padding: 1rem;
+    vertical-align: middle;
+  }
+
+  .table tfoot {
+    border-top: 2px solid var(--border-color);
+  }
+
+  /* Trend Indicators */
+  .text-success i,
+  .text-danger i,
+  .text-muted i {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .header-widget[style*="grid-column: span"] {
+      grid-column: span 12 !important;
+    }
+
+    .widget-start[style*="grid-column: span"] {
+      grid-column: span 6 !important;
+    }
+
+    .chart-widget[style*="grid-column: span"] {
+      grid-column: span 12 !important;
+    }
+
+    .table-widget[style*="grid-column: span"] {
+      grid-column: span 12 !important;
+    }
+
+    .activity-widget[style*="grid-column: span"] {
+      grid-column: span 12 !important;
+    }
+
+    .stat-info .stat-value {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .widget[style*="grid-column: span"] {
+      grid-column: span 12 !important;
+    }
+
+    .dashboard-container {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .header-widget {
+      padding: 1.5rem;
+    }
+  }
+
+  .social-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icons a {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .social-icons i {
+    font-size: 30px;
+  }
+
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .scroll-to-top.show {
+    opacity: 1;
+  }
+
+  .notification-icon {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+
+  .notification-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+  }
+
+  .home-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 20px;
+  }
+
+  .home-button span {
+    font-size: 14px;
+  }
+
+  .table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+}
+
+.table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+.table tbody tr {
+  transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+  background-color: var(--accent-color);
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.bg-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.bg-warning {
+  background-color: #ffc107;
+  color: white;
+}
+
+ /* Cải thiện kiểu cho ô tìm kiếm */
+ .dataTables_filter input {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 8px;
+  margin-left: 10px;
+  width: 200px;
+}
+
+.dataTables_filter label {
+  margin-bottom: 10px;
+}
+
+  /* Kiểu dáng cho phần length (Show entries) */
+  .dataTables_wrapper .dataTables_length {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  /* Kiểu dáng cho label */
+  .dataTables_wrapper .dataTables_length label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-weight: 500;
+    color: #555;
+  }
+
+  /* Kiểu dáng cho select */
+  .dataTables_wrapper .dataTables_length select {
+    margin: 0 8px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  /* Hover effect cho select */
+  .dataTables_wrapper .dataTables_length select:hover {
+    border-color: var(--primary-color);
+    background-color: #fff;
+  }
+
+  /* Focus effect cho select */
+  .dataTables_wrapper .dataTables_length select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+  }
+
+  /* Container cho length và pagination */
+  .dataTables_wrapper .bottom-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Kiểu dáng cho phần tìm kiếm */
+.dataTables_wrapper .dataTables_filter {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .dataTables_wrapper .dataTables_filter label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-weight: 500;
+    color: #555;
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* Kiểu dáng cho input search */
+  .dataTables_wrapper .dataTables_filter input {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 250px;
+    font-size: 0.9rem;
+    color: #444;
+    transition: all 0.2s ease;
+    background-color: #f8f9fa;
+  }
+  
+  /* Hover effect cho input */
+  .dataTables_wrapper .dataTables_filter input:hover {
+    border-color: var(--primary-color);
+    background-color: #fff;
+  }
+  
+  /* Focus effect cho input */
+  .dataTables_wrapper .dataTables_filter input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+    background-color: #fff;
+  }
+  
+  /* Placeholder style */
+  .dataTables_wrapper .dataTables_filter input::placeholder {
+    color: #999;
+    font-style: italic;
+  }
+
+/* Container cho length và pagination */
+.dataTables_wrapper .bottom-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* Style cho phần Show entries */
+  .dataTables_wrapper .dataTables_length {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dataTables_wrapper .dataTables_length label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  .dataTables_wrapper .dataTables_length select {
+    margin: 0 8px;
+    padding: 6px 30px 6px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  /* Style cho phần pagination */
+  .dataTables_wrapper .dataTables_paginate {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 6px 12px;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    color: #333 !important;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 35px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff !important;
+  }
+  
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current) {
+    background: #f8f9fa;
+    border-color: var(--primary-color);
+    color: var(--primary-color) !important;
+  }
+  
+  .dataTables_wrapper .dataTables_paginate .previous,
+  .dataTables_wrapper .dataTables_paginate .next {
+    font-weight: 600;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 767px) {
+    .dataTables_wrapper .bottom-controls {
+      flex-direction: column;
+      gap: 15px;
+      padding: 12px;
+    }
+  
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_paginate {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .dataTables_wrapper .dataTables_paginate {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      min-width: 32px;
+      padding: 5px 10px;
+    }
+  }
+
+  /* Style cho container chứa tiêu đề và nút xuất báo cáo */
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  /* Style cho phần tiêu đề và dropdown */
+  .title-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .title-section select {
+    padding: 8px 35px 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    min-width: 120px;
+  }
+  
+  /* Style cho nút xuất báo cáo */
+  .export-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .export-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+  }
+  
+  .export-button i {
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 767px) {
+    .header-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+  
+    .title-section {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .title-section h2 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  
+    .title-section select {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .export-button {
+      width: 100%;
+      justify-content: center;
+      padding: 10px;
+    }
+  }
+  
+  /* Điều chỉnh thêm cho màn hình cực nhỏ */
+  @media screen and (max-width: 480px) {
+    .title-section h2 {
+      font-size: 1.2rem;
+    }
+  
+    .export-button {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Desktop styles */
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .widget-header select {
+    padding: 6px 30px 6px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    width: 110px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  
+  .widget-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .widget-header button {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile styles */
+  @media screen and (max-width: 767px) {
+    .widget-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .widget-header button {
+      padding: 6px;
+    }
+    
+    .widget-header button span {
+      display: none;
+    }
+    
+    .widget-header button i {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+  }
