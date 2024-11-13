@@ -64,6 +64,10 @@ body{
     -webkit-text-size-adjust: 100%;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .container-content {
   width: 100%;
   overflow-x: hidden;
