@@ -8,11 +8,6 @@
     --transition: all 0.3s ease;
 }
 
-/* Hoặc */
-a {
-    color: inherit !important;
-    text-decoration: none !important;
-}
 /* Main Container */
 .tools-section {
     padding: 2rem 0;
@@ -20,11 +15,13 @@ a {
 }
 
 .tools-header {
+
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .tools-header h1 {
+    font-family: "UTM";
     color: var(--primary-color);
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -421,4 +418,61 @@ a {
 
 .modal-footer .btn-primary:hover {
     background-color: #1565c0;
+}
+
+/* Pagination styles */
+.pagination-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pagination-item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    background: white;
+    border: 1px solid #dee2e6;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pagination-item:hover {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.pagination-item.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.pagination-item.disabled {
+    background: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .pagination-item {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .pagination-wrapper {
+        gap: 0.3rem;
+    }
 }
