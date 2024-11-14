@@ -1,44 +1,9 @@
-const formTemplates = {
-    // Form mẫu cho xử lý chất thải nguy hại
+export const formTemplates = {
     hazardousForm: {
-        title: 'Xử lý chất thải nguy hại - Thông tin báo giá',
+        title: 'Xử lý chất thải nguy hại - Bước 1: Điền thông tin dự toán',
         sections: [
             {
-                title: 'Thông tin doanh nghiệp',
-                fields: [
-                    {
-                        type: 'text',
-                        name: 'company_name',
-                        label: 'Tên doanh nghiệp',
-                        required: true
-                    },
-                    {
-                        type: 'text',
-                        name: 'tax_code',
-                        label: 'Mã số thuế',
-                        required: true
-                    },
-                    {
-                        type: 'text',
-                        name: 'address',
-                        label: 'Địa chỉ',
-                        required: true
-                    },
-                    {
-                        type: 'select',
-                        name: 'province',
-                        label: 'Tỉnh/Thành phố',
-                        required: true,
-                        options: [
-                            { value: 'hcm', label: 'TP. Hồ Chí Minh' },
-                            { value: 'hn', label: 'Hà Nội' },
-                            // Thêm các tỉnh thành khác
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'Thông tin liên hệ',
+                title: 'Thông tin liên hệ:',
                 fields: [
                     {
                         type: 'text',
@@ -51,47 +16,82 @@ const formTemplates = {
                         name: 'phone',
                         label: 'Số điện thoại',
                         required: true
-                    }
-                ]
-            }
-        ]
-    },
-
-    // Form mẫu cho xử lý chất thải công nghiệp
-    industrialForm: {
-        title: 'Xử lý chất thải công nghiệp - Thông tin báo giá',
-        sections: [
-            // Tương tự như hazardousForm
-        ]
-    },
-
-    // Form mẫu cho đào tạo an toàn
-    safetyTrainingForm: {
-        title: 'Đào tạo an toàn lao động - Thông tin báo giá',
-        sections: [
-            {
-                title: 'Thông tin khóa học',
-                fields: [
-                    {
-                        type: 'select',
-                        name: 'training_type',
-                        label: 'Loại hình đào tạo',
-                        required: true,
-                        options: [
-                            { value: 'nhom1', label: 'Nhóm 1' },
-                            { value: 'nhom2', label: 'Nhóm 2' },
-                            { value: 'nhom3', label: 'Nhóm 3' }
-                        ]
                     },
                     {
-                        type: 'number',
-                        name: 'student_count',
-                        label: 'Số lượng học viên',
+                        type: 'text',
+                        name: 'email',
+                        label: 'Email',
                         required: true
+                    },
+                    {
+                        type: 'select',
+                        name: 'province',
+                        label: 'Tỉnh/Thành phố',
+                        required: true,
+                        options: [
+                            { value: 'hcm', label: 'TP Hồ Chí Minh' },
+                            { value: 'hcm_kcx', label: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận' },
+                            { value: 'longan', label: 'Long An' },
+                            // Thêm các tỉnh từ bảng giá
+                        ]
                     }
                 ]
             },
-            // Thêm các section khác
-        ]
+            {
+                title: 'Thông tin khối lượng chất thải',
+                fields: [
+                    {
+                        type: 'number',
+                        name: 'total_weight',
+                        label: 'Tổng khối lượng chất thải (kg)',
+                        required: true,
+                        min: 0,
+                        max: 600
+                    },
+                    {
+                        type: 'number',
+                        name: 'transport_trips',
+                        label: 'Số chuyến vận chuyển',
+                        required: true,
+                        min: 1
+                    },
+                    {
+                        type: 'number',
+                        name: 'normal_waste',
+                        label: 'Khối lượng chất thải thông thường (kg)',
+                        required: true,
+                        min: 0
+                    },
+                    {
+                        type: 'number',
+                        name: 'light_bulb_weight',
+                        label: 'Khối lượng bóng đèn (kg)',
+                        required: true,
+                        min: 0
+                    },
+                    {
+                        type: 'number',
+                        name: 'ma13_weight',
+                        label: 'Khối lượng mã 13 (kg)',
+                        required: true,
+                        min: 0
+                    },
+                    {
+                        type: 'number',
+                        name: 'ma14_weight',
+                        label: 'Khối lượng mã 14 (kg)',
+                        required: true,
+                        min: 0
+                    }
+                ]
+            },
+          
+        ],
+        submitButton: {
+            type: 'button',
+            label: 'Xem báo giá',
+            className: 'btn btn-primary mt-3',
+            onClick: 'handlePriceCalculation'
+        }
     }
 }; 

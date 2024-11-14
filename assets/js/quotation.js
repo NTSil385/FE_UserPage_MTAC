@@ -1,3 +1,6 @@
+import { formTemplates } from './form-templates.js';
+import { handlePriceCalculation } from './form-handler.js';
+
 const serviceConfig = {
     categories: {
         waste: {
@@ -6,7 +9,7 @@ const serviceConfig = {
             icon: 'bi-trash3',
             services: [
                 {
-                    id: 'hazardous',
+                    id: 'ctnh',
                     name: 'Xử lý chất thải nguy hại',
                     description: 'Giải pháp xử lý chất thải nguy hại an toàn và đúng quy định',
                     icon: 'bi-radioactive',
@@ -18,7 +21,7 @@ const serviceConfig = {
                     formTemplate: 'hazardousForm'
                 },
                 {
-                    id: 'industrial',
+                    id: 'ctcn',
                     name: 'Xử lý chất thải công nghiệp',
                     description: 'Dịch vụ xử lý chất thải công nghiệp chuyên nghiệp',
                     icon: 'bi-boxes',
@@ -28,7 +31,33 @@ const serviceConfig = {
                         'Báo cáo chi tiết'
                     ],
                     formTemplate: 'hazardousForm'
-                }
+                },
+                {
+                    id: 'ctcn-gd',
+                    name: 'Xử lý chất công nghiệp - giày da',
+                    description: 'Giải pháp xử lý chất thải nguy hại an toàn và đúng quy định',
+                    icon: 'bi-radioactive',
+                    features: [
+                        'Thu gom tận nơi',
+                        'Xử lý đúng quy trình',
+                        'Cấp chứng từ CTNH'
+                    ],
+                    formTemplate: 'hazardousForm'
+                },
+                {
+                    id: 'ctck',
+                    name: 'Xử lý chất thải cồng kềnh',
+                    description: 'Dịch vụ xử lý chất thải công nghiệp chuyên nghiệp',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'hazardousForm'
+                },
+
+                
             ]
         },
         doc: {
@@ -38,17 +67,163 @@ const serviceConfig = {
             services: [
                 {
                     id: 'dtm',
-                    name: 'Báo cáo đánh giá tác động môi trường sơ bộ (ĐTM sơ bộ',
+                    name: 'Báo cáo đánh giá tác động môi trường sơ bộ (ĐTM sơ bộ)',
                     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
                     icon: 'bi-radioactive',
                     features: [
-                        'Xử lý đúng quy trình',
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
                     ],
                     formTemplate: 'dtmForm'
                 },
                 {
                     id: 'dmh',
-                    name: 'Báo cáo đánh giá tác động môi trường (ĐMH)',
+                    name: 'Báo cáo đánh giá tác động môi trường sơ bộ (ĐTM các cấp)',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'bcct-gpmt',
+                    name: 'Báo cáo công tác bảo vệ môi trường cho đối tượng làm giấy phép môi trường',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'bcct-dkmt',
+                    name: 'Báo cáo công tác bảo vệ môi trường cho đối tượng đăng ký môi trường',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'dkmt',
+                    name: 'Đăng ký môi trường (DKMT)',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'gpmt',
+                    name: 'Giấy phép môi trường',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'hspd',
+                    name: 'Hồ sơ phân định chất thải công nghiệp phải kiểm soát',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'hsdk',
+                    name: 'Hồ sơ đo kiểm môi trường lao động',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'hsbcdk',
+                    name: 'Hồ sơ báo cáo định kỳ sau khi được cấp giấy phép khai thác nước dưới đất',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'hsbc-xtdk',
+                    name: 'Hồ sơ báo cáo tình hình xả thải định kỳ',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'hsxn-tn',
+                    name: 'Hồ sơ xin xác nhận thoát nước thải vào hệ thống thoát nước chung của thành phố',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'dvcs-skmt',
+                    name: 'Dịch vụ chăm sóc sức khỏe môi trường cho doanh nghiệp',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'khvh-tn',
+                    name: 'Kế hoạch vận hành thủ nghiệm các công trình xử lý môi trường',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+                    icon: 'bi-boxes',
+                    features: [
+                        'Thu gom định kỳ',
+                        'Phân loại chuyên nghiệp',
+                        'Báo cáo chi tiết'
+                    ],
+                    formTemplate: 'dmhForm'
+                },
+                {
+                    id: 'hsdkmt',
+                    name: 'Hồ sơ đo kiểm môi trường lao động',
                     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
                     icon: 'bi-boxes',
                     features: [
@@ -58,7 +233,9 @@ const serviceConfig = {
                     ],
                     formTemplate: 'dmhForm'
                 }
-            ]
+
+
+            ]   
         },
         safety: {
             id: 'safety',
@@ -79,7 +256,8 @@ const serviceConfig = {
                 }
             ]
         }
-    }
+    },
+    itemsPerPage: 6, // Số item trên mỗi trang
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -99,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span>${category.name}</span>
                     <i class="bi bi-chevron-down toggle-icon"></i>
                 </div>
-                <div class="dropdown-menu"></div>
+                <div class="dropdown-menu--service"></div>
             `;
             
             categoriesContainer.appendChild(categoryEl);
@@ -114,13 +292,20 @@ document.addEventListener('DOMContentLoaded', function() {
             grid.id = `${category.id}-services`;
             grid.style.display = 'none';
 
-            category.services.forEach(service => {
+            // Tạo container cho grid và pagination
+            const gridContainer = document.createElement('div');
+            gridContainer.className = 'services-grid-container';
+
+            // Render tất cả service cards nhưng chỉ hiển thị số lượng theo itemsPerPage
+            category.services.forEach((service, index) => {
                 const card = document.createElement('div');
                 card.className = 'service-card';
                 card.dataset.serviceId = service.id;
                 card.dataset.categoryId = category.id;
+                card.dataset.page = Math.floor(index / serviceConfig.itemsPerPage) + 1;
                 
                 card.innerHTML = `
+                    <a href="#" class="select-btn" data-service-id="${service.id}">
                     <div class="card-header">
                         <div class="service-icon">
                             <i class="bi ${service.icon}"></i>
@@ -136,26 +321,40 @@ document.addEventListener('DOMContentLoaded', function() {
                                 ).join('')}
                             </ul>
                         </div>
-                        <button class="select-btn" data-service-id="${service.id}">
-                            Chọn gói này
-                        </button>
+
                     </div>
+                    </a>
                 `;
                 
                 grid.appendChild(card);
             });
 
-            contentContainer.appendChild(grid);
+            // Thêm pagination nếu cần
+            if (category.services.length > serviceConfig.itemsPerPage) {
+                const pagination = createPagination(category.services.length, category.id);
+                gridContainer.appendChild(grid);
+                gridContainer.appendChild(pagination);
+                contentContainer.appendChild(gridContainer);
+            } else {
+                contentContainer.appendChild(grid);
+            }
+
+            // Hiển thị trang đầu tiên
+            updatePageDisplay(category.id, 1);
         });
     }
 
     // Render forms
     function renderForms() {
+        const contentContainer = document.querySelector('.quotation-content');
+        
         Object.values(serviceConfig.categories).forEach(category => {
             category.services.forEach(service => {
+                // Lấy template form tương ứng
                 const formTemplate = formTemplates[service.formTemplate];
                 if (!formTemplate) return;
 
+                // Tạo form container
                 const form = document.createElement('div');
                 form.className = 'quotation-form';
                 form.id = `form-${service.id}`;
@@ -180,7 +379,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     </form>
                 `;
 
+                // Thêm form vào container
                 contentContainer.appendChild(form);
+
+                // Gắn sự kiện submit
+                const formElement = form.querySelector('form');
+                formElement.addEventListener('submit', handlePriceCalculation);
             });
         });
     }
@@ -188,31 +392,36 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderFormField(field) {
         switch (field.type) {
             case 'text':
+            case 'number':
                 return `
                     <div class="form-group">
-                        <label>${field.label} ${field.required ? '<span class="required">*</span>' : ''}</label>
-                        <input type="text" name="${field.name}" ${field.required ? 'required' : ''}>
+                        <label for="${field.name}">${field.label}</label>
+                        <input type="${field.type}" 
+                               id="${field.name}" 
+                               name="${field.name}" 
+                               ${field.required ? 'required' : ''}
+                               ${field.min !== undefined ? `min="${field.min}"` : ''}
+                               ${field.max !== undefined ? `max="${field.max}"` : ''}
+                               class="form-control">
                     </div>
                 `;
             case 'select':
                 return `
                     <div class="form-group">
-                        <label>${field.label} ${field.required ? '<span class="required">*</span>' : ''}</label>
-                        <select name="${field.name}" ${field.required ? 'required' : ''}>
-                            <option value="">Chọn ${field.label.toLowerCase()}</option>
-                            ${field.options.map(opt => `
-                                <option value="${opt.value}">${opt.label}</option>
-                            `).join('')}
+                        <label for="${field.name}">${field.label}</label>
+                        <select id="${field.name}" 
+                                name="${field.name}" 
+                                ${field.required ? 'required' : ''}
+                                class="form-control">
+                            <option value="">Chọn ${field.label}</option>
+                            ${field.options.map(opt => 
+                                `<option value="${opt.value}">${opt.label}</option>`
+                            ).join('')}
                         </select>
                     </div>
                 `;
-            case 'number':
-                return `
-                    <div class="form-group">
-                        <label>${field.label} ${field.required ? '<span class="required">*</span>' : ''}</label>
-                        <input type="number" name="${field.name}" ${field.required ? 'required' : ''}>
-                    </div>
-                `;
+            default:
+                return '';
         }
     }
 
@@ -228,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.category').forEach(c => {
             if (c !== category) {
                 c.classList.remove('expanded');
-                c.querySelector('.dropdown-menu').style.display = 'none';
+                c.querySelector('.dropdown-menu--service').style.display = 'none';
             }
         });
 
@@ -249,8 +458,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     grid.style.display = grid.id === `${categoryId}-services` ? 'grid' : 'none';
                 });
                 
+                document.querySelector('.pagination').style.display = 'flex';
+
                 // Reset dropdown menu
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                document.querySelectorAll('.dropdown-menu--service').forEach(menu => {
                     menu.style.display = 'none';
                     menu.innerHTML = '';
                 });
@@ -281,14 +492,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tạo và hiển thị dropdown menu
         const category = document.querySelector(`.category[data-category-id="${categoryId}"]`);
         if (category) {
-            const dropdownMenu = category.querySelector('.dropdown-menu');
+            const dropdownMenu = category.querySelector('.dropdown-menu--service');
             dropdownMenu.innerHTML = ''; // Clear existing items
             
             // Tạo dropdown items từ services của category
             const services = serviceConfig.categories[categoryId].services;
             services.forEach(service => {
                 const item = document.createElement('div');
-                item.className = 'dropdown-item';
+                item.className = 'dropdown-item--service';
                 item.textContent = service.name;
                 item.dataset.serviceId = service.id;
                 item.dataset.categoryId = categoryId;
@@ -313,7 +524,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Xử lý click vào dropdown item
     function handleDropdownItemClick(e) {
-        const item = e.target.closest('.dropdown-item');
+        const item = e.target.closest('.dropdown-item--service');
         if (!item) return;
 
         const serviceId = item.dataset.serviceId;
@@ -330,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Cập nhật trạng thái active trong dropdown
         const category = document.querySelector(`.category[data-category-id="${categoryId}"]`);
         if (category) {
-            const dropdownItems = category.querySelectorAll('.dropdown-item');
+            const dropdownItems = category.querySelectorAll('.dropdown-item--service');
             dropdownItems.forEach(dropItem => {
                 dropItem.classList.toggle('active', dropItem === item);
             });
@@ -338,11 +549,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Hiển thị form service
-    function showServiceForm(serviceId, categoryId) {
+    function showServiceForm(serviceId) {
+        // Ẩn tất cả các form và phân trang
+        document.querySelectorAll('.quotation-form, .pagination').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        // Hiển thị form tương ứng với serviceId
         const form = document.getElementById(`form-${serviceId}`);
         if (form) {
             form.style.display = 'block';
-            form.dataset.categoryId = categoryId;
         }
     }
 
@@ -350,26 +566,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleBackButton(e) {
         const backBtn = e.target.closest('.btn-back');
         if (!backBtn) return;
-
+        
         const form = backBtn.closest('.quotation-form');
         const categoryId = form.dataset.categoryId;
-
+        
         // Ẩn form
         form.style.display = 'none';
+        document.querySelector('.dropdown-menu--service').style.display = 'none' ;
 
-        // Hiển thị lại grid
+        // Hiển thị lại grid và pagination nếu category có > 6 items
         const grid = document.getElementById(`${categoryId}-services`);
         if (grid) {
             grid.style.display = 'grid';
-        }
-
-        // Đóng dropdown menu
-        const category = document.querySelector(`.category[data-category-id="${categoryId}"]`);
-        if (category) {
-            category.classList.remove('expanded');
-            const dropdownMenu = category.querySelector('.dropdown-menu');
-            dropdownMenu.style.display = 'none';
-            dropdownMenu.innerHTML = '';
+            const category = serviceConfig.categories[categoryId];
+            if (category && category.services.length > serviceConfig.itemsPerPage) {
+                const pagination = grid.parentNode.querySelector('.pagination');
+                if (pagination) {
+                    pagination.style.display = 'flex';
+                }
+            }
         }
     }
 
@@ -392,6 +607,111 @@ document.addEventListener('DOMContentLoaded', function() {
         // Thêm logic xử lý form submit tùy theo service
     }
 
+    // Thêm các hàm mới để xử lý phân trang
+    function createPagination(totalItems, categoryId) {
+        // Nếu số items ít hơn hoặc bằng số items trên mỗi trang, không tạo phân trang
+        if (totalItems <= serviceConfig.itemsPerPage) {
+            return null; // Không tạo phân trang nếu không cần
+        }
+
+        const totalPages = Math.ceil(totalItems / serviceConfig.itemsPerPage);
+        const pagination = document.createElement('div');
+        pagination.className = 'pagination';
+        pagination.innerHTML = `
+            <button class="prev-page" data-category="${categoryId}">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <span class="page-info" data-category="${categoryId}">
+                Trang <span class="current-page">1</span>/${totalPages}
+            </span>
+            <button class="next-page" data-category="${categoryId}">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        `;
+
+        pagination.querySelector('.prev-page').addEventListener('click', () => changePage(categoryId, 'prev'));
+        pagination.querySelector('.next-page').addEventListener('click', () => changePage(categoryId, 'next'));
+
+        return pagination;
+    }
+
+    function changePage(categoryId, direction) {
+        const grid = document.getElementById(`${categoryId}-services`);
+        const cards = grid.querySelectorAll('.service-card');
+        const totalPages = Math.ceil(cards.length / serviceConfig.itemsPerPage);
+        const currentPage = parseInt(grid.dataset.currentPage) || 1;
+
+        let newPage = currentPage;
+        if (direction === 'prev' && currentPage > 1) {
+            newPage = currentPage - 1;
+        } else if (direction === 'next' && currentPage < totalPages) {
+            newPage = currentPage + 1;
+        }
+
+        updatePageDisplay(categoryId, newPage);
+    }
+
+    function updatePageDisplay(categoryId, pageNumber) {
+        const grid = document.getElementById(`${categoryId}-services`);
+        const cards = grid.querySelectorAll('.service-card');
+        
+        // Cập nhật trang hiện tại
+        grid.dataset.currentPage = pageNumber;
+        
+        // Ẩn/hiện cards theo trang
+        cards.forEach(card => {
+            card.style.display = parseInt(card.dataset.page) === pageNumber ? 'block' : 'none';
+        });
+
+        // Cập nhật UI pagination
+        const pageInfo = document.querySelector(`.page-info[data-category="${categoryId}"] .current-page`);
+        if (pageInfo) {
+            pageInfo.textContent = pageNumber;
+        }
+    }
+
+    // Hàm render pagination
+    function renderPagination(totalItems) {
+        const paginationContainer = document.querySelector('.pagination-container');
+        
+        // Ẩn phân trang nếu số items ít hơn hoặc bằng itemsPerPage
+        if (totalItems <= serviceConfig.itemsPerPage) {
+            if (paginationContainer) {
+                paginationContainer.style.display = 'none';
+            }
+            return;
+        }
+
+        // Hiển thị phân trang nếu có nhiều items
+        if (paginationContainer) {
+            paginationContainer.style.display = 'flex';
+        }
+        
+        // ... rest of pagination code ...
+    }
+
+    function showQuotationForm(serviceId) {
+        // Ẩn grid services và pagination
+        document.querySelectorAll('.services-grid, .pagination').forEach(el => {
+            el.style.display = 'none';
+        });
+        
+        // Hiện form
+        const quotationForm = document.getElementById('quotation-form');
+        quotationForm.style.display = 'block';
+    }
+
+    function hideQuotationForm() {
+        // Hiện lại grid services và pagination
+        document.querySelectorAll('.services-grid, .pagination').forEach(el => {
+            el.style.display = 'block';
+        });
+        
+        // Ẩn form
+        const quotationForm = document.getElementById('quotation-form');
+        quotationForm.style.display = 'none';
+    }
+
     // Khởi tạo
     renderCategories();
     renderServiceGrids();
@@ -410,5 +730,33 @@ document.addEventListener('DOMContentLoaded', function() {
     if (firstCategory) {
         firstCategory.querySelector('.category-header').click();
     }
+
+    document.querySelectorAll('.services-menu').forEach(menu => {
+        const button = menu.querySelector('button');
+        const submenu = menu.querySelector('.services-submenu');
+        
+        button.addEventListener('click', () => {
+            const isOpen = menu.classList.contains('open');
+            
+            // Đóng tất cả các menu khác
+            document.querySelectorAll('.services-menu.open').forEach(openMenu => {
+                if (openMenu !== menu) {
+                    openMenu.classList.remove('open');
+                }
+            });
+            
+            // Toggle menu hiện tại
+            menu.classList.toggle('open');
+        });
+    });
+
+    // Đóng menu khi click ra ngoài
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.services-menu')) {
+            document.querySelectorAll('.services-menu.open').forEach(menu => {
+                menu.classList.remove('open');
+            });
+        }
+    });
 });
 
