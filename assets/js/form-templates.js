@@ -72,6 +72,36 @@ export const formTemplates = {
             }
         ]
     },
+    ctcngd: {
+        title: 'Xử lý chất thải công nghiệp giày da',
+        weightFields: {
+            type: 'single',
+            field: 'shoe_leather_weight'
+        },
+        sections: [
+            {
+                title: 'Thông tin liên hệ',
+                fields: [
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { type: 'select', name: 'province', label: 'Tỉnh/Thành phố', required: true,
+                      options: [
+                          { value: 'hcm', label: 'TP Hồ Chí Minh' },
+                          { value: 'hcm_kcx', label: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận' }
+                      ]
+                    }
+                ]
+            },
+            {
+                title: 'Thông tin khối lượng chất thải',
+                fields: [
+                    { type: 'number', name: 'transport_trips', label: 'Số chuyến vận chuyển', required: true, min: 1 },
+                    { type: 'number', name: 'shoe_leather_weight', label: 'Khối lượng chất thải', required: true, unit: 'kg', min: 0 }
+                ]
+            }
+        ]
+    },
     ctck: {
         title: 'Xử lý chất thải công kềnh',
         weightFields: {
@@ -145,6 +175,14 @@ export const resultTemplates = {
             title: 'Chi tiết khối lượng',
             fields: [
                 { name: 'textile_weight', label: 'Khối lượng vải vụn', unit: 'kg' }
+            ]
+        }
+    },
+    'ctcngd': {
+        weightSection: {
+            title: 'Chi tiết khối lượng',
+            fields: [
+                { name: 'shoe_leather_weight', label: 'Khối lượng giày da', unit: 'kg' }
             ]
         }
     },

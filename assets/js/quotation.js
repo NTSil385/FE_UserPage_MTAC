@@ -42,7 +42,7 @@ const serviceConfig = {
                         'Xử lý đúng quy trình',
                         'Cấp chứng từ CTNH'
                     ],
-                    formTemplate: 'hazardousForm'
+                    formTemplate: 'ctcngd'
                 },
                 {
                     id: 'ctck',
@@ -371,6 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                         `).join('')}
+                       
                         <div class="form-actions">
                             <button onclick="window.location.reload()" type="button" class="btn-back">Quay lại</button>
                             <button type="submit" class="btn-submit">Xem báo giá</button>

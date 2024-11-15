@@ -3,21 +3,21 @@ import { serviceConfig, WASTE_TYPES } from './price-data.js';
 import { calculatePrice } from './price-calculator.js';
 
 function handlePriceCalculation(event, serviceType) {
-    event.preventDefault();
+    const normalizedServiceType = serviceType.replace(/-/g, '');
     
     try {
-        const formData = validateAndGetFormData(event, serviceType);
+        const formData = validateAndGetFormData(event, normalizedServiceType);
         
         // Validate business rules theo loại form
-        if (serviceType === 'ctnh') {
+        if (normalizedServiceType === 'ctnh') {
             validateBusinessRules(formData);
         }
 
-        // Tính giá - truyền thêm formTemplate
+        // Tính giá - truyền service type đã chuẩn hóa
         const totalPrice = calculatePrice(
             formData, 
-            serviceConfig[formData.service_type],
-            formTemplates[formData.service_type]
+            serviceConfig[normalizedServiceType],   
+            formTemplates[normalizedServiceType]
         );
 
         // Ẩn form và hiển thị kết quả

@@ -34,6 +34,7 @@ export const serviceConfig = {
             }
         },
         priceRules: {
+            weightThreshold: 600,
             regions: {
                 'hcm': {
                     name: 'TP Hồ Chí Minh',
@@ -93,10 +94,10 @@ export const serviceConfig = {
             transportFeeAllTrips: true
         },
         priceRules: {
+            weightThreshold: 2000,
             regions: {
                 'hcm': {
                     name: 'TP Hồ Chí Minh',
-                    weightThreshold: 2000,
                     below: {
                         basePrice: 2500,
                         transportFee: 1200000
@@ -104,6 +105,75 @@ export const serviceConfig = {
                     above: {
                         basePrice: 2000,
                         transportFee: 1200000
+                    }
+                }
+            }
+        }
+    },
+    'ctcngd': {
+        name: 'Xử lý chất công nghiệp giày da',
+        priceCalculator: {
+            type: 'simple',
+            weightField: 'shoe_leather_weight',
+            useBasePrice: true,
+            transportFeeAllTrips: true
+        },
+        priceRules: {
+            weightThreshold: 2000,
+            regions: {
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    below: {
+                        basePrice: 2000,
+                        transportFee: 1200000
+                    },
+                    above: {
+                        basePrice: 1800,
+                        transportFee: 1200000
+                    }
+                },
+                'hcm_kcx': {
+                    name: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận',
+                    below: {
+                        basePrice: 2000,
+                        transportFee: 1200000
+                    },
+                    above: {
+                        basePrice: 1800,
+                        transportFee: 1200000
+                    }
+                },
+                'longan': {
+                    name: 'Long An',
+                    below: {
+                        basePrice: 2200,
+                        transportFee: 1500000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1500000
+                    }
+                },
+                'binhduong': {
+                    name: 'Bình Dương',
+                    below: {
+                        basePrice: 2200,
+                        transportFee: 1500000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1500000
+                    }
+                },
+                'dongnai': {
+                    name: 'Đồng Nai',
+                    below: {
+                        basePrice: 2200,
+                        transportFee: 1500000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1500000
                     }
                 }
             }
@@ -177,5 +247,5 @@ export const serviceConfig = {
                 }
             }
         }
-    }
+    },
 }; 
