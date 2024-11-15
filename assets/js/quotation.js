@@ -18,7 +18,7 @@ const serviceConfig = {
                         'Xử lý đúng quy trình',
                         'Cấp chứng từ CTNH'
                     ],
-                    formTemplate: 'hazardousForm'
+                    formTemplate: 'ctnh'
                 },
                 {
                     id: 'ctcn',
@@ -30,7 +30,7 @@ const serviceConfig = {
                         'Phân loại chuyên nghiệp',
                         'Báo cáo chi tiết'
                     ],
-                    formTemplate: 'hazardousForm'
+                    formTemplate: 'ctcn'
                 },
                 {
                     id: 'ctcn-gd',
@@ -54,7 +54,7 @@ const serviceConfig = {
                         'Phân loại chuyên nghiệp',
                         'Báo cáo chi tiết'
                     ],
-                    formTemplate: 'hazardousForm'
+                    formTemplate: 'ctck'
                 },
 
                 
@@ -350,20 +350,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         Object.values(serviceConfig.categories).forEach(category => {
             category.services.forEach(service => {
-                // Lấy template form tương ứng
                 const formTemplate = formTemplates[service.formTemplate];
                 if (!formTemplate) return;
 
-                // Tạo form container
                 const form = document.createElement('div');
                 form.className = 'quotation-form';
                 form.id = `form-${service.id}`;
                 form.style.display = 'none';
                 form.dataset.categoryId = category.id;
+                form.dataset.serviceType = service.id;
 
                 form.innerHTML = `
                     <h3>${formTemplate.title}</h3>
-                    <form id="${service.id}Form">
+                    <form id="${service.id}Form" data-service-type="${service.id}">
                         ${formTemplate.sections.map(section => `
                             <div class="form-section">
                                 <h4>${section.title}</h4>
@@ -379,12 +378,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     </form>
                 `;
 
-                // Thêm form vào container
                 contentContainer.appendChild(form);
+            });
+        });
 
-                // Gắn sự kiện submit
-                const formElement = form.querySelector('form');
-                formElement.addEventListener('submit', handlePriceCalculation);
+        // Gắn event handler cho tất cả form
+        document.querySelectorAll('.quotation-form form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const serviceType = this.dataset.serviceType;
+                handlePriceCalculation(e, serviceType);
             });
         });
     }
@@ -446,13 +449,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Kiểm tra xem có form nào đang hiển thị không
         const visibleForm = document.querySelector('.quotation-form[style*="display: block"]');
-        
-        if (visibleForm) {
+        const visibleResult = document.querySelector('#price-result[style*="display: block"]');
+        if (visibleForm || visibleResult) {
             // Nếu đang ở form và click vào category khác
             if (visibleForm.dataset.categoryId !== categoryId) {
                 // Ẩn form hiện tại
                 visibleForm.style.display = 'none';
-                
+                visibleResult.style.display = 'none';
                 // Hiển thị grid services của category mới
                 document.querySelectorAll('.services-grid').forEach(grid => {
                     grid.style.display = grid.id === `${categoryId}-services` ? 'grid' : 'none';
@@ -593,9 +596,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.quotation-form form').forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const serviceId = this.id.replace('Form', '');
-                const formData = new FormData(this);
-                handleFormSubmit(serviceId, formData);
+                const serviceId = this.closest('.quotation-form').dataset.serviceType;
+                handlePriceCalculation(e, serviceId);
             });
         });
     }
@@ -691,14 +693,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showQuotationForm(serviceId) {
+        // Lấy service config
+        const service = findServiceById(serviceId);
+        if (!service) return;
+
         // Ẩn grid services và pagination
         document.querySelectorAll('.services-grid, .pagination').forEach(el => {
             el.style.display = 'none';
         });
         
-        // Hiện form
+        // Render form với service type
         const quotationForm = document.getElementById('quotation-form');
+        quotationForm.innerHTML = renderForm(service);
+        quotationForm.dataset.serviceType = serviceId; // Lưu service type vào form
         quotationForm.style.display = 'block';
+    }
+
+    function findServiceById(serviceId) {
+        // Tìm service trong tất cả categories
+        for (const category of Object.values(serviceConfig.categories)) {
+            const service = category.services.find(s => s.id === serviceId);
+            if (service) return service;
+        }
+        return null;
     }
 
     function hideQuotationForm() {

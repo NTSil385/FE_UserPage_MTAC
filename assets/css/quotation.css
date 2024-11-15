@@ -21,7 +21,6 @@ body {
     min-height: 100vh;
     padding: 24px;
     gap: 24px;
-    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -751,3 +750,158 @@ body {
     transform: translateY(-1px);
 }
 
+/* Container chung cho cả form và kết quả */
+.quotation-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Style cho form */
+.quotation-form {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.quotation-form.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Style cho kết quả */
+#price-result {
+    width: 35%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    display: none;
+}
+
+#price-result.active {
+    display: block;
+}
+
+.result-container {
+    padding: 2rem;
+}
+
+/* Header của kết quả */
+.result-container h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+/* Các section trong kết quả */
+.info-section {
+    background: #F8FAFC;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section h4 {
+    color: #1E293B;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Phần hiển thị giá */
+.price-section {
+    background: #F0F9FF;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.price-section h4 {
+    color: #0369A1;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.price-value {
+    color: #0EA5E9;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.price-note {
+    color: #64748B;
+    font-size: 0.875rem;
+}
+
+/* Nút actions */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+/* Style cho scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 1024px) {
+    #price-result {
+        scroll-margin-top: 20px; /* Tạo khoảng cách với top khi scroll */
+    }
+}
+
+/* Custom Toastify styles */
+.toastify {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    padding: 12px 24px !important;
+    color: white !important;
+    border-radius: 8px !important;
+    opacity: 0;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.toastify.on {
+    opacity: 1;
+}
+
+.toastify-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toastify-close {
+    opacity: 0.7;
+    padding: 0 4px;
+    font-size: 18px;
+    transition: opacity 0.2s;
+}
+
+.toastify-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,80 +1,181 @@
-const priceData = {
-    provinces: {
-        'hcm': {
-            base100kg: 4498000,
-            transportFee: 1283750,
-            normalWasteFee: 12000,
-            lightBulbFee: 36000,
-            ma13Fee: 13000,
-            ma14Fee: 22000
-        },
-        'hcm_kcx': {
-            base100kg: 4998000,
-            transportFee: 1673750,
-            normalWasteFee: 12000,
-            lightBulbFee: 36000,
-            ma13Fee: 13000,
-            ma14Fee: 22000
-        },
-        'longan': {
-            base100kg: 5409040,
-            transportFee: 1875000,
-            normalWasteFee: 12000,
-            lightBulbFee: 36000,
-            ma13Fee: 13000,
-            ma14Fee: 22000
-        },
-        // Thêm các tỉnh khác từ bảng giá...
+// Định nghĩa các loại chất thải
+export const WASTE_TYPES = {
+    normal: {
+        name: 'Chất thải thông thường',
+        field: 'normal_waste'
+    },
+    light_bulb: {
+        name: 'Bóng đèn',
+        field: 'light_bulb_weight'
+    },
+    ma13: {
+        name: 'Mã 13',
+        field: 'ma13_weight'
+    },
+    ma14: {
+        name: 'Mã 14',
+        field: 'ma14_weight'
     }
 };
 
-// Hàm tính giá
-function calculatePrice(data) {
-    const { province, total_weight, transport_trips, normal_waste, light_bulb_weight, ma13_weight, ma14_weight } = data;
-    
-    if (total_weight > 600) {
-        throw new Error('Khối lượng vượt quá 600kg, vui lòng sử dụng bảng giá khác');
+// Cấu trúc giá cho từng dịch vụ
+export const serviceConfig = {
+    'ctnh': {
+        name: 'Xử lý chất thải nguy hại',
+        priceCalculator: {
+            type: 'complex',
+            base100kg: true,
+            transportFeeFromSecondTrip: true,
+            wasteTypes: {
+                normal: { threshold: 100 },
+                light_bulb: { threshold: 5 },
+                ma13: { threshold: 5 },
+                ma14: { threshold: 5 }
+            }
+        },
+        priceRules: {
+            regions: {
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    weightThreshold: 600,
+                    below: {
+                        base100kg: 4498000,
+                        transportFee: 1283750,
+                        wasteTypes: {
+                            normal: 12000,
+                            light_bulb: 36000,
+                            ma13: 13000,
+                            ma14: 22000
+                        }
+                    },
+                    above: {
+                        transportFee: 1283750,
+                        wasteTypes: {
+                            normal: 12000,
+                            light_bulb: 36000,
+                            ma13: 13000,
+                            ma14: 22000
+                        }
+                    }
+                },
+                'hcm_kcx': {
+                    name: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận',
+                    weightThreshold: 600,
+                    below: {
+                        base100kg: 4498000,
+                        transportFee: 1283750,
+                        wasteTypes: {
+                            normal: 12000,
+                            light_bulb: 36000,
+                            ma13: 13000,
+                            ma14: 22000
+                        }
+                    },
+                    above: {
+                        transportFee: 1283750,
+                        wasteTypes: {
+                            normal: 12000,
+                            light_bulb: 36000,
+                            ma13: 13000,
+                            ma14: 22000
+                        }
+                    }
+                }
+            }
+        }
+    },
+    'ctcn': {
+        name: 'Xử lý chất thải công nghiệp',
+        priceCalculator: {
+            type: 'simple',
+            weightField: 'textile_weight',
+            useBasePrice: true,
+            transportFeeAllTrips: true
+        },
+        priceRules: {
+            regions: {
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    weightThreshold: 2000,
+                    below: {
+                        basePrice: 2500,
+                        transportFee: 1200000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1200000
+                    }
+                }
+            }
+        }
+    },
+    'ctck': {
+        name: 'Xử lý chất thải cồng kềnh',
+        priceCalculator: {
+            type: 'simple',
+            weightField: 'bulky_waste',
+            useBasePrice: true,
+            transportFeeAllTrips: true
+        },
+        priceRules: {
+            weightThreshold: 2000,
+            regions: {
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    below: {
+                        basePrice: 2000,
+                        transportFee: 1200000
+                    },
+                    above: {
+                        basePrice: 1800,
+                        transportFee: 1200000
+                    }
+                },
+                'hcm_kcx': {
+                    name: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận',
+                    below: {
+                        basePrice: 2000,
+                        transportFee: 1200000
+                    },
+                    above: {
+                        basePrice: 1800,
+                        transportFee: 1200000
+                    }
+                },
+                'longan': {
+                    name: 'Long An',
+                    below: {
+                        basePrice: 2200,
+                        transportFee: 1500000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1500000
+                    }
+                },
+                'binhduong': {
+                    name: 'Bình Dương',
+                    below: {
+                        basePrice: 2200,
+                        transportFee: 1500000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1500000
+                    }
+                },
+                'dongnai': {
+                    name: 'Đồng Nai',
+                    below: {
+                        basePrice: 2200,
+                        transportFee: 1500000
+                    },
+                    above: {
+                        basePrice: 2000,
+                        transportFee: 1500000
+                    }
+                }
+            }
+        }
     }
-
-    const prices = priceData.provinces[province];
-    if (!prices) {
-        throw new Error('Không tìm thấy thông tin giá cho tỉnh/thành phố này');
-    }
-
-    // Áp dụng công thức:
-    // Thành tiền = giá trị cột 100KG + 
-    // (số chuyến vận chuyển-1)*đơn giá vận chuyển + 
-    // (khối lượng chất thải-100)*đơn giá phát sinh mã bình thường +
-    // (khối lượng bóng đèn - 5)*đơn giá bóng đèn + 
-    // (khối lượng mã 13 -5)*đơn giá phá sinh mã 13 + 
-    // (khối lượng mã 14 -5)*đơn giá phá sinh mã 14
-
-    let total = prices.base100kg;
-    
-    // Phí vận chuyển thêm
-    total += (transport_trips - 1) * prices.transportFee;
-    
-    // Phí chất thải thông thường vượt định mức
-    if (normal_waste > 100) {
-        total += (normal_waste - 100) * prices.normalWasteFee;
-    }
-    
-    // Phí bóng đèn vượt định mức
-    if (light_bulb_weight > 5) {
-        total += (light_bulb_weight - 5) * prices.lightBulbFee;
-    }
-    
-    // Phí mã 13 vượt định mức
-    if (ma13_weight > 5) {
-        total += (ma13_weight - 5) * prices.ma13Fee;
-    }
-    
-    // Phí mã 14 vượt định mức
-    if (ma14_weight > 5) {
-        total += (ma14_weight - 5) * prices.ma14Fee;
-    }
-
-    return total;
-}
-
-export { priceData, calculatePrice }; 
+}; 

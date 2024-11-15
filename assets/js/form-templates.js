@@ -1,97 +1,160 @@
+export const locationData = {
+    'hcm': 'TP Hồ Chí Minh',
+    'hcm_kcx': 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận',
+    'longan': 'Long An',
+    'binhduong': 'Bình Dương',
+    'dongnai': 'Đồng Nai'
+};
+
 export const formTemplates = {
-    hazardousForm: {
-        title: 'Xử lý chất thải nguy hại - Bước 1: Điền thông tin dự toán',
+    ctnh: {
+        title: 'Xử lý chất thải nguy hại',
+        weightFields: {
+            type: 'multiple',
+            totalField: 'total_weight',
+            fields: ['waste_details.normal', 'waste_details.light_bulb', 'waste_details.ma13', 'waste_details.ma14']
+        },
         sections: [
             {
-                title: 'Thông tin liên hệ:',
+                title: 'Thông tin liên hệ',
                 fields: [
-                    {
-                        type: 'text',
-                        name: 'contact_name',
-                        label: 'Người liên hệ',
-                        required: true
-                    },
-                    {
-                        type: 'text',
-                        name: 'phone',
-                        label: 'Số điện thoại',
-                        required: true
-                    },
-                    {
-                        type: 'text',
-                        name: 'email',
-                        label: 'Email',
-                        required: true
-                    },
-                    {
-                        type: 'select',
-                        name: 'province',
-                        label: 'Tỉnh/Thành phố',
-                        required: true,
-                        options: [
-                            { value: 'hcm', label: 'TP Hồ Chí Minh' },
-                            { value: 'hcm_kcx', label: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận' },
-                            { value: 'longan', label: 'Long An' },
-                            // Thêm các tỉnh từ bảng giá
-                        ]
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { type: 'select', name: 'province', label: 'Tỉnh/Thành phố', required: true,
+                      options: [
+                          { value: 'hcm', label: 'TP Hồ Chí Minh' },
+                          { value: 'hcm_kcx', label: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận' }
+                      ]
                     }
                 ]
             },
             {
                 title: 'Thông tin khối lượng chất thải',
                 fields: [
-                    {
-                        type: 'number',
-                        name: 'total_weight',
-                        label: 'Tổng khối lượng chất thải (kg)',
-                        required: true,
-                        min: 0,
-                        max: 600
-                    },
-                    {
-                        type: 'number',
-                        name: 'transport_trips',
-                        label: 'Số chuyến vận chuyển',
-                        required: true,
-                        min: 1
-                    },
-                    {
-                        type: 'number',
-                        name: 'normal_waste',
-                        label: 'Khối lượng chất thải thông thường (kg)',
-                        required: true,
-                        min: 0
-                    },
-                    {
-                        type: 'number',
-                        name: 'light_bulb_weight',
-                        label: 'Khối lượng bóng đèn (kg)',
-                        required: true,
-                        min: 0
-                    },
-                    {
-                        type: 'number',
-                        name: 'ma13_weight',
-                        label: 'Khối lượng mã 13 (kg)',
-                        required: true,
-                        min: 0
-                    },
-                    {
-                        type: 'number',
-                        name: 'ma14_weight',
-                        label: 'Khối lượng mã 14 (kg)',
-                        required: true,
-                        min: 0
+                    { type: 'number', name: 'transport_trips', label: 'Số chuyến vận chuyển', required: true, min: 1 },
+                    { type: 'number', name: 'total_weight', label: 'Tổng khối lượng chất thải xử lý', required: true, unit: 'kg', min: 0 },
+                    { type: 'number', name: 'waste_details.normal', label: 'Khối lượng chất thải thông thường', required: true, unit: 'kg', min: 0 },
+                    { type: 'number', name: 'waste_details.light_bulb', label: 'Khối lượng bóng đèn', required: true, unit: 'kg', min: 0 },
+                    { type: 'number', name: 'waste_details.ma13', label: 'Khối lượng mã 13', required: true, unit: 'kg', min: 0 },
+                    { type: 'number', name: 'waste_details.ma14', label: 'Khối lượng mã 14', required: true, unit: 'kg', min: 0 }
+                ]
+            }
+        ]
+    },
+    ctcn: {
+        title: 'Xử lý chất thải công nghiệp',
+        weightFields: {
+            type: 'single',
+            field: 'textile_weight'
+        },
+        sections: [
+            {
+                title: 'Thông tin liên hệ',
+                fields: [
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { type: 'select', name: 'province', label: 'Tỉnh/Thành phố', required: true,
+                      options: [
+                          { value: 'hcm', label: 'TP Hồ Chí Minh' },
+                          { value: 'hcm_kcx', label: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận' }
+                      ]
                     }
                 ]
             },
-          
-        ],
-        submitButton: {
-            type: 'button',
-            label: 'Xem báo giá',
-            className: 'btn btn-primary mt-3',
-            onClick: 'handlePriceCalculation'
+            {
+                title: 'Thông tin khối lượng chất thải',
+                fields: [
+                    { type: 'number', name: 'transport_trips', label: 'Số chuyến vận chuyển', required: true, min: 1 },
+                    { type: 'number', name: 'textile_weight', label: 'Khối lượng vải vụn', required: true, unit: 'kg', min: 0 }
+                ]
+            }
+        ]
+    },
+    ctck: {
+        title: 'Xử lý chất thải công kềnh',
+        weightFields: {
+            type: 'single',
+            field: 'bulky_waste'
+        },
+        sections: [
+            {
+                title: 'Thông tin liên hệ',
+                fields: [
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { type: 'select', name: 'province', label: 'Tỉnh/Thành phố', required: true,
+                      options: [
+                          { value: 'hcm', label: 'TP Hồ Chí Minh' },
+                          { value: 'hcm_kcx', label: 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận' }
+                      ]
+                    }
+                ]
+            },
+            {
+                title: 'Thông tin khối lượng chất thải',
+                fields: [
+                    { type: 'number', name: 'transport_trips', label: 'Số chuyến vận chuyển', required: true, min: 1 },
+                    { type: 'number', name: 'bulky_waste', label: 'Khối lượng chất thải cồng kềnh', required: true, unit: 'kg', min: 0 }
+                ]
+            }
+        ]
+    }
+};
+
+// Định nghĩa cấu trúc hiển thị kết quả cho từng loại form
+export const resultTemplates = {
+    // Template mặc định cho tất cả form
+    default: {
+        sections: [
+            {
+                title: 'Thông tin khách hàng',
+                fields: [
+                    { name: 'contact_name', label: 'Người liên hệ' },
+                    { name: 'phone', label: 'Số điện thoại' },
+                    { name: 'email', label: 'Email' },
+                    { name: 'province', label: 'Khu vực', transform: 'location' }
+                ]
+            },
+            {
+                title: 'Chi tiết dịch vụ',
+                fields: [
+                    { name: 'transport_trips', label: 'Số chuyến vận chuyển', unit: 'chuyến' }
+                ]
+            }
+        ]
+    },
+    
+    // Template riêng cho từng loại form (chỉ cần định nghĩa phần khác biệt)
+    ctnh: {
+        weightSection: {
+            title: 'Chi tiết khối lượng',
+            fields: [
+                { name: 'waste_details.normal', label: 'Chất thải thông thường', unit: 'kg' },
+                { name: 'waste_details.light_bulb', label: 'Bóng đèn', unit: 'kg' },
+                { name: 'waste_details.ma13', label: 'Mã 13', unit: 'kg' },
+                { name: 'waste_details.ma14', label: 'Mã 14', unit: 'kg' }
+            ]
+        }
+    },
+    
+    ctcn: {
+        weightSection: {
+            title: 'Chi tiết khối lượng',
+            fields: [
+                { name: 'textile_weight', label: 'Khối lượng vải vụn', unit: 'kg' }
+            ]
+        }
+    },
+    
+    ctck: {
+        weightSection: {
+            title: 'Chi tiết khối lượng',
+            fields: [
+                { name: 'bulky_waste', label: 'Khối lượng chất thải cồng kềnh', unit: 'kg' }
+            ]
         }
     }
 }; 
