@@ -154,13 +154,6 @@ function validateForm() {
         return false;
     }
 
-    // Validate khối lượng
-    // const totalWeight = parseFloat(document.querySelector('[name="total_weight"]').value);
-    // if (totalWeight > 600) {
-    //     alert('Tổng khối lượng không được vượt quá 600kg');
-    //     document.querySelector('[name="total_weight"]').focus();
-    //     return false;
-    // }
 
     // Validate tổng khối lượng chi tiết
     const normalWaste = parseFloat(document.querySelector('[name="normal_waste"]').value);
@@ -243,7 +236,7 @@ function renderPriceResult(formData, totalPrice, serviceConfig) {
             <h3>Báo giá dịch vụ ${service.name}</h3>
             ${resultHTML}
             <div class="action-buttons">
-                <button onclick="window.location.reload()" class="btn btn-secondary">Quay lại</button>
+                <button  class="btn btn-outline-primary">Tải xuống báo giá</button>
             </div>
         </div>
     `;
@@ -318,13 +311,6 @@ function getTransportFee(province, priceData) {
     return regionData?.priceRules?.below600kg?.transportFee || 0;
 }
 
-// Thêm function để quay lại form
-function backToForm() {
-    const formContainer = document.querySelector('.quotation-form');
-    const resultContainer = document.getElementById('price-result');
-    
-    formContainer.classList.remove('hidden');
-    resultContainer.classList.remove('active');
-}
+
 
 export { handlePriceCalculation }; 

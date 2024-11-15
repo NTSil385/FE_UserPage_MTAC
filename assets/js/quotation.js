@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         `).join('')}
                         <div class="form-actions">
-                            <button type="button" class="btn-back">Quay lại</button>
+                            <button onclick="window.location.reload()" type="button" class="btn-back">Quay lại</button>
                             <button type="submit" class="btn-submit">Xem báo giá</button>
                         </div>
                     </form>
@@ -565,31 +565,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Xử lý nút "Quay lại"
-    function handleBackButton(e) {
-        const backBtn = e.target.closest('.btn-back');
-        if (!backBtn) return;
+    // // Xử lý nút "Quay lại"
+    // function handleBackButton(e) {
+    //     const backBtn = e.target.closest('.btn-back');
+    //     if (!backBtn) return;
         
-        const form = backBtn.closest('.quotation-form');
-        const categoryId = form.dataset.categoryId;
+    //     const form = backBtn.closest('.quotation-form');
+    //     const categoryId = form.dataset.categoryId;
         
-        // Ẩn form
-        form.style.display = 'none';
-        document.querySelector('.dropdown-menu--service').style.display = 'none' ;
+    //     // Ẩn form
+    //     form.style.display = 'none';
+    //     document.querySelector('.dropdown-menu--service').style.display = 'none' ;
 
-        // Hiển thị lại grid và pagination nếu category có > 6 items
-        const grid = document.getElementById(`${categoryId}-services`);
-        if (grid) {
-            grid.style.display = 'grid';
-            const category = serviceConfig.categories[categoryId];
-            if (category && category.services.length > serviceConfig.itemsPerPage) {
-                const pagination = grid.parentNode.querySelector('.pagination');
-                if (pagination) {
-                    pagination.style.display = 'flex';
-                }
-            }
-        }
-    }
+    //     // Hiển thị lại grid và pagination nếu category có > 6 items
+    //     const grid = document.getElementById(`${categoryId}-services`);
+    //     if (grid) {
+    //         grid.style.display = 'grid';
+    //         const category = serviceConfig.categories[categoryId];
+    //         if (category && category.services.length > serviceConfig.itemsPerPage) {
+    //             const pagination = grid.parentNode.querySelector('.pagination');
+    //             if (pagination) {
+    //                 pagination.style.display = 'flex';
+    //             }
+    //         }
+    //     }
+    // }
 
     // Xử lý submit form
     function initFormHandlers() {

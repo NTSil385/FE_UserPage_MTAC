@@ -43,9 +43,9 @@ body {
 }
 
 .sidebar-header h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: var(--text-color);
+    margin-top: 10px;
+    font-family: "UTM";
+    color: var(--primary-color);
 }
 
 .service-categories .category {
@@ -775,7 +775,7 @@ body {
 
 /* Style cho kết quả */
 #price-result {
-    width: 35%;
+    width: 37%;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -792,9 +792,8 @@ body {
 
 /* Header của kết quả */
 .result-container h3 {
+    font-family: 'UTM';
     color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid #E2E8F0;
@@ -857,51 +856,10 @@ html {
 }
 
 @media screen and (max-width: 1024px) {
+
     #price-result {
-        scroll-margin-top: 20px; /* Tạo khoảng cách với top khi scroll */
+        width: 100%;
+        scroll-margin-top: 20px; 
     }
 }
 
-/* Custom Toastify styles */
-.toastify {
-    font-family: 'Roboto', sans-serif !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    padding: 12px 24px !important;
-    color: white !important;
-    border-radius: 8px !important;
-    opacity: 0;
-    animation: slideIn 0.3s ease forwards;
-}
-
-.toastify.on {
-    opacity: 1;
-}
-
-.toastify-content {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.toastify-close {
-    opacity: 0.7;
-    padding: 0 4px;
-    font-size: 18px;
-    transition: opacity 0.2s;
-}
-
-.toastify-close:hover {
-    opacity: 1;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
