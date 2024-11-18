@@ -1,5 +1,5 @@
 import { formTemplates } from './form-templates.js';
-import { handlePriceCalculation } from './form-handler.js';
+import { handlePriceCalculation, getFieldOptions } from './form-handler.js';
 
 const serviceConfig = {
     categories: {
@@ -123,7 +123,7 @@ const serviceConfig = {
                         'Phân loại chuyên nghiệp',
                         'Báo cáo chi tiết'
                     ],
-                    formTemplate: 'dmhForm'
+                    formTemplate: 'dkmt'
                 },
                 {
                     id: 'gpmt',
@@ -138,7 +138,7 @@ const serviceConfig = {
                     formTemplate: 'gpmt'
                 },
                 {
-                    id: 'hspd',
+                    id: 'ptxnct',
                     name: 'Hồ sơ phân định chất thải công nghiệp phải kiểm soát',
                     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
                     icon: 'bi-boxes',
@@ -147,7 +147,7 @@ const serviceConfig = {
                         'Phân loại chuyên nghiệp',
                         'Báo cáo chi tiết'
                     ],
-                    formTemplate: 'dmhForm'
+                    formTemplate: 'ptxnct'
                 },
                 {
                     id: 'hsdk',
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="form-section">
                                 <h4>${section.title}</h4>
                                 <div class="form-row">
-                                    ${section.fields.map(field => renderFormField(field)).join('')}
+                                    ${section.fields.map(field => renderFormField(field, service.id)).join('')}
                                 </div>
                             </div>
                         `).join('')}
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function renderFormField(field) {
+    function renderFormField(field, serviceType) {
         switch (field.type) {
             case 'text':
             case 'number':
@@ -410,6 +410,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
             case 'select':
+                const options = getFieldOptions(field, serviceType);
+                
                 return `
                     <div class="form-group">
                         <label for="${field.name}">${field.label}</label>
@@ -418,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 ${field.required ? 'required' : ''}
                                 class="form-control">
                             <option value="">Chọn ${field.label}</option>
-                            ${field.options.map(opt => 
+                            ${options.map(opt => 
                                 `<option value="${opt.value}">${opt.label}</option>`
                             ).join('')}
                         </select>

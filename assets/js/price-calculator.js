@@ -8,11 +8,13 @@ export function calculatePrice(formData, serviceConfig) {
     console.log('priceCalculator:', priceCalculator);
     console.log('priceRules:', priceRules);
     
-    const provinceConfig = priceRules.regions[formData.province];
-    console.log('provinceConfig:', provinceConfig);
-    
+    const provinceConfig = formData.service_type === 'gpmt' 
+        ? priceRules[formData.authority_level]?.regions?.[formData.region]
+        : priceRules.regions[formData.province];
+
     if (!provinceConfig) {
-        throw new Error(`Không tìm thấy cấu hình giá cho tỉnh/thành: ${formData.province}`);
+        console.error('Không tìm thấy cấu hình giá');
+        return { total: 0, details: {} };
     }
 
     // Xử lý cho các dịch vụ hồ sơ môi trường (GPMT, DTM, DKMT, v.v.)

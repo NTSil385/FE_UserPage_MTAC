@@ -1,3 +1,5 @@
+import { serviceConfig } from './price-data.js';
+
 export const wasteLocationData = {
     'hcm': 'TPHCM (Các quận nội thành)',
     'hcm_kcx': 'TP HCM: KCX Linh Trung 1,2 KCX Tân Thuận',
@@ -227,7 +229,7 @@ export const formTemplates = {
         ]
     },
     'gpmt': {
-        title: 'Dịch vụ Giấy phép môi trường',
+        title: 'Giấy phép môi trường',
         sections: [
             {
                 title: 'Thông tin liên hệ',
@@ -235,45 +237,121 @@ export const formTemplates = {
                     { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
                     { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
                     { type: 'text', name: 'email', label: 'Email', required: true },
-                    { type: 'text', name: 'company_name', label: 'Tên doanh nghiệp', required: true },
-                    { type: 'text', name: 'company_address', label: 'Địa chỉ doanh nghiệp', required: true }
+                    { type: 'text', name: 'company_name', label: 'Tên doanh nghiệp', required: true }
                 ]
             },
             {
                 title: 'Thông tin dự án',
                 fields: [
                     {
-                        name: 'province',
+                        name: 'authority_level',
+                        label: 'Cấp thẩm quyền',
+                        type: 'select',
+                        required: true,
+                        options: [
+                            { value: 'province', label: 'Cấp tỉnh/thành phố' },
+                            { value: 'district', label: 'Cấp huyện/quận' }
+                        ]
+                    },
+                    { 
+                        name: 'region',
                         label: 'Khu vực thực hiện',
                         type: 'select',
                         required: true,
-                        options: convertLocationDataToArray(envDocLocationData)
-                    },
-                    {
+                        dependsOn: 'authority_level',
+                        optionsFrom: {
+                            service: 'gpmt',
+                            getOptions: (authorityLevel) => {
+                                const config = serviceConfig.gpmt?.priceRules?.[authorityLevel];
+                                if (!config?.regions) {
+                                    console.warn(`Không tìm thấy cấu hình cho ${authorityLevel}`);
+                                    return [];
+                                }
+                                
+                                return Object.entries(config.regions).map(([value, data]) => ({
+                                    value,
+                                    label: data.name || value
+                                }));
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    dkmt: {
+        title: 'Đăng ký môi trường',
+        sections: [
+            {
+                title: 'Thông tin liên hệ',
+                fields: [
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { 
+                        name: 'province',
+                        label: 'Tỉnh/Thành phố',
                         type: 'select',
-                        name: 'project_type',
-                        label: 'Loại hình dự án',
                         required: true,
                         options: [
-                            { value: 'industrial', label: 'Khu công nghiệp' },
-                            { value: 'manufacturing', label: 'Sản xuất' },
-                            { value: 'service', label: 'Dịch vụ' },
-                            { value: 'other', label: 'Khác' }
-                        ]
-                    },
-                    {
-                        type: 'select',
-                        name: 'project_scale',
-                        label: 'Quy mô dự án',
-                        required: true,
-                        options: [
-                            { value: 'small', label: 'Nhỏ (< 5 ha)' },
-                            { value: 'medium', label: 'Trung bình (5-20 ha)' },
-                            { value: 'large', label: 'Lớn (> 20 ha)' }
+                            { value: 'hcm', label: 'TP Hồ Chí Minh' },
+                            { value: 'hue', label: 'Huế' }
                         ]
                     }
                 ]
             },
+            {
+                title: 'Thông tin dự án',
+                fields: [
+                    { 
+                        name: 'project_type',
+                        label: 'Loại hình dự án',
+                        type: 'select',
+                        required: true,
+                        options: [
+                            { value: 'manufacturing', label: 'Sản xuất' },
+                            { value: 'service', label: 'Dịch vụ' }
+                        ]
+                    }
+                ]
+            }
+        ],
+        notes: [
+            'Cơ quan tiếp nhận: cấp xã/phường hoặc cơ quan hành chính ngang cấp xã/phường',
+            'Đăng ký môi trường không phải là thủ tục hành chính nên chỉ có văn bản tiếp nhận hồ sơ/Nội dung tiếp nhận (Có thể không có văn bản mà chỉ là ghi đã nhận) đã đăng ký',
+            'Đăng ký môi trường không lấy mẫu – do đó đơn giá chưa bao gồm chi phí phân tích mẫu nếu có trong trường hợp CQNN kiểm tra lấy mẫu',
+            'Quy trình rà soát thông tin: Khách hàng cung cấp thông tin: sản phẩm- công suất, ngành nghề hoạt động',
+            'Giấy tờ đất: đúng với mục đích sử dụng đất triển khai dự án',
+            'Hợp đồng thuê địa điểm'
+        ]
+    },
+    ptxnct: {
+        title: 'Hồ sơ phân tích xác nhận phân định chất thải công nghiệp',
+        sections: [
+            {
+                title: 'Thông tin liên hệ',
+                fields: [
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { type: 'text', name: 'company_name', label: 'Tên doanh nghiệp', required: true }
+                ]
+            },
+            {
+                title: 'Thông tin dự án',
+                fields: [
+                    { 
+                        name: 'province',
+                        label: 'Địa bàn thực hiện',
+                        type: 'select',
+                        required: true,
+                        optionsFrom: {
+                            service: 'ptxnct',
+                            path: 'priceRules.regions'
+                        }
+                    }
+                ]
+            }
         ]
     }
 };
@@ -360,23 +438,23 @@ export const resultTemplates = {
             {
                 title: 'Thông tin dự án',
                 fields: [
-                    { name: 'province', label: 'Khu vực thực hiện', transform: 'location' },
+                    { name: 'region', label: 'Khu vực thực hiện', transform: 'location' },
                     { name: 'project_type', label: 'Loại hình dự án', transform: 'projectType' },
                     { name: 'project_scale', label: 'Quy mô dự án', transform: 'projectScale' }
                 ]
             }
         ]
     },
-    ctnh: {
-        weightSection: {
-            title: 'Thông tin khối lượng chất thải',
-            fields: [
-                { name: 'transport_trips', label: 'Số chuyến vận chuyển' },
-                { name: 'waste_details.normal', label: 'Chất thải thông thường', unit: 'kg' },
-                { name: 'waste_details.light_bulb', label: 'Bóng đèn', unit: 'kg' },
-                { name: 'waste_details.ma13', label: 'Mã 13', unit: 'kg' },
-                { name: 'waste_details.ma14', label: 'Mã 14', unit: 'kg' }
-            ]
-        }
-    }
+    // ctnh: {
+    //     weightSection: {
+    //         title: 'Thông tin khối lượng chất thải',
+    //         fields: [
+    //             { name: 'transport_trips', label: 'Số chuyến vận chuyển' },
+    //             { name: 'waste_details.normal', label: 'Chất thải thông thường', unit: 'kg' },
+    //             { name: 'waste_details.light_bulb', label: 'Bóng đèn', unit: 'kg' },
+    //             { name: 'waste_details.ma13', label: 'Mã 13', unit: 'kg' },
+    //             { name: 'waste_details.ma14', label: 'Mã 14', unit: 'kg' }
+    //         ]
+    //     }
+    // }
 };

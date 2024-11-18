@@ -55,6 +55,17 @@ function validateAndGetFormData(event, serviceType) {
 
             let value = element.value.trim();
             
+            // Validate required fields
+            if (field.required && !value) {
+                if (field.name === 'authority_level') {
+                    throw new Error('Vui lòng chọn cấp thẩm quyền');
+                } else if (field.name === 'region') {
+                    throw new Error('Vui lòng chọn tỉnh/thành phố');
+                } else {
+                    throw new Error(`Vui lòng nhập ${field.label.toLowerCase()}`);
+                }
+            }
+            
             // Chuyển đổi giá trị số
             if (field.type === 'number') {
                 value = parseFloat(value) || 0;
@@ -64,14 +75,6 @@ function validateAndGetFormData(event, serviceType) {
             setNestedValue(formData, field.name, value);
         });
     });
-
-    // Validate required fields
-    if (!formData.province) {
-        throw new Error('Vui lòng chọn tỉnh/thành phố');
-    }
-
-    // Gán region dựa trên province đã chọn
-    formData.region = formData.province;
 
     return formData;
 }
@@ -102,7 +105,7 @@ function validateBusinessRules(formData) {
     );
 
     if (Math.abs(formData.total_weight - detailSum) > 0.01) {
-        throw new Error(`Tổng khối lượng chi tiết (${detailSum}kg) không khớp với tổng khối lượng đã nhập (${formData.total_weight}kg)`);
+        throw new Error(`Tổng khối lượng chi tiết (${detailSum}kg) không khớp với tổng khối lượng đã nh���p (${formData.total_weight}kg)`);
     }
 }
 
@@ -401,4 +404,90 @@ function renderFields(fields, formData) {
     }).join('');
 }
 
-export { handlePriceCalculation }; 
+function getFieldOptions(field, serviceType) {
+    if (field.optionsFrom) {
+        const { service, path } = field.optionsFrom;
+        
+        console.log('Service:', service);
+        console.log('Path:', path);
+        console.log('ServiceConfig:', serviceConfig);
+        console.log('Service Data:', serviceConfig[service]);
+        
+        // Lấy data từ path
+        const data = serviceConfig[service]?.priceRules?.regions;
+        console.log('Regions Data:', data);
+
+        if (data) {
+            const options = Object.entries(data).map(([value, data]) => ({
+                value,
+                label: data.name
+            }));
+            console.log('Generated Options:', options);
+            return options;
+        }
+    }
+
+    // Trả về options trực tiếp nếu có
+    return field.options || [];
+}
+
+function renderFormField(field, serviceType) {
+    let fieldHtml = '';
+    const fieldId = field.name.replace(/\./g, '_');
+    const required = field.required ? 'required' : '';
+
+    if (field.type === 'select') {
+        // Lấy options và đảm bảo luôn là array
+        const options = getFieldOptions(field, serviceType) || [];
+        
+        // Log để debug
+        console.log('Rendering select options:', options);
+
+        const optionsHtml = options
+            .filter(opt => opt && opt.value) // Lọc bỏ các option không hợp lệ
+            .map(opt => `<option value="${opt.value}">${opt.label || opt.value}</option>`)
+            .join('');
+
+        fieldHtml = `
+            <div class="form-group">
+                <label for="${fieldId}">${field.label}</label>
+                <select class="form-control" id="${fieldId}" name="${field.name}" ${required}>
+                    <option value="">-- Chọn ${field.label} --</option>
+                    ${optionsHtml}
+                </select>
+            </div>
+        `;
+    }
+    // ... rest of the code ...
+}
+
+// Thêm event listener để cập nhật options khi thay đổi cấp thẩm quyền
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('change', function(e) {
+        if (e.target.name === 'authority_level') {
+            const regionField = document.querySelector('[name="region"]');
+            if (!regionField) return;
+
+            const field = formTemplates.gpmt.sections
+                .flatMap(s => s.fields)
+                .find(f => f.name === 'region');
+
+            if (field && field.optionsFrom) {
+                const options = field.optionsFrom.getOptions(e.target.value);
+                updateSelectOptions(regionField, options);
+            }
+        }
+    });
+});
+
+function updateSelectOptions(select, options) {
+    select.innerHTML = '<option value="">-- Chọn khu vực thực hiện --</option>';
+    options.forEach(opt => {
+        const option = document.createElement('option');
+        option.value = opt.value;
+        option.textContent = opt.label;
+        select.appendChild(option);
+    });
+}
+
+export { handlePriceCalculation, getFieldOptions }; 

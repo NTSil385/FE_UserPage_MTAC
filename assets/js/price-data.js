@@ -389,58 +389,6 @@ export const serviceConfig = {
             }
         }
     },
-    gpmt: {
-        name: 'Giấy phép môi trường',
-        category: 'environment_doc',
-        priceCalculator: {
-            type: 'environmental_service',
-            components: {
-                analysis: true,      // Chi phí phân tích
-                transport: true,     // Chi phí nhân công, vận chuyển
-                appraisal: true,     // Chi phí hội đồng thẩm định
-                documentation: true  // Chi phí thực hiện
-            }
-        },
-        priceRules: {
-            regions: {
-                'so_tnmt': {
-                    name: 'Sở TNMT',
-                    appraisal: 199000000,
-                    documentation: 25990000
-                },
-                'hepza': {
-                    name: 'Hepza',
-                    appraisal: 149000000,
-                    documentation: 25990000
-                },
-                'long_an': {
-                    name: 'Long An',
-                    appraisal: 139000000,
-                    documentation: 25990000
-                },
-                'tay_ninh': {
-                    name: 'Tây Ninh',
-                    appraisal: 149000000,
-                    documentation: 25990000
-                },
-                'tien_giang': {
-                    name: 'Tiền Giang',
-                    appraisal: 133000000,
-                    documentation: 25990000
-                },
-                'ben_tre': {
-                    name: 'Bến Tre',
-                    appraisal: 133000000,
-                    documentation: 25990000
-                },
-                'hue_da_nang_quang_nam': {
-                    name: 'Huế/Đà Nẵng/Quảng Nam',
-                    appraisal: 79000000,
-                    documentation: 25990000
-                }
-            }
-        }
-    },
     dtm: {
         name: 'Báo cáo ĐTM',
         category: 'environment_doc',
@@ -486,7 +434,7 @@ export const serviceConfig = {
                     documentation: 25990000
                 },
                 'dongnai_tbltn': {
-                    name: 'Đồng Nai - Trảng Bom, Long Thành, Nhơn Trạch',
+                    name: 'Đồng Nai - Trảng Bom, Long Thành, Nhn Trạch',
                     appraisal: 149000000,
                     documentation: 25990000
                 },
@@ -564,48 +512,106 @@ export const serviceConfig = {
         priceCalculator: {
             type: 'environmental_service',
             components: {
-                analysis: true,
-                transport: true,
-                documentation: true,
-                appraisal: false  // ĐKMT không có phí thẩm định
+                documentation: true,  // Chỉ tính phí thực hiện
+                transport: false,     // Không tính phí vận chuyển
+                analysis: false,      // Không tính phí phân tích mẫu
+                appraisal: false      // Không tính phí thẩm định
             }
         },
         priceRules: {
             regions: {
-                'so_tnmt': {
-                    name: 'Sở TNMT',
-                    documentation: 15990000
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    documentation: 6900000
                 },
-                'hepza': {
-                    name: 'Hepza',
-                    documentation: 149000000
+                'hue': {
+                    name: 'Huế',
+                    documentation: 5000000
+                }
+                // Các khu vực khác: "Không thực hiện – Khuyến khích Hướng dẫn KH thực hiện theo video hướng dẫn thực hiện hồ sơ"
+            }
+        }
+    },
+
+    ptxnct: {
+        name: 'Hồ sơ phân tích xác nhận phân định chất thải công nghiệp',
+        priceCalculator: {
+            type: 'environmental_service',
+            components: {
+                analysis: true,
+                transport: true,
+                documentation: true
+            }
+        },
+        priceRules: {
+            regions: {
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    documentation: 5990000,
+                    analysis: { price: 2500000 }
+                },
+                'binh_duong': {
+                    name: 'Bình Dương',
+                    documentation: 5990000,
+                    analysis: { price: 2500000 }
+                },
+                'dong_nai': {
+                    name: 'Đồng Nai', 
+                    documentation: 5990000,
+                    analysis: { price: 2500000 }
                 },
                 'long_an': {
                     name: 'Long An',
-                    documentation: 139000000
+                    documentation: 5990000,
+                    analysis: { price: 2500000 }
                 },
                 'tay_ninh': {
                     name: 'Tây Ninh',
-                    documentation: 149000000
-                },
-                'tien_giang': {
-                    name: 'Tiền Giang',
-                    documentation: 133000000
-                },
-                'ben_tre': {
-                    name: 'Bến Tre',
-                    documentation: 133000000
-                },
-                'hue_da_nang_quang_nam': {
-                    name: 'Huế/Đà Nẵng/Quảng Nam',
-                    documentation: 79000000
+                    documentation: 5990000,
+                    analysis: { price: 2500000 }
                 }
             }
         }
     },
-    new_service: {
-        name: 'Dịch vụ mới',
-        category: 'other',
-        // ... other config
-    }
+    gpmt: {
+        name: 'Giấy phép môi trường',
+        category: 'environment_doc',
+        priceCalculator: {
+            type: 'environmental_service',
+            components: {
+                analysis: true,
+                transport: true,
+                appraisal: true,
+                documentation: true
+            }
+        },
+        priceRules: {
+            province: {
+                regions: {
+                    'so_tnmt': {
+                        name: 'Sở TNMT',
+                        appraisal: 199000000,
+                        documentation: 25990000
+                    },
+                    // ... other province regions
+                },
+                note: 'Các khu vực ngoài bảng giá này thỏa thuận với PPV'
+            },
+            district: {
+                regions: {
+                    'hcm': {
+                        name: 'TP Hồ Chí Minh',
+                        appraisal: 55000000,
+                        documentation: 15990000
+                    },
+                    // ... other district regions
+                },
+                note: 'Các khu vực ngoài bảng giá này thỏa thuận với PPV trong trường hợp kí hợp đồng dịch vụ'
+            }
+        },
+        notes: [
+            'Chi phí phân tích: Căn cứ chi phí theo phụ lục 1',
+            'Nhân công, vận chuyển: Căn cứ chi phí theo phụ lục 2'
+        ]
+    },
 };
