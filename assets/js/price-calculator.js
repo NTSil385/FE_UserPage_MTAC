@@ -1,39 +1,56 @@
+import { measurementPrices, transportationPrices } from './price-data.js';
 export function calculatePrice(formData, serviceConfig) {
     const { priceCalculator, priceRules } = serviceConfig;
-    const regionConfig = priceRules.regions[formData.province];
     
-    if (!regionConfig) {
-        throw new Error(`Không tìm thấy cấu hình giá cho khu vực: ${formData.province}`);
+    // Log để debug
+    console.log('formData:', formData);
+    console.log('serviceConfig:', serviceConfig);
+    console.log('priceCalculator:', priceCalculator);
+    console.log('priceRules:', priceRules);
+    
+    const provinceConfig = priceRules.regions[formData.province];
+    console.log('provinceConfig:', provinceConfig);
+    
+    if (!provinceConfig) {
+        throw new Error(`Không tìm thấy cấu hình giá cho tỉnh/thành: ${formData.province}`);
     }
 
-    // Xử lý riêng cho báo cáo môi trường
-    if (priceCalculator.type === 'document') {
-        const price = regionConfig[formData.authority_level];
-        if (price === undefined) {
-            throw new Error('Không tìm thấy cấu hình giá cho cấp thẩm quyền này');
-        }
-        return price;
+    // Xử lý cho các dịch vụ hồ sơ môi trường (GPMT, DTM, DKMT, v.v.)
+    if (priceCalculator.type === 'environmental_service') {
+        const costs = {
+            analysis: calculateAnalysisCost(formData),
+            transport: calculateTransportCost(formData),
+            appraisal: provinceConfig.appraisal || 0,
+            documentation: provinceConfig.documentation || 0
+        };
+        console.log('Calculated costs:', costs);
+
+        const total = Object.entries(priceCalculator.components)
+            .reduce((sum, [component, isEnabled]) => {
+                return isEnabled ? sum + (costs[component] || 0) : sum;
+            }, 0);
+        console.log('Total price:', total);
+
+        return {
+            total,
+            details: costs
+        };
     }
 
-    // Logic tính giá cho xử lý chất thải
     const totalWeight = getTotalWeight(formData, priceCalculator);
-    const priceRule = totalWeight <= (regionConfig.weightThreshold || 600) 
-        ? regionConfig.below 
-        : regionConfig.above;
+    const priceRule = totalWeight <= (provinceConfig.weightThreshold || 600) 
+        ? provinceConfig.below 
+        : provinceConfig.above;
 
     let total = 0;
 
-    // Tính phí cơ bản cho 100kg đầu
     if (priceCalculator.base100kg && priceRule.base100kg) {
         total += priceRule.base100kg;
     }
 
-    // Tính phí theo khối lượng
     if (priceCalculator.type === 'simple' && priceCalculator.useBasePrice) {
-        // Cho các dịch vụ đơn giản (CTCN, CTCK)
         total += totalWeight * priceRule.basePrice;
     } else if (priceCalculator.type === 'complex' && priceCalculator.wasteTypes) {
-        // Cho dịch vụ phức tạp (CTNH)
         Object.entries(priceCalculator.wasteTypes).forEach(([type, config]) => {
             const weight = formData.waste_details?.[type] || 0;
             if (weight > config.threshold) {
@@ -42,18 +59,31 @@ export function calculatePrice(formData, serviceConfig) {
         });
     }
 
-    // Tính phí vận chuyển
     if (priceCalculator.transportFeeFromSecondTrip) {
-        // Tính từ chuyến thứ 2
         if (formData.transport_trips > 1) {
             total += (formData.transport_trips - 1) * priceRule.transportFee;
         }
     } else if (priceCalculator.transportFeeAllTrips) {
-        // Tính tất cả các chuyến
         total += formData.transport_trips * priceRule.transportFee;
     }
 
     return total;
+}
+
+// Thêm hàm tính chi phí phân tích
+function calculateAnalysisCost(formData) {
+    const { selectedParameters = [] } = formData;
+    return selectedParameters.reduce((total, param) => {
+        const paramPrice = measurementPrices.water[param]?.price || 0;
+        return total + paramPrice;
+    }, 0);
+}
+
+// Thêm hàm tính chi phí vận chuyển
+function calculateTransportCost(formData) {
+    const transportConfig = transportationPrices.regions[formData.province];
+    if (!transportConfig) return 0;
+    return transportConfig.transport + transportConfig.labor;
 }
 
 function getTotalWeight(formData, calculator) {
@@ -64,4 +94,5 @@ function getTotalWeight(formData, calculator) {
             .reduce((sum, weight) => sum + (parseFloat(weight) || 0), 0);
     }
     return 0;
-} 
+}
+

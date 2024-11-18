@@ -1,4 +1,4 @@
-import { locationData, authorityData, formTemplates, resultTemplates } from './form-templates.js';
+import { wasteLocationData, envDocLocationData,authorityData, formTemplates, resultTemplates, transformFunctions } from './form-templates.js';
 import { serviceConfig, WASTE_TYPES } from './price-data.js';
 import { calculatePrice } from './price-calculator.js';
 
@@ -14,20 +14,24 @@ function handlePriceCalculation(event, serviceType) {
         }
 
         // Tính giá - truyền service type đã chuẩn hóa
-        const totalPrice = calculatePrice(
+        const calculatedPrice = calculatePrice(
             formData, 
-            serviceConfig[normalizedServiceType],   
-            formTemplates[normalizedServiceType]
+            serviceConfig[normalizedServiceType]
         );
+
+        console.log('Calculated price:', calculatedPrice); // Debug log
+
+        // Lấy total price từ kết quả tính toán
+        const totalPrice = calculatedPrice.total || calculatedPrice;
 
         // Ẩn form và hiển thị kết quả
         const formContainer = document.querySelector('.quotation-form');
         const resultContainer = document.getElementById('price-result');
 
-        resultContainer.style.display = 'block';
+        // Truyền giá trị total
+        renderPriceResult(formData, totalPrice, serviceConfig[normalizedServiceType]);
         
-        // Render kết quả
-        renderPriceResult(formData, totalPrice, serviceConfig);
+        resultContainer.style.display = 'block';
         
     } catch (error) {
         handleError(error);
@@ -66,7 +70,9 @@ function validateAndGetFormData(event, serviceType) {
         throw new Error('Vui lòng chọn tỉnh/thành phố');
     }
 
-    console.log('Form Data:', formData);
+    // Gán region dựa trên province đã chọn
+    formData.region = formData.province;
+
     return formData;
 }
 
@@ -197,13 +203,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Hàm format tiền tệ
 function formatCurrency(amount) {
+    if (!amount || isNaN(amount)) return '0';
     return new Intl.NumberFormat('vi-VN').format(amount);
 }
 
+function getCostLabel(key) {
+    const labels = {
+        'analysis': 'Chi phí phân tích môi trường',
+        'transport': 'Chi phí nhân công, vận chuyển',
+        'appraisal': 'Chi phí hội đồng thẩm định',
+        'documentation': 'Chi phí thực hiện'
+    };
+    return labels[key] || key;
+}
 
 
 function renderPriceResult(formData, totalPrice, serviceConfig) {
-    const service = serviceConfig[formData.service_type];
+    console.log('Rendering price:', totalPrice); // Debug log
+    
+    const service = serviceConfig;
     if (!service) throw new Error(`Không tìm thấy cấu hình cho dịch vụ: ${formData.service_type}`);
 
     const defaultTemplate = resultTemplates.default;
@@ -249,16 +267,35 @@ function renderPriceResult(formData, totalPrice, serviceConfig) {
         }, 100);
     }
 }
-
 function renderSections(sections, formData) {
     return sections.map(section => {
+        // Nếu section chỉ có content (như phần ghi chú), render trực tiếp
+        if (section.content) {
+            return `
+                <div class="info-section">
+                    <h4>${section.title}</h4>
+                    ${section.content}
+                </div>
+            `;
+        }
+
         const fieldsHTML = section.fields.map(field => {
             let value = getNestedValue(formData, field.name);
             
+            // Xử lý transform cho từng loại dịch vụ
             if (field.transform === 'location') {
-                value = locationData[value] || value;
+                const service = serviceConfig[formData.service_type];
+                // Kiểm tra service thuộc category nào
+                const isWasteService = service?.category === 'waste';
+                value = isWasteService 
+                    ? wasteLocationData[formData.province] 
+                    : envDocLocationData[formData.province];
             } else if (field.transform === 'authority') {
-                value = getAuthorityLabel(value);
+                value = authorityData[value] || value;
+            } else if (field.transform === 'projectType') {
+                value = transformFunctions.projectType(value);
+            } else if (field.transform === 'projectScale') {
+                value = transformFunctions.projectScale(value);
             }
             
             return `
@@ -328,6 +365,40 @@ function getAuthorityLabel(value) {
     return authorityLabels[value] || value;
 }
 
+function renderFields(fields, formData) {
+    return fields.map(field => {
+        let value = getNestedValue(formData, field.name);
+        
+        // Xử lý transform nếu có
+        if (field.transform) {
+            switch(field.transform) {
+                case 'location':
+                    // Lấy category từ serviceConfig
+                    const serviceCategory = serviceConfig[formData.service_type]?.category;
+                    value = serviceCategory === 'waste' 
+                        ? wasteLocationData[value]
+                        : envDocLocationData[value];
+                    break;
+                case 'projectType':
+                    value = transformFunctions.projectType(value);
+                    break;
+                case 'projectScale':
+                    value = transformFunctions.projectScale(value);
+                    break;
+                default:
+                    if (transformFunctions[field.transform]) {
+                        value = transformFunctions[field.transform](value);
+                    }
+            }
+        }
 
+        return `
+            <div class="info-row">
+                <span class="info-label">${field.label}:</span>
+                <span class="info-value">${value || ''}</span>
+            </div>
+        `;
+    }).join('');
+}
 
 export { handlePriceCalculation }; 

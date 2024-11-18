@@ -135,7 +135,7 @@ const serviceConfig = {
                         'Phân loại chuyên nghiệp',
                         'Báo cáo chi tiết'
                     ],
-                    formTemplate: 'dmhForm'
+                    formTemplate: 'gpmt'
                 },
                 {
                     id: 'hspd',
