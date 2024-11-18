@@ -6,15 +6,24 @@ export function calculatePrice(formData, serviceConfig) {
         throw new Error(`Không tìm thấy cấu hình giá cho khu vực: ${formData.province}`);
     }
 
+    // Xử lý riêng cho báo cáo môi trường
+    if (priceCalculator.type === 'document') {
+        const price = regionConfig[formData.authority_level];
+        if (price === undefined) {
+            throw new Error('Không tìm thấy cấu hình giá cho cấp thẩm quyền này');
+        }
+        return price;
+    }
+
+    // Logic tính giá cho xử lý chất thải
     const totalWeight = getTotalWeight(formData, priceCalculator);
-    
-    const priceRule = totalWeight <= regionConfig.weightThreshold 
+    const priceRule = totalWeight <= (regionConfig.weightThreshold || 600) 
         ? regionConfig.below 
         : regionConfig.above;
 
     let total = 0;
 
-    // Tính phí cơ bản nếu có
+    // Tính phí cơ bản cho 100kg đầu
     if (priceCalculator.base100kg && priceRule.base100kg) {
         total += priceRule.base100kg;
     }

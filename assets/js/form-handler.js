@@ -1,4 +1,4 @@
-import { locationData, formTemplates, resultTemplates } from './form-templates.js';
+import { locationData, authorityData, formTemplates, resultTemplates } from './form-templates.js';
 import { serviceConfig, WASTE_TYPES } from './price-data.js';
 import { calculatePrice } from './price-calculator.js';
 
@@ -257,14 +257,14 @@ function renderSections(sections, formData) {
             
             if (field.transform === 'location') {
                 value = locationData[value] || value;
+            } else if (field.transform === 'authority') {
+                value = getAuthorityLabel(value);
             }
             
             return `
                 <div class="info-row">
                     <span class="info-label">${field.label}:</span>
-                    <span class="info-value">
-                        ${value !== undefined ? value : '0'}${field.unit ? ` ${field.unit}` : ''}
-                    </span>
+                    <span class="info-value">${value || ''}</span>
                 </div>
             `;
         }).join('');
@@ -280,7 +280,15 @@ function renderSections(sections, formData) {
 
 function renderWeightSection(weightSection, formData) {
     const fieldsHTML = weightSection.fields.map(field => {
-        const value = getNestedValue(formData, field.name);
+        let value = getNestedValue(formData, field.name);
+        
+        // Thêm xử lý transform
+        if (field.transform === 'location') {
+            value = locationData[value] || value;
+        } else if (field.transform === 'authority') {
+            value = authorityData[value] || value;
+        }
+        
         return `
             <div class="info-row">
                 <span class="info-label">${field.label}:</span>
@@ -309,6 +317,15 @@ function getNestedValue(obj, path) {
 function getTransportFee(province, priceData) {
     const regionData = priceData.regions[province];
     return regionData?.priceRules?.below600kg?.transportFee || 0;
+}
+
+// Thêm transform function cho authority
+function getAuthorityLabel(value) {
+    const authorityLabels = {
+        'so_tai_nguyen': 'Sở Tài nguyên và Môi trường',
+        'phong_tai_nguyen': 'Phòng Tài nguyên và Môi trường'
+    };
+    return authorityLabels[value] || value;
 }
 
 

@@ -6,6 +6,11 @@ export const locationData = {
     'dongnai': 'Đồng Nai'
 };
 
+export const authorityData = {
+    'so_tai_nguyen': 'Sở Tài nguyên và Môi trường',
+    'phong_tai_nguyen': 'Phòng Tài nguyên và Môi trường'
+};
+
 export const formTemplates = {
     ctnh: {
         title: 'Xử lý chất thải nguy hại',
@@ -131,6 +136,45 @@ export const formTemplates = {
                 ]
             }
         ]
+    },
+    'dtm': {
+        title: 'Báo cáo công tác bảo vệ môi trường',
+        sections: [
+            {
+                title: 'Thông tin liên hệ',
+                fields: [
+                    { type: 'text', name: 'contact_name', label: 'Người liên hệ', required: true },
+                    { type: 'text', name: 'phone', label: 'Số điện thoại', required: true },
+                    { type: 'text', name: 'email', label: 'Email', required: true },
+                    { type: 'text', name: 'company_name', label: 'Tên doanh nghiệp', required: true },
+                    { type: 'text', name: 'company_address', label: 'Địa chỉ doanh nghiệp', required: true }
+                ]
+            },
+            {
+                title: 'Thông tin báo cáo',
+                fields: [
+                    { 
+                        type: 'select', 
+                        name: 'province', 
+                        label: 'Địa điểm thực hiện', 
+                        required: true,
+                        options: [
+                            { value: 'hcm', label: 'TP Hồ Chí Minh' }
+                        ]
+                    },
+                    {
+                        type: 'select',
+                        name: 'authority_level',
+                        label: 'Cấp thẩm quyền',
+                        required: true,
+                        options: [
+                            { value: 'so_tai_nguyen', label: 'Sở Tài nguyên và Môi trường' },
+                            { value: 'phong_tai_nguyen', label: 'Phòng Tài nguyên và Môi trường' }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 };
 
@@ -148,12 +192,6 @@ export const resultTemplates = {
                     { name: 'province', label: 'Khu vực', transform: 'location' }
                 ]
             },
-            {
-                title: 'Chi tiết dịch vụ',
-                fields: [
-                    { name: 'transport_trips', label: 'Số chuyến vận chuyển', unit: 'chuyến' }
-                ]
-            }
         ]
     },
     
@@ -162,6 +200,7 @@ export const resultTemplates = {
         weightSection: {
             title: 'Chi tiết khối lượng',
             fields: [
+                { name: 'transport_trips', label: 'Số chuyến vận chuyển', unit: 'chuyến' },
                 { name: 'waste_details.normal', label: 'Chất thải thông thường', unit: 'kg' },
                 { name: 'waste_details.light_bulb', label: 'Bóng đèn', unit: 'kg' },
                 { name: 'waste_details.ma13', label: 'Mã 13', unit: 'kg' },
@@ -174,6 +213,7 @@ export const resultTemplates = {
         weightSection: {
             title: 'Chi tiết khối lượng',
             fields: [
+                { name: 'transport_trips', label: 'Số chuyến vận chuyển', unit: 'chuyến' },
                 { name: 'textile_weight', label: 'Khối lượng vải vụn', unit: 'kg' }
             ]
         }
@@ -182,6 +222,7 @@ export const resultTemplates = {
         weightSection: {
             title: 'Chi tiết khối lượng',
             fields: [
+                { name: 'transport_trips', label: 'Số chuyến vận chuyển', unit: 'chuyến' },
                 { name: 'shoe_leather_weight', label: 'Khối lượng giày da', unit: 'kg' }
             ]
         }
@@ -191,8 +232,17 @@ export const resultTemplates = {
         weightSection: {
             title: 'Chi tiết khối lượng',
             fields: [
+                { name: 'transport_trips', label: 'Số chuyến vận chuyển', unit: 'chuyến' },
                 { name: 'bulky_waste', label: 'Khối lượng chất thải cồng kềnh', unit: 'kg' }
             ]
         }
+    },
+    'dtm': {
+        weightSection: {
+            title: 'Chi tiết báo cáo',
+            fields: [
+                { name: 'authority_level', label: 'Cấp thẩm quyền', transform: 'authority' }
+            ]
+        }
     }
-}; 
+};  

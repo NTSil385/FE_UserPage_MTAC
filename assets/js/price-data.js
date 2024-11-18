@@ -248,4 +248,20 @@ export const serviceConfig = {
             }
         }
     },
+    'dtm': {
+        name: 'Báo cáo công tác bảo vệ môi trường',
+        priceCalculator: {
+            type: 'document'
+        },
+
+        priceRules: {
+            regions: {
+                'hcm': {
+                    name: 'TP Hồ Chí Minh',
+                    so_tai_nguyen: 1000000,
+                    phong_tai_nguyen: 2000000,
+                }
+            }
+        }
+    }
 }; 

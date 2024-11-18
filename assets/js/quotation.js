@@ -23,7 +23,7 @@ const serviceConfig = {
                 {
                     id: 'ctcn',
                     name: 'Xử lý chất thải công nghiệp',
-                    description: 'Dịch vụ xử lý chất thải công nghiệp chuyên nghiệp',
+                    description: 'Dịch vụ xử lý chất thải công nghiệp chuzyên nghiệp',
                     icon: 'bi-boxes',
                     features: [
                         'Thu gom định kỳ',
@@ -75,7 +75,7 @@ const serviceConfig = {
                         'Phân loại chuyên nghiệp',
                         'Báo cáo chi tiết'
                     ],
-                    formTemplate: 'dtmForm'
+                    formTemplate: 'dtm'
                 },
                 {
                     id: 'dmh',
@@ -453,10 +453,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const visibleResult = document.querySelector('#price-result[style*="display: block"]');
         if (visibleForm || visibleResult) {
             // Nếu đang ở form và click vào category khác
-            if (visibleForm.dataset.categoryId !== categoryId) {
+            if (visibleForm.dataset.categoryId !== categoryId ) {
                 // Ẩn form hiện tại
                 visibleForm.style.display = 'none';
-                visibleResult.style.display = 'none';
+                if (visibleResult) {
+                    visibleResult.style.display = 'none';
+                }
                 // Hiển thị grid services của category mới
                 document.querySelectorAll('.services-grid').forEach(grid => {
                     grid.style.display = grid.id === `${categoryId}-services` ? 'grid' : 'none';
@@ -740,7 +742,6 @@ document.addEventListener('DOMContentLoaded', function() {
     categoriesContainer.addEventListener('click', handleCategoryClick);
     contentContainer.addEventListener('click', e => {
         handleServiceSelection(e);
-        handleBackButton(e);
     });
 
     // Hiển thị mặc định category đầu tiên
