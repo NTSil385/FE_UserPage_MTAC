@@ -447,46 +447,47 @@ document.addEventListener('DOMContentLoaded', function() {
         const category = categoryHeader.closest('.category');
         const categoryId = category.dataset.categoryId;
 
-        
+        // Nếu category đã expanded thì không làm gì cả
+        if (category.classList.contains('expanded')) {
+            return;
+        }
+
+        // Đóng các category khác
         document.querySelectorAll('.category').forEach(c => {
             if (c !== category) {
-                c.classList.remove('expanded');
                 c.querySelector('.dropdown-menu--service').style.display = 'none';
+                c.classList.remove('expanded');
             }
         });
 
-   
-        category.classList.toggle('expanded');
+        // Thêm expanded cho category được click
+        category.classList.add('expanded');
 
-     
+        // Phần xử lý hiển thị services grid
         const visibleForm = document.querySelector('.quotation-form[style*="display: block"]');
         const visibleResult = document.querySelector('#price-result[style*="display: block"]');
+        
         if (visibleForm || visibleResult) {
-          
-            if (visibleForm.dataset.categoryId !== categoryId ) {
-              
+            if (visibleForm && visibleForm.dataset.categoryId !== categoryId) {
                 visibleForm.style.display = 'none';
                 if (visibleResult) {
                     visibleResult.style.display = 'none';
                 }
-             
+                
                 document.querySelectorAll('.services-grid').forEach(grid => {
                     grid.style.display = grid.id === `${categoryId}-services` ? 'grid' : 'none';
                 });
                 
                 document.querySelector('.pagination').style.display = 'flex';
-
-              
+                
                 document.querySelectorAll('.dropdown-menu--service').forEach(menu => {
                     menu.style.display = 'none';
                     menu.innerHTML = '';
                 });
             }
         } else {
-          
             document.querySelectorAll('.services-grid').forEach(grid => {
-                grid.style.display = grid.id === `${categoryId}-services` && 
-                                   category.classList.contains('expanded') ? 'grid' : 'none';
+                grid.style.display = grid.id === `${categoryId}-services` ? 'grid' : 'none';
             });
         }
     }
@@ -579,31 +580,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Xử lý submit form
-    function initFormHandlers() {
-        document.querySelectorAll('.quotation-form form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const serviceId = this.closest('.quotation-form').dataset.serviceType;
-                handlePriceCalculation(e, serviceId);
-            });
-        });
-
-        scrollToResultHeader();
-    }
-
-    // Nếu dùng JavaScript thuần
-function scrollToResultHeader() {
-    const headerElement = document.getElementById('result-header');
-    if (headerElement) {
-      const offsetTop = headerElement.offsetTop;
-      window.scrollTo({
-        top: offsetTop - 20, // Trừ đi 20px để tạo khoảng cách
-        behavior: 'smooth'
-      });
-    }
-  }
-  
 
     // Thêm các hàm mới để xử lý phân trang
     function createPagination(totalItems, categoryId) {
@@ -741,3 +717,36 @@ function scrollToResultHeader() {
 
 });
 
+
+    // Xử lý submit form
+    function initFormHandlers() {
+        // Lấy tất cả dropdown menus thay vì chỉ một
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu--service');
+        document.querySelectorAll('.quotation-form form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Đóng sidebar
+                const sidebar = document.querySelector('.quotation-sidebar');
+                if (sidebar) {
+                    sidebar.classList.add('collapsed');
+                    sidebar.setAttribute('data-collapsed', 'true'); // Thêm data attribute
+                    
+                    // Cập nhật trạng thái của nút toggle
+                    const sidebarToggle = document.querySelector('.sidebar-toggle');
+                    if (sidebarToggle) {
+                        sidebarToggle.classList.add('collapsed');
+                        sidebarToggle.setAttribute('data-collapsed', 'true');
+                    }
+                    if (sidebar.classList.contains('collapsed')) {
+                        dropdownMenus.forEach(menu => {
+                            menu.style.display = 'none';
+                        });
+                    }
+                }
+                
+                const serviceId = this.closest('.quotation-form').dataset.serviceType;
+                handlePriceCalculation(e, serviceId);
+            });
+        });
+    }

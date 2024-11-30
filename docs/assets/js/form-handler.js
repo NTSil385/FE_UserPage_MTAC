@@ -178,7 +178,7 @@ function renderPriceResult(formData, totalPrice, serviceConfig) {
             <tr class="main-row">
                             ${formData.authority_level ? `
                     
-                        <td class="label">Cơ quan cấp hồ sơ: </td>
+                        <td class="label">Cơ quan cấp hồ sơ:</td>
                         <td class="value">${transformFunctions.authority(formData.authority_level)}</td>
                     
                     ` : ''}
@@ -289,6 +289,16 @@ function renderPriceResult(formData, totalPrice, serviceConfig) {
     const resultContainer = document.getElementById('price-result');
     resultContainer.innerHTML = resultHTML;
     resultContainer.style.display = 'block';
+
+    // Scroll với offset
+    const offset = 100; // Điều chỉnh số này tùy theo chiều cao header
+    const elementPosition = resultContainer.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
 }
 /* Helper function */
 function formatNumber(num) {
