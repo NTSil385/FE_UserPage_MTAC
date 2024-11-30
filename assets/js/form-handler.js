@@ -1,533 +1,478 @@
-import {
-  wasteLocationData,
-  envDocLocationData,
-  authorityData,
-  formTemplates,
-  resultTemplates,
-  transformFunctions,
-} from "./form-templates.js";
-import { serviceConfig, WASTE_TYPES } from "./price-data.js";
-import { calculatePrice } from "./price-calculator.js";
+import { wasteLocationData, envDocLocationData,authorityData, formTemplates, resultTemplates, transformFunctions } from './form-templates.js';
+import { serviceConfig, WASTE_TYPES } from './price-data.js';
+import { calculatePrice } from './price-calculator.js';
 
 function handlePriceCalculation(event, serviceType) {
-  const normalizedServiceType = serviceType.replace(/-/g, "");
+    const normalizedServiceType = serviceType.replace(/-/g, '');
+    
+    try {
+        const formData = validateAndGetFormData(event, normalizedServiceType);
+        
 
-  try {
-    const formData = validateAndGetFormData(event, normalizedServiceType);
+        if (normalizedServiceType === 'ctnh') {
+            validateBusinessRules(formData);
+        }
 
-    // Validate business rules theo loại form
-    if (normalizedServiceType === "ctnh") {
-      validateBusinessRules(formData);
+    
+        const calculatedPrice = calculatePrice(
+            formData, 
+            serviceConfig[normalizedServiceType]
+        );
+
+        console.log('Calculated price:', calculatedPrice);
+
+ 
+        const totalPrice = calculatedPrice.total || calculatedPrice;
+
+      
+        const formContainer = document.querySelector('.quotation-form');
+        const resultContainer = document.getElementById('price-result');
+
+      
+        renderPriceResult(formData, totalPrice, serviceConfig[normalizedServiceType]);
+        
+        resultContainer.style.display = 'block';
+        
+    } catch (error) {
+        handleError(error);
     }
-
-    // Tính giá - truyền service type đã chuẩn hóa
-    const calculatedPrice = calculatePrice(
-      formData,
-      serviceConfig[normalizedServiceType]
-    );
-
-    console.log("Calculated price:", calculatedPrice); // Debug log
-
-    // Lấy total price từ kết quả tính toán
-    const totalPrice = calculatedPrice.total || calculatedPrice;
-
-    // Ẩn form và hiển thị kết quả
-    const formContainer = document.querySelector(".quotation-form");
-    const resultContainer = document.getElementById("price-result");
-
-    // Truyền giá trị total
-    renderPriceResult(
-      formData,
-      totalPrice,
-      serviceConfig[normalizedServiceType]
-    );
-
-    resultContainer.style.display = "block";
-  } catch (error) {
-    handleError(error);
-  }
 }
 
 function validateAndGetFormData(event, serviceType) {
-  const form = event.target;
-  const formTemplate = formTemplates[serviceType];
-  if (!formTemplate)
-    throw new Error(`Không tìm thấy template cho dịch vụ: ${serviceType}`);
+    const form = event.target;
+    const formTemplate = formTemplates[serviceType];
+    if (!formTemplate) throw new Error(`Không tìm thấy template cho dịch vụ: ${serviceType}`);
 
-  const formData = {
-    service_type: serviceType,
-  };
+    const formData = {
+        service_type: serviceType
+    };
 
-  // Duyệt qua tất cả các section trong template
-  formTemplate.sections.forEach((section) => {
-    section.fields.forEach((field) => {
-      const element = form.querySelector(`[name="${field.name}"]`);
-      if (!element) return;
+    formTemplate.sections.forEach(section => {
+        section.fields.forEach(field => {
+            const element = form.querySelector(`[name="${field.name}"]`);
+            if (!element) return;
 
-      let value = element.value.trim();
-
-      // Validate required fields
-      if (field.required && !value) {
-        if (field.name === "authority_level") {
-          throw new Error("Vui lòng chọn cấp thẩm quyền");
-        } else if (field.name === "region") {
-          throw new Error("Vui lòng chọn tỉnh/thành phố");
-        } else {
-          throw new Error(`Vui lòng nhập ${field.label.toLowerCase()}`);
-        }
-      }
-
-      // Chuyển đổi giá trị số
-      if (field.type === "number") {
-        value = parseFloat(value) || 0;
-      }
-
-      // Gán giá trị vào formData theo đúng cấu trúc
-      setNestedValue(formData, field.name, value);
+            let value = element.value.trim();
+            
+            // Validate required fields
+            if (field.required && !value) {
+                if (field.name === 'authority_level') {
+                    throw new Error('Vui lòng chọn cấp thẩm quyền');
+                } else if (field.name === 'region') {
+                    throw new Error('Vui lòng chọn tỉnh/thành phố');
+                } else {
+                    throw new Error(`Vui lòng nhập ${field.label.toLowerCase()}`);
+                }
+            }
+            
+         
+            if (field.type === 'number') {
+                value = parseFloat(value) || 0;
+            }
+            
+            
+            setNestedValue(formData, field.name, value);
+        });
     });
-  });
 
-  return formData;
+    return formData;
 }
 
 // Hàm hỗ trợ set giá trị cho object theo path
 function setNestedValue(obj, path, value) {
-  const keys = path.split(".");
-  let current = obj;
-
-  for (let i = 0; i < keys.length - 1; i++) {
-    if (!current[keys[i]]) {
-      current[keys[i]] = {};
+    const keys = path.split('.');
+    let current = obj;
+    
+    for (let i = 0; i < keys.length - 1; i++) {
+        if (!current[keys[i]]) {
+            current[keys[i]] = {};
+        }
+        current = current[keys[i]];
     }
-    current = current[keys[i]];
-  }
-
-  current[keys[keys.length - 1]] = value;
+    
+    current[keys[keys.length - 1]] = value;
 }
 
 function validateBusinessRules(formData) {
-  if (formData.service_type !== "ctnh") return;
+    if (formData.service_type !== 'ctnh') return;
 
-  const detailSum =
-    formData.waste_details.normal +
-    formData.waste_details.light_bulb +
-    formData.waste_details.ma13 +
-    formData.waste_details.ma14;
-
-  if (Math.abs(formData.total_weight - detailSum) > 0.01) {
-    throw new Error(
-      `Tổng khối lượng chi tiết (${detailSum}kg) không khớp với tổng khối lượng đã nh���p (${formData.total_weight}kg)`
+    const detailSum = (
+        formData.waste_details.normal +
+        formData.waste_details.light_bulb +
+        formData.waste_details.ma13 +
+        formData.waste_details.ma14
     );
-  }
+
+    if (Math.abs(formData.total_weight - detailSum) > 0.01) {
+        throw new Error(`Tổng khối lượng chi tiết (${detailSum}kg) không khớp với tổng khối lượng đã nhp (${formData.total_weight}kg)`);
+    }
 }
 
 function handleError(error) {
-  console.error("Lỗi:", error);
-
-  // Show error modal
-  showErrorModal(
-    error.message || "Có lỗi xảy ra khi tính giá. Vui lòng thử lại."
-  );
+    console.error('Lỗi:', error);
+    
+   
+    showErrorModal(error.message || 'Có lỗi xảy ra khi tính giá. Vui lòng thử lại.');
 }
 
 function showErrorModal(message) {
-  // Tạo và hiển thị modal error
-  alert(message);
+    
+    alert(message);
 }
 
-function validateForm() {
-  // Validate các trường bắt buộc
-  const requiredFields = [
-    { name: "province", label: "Tỉnh/Thành phố" },
-    { name: "total_weight", label: "Tổng khối lượng" },
-    { name: "transport_trips", label: "Số chuyến vận chuyển" },
-    { name: "normal_waste", label: "Khối lượng chất thải thông thường" },
-    { name: "light_bulb_weight", label: "Khối lượng bóng đèn" },
-    { name: "ma13_weight", label: "Khối lượng mã 13" },
-    { name: "ma14_weight", label: "Khối lượng mã 14" },
-    { name: "contact_name", label: "Người liên hệ" },
-    { name: "phone", label: "Số điện thoại" },
-    { name: "email", label: "Email" },
-  ];
 
-  for (const field of requiredFields) {
-    const element = document.querySelector(`[name="${field.name}"]`);
-    if (!element || !element.value.trim()) {
-      alert(`Vui lòng nhập ${field.label}`);
-      if (element) element.focus();
-      return false;
-    }
-  }
-
-  // Validate email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const email = document.querySelector('[name="email"]').value;
-  if (!emailRegex.test(email)) {
-    alert("Email không hợp lệ");
-    document.querySelector('[name="email"]').focus();
-    return false;
-  }
-
-  // Validate phone
-  const phoneRegex = /^[0-9]{10,11}$/;
-  const phone = document.querySelector('[name="phone"]').value;
-  if (!phoneRegex.test(phone)) {
-    alert("Số điện thoại không hợp lệ (cần 10-11 số)");
-    document.querySelector('[name="phone"]').focus();
-    return false;
-  }
-
-  // Validate tổng khối lượng chi tiết
-  const normalWaste = parseFloat(
-    document.querySelector('[name="normal_waste"]').value
-  );
-  const lightBulbWeight = parseFloat(
-    document.querySelector('[name="light_bulb_weight"]').value
-  );
-  const ma13Weight = parseFloat(
-    document.querySelector('[name="ma13_weight"]').value
-  );
-  const ma14Weight = parseFloat(
-    document.querySelector('[name="ma14_weight"]').value
-  );
-
-  const sumWeight = normalWaste + lightBulbWeight + ma13Weight + ma14Weight;
-  if (Math.abs(sumWeight - totalWeight) > 0.01) {
-    // Sử dụng sai số nhỏ cho số thực
-    showError(
-      `Tổng khối lượng chi tiết (${sumWeight}kg) không khớp với tổng khối lượng chất thải`
-    );
-    return false;
-  }
-
-  return true;
-}
-
-// Khởi tạo form và gắn sự kiện
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("#hazardous-form form");
-  if (form) {
-    form.addEventListener("submit", handlePriceCalculation);
-  }
-
-  // Gắn sự kiện cho nút "Tạo báo giá mới"
-  document.addEventListener("click", function (e) {
-    if (e.target.matches(".btn-secondary")) {
-      const formContainer = document.getElementById("hazardous-form");
-      const resultContainer = document.getElementById("price-result");
-
-      if (formContainer && resultContainer) {
-        formContainer.style.display = "block";
-        resultContainer.style.display = "none";
-
-        // Reset form
-        const form = formContainer.querySelector("form");
-        if (form) form.reset();
-      }
-    }
-  });
-});
 
 // Hàm format tiền tệ
 function formatCurrency(amount) {
-  if (!amount || isNaN(amount)) return "0";
-  return new Intl.NumberFormat("vi-VN").format(amount);
+    if (!amount || isNaN(amount)) return '0';
+    return new Intl.NumberFormat('vi-VN').format(amount);
 }
 
-function getCostLabel(key) {
-  const labels = {
-    analysis: "Chi phí phân tích môi trường",
-    transport: "Chi phí nhân công, vận chuyển",
-    appraisal: "Chi phí hội đồng thẩm định",
-    documentation: "Chi phí thực hiện",
-  };
-  return labels[key] || key;
-}
 
+// Hàm render kết quả báo giá
 function renderPriceResult(formData, totalPrice, serviceConfig) {
-  console.log("Rendering price:", totalPrice); // Debug log
+    const service = serviceConfig;
+    
+    const resultHTML = `
+        <div class="quotation-paper">
+            <!-- Watermark -->
+            <div class="watermark"></div>
+            
+            <!-- Header -->
+            <header class="quote-header">
+                <div class="header-content">
+                    <div class="company-section">
+                        <h1>CÔNG TY TNHH MTV SX TMDV MÔI TRƯỜNG Á CHÂU</h1>
+                        <div class="divider"></div>
+                        <p>404 Tân Sơn Nhì, P.Tân Quý, Q.Tân Phú, TP.HCM</p>
+                    </div>
+                </div>
+            </header>
 
-  const service = serviceConfig;
-  if (!service)
-    throw new Error(
-      `Không tìm thấy cấu hình cho dịch vụ: ${formData.service_type}`
-    );
+            <!-- Document Title -->
+            <div class="document-title">
+                <h2>BÁO GIÁ DỊCH VỤ</h2>
+            </div>
+                            <!-- Price Quote -->
+                <section class="content-section price-quote">
+                    <div class="price-container">
+                        <div class="price-header">TỔNG CHI PHÍ DỊCH VỤ</div>
+                        <div class="price-amount">${formatCurrency(totalPrice)} VNĐ</div>
+                        <div class="price-note">Giá trọn gói đã bao gồm toàn bộ chi phí thực hiện</div>
+                    </div>
+                </section>
+            <!-- Main Content -->
+            <main class="quote-content">
+                <!-- Service Information -->
+                <section class="content-section service-details">
+    <table class="elegant-table">
+        <tbody>
+            <tr class="main-row">
+                <td class="label">Gói dịch vụ</td>
+                <td class="value highlight">${service.name}</td>
+            </tr>
+            <tr class="main-row">
+                <td class="label">Địa điểm thực hiện</td>
+                <td class="value">${formData.province ? transformFunctions.location(formData.province) : ''}</td>
+            </tr>
+            <tr class="main-row">
+                            ${formData.authority_level ? `
+                    
+                        <td class="label">Cơ quan cấp hồ sơ: </td>
+                        <td class="value">${transformFunctions.authority(formData.authority_level)}</td>
+                    
+                    ` : ''}
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-  const defaultTemplate = resultTemplates.default;
-  const serviceTemplate = resultTemplates[formData.service_type];
 
-  let resultHTML = "";
 
-  // Render price section first
-  resultHTML += `
-        <div class="price-section">
-            <h4>Chi phí dự kiến:</h4>
-            <div class="price-value">${formatCurrency(totalPrice)} VNĐ</div>
-            <p class="price-note">(Giá chưa bao gồm VAT)</p>
+                <!-- Implementation Process -->
+                <section class="content-section process-section">
+    <h3>QUY TRÌNH THỰC HIỆN</h3>
+    <div class="process-steps">
+        <div class="step">
+            <div class="step-info">
+                <span class="step-number">01</span>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-details">
+                <h4>Ký kết hợp đồng</h4>
+                <p>Hoàn tất hợp đồng đầy đủ 2 chữ ký giữa khách hàng và chủ xử lý</p>
+            </div>
         </div>
-    `;
+        <div class="step">
+            <div class="step-info">
+                <span class="step-number">02</span>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-details">
+                <h4>Tiếp nhận và xử lý</h4>
+                <p>Hoàn thành trả chứng từ CTNH liên số 03</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-info">
+                <span class="step-number">03</span>
+            </div>
+            <div class="step-details">
+                <h4>Hoàn tất dịch vụ</h4>
+                <p>Hoàn trả chứng từ CTNH liên số 4 sau khi xử lý</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-  // Render default sections
-  if (defaultTemplate?.sections) {
-    resultHTML += renderSections(defaultTemplate.sections, formData);
-  }
+<!-- Terms and Conditions -->
+<section class="content-section terms-section">
+    <h3>ĐIỀU KHOẢN VÀ QUY ĐỊNH</h3>
+    <div class="terms-grid">
+        <div class="term-item">
+            <div class="term-icon">
+                <i class="bi bi-calendar-check"></i>
+            </div>
+            <p>Hiệu lực báo giá: 30 ngày</p>
+        </div>
+        <div class="term-item">
+            <div class="term-icon">
+                <i class="bi bi-cash"></i>
+            </div>
+            <p>Chưa bao gồm VAT 10%</p>
+        </div>
+        <div class="term-item">
+            <div class="term-icon">
+                <i class="bi bi-credit-card"></i>
+            </div>
+            <p>Thanh toán: 50% ký kết - 50% hoàn thành</p>
+        </div>
+    </div>
+</section>
 
-  // Render service-specific sections
-  if (serviceTemplate?.weightSection) {
-    resultHTML += renderWeightSection(serviceTemplate.weightSection, formData);
-  }
+                <!-- Signature -->
+                <section class="signature-section">
+                    <div class="signature-block">
+                        <p class="sign-title">Xác nhận của khách hàng</p>
+                        <div class="sign-area"></div>
+                    </div>
+                    <div class="signature-block">
+                        <p class="sign-title">Đại diện công ty</p>
+                        <div class="sign-area"></div>
 
-  const resultContainer = document.getElementById("price-result");
-  resultContainer.innerHTML = `
-        <div class="result-container">
-            <h3>Báo giá dịch vụ ${service.name}</h3>
-            ${resultHTML}
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="quote-footer">
+                <div class="footer-contact">
+                    <p>Tel: (033) 8351122 | Email: contact@moitruongachau.com</p>
+                    <a href="https://www.moitruongachau.com">www.moitruongachau.com</a>
+                </div>
+            </footer>
+
+            <!-- Action Buttons -->
             <div class="action-buttons">
-                <button  class="btn btn-outline-primary">Tải xuống báo giá</button>
+                <button class="btn-minimal" onclick="downloadQuotation()">
+                    <i class="bi bi-download"></i>
+                    <span>Tải xuống</span>
+                </button>
+                <button class="btn-primary" onclick="submitRequest()">
+                    <i class="bi bi-send"></i>
+                    <span>Gửi yêu cầu</span>
+                </button>
             </div>
         </div>
     `;
-  resultContainer.style.display = "block";
 
-  // Thêm logic scroll tự động khi màn hình nhỏ hơn 1024px
-  if (window.innerWidth <= 1024) {
-    setTimeout(() => {
-      resultContainer.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
-  }
+    const resultContainer = document.getElementById('price-result');
+    resultContainer.innerHTML = resultHTML;
+    resultContainer.style.display = 'block';
 }
-function renderSections(sections, formData) {
-  return sections
-    .map((section) => {
-      // Nếu section chỉ có content (như phần ghi chú), render trực tiếp
-      if (section.content) {
-        return `
-                <div class="info-section">
-                    <h4>${section.title}</h4>
-                    ${section.content}
-                </div>
-            `;
-      }
-
-      const fieldsHTML = section.fields
-        .map((field) => {
-          let value = getNestedValue(formData, field.name);
-
-          // Xử lý transform cho từng loại dịch vụ
-          if (field.transform === "location") {
-            const service = serviceConfig[formData.service_type];
-            // Kiểm tra service thuộc category nào
-            const isWasteService = service?.category === "waste";
-            value = isWasteService
-              ? wasteLocationData[formData.province]
-              : envDocLocationData[formData.province];
-          } else if (field.transform === "authority") {
-            value = authorityData[value] || value;
-          } else if (field.transform === "projectType") {
-            value = transformFunctions.projectType(value);
-          } else if (field.transform === "projectScale") {
-            value = transformFunctions.projectScale(value);
-          }
-
-          return `
-                <div class="info-row">
-                    <span class="info-label">${field.label}:</span>
-                    <span class="info-value">${value || ""}</span>
-                </div>
-            `;
-        })
-        .join("");
-
-      return `
-            <div class="info-section">
-                <h4>${section.title}</h4>
-                ${fieldsHTML}
-            </div>
-        `;
-    })
-    .join("");
+/* Helper function */
+function formatNumber(num) {
+    return new Intl.NumberFormat('vi-VN').format(num);
 }
-
-function renderWeightSection(weightSection, formData) {
-  const fieldsHTML = weightSection.fields
-    .map((field) => {
-      let value = getNestedValue(formData, field.name);
-
-      // Thêm xử lý transform
-      if (field.transform === "location") {
-        value = locationData[value] || value;
-      } else if (field.transform === "authority") {
-        value = authorityData[value] || value;
-      }
-
-      return `
-            <div class="info-row">
-                <span class="info-label">${field.label}:</span>
-                <span class="info-value">
-                    ${value !== undefined ? value : "0"} ${field.unit || ""}
-                </span>
-            </div>
-        `;
-    })
-    .join("");
-
-  return `
-        <div class="info-section">
-            <h4>${weightSection.title}</h4>
-            ${fieldsHTML}
-        </div>
-    `;
-}
-
-// Hàm hỗ trợ lấy giá trị từ object theo path
-function getNestedValue(obj, path) {
-  return path
-    .split(".")
-    .reduce((current, key) => (current ? current[key] : undefined), obj);
-}
-
-// Cập nhật function getTransportFee đ nhận priceData
-function getTransportFee(province, priceData) {
-  const regionData = priceData.regions[province];
-  return regionData?.priceRules?.below600kg?.transportFee || 0;
-}
-
-// Thêm transform function cho authority
-function getAuthorityLabel(value) {
-  const authorityLabels = {
-    so_tai_nguyen: "Sở Tài nguyên và Môi trường",
-    phong_tai_nguyen: "Phòng Tài nguyên và Môi trường",
-  };
-  return authorityLabels[value] || value;
-}
-
-function renderFields(fields, formData) {
-  return fields
-    .map((field) => {
-      let value = getNestedValue(formData, field.name);
-
-      // Xử lý transform nếu có
-      if (field.transform) {
-        switch (field.transform) {
-          case "location":
-            // Lấy category từ serviceConfig
-            const serviceCategory =
-              serviceConfig[formData.service_type]?.category;
-            value =
-              serviceCategory === "waste"
-                ? wasteLocationData[value]
-                : envDocLocationData[value];
-            break;
-          case "projectType":
-            value = transformFunctions.projectType(value);
-            break;
-          case "projectScale":
-            value = transformFunctions.projectScale(value);
-            break;
-          default:
-            if (transformFunctions[field.transform]) {
-              value = transformFunctions[field.transform](value);
-            }
+// Thêm event listener để handle resize window
+window.addEventListener('resize', () => {
+    const resultContainer = document.getElementById('price-result');
+    if (resultContainer && resultContainer.style.display === 'block') {
+        if (window.innerWidth <= 1024) {
+            resultContainer.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
-      }
+    }
+});
 
-      return `
-            <div class="info-row">
-                <span class="info-label">${field.label}:</span>
-                <span class="info-value">${value || ""}</span>
-            </div>
-        `;
-    })
-    .join("");
-}
+// function renderSections(sections, formData) {
+//     return sections.map(section => {
+//         if (section.content) {
+//             return `
+//                 <div class="info-section">
+//                     <h4>${section.title}</h4>
+//                     ${section.content}
+//                 </div>
+//             `;
+//         }
+
+//         const fieldsHTML = section.fields.map(field => {
+//             let value = getNestedValue(formData, field.name);
+//             console.log(`Field ${field.name} before transform:`, value); // Debug log
+            
+//             // Xử lý transform
+//             if (field.transform && transformFunctions[field.transform]) {
+//                 // Với province, chúng ta cần hiển thị tên đầy đủ từ wasteLocationData hoặc envDocLocationData
+//                 if (field.transform === 'province') {
+//                     const transformedValue = transformFunctions[field.transform](value);
+//                     value = wasteLocationData[transformedValue] || 
+//                            envDocLocationData[transformedValue] || 
+//                            transformedValue;
+//                 } else {
+//                     value = transformFunctions[field.transform](value);
+//                 }
+//                 console.log(`Field ${field.name} after transform:`, value); // Debug log
+//             }
+            
+//             return `
+//                 <div class="info-row">
+//                     <span class="info-label">${field.label}:</span>
+//                     <span class="info-value">${value || ''}</span>
+//                 </div>
+//             `;
+//         }).join('');
+
+//         return `
+//             <div class="info-section">
+//                 <h4>${section.title}</h4>
+//                 ${fieldsHTML}
+//             </div>
+//         `;
+//     }).join('');
+// }
+
+// function renderWeightSection(weightSection, formData) {
+//     const fieldsHTML = weightSection.fields.map(field => {
+//         let value = getNestedValue(formData, field.name);
+        
+//         // Thêm xử lý transform
+//         if (field.transform === 'location') {
+//             value = locationData[value] || value;
+//         } else if (field.transform === 'authority') {
+//             value = authorityData[value] || value;
+//         }
+        
+//         return `
+//             <div class="info-row">
+//                 <span class="info-label">${field.label}:</span>
+//                 <span class="info-value">
+//                     ${value !== undefined ? value : '0'} ${field.unit || ''}
+//                 </span>
+//             </div>
+//         `;
+//     }).join('');
+
+//     return `
+//         <div class="info-section">
+//             <h4>${weightSection.title}</h4>
+//             ${fieldsHTML}
+//         </div>
+//     `;
+// }
+
+// function renderDocSection(DocSection, formData) {
+//     const fieldsHTML = DocSection.fields.map(field => {
+//         let value = getNestedValue(formData, field.name);
+        
+//         // Thêm xử lý transform
+//         if (field.transform === 'province') {
+//             value = locationData[value] || value;
+//         } else if (field.transform === 'authority') {
+//             value = authorityData[value] || value;
+//         }
+        
+//         return `
+//             <div class="info-row">
+//                 <span class="info-label">${field.label}:</span>
+//                 <span class="info-value">
+//                     ${value !== undefined ? value : '0'} ${field.unit || ''}
+//                 </span>
+//             </div>
+//         `;
+//     }).join('');
+
+//     return `
+//         <div class="info-section">
+//             <h4>${DocSection.title}</h4>
+//             ${fieldsHTML}
+//         </div>
+//     `;
+// }
+
+// // Hàm hỗ trợ lấy giá trị từ object theo path
+// function getNestedValue(obj, path) {
+//     return path.split('.').reduce((current, key) => 
+//         current ? current[key] : undefined, obj);
+// }
+
 
 function getFieldOptions(field, serviceType) {
-  if (field.optionsFrom) {
-    const { service, path } = field.optionsFrom;
+    if (field.optionsFrom) {
+        const { service, path } = field.optionsFrom;
+        
+        console.log('Service:', service);
+        console.log('Path:', path);
+        console.log('ServiceConfig:', serviceConfig);
+        console.log('Service Data:', serviceConfig[service]);
+        
+        // Lấy data từ path
+        const data = serviceConfig[service]?.priceRules?.regions;
+        console.log('Regions Data:', data);
 
-    console.log("Service:", service);
-    console.log("Path:", path);
-    console.log("ServiceConfig:", serviceConfig);
-    console.log("Service Data:", serviceConfig[service]);
-
-    // Lấy data từ path
-    const data = serviceConfig[service]?.priceRules?.regions;
-    console.log("Regions Data:", data);
-
-    if (data) {
-      const options = Object.entries(data).map(([value, data]) => ({
-        value,
-        label: data.name,
-      }));
-      console.log("Generated Options:", options);
-      return options;
+        if (data) {
+            const options = Object.entries(data).map(([value, data]) => ({
+                value,
+                label: data.name
+            }));
+            console.log('Generated Options:', options);
+            return options;
+        }
     }
-  }
 
-  // Trả về options trực tiếp nếu có
-  return field.options || [];
+    // Trả về options trực tiếp nếu có
+    return field.options || [];
 }
 
-function renderFormField(field, serviceType) {
-  let fieldHtml = "";
-  const fieldId = field.name.replace(/\./g, "_");
-  const required = field.required ? "required" : "";
-
-  if (field.type === "select") {
-    // Lấy options và đảm bảo luôn là array
-    const options = getFieldOptions(field, serviceType) || [];
-
-    // Log để debug
-    console.log("Rendering select options:", options);
-
-    const optionsHtml = options
-      .filter((opt) => opt && opt.value) // Lọc bỏ các option không hợp lệ
-      .map(
-        (opt) =>
-          `<option value="${opt.value}">${opt.label || opt.value}</option>`
-      )
-      .join("");
-
-    fieldHtml = `
-            <div class="form-group">
-                <label for="${fieldId}">${field.label}</label>
-                <select class="form-control" id="${fieldId}" name="${field.name}" ${required}>
-                    <option value="">-- Chọn ${field.label} --</option>
-                    ${optionsHtml}
-                </select>
-            </div>
-        `;
-  }
-  // ... rest of the code ...
-}
 
 // Thêm event listener để cập nhật options khi thay đổi cấp thẩm quyền
-document.addEventListener("DOMContentLoaded", function () {
-  document.body.addEventListener("change", function (e) {
-    if (e.target.name === "authority_level") {
-      const regionField = document.querySelector('[name="region"]');
-      if (!regionField) return;
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('change', function(e) {
+        if (e.target.name === 'authority_level') {
+            const regionField = document.querySelector('[name="region"]');
+            if (!regionField) return;
 
-      const field = formTemplates.gpmt.sections
-        .flatMap((s) => s.fields)
-        .find((f) => f.name === "region");
+            const field = formTemplates.gpmt.sections
+                .flatMap(s => s.fields)
+                .find(f => f.name === 'region');
 
-      if (field && field.optionsFrom) {
-        const options = field.optionsFrom.getOptions(e.target.value);
-        updateSelectOptions(regionField, options);
-      }
-    }
-  });
+            if (field && field.optionsFrom) {
+                const options = field.optionsFrom.getOptions(e.target.value);
+                updateSelectOptions(regionField, options);
+            }
+        }
+    });
 });
 
 function updateSelectOptions(select, options) {
-  select.innerHTML = '<option value="">-- Chọn khu vực thực hiện --</option>';
-  options.forEach((opt) => {
-    const option = document.createElement("option");
-    option.value = opt.value;
-    option.textContent = opt.label;
-    select.appendChild(option);
-  });
+    select.innerHTML = '<option value="">-- Chọn khu vực thực hiện --</option>';
+    options.forEach(opt => {
+        const option = document.createElement('option');
+        option.value = opt.value;
+        option.textContent = opt.label;
+        select.appendChild(option);
+    });
 }
 
-export { handlePriceCalculation, getFieldOptions };
+export { handlePriceCalculation, getFieldOptions }; 
