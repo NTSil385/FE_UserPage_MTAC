@@ -1,6 +1,6 @@
 
 const toolsData = {
-    // Định nghĩa categories
+
     categories: {
         all: {
             id: 'all',
